@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class SignUpActivity extends AppCompatActivity {
     EditText edtname;
     EditText edtphoe;
-    Button btnphoencheck;
+    Button btncheck;
     EditText edtid;
     Button btnidcheck;
     EditText edtpasswd;
@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         edtname = findViewById(R.id.edtname);
         edtphoe = findViewById(R.id.edtphone);
-        btnphoencheck = findViewById(R.id.btnphonecheck);
+        btncheck = findViewById(R.id.btncheck);
         edtid = findViewById(R.id.edtid);
         btnidcheck = findViewById(R.id.btnidcheck);
         edtpasswd = findViewById(R.id.edtpasswd);
@@ -40,7 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        btnphoencheck.setOnClickListener(new View.OnClickListener() {
+        btncheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String phone = edtphoe.getText().toString().trim();

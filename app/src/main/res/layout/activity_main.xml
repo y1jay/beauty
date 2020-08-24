@@ -171,6 +171,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="문의 : 02-3665-4888" />
+        android:text="문의 : 010-2842-5656" />
 
 </LinearLayout>
