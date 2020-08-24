@@ -50,11 +50,20 @@
         android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="자동 로그인"
+            android:textColor="#ff558f"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/txtNO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginRight="30dp"
             android:fontFamily="sans-serif"
             android:text="취소"
@@ -70,6 +79,7 @@
             android:text="로그인"
             android:textColor="#ff558f"
             android:textSize="20sp" />
+
     </LinearLayout>
 
 </LinearLayout>
