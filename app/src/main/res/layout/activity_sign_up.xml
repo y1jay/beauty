@@ -43,11 +43,11 @@
             android:inputType="phone" />
 
         <Button
-            android:id="@+id/btnphonecheck"
+            android:id="@+id/btncheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:text="핸드폰 인증" />
+            android:text="본인 인증" />
     </LinearLayout>
 
     <LinearLayout

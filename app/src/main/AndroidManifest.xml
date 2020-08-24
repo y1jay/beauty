@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Address"></activity>
+        <activity android:name=".Reservation">
+            <data android:scheme="your-own-scheme"/>
+        </activity>
+        <activity android:name=".Address" />
         <activity android:name=".AfterLogin" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
