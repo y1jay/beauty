@@ -12,9 +12,29 @@
         android:layout_width="match_parent"
         android:layout_height="350dp" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="서울 강서구 강서로 385 우성 SB타워 건물 입구 1층"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="주차가능"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -37,22 +57,4 @@
             android:text="홈"
             android:textSize="20sp" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="서울 강서구 강서로 385 우성 SB타워 건물 입구 1층"
-        android:textColor="#000000"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="주차가능"
-        android:textColor="#000000"
-        android:textSize="18sp" />
 </LinearLayout>
