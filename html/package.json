@@ -5,7 +5,7 @@
   "main": "iamporter.js",
   "scripts": {
     "dev": "nodemon server",
-    "start": "node server"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/y1jay/beauty#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "iamport": "^0.3.4",
     "iamporter": "^1.4.2",
     "jquery": "^3.5.1",
