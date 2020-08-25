@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.common.api.ApiException;
+
+import androidx.annotation.NonNull;
+
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,7 +58,7 @@ public class CheckoutActivity extends Activity {
     private TextView mGooglePayStatusText;
 
     private ItemInfo mBikeItem = new ItemInfo("Simple Bike", 300 * 1000000, R.drawable.bike);
-    private long mShippingCost = 90 * 1000000;
+
     /**
      * Initialize the Google Pay API on creation of the activity
      *
@@ -65,7 +67,7 @@ public class CheckoutActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reservation);
+        setContentView(R.layout.activity_checkout);
 
         // Set up the mock information for our item in the UI.
         initItemUI();
@@ -250,6 +252,7 @@ public class CheckoutActivity extends Activity {
 
         // The price provided to the API should include taxes and shipping.
         // This price is not displayed to the user.
+        long mShippingCost = 90 * 1000000;
         String price = PaymentsUtil.microsToString(mBikeItem.getPriceMicros() + mShippingCost);
 
         // TransactionInfo transaction = PaymentsUtil.createTransaction(price);
