@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Reservation">
+    tools:context=".activity.CheckoutActivity">
 
     <WebView
         android:id="@+id/webView"
