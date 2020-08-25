@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.nerd.beautiful_chicken_feet.Reservation.Reservation;
-
 public class AfterLogin extends AppCompatActivity {
 Button logout;
 Button reservation;
