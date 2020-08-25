@@ -11,15 +11,16 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
 /**
- * Utility class to work with JSON content stored locally.
+ * 로컬에 저장된 JSON 콘텐츠로 작업하기 위한 Utility class
  */
 public class Json {
 
     /**
      * Loads a resource and creates a {@link JSONArray} object with the contents of the binary.
+     * (= 리소스를로드하고 바이너리 콘텐츠로 {@link JSONArray} 객체를 만든다.)
      *
-     * @param context  where the execution is taking place.
-     * @param fileName path that points to the target binary.
+     * @param context  실행되는 곳.
+     * @param fileName binary 대상을 가리키는 경로.
      * @return a {@link JSONArray} object with the contents of the stream.
      */
     public static JSONArray readFromFile(Context context, String fileName) {
@@ -34,6 +35,7 @@ public class Json {
 
     /**
      * Loads a resource and creates a {@link JSONArray} object with the contents of the binary.
+     * (= 리소스를로드하고 바이너리 콘텐츠로 {@link JSONArray} 객체를 만든다.)
      *
      * @param context  where the execution is taking place.
      * @param resource identifier of the binary in the resource folders.

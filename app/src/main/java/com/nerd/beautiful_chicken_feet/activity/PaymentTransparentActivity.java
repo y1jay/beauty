@@ -22,18 +22,18 @@ import java.util.Optional;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * Transparent activity to be triggered from notification
+ * notification(알림)에서 trigger(자동으로 뜨는)되는 투명한 액티비티
  */
 public class PaymentTransparentActivity extends AppCompatActivity {
 
-    // Arbitrarily-picked constant integer you define to track a request for payment data activity.
+    //지불 데이터 활동에 대한 요청을 추적하기 위해 사용자가 정의하는 임의로 선택한 상수 정수.
     private static final int LOAD_PAYMENT_DATA_REQUEST_CODE = 991;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Dismiss the notification UI if the activity was opened from a notification
+        //활동이 알림에서 열린 경우 알림 UI 닫기
         if (Notifications.ACTION_PAY_GOOGLE_PAY.equals(getIntent().getAction())) {
             sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         }
@@ -42,11 +42,11 @@ public class PaymentTransparentActivity extends AppCompatActivity {
     }
 
     /**
-     * Handle a resolved activity from the Google Pay payment sheet.
+     * Google Pay 결제 명세서에서 해결 된 활동을 처리함
      *
-     * @param requestCode Request code originally supplied to AutoResolveHelper in requestPayment().
-     * @param resultCode  Result code returned by the Google Pay API.
-     * @param data        Intent from the Google Pay API containing payment or error data.
+     * @param requestCode requestPayment ()에서 AutoResolveHelper 에 원래 제공된 요청 코드.
+     * @param resultCode  Google Pay API 에서 반환 한 결과 코드.
+     * @param data        결제 또는 오류 데이터가 포함 된 Google Pay API 의 인텐트.
      * @see <a href="https://developer.android.com/training/basics/intents/result">Getting a result
      * from an Activity</a>
      */
@@ -65,11 +65,11 @@ public class PaymentTransparentActivity extends AppCompatActivity {
                         break;
 
                     case Activity.RESULT_CANCELED:
-                        // The user simply cancelled without selecting a payment method.
+                        // 사용자가 결제 방법을 선택하지 않고 simple 하게 취소했을 때
                         break;
 
                     case AutoResolveHelper.RESULT_ERROR:
-                        // Get more details on the error with – AutoResolveHelper.getStatusFromIntent(data);
+                        // 저거 써서 오류에 대해 자세히 알아봐 – AutoResolveHelper.getStatusFromIntent(data);
                         break;
                 }
 
@@ -80,11 +80,10 @@ public class PaymentTransparentActivity extends AppCompatActivity {
 
     private void showPaymentsSheet() {
 
-        // Fetch the price based on the user selection
+        // 사용자 선택에 따라 가격을 가져옴.
         long priceCents = getIntent().getLongExtra(Notifications.OPTION_PRICE_EXTRA, 2500L);
 
         // TransactionInfo transaction = PaymentsUtil.createTransaction(price);
-        // 8888888888888888888888888888888888888888888888888888888888888888888888888888priceCents 넣은부분 스트링이어야돼?
         Optional<JSONObject> paymentDataRequestJson = PaymentsUtil.getPaymentDataRequest(priceCents);
         if (!paymentDataRequestJson.isPresent()) {
             return;
@@ -102,22 +101,22 @@ public class PaymentTransparentActivity extends AppCompatActivity {
     }
 
     /**
-     * PaymentData response object contains the payment information, as well as any additional
-     * requested information, such as billing and shipping address.
      *
-     * @param paymentData A response object returned by Google after a payer approves payment.
+     * PaymentData 응답 객체에는 결제 정보는 물론 청구 및 배송 주소와 같은 추가 요청 정보가 포함됨.
+     *
+     * @param paymentData 지급인이 결제를 승인 한 후 Google 에서 반환하는 응답 객체
      * @see <a href="https://developers.google.com/pay/api/android/reference/
      * object#PaymentData">PaymentData</a>
      */
     private void handlePaymentSuccess(PaymentData paymentData) {
 
-        // Token will be null if PaymentDataRequest was not constructed using fromJson(String).
+        // PaymentDataRequest 가 fromJson(String)을 사용하여 생성되지 않은 경우 토큰은 null.
         final String paymentInfo = paymentData.toJson();
         if (paymentInfo == null) {
             return;
         }
 
-        // Remove the payment notification
+        // 결제 알림 제거.
         Notifications.remove(this);
 
         try {

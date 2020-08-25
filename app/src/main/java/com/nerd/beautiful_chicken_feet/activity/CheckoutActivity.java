@@ -116,7 +116,7 @@ public class CheckoutActivity extends AppCompatActivity {
      *
      * @param requestCode requestPayment ()에서 AutoResolveHelper 에 원래 제공된 요청 코드.
      * @param resultCode  Google Pay API 에서 반환 한 결과 코드.
-     * @param data        결제 또는 오류 데이터가 포함 된 Google Pay API의 인 텐트.
+     * @param data        결제 또는 오류 데이터가 포함 된 Google Pay API 의 인텐트.
      * @see <a href="https://developer.android.com/training/basics/intents/result">여기에서 결과 얻기</a>
      */
     @Override
@@ -133,7 +133,7 @@ public class CheckoutActivity extends AppCompatActivity {
                         break;
 
                     case Activity.RESULT_CANCELED:
-                        // The user cancelled the payment attempt
+                        // 사용자가 결제 시도를 취소했을 때
                         break;
 
                     case AutoResolveHelper.RESULT_ERROR:
@@ -142,23 +142,23 @@ public class CheckoutActivity extends AppCompatActivity {
                         break;
                 }
 
-                // Re-enables the Google Pay payment button.
+                // Google Pay 결제 버튼을 다시 활성화시킴.
                 googlePayButton.setClickable(true);
         }
     }
 
     private void initializeUi() {
 
-        // Use view binding to access the UI elements
+        // view binding(뷰 결합) 을 사용해 UI 요소에 접속(access), build.gradle(app) 25~27
         layoutBinding = ActivityCheckoutBinding.inflate(getLayoutInflater());
         setContentView(layoutBinding.getRoot());
 
-        // Dismiss the notification UI if the activity was opened from a notification
+        // 활동이 알림에서 열린 경우 알림 UI 닫기
         if (Notifications.ACTION_PAY_GOOGLE_PAY.equals(getIntent().getAction())) {
             sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         }
 
-        // The Google Pay button is a layout file – take the root view
+        //Google Pay 버튼은 레이아웃 파일 – root view 사용해
         googlePayButton = layoutBinding.googlePayButton.getRoot();
         googlePayButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -185,8 +185,8 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     /**
-     * Determine the viewer's ability to pay with a payment method supported by your app and display a
-     * Google Pay payment button.
+     * 앱에서 지원하는 결제 수단으로 시청자가 결제 할 수 있는지 확인하고
+     * Google Pay 결제 버튼 표시
      *
      * @see <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/
      * PaymentsClient.html#isReadyToPay(com.google.android.gms.wallet.
@@ -199,8 +199,9 @@ public class CheckoutActivity extends AppCompatActivity {
             return;
         }
 
-        // The call to isReadyToPay is asynchronous and returns a Task. We need to provide an
-        // OnCompleteListener to be triggered when the result of the call is known.
+
+        // isReadyToPay 에 대한 호출은 비동기(Asynchronous, 요청과 결과가 동시에 일어나지 않을거라는 약속)이며 Task 를 반환한다.
+        // 호출 결과를 알 때 트리거 할 OnCompleteListener 를 제공해야합니다
         IsReadyToPayRequest request = IsReadyToPayRequest.fromJson(isReadyToPayJson.get().toString());
         Task<Boolean> task = paymentsClient.isReadyToPay(request);
         task.addOnCompleteListener(this,
@@ -217,12 +218,11 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     /**
-     * If isReadyToPay returned {@code true}, show the button and hide the "checking" text. Otherwise,
-     * notify the user that Google Pay is not available. Please adjust to fit in with your current
-     * user flow. You are not required to explicitly let the user know if isReadyToPay returns {@code
-     * false}.
+     * isReadyToPay 가 {@code true}를 반환 한 경우 버튼을 표시하고 '확인 중'텍스트를 숨김.
+     * 그렇지 않으면 사용자에게 Google Pay 를 사용할 수 없다고 알림. 현재 사용자 흐름에 맞게 조정하시오.
+     * isReadyToPay 가 {@code false}를 반환하는지 사용자에게 명시 적으로 알릴 필요가 없음.
      *
-     * @param available isReadyToPay API response.
+     * @param available isReadyToPay API response(응답).
      */
     private void setGooglePayAvailable(boolean available) {
         if (available) {
@@ -233,16 +233,15 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     /**
-     * PaymentData response object contains the payment information, as well as any additional
-     * requested information, such as billing and shipping address.
+     * PaymentData response object(응답 객체)에는 결제 정보는 물론 청구 및 배송 주소와 같은 추가 요청 정보가 포함됨.
      *
-     * @param paymentData A response object returned by Google after a payer approves payment.
+     * @param paymentData 지급인이 결제를 승인 한 후 Google 에서 반환하는 응답 객체.
      * @see <a href="https://developers.google.com/pay/api/android/reference/
      * object#PaymentData">PaymentData</a>
      */
     private void handlePaymentSuccess(PaymentData paymentData) {
 
-        // Token will be null if PaymentDataRequest was not constructed using fromJson(String).
+        // PaymentDataRequest 가 fromJson(String) 을 사용하여 생성되지 않은 경우 토큰은 null.
         final String paymentInfo = paymentData.toJson();
         if (paymentInfo == null) {
             return;
@@ -250,8 +249,8 @@ public class CheckoutActivity extends AppCompatActivity {
 
         try {
             JSONObject paymentMethodData = new JSONObject(paymentInfo).getJSONObject("paymentMethodData");
-            // If the gateway is set to "example", no payment information is returned - instead, the
-            // token will only consist of "examplePaymentMethodToken".
+            // gateway 가 "example"로 설정되면, 결제 정보가 반환되지 않음 -
+            // 대신, 토큰은 "examplePaymentMethodToken"으로만 구성됨.
 
             final JSONObject tokenizationData = paymentMethodData.getJSONObject("tokenizationData");
             final String tokenizationType = tokenizationData.getString("type");
@@ -272,7 +271,7 @@ public class CheckoutActivity extends AppCompatActivity {
                     this, getString(R.string.payments_show_name, billingName),
                     Toast.LENGTH_LONG).show();
 
-            // Logging token string.
+            // Logging token string.(토큰 찍어보기)
             Log.d("Google Pay token: ", token);
 
         } catch (JSONException e) {
@@ -281,13 +280,11 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     /**
-     * At this stage, the user has already seen a popup informing them an error occurred. Normally,
-     * only logging is required.
+     * 이 단계에서 사용자는 이미 오류가 발생했음을 알리는 팝업을 봤음.
+     * 일반적으로, 로깅(= 로그)만 필요함.
      *
-     * @param statusCode will hold the value of any constant from CommonStatusCode or one of the
-     *                   WalletConstants.ERROR_CODE_* constants.
-     * @see <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/
-     * WalletConstants#constant-summary">Wallet Constants Library</a>
+     * @param statusCode CommonStatusCode 이나 WalletConstants.ERROR_CODE_* constant(상수) 중 하나의 상수값 보유.
+     * @see <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/WalletConstants#constant-summary">Wallet Constants Library</a>
      */
     private void handleError(int statusCode) {
         Log.w("loadPaymentData failed", String.format("Error code: %d", statusCode));
@@ -295,11 +292,11 @@ public class CheckoutActivity extends AppCompatActivity {
 
     public void requestPayment(View view) {
 
-        // Disables the button to prevent multiple clicks.
+        // 버튼을 비활성화하여 다중클릭을 방지함.
         googlePayButton.setClickable(false);
 
-        // The price provided to the API should include taxes and shipping.
-        // This price is not displayed to the user.
+        // API 에 제공되는 가격헤는 세금 및 배송비가 포함되어야 함.
+        // 이 가격은 사용자에게 표시되지 않음.
         try {
             double garmentPrice = selectedGarment.getDouble("price");
             long garmentPriceCents = Math.round(garmentPrice * PaymentsUtil.CENTS_IN_A_UNIT.longValue());
@@ -313,9 +310,9 @@ public class CheckoutActivity extends AppCompatActivity {
             PaymentDataRequest request =
                     PaymentDataRequest.fromJson(paymentDataRequestJson.get().toString());
 
-            // Since loadPaymentData may show the UI asking the user to select a payment method, we use
-            // AutoResolveHelper to wait for the user interacting with it. Once completed,
-            // onActivityResult will be called with the result.
+            // loadPaymentData 는 사용자에게 결제 방법을 선택하도록 요청하는 UI를 표시 할 수 있으므로
+            // AutoResolveHelper 를 사용하여 사용자가 상호 작용할 때까지 기다린다.
+            // 완료되면 onActivityResult 가 결과와 함께 호출됨.
             if (request != null) {
                 AutoResolveHelper.resolveTask(
                         paymentsClient.loadPaymentData(request),
@@ -329,12 +326,12 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private JSONObject fetchRandomGarment() {
 
-        // Only load the list of items if it has not been loaded before
+        // 이전에 로드되지 않은 경우에만 항목 목록을로드합니다
         if (garmentList == null) {
             garmentList = Json.readFromResources(this, R.raw.tshirts);
         }
 
-        // Take a random element from the list
+        //목록에서 임의의 요소를 가져옵니다
         int randomIndex = Math.toIntExact(Math.round(Math.random() * (garmentList.length() - 1)));
         try {
             return garmentList.getJSONObject(randomIndex);
