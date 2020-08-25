@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.nerd.beautiful_chicken_feet.activity.CheckoutActivity;
+
 public class AfterLogin extends AppCompatActivity {
 Button logout;
 Button reservation;
@@ -25,7 +27,7 @@ Button reservation;
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AfterLogin.this,Reservation.class);
+                Intent i = new Intent(AfterLogin.this, CheckoutActivity.class);
                 startActivity(i);
             }
         });
