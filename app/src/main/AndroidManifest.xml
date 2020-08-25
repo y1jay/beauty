@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reservation">
+        <activity android:name=".activity.CheckoutActivity">
+            <meta-data
+                android:name="com.google.android.gms.wallet.api.enabled"
+                android:value="true" />
         </activity>
         <activity android:name=".Address" />
         <activity android:name=".AfterLogin" />
