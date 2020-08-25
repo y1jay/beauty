@@ -1,8 +1,7 @@
 var Iamport = require("iamport");
 var iamport = new Iamport({
-  impKey: "7208613406212526",
-  impSecret:
-    "rBebbodWEfLkp7MsK0yYzQChc1KP1iTsU8E5xS2b7NwwViZFjyDSpfaBgUqidkL8tpe0hgcp4IV01VFl",
+  impKey: process.env.KEY,
+  impSecret: process.env.SECRET,
 });
 
 // 아임포트 고유 아이디로 결제 정보를 조회

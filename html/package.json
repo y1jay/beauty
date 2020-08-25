@@ -22,7 +22,8 @@
     "dotenv": "^8.2.0",
     "iamport": "^0.3.4",
     "iamporter": "^1.4.2",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "unirest": "^0.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
