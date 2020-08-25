@@ -18,7 +18,7 @@ public class Reservation extends AppCompatActivity {
     WebView webView;
     RequestQueue requestQueue;
     String m_redirect_url = "http://www.iamport.kr/mobile/landing";
-    private static final String APP_SCHEME = "7208613406212526";
+    private static final String APP_SCHEME = "imp73346050";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class Reservation extends AppCompatActivity {
         Uri intentData = intent.getData();
 
         if (intentData == null) {
-            webView.loadUrl("http://www.iamport.kr/imp73346050");
+            webView.loadUrl("http://www.iamport.kr/mobile/payment");
         } else {
             //isp 인증 후 복귀했을 때 결제 후속조치
             String url = intentData.toString();
