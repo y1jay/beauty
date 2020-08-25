@@ -14,35 +14,25 @@
     <!-- 아임포트 자바스크립트는 jQuery 기반으로 개발되었습니다 -->
 
     <script type="text/javascript">
-      var IMP = window.IMP; 
-      IMP.init("imp73346050"); 
+      IMP.init("imp73346050");
       /* 중략 */
       IMP.certification(
         {
-          merchant_uid: "merchant_" + new Date().getTime(), //본인인증과 연관된 가맹점 내부 주문번호가 있다면 넘겨주세요
+          merchant_uid: "ORD20180131-0000011",
         },
         function (rsp) {
+          // callback
           if (rsp.success) {
-            // 인증성공
-            console.log(rsp.imp_uid);
-            console.log(rsp.merchant_uid);
-
-            $.ajax({
-              type: "POST",
-              url: "/certifications/confirm",
-              dataType: "json",
-              data: {
-                imp_uid: rsp.imp_uid,
-              },
-            }).done(function () {
-              takeResponseAndHandle(rsp);
+            // 인증 성공 시
+            // jQuery로 HTTP 요청
+            jQuery.ajax({
+              url: "https://admin.iamport.kr/certifications", // 서비스 웹서버
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              data: { imp_uid: rsp.imp_uid },
             });
           } else {
-            // 인증취소 또는 인증실패
-            var msg = "인증에 실패하였습니다.";
-            msg += "에러내용 : " + rsp.error_msg;
-
-            alert(msg);
+            alert("인증에 실패하였습니다. 에러 내용: " + rsp.error_msg);
           }
         }
       );
