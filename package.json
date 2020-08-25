@@ -1,0 +1,24 @@
+{
+  "name": "beauty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y1jay/beauty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/y1jay/beauty/issues"
+  },
+  "homepage": "https://github.com/y1jay/beauty#readme",
+  "dependencies": {
+    "iamporter": "^1.4.2",
+    "jquery": "^3.5.1"
+  }
+}
