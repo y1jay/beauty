@@ -6,17 +6,16 @@ import android.os.Bundle;
 import android.webkit.WebView;
 
 public class Reservation extends AppCompatActivity {
-WebView webView;
+
+    WebView webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
+
         webView = findViewById(R.id.webView);
 
 
-
     }
-
-
-
 }
