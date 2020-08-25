@@ -1,4 +1,4 @@
-package com.nerd.beautiful_chicken_feet.Utils;
+package com.nerd.beautiful_chicken_feet.utils;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

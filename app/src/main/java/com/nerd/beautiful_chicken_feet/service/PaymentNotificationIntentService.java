@@ -9,7 +9,7 @@ import android.os.Looper;
 
 import androidx.annotation.Nullable;
 
-import com.nerd.beautiful_chicken_feet.Utils.Notifications;
+import com.nerd.beautiful_chicken_feet.utils.Notifications;
 
 public class PaymentNotificationIntentService extends IntentService {
 

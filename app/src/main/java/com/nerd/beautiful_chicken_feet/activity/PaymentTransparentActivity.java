@@ -11,8 +11,8 @@ import com.google.android.gms.wallet.PaymentData;
 import com.google.android.gms.wallet.PaymentDataRequest;
 import com.google.android.gms.wallet.PaymentsClient;
 import com.nerd.beautiful_chicken_feet.R;
-import com.nerd.beautiful_chicken_feet.Utils.Notifications;
-import com.nerd.beautiful_chicken_feet.Utils.PaymentsUtil;
+import com.nerd.beautiful_chicken_feet.utils.Notifications;
+import com.nerd.beautiful_chicken_feet.utils.PaymentsUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,6 +84,7 @@ public class PaymentTransparentActivity extends AppCompatActivity {
         long priceCents = getIntent().getLongExtra(Notifications.OPTION_PRICE_EXTRA, 2500L);
 
         // TransactionInfo transaction = PaymentsUtil.createTransaction(price);
+        // 8888888888888888888888888888888888888888888888888888888888888888888888888888priceCents 넣은부분 스트링이어야돼?
         Optional<JSONObject> paymentDataRequestJson = PaymentsUtil.getPaymentDataRequest(priceCents);
         if (!paymentDataRequestJson.isPresent()) {
             return;

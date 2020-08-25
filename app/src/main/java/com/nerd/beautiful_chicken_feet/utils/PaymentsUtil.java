@@ -1,9 +1,6 @@
-package com.nerd.beautiful_chicken_feet.Utils;
+package com.nerd.beautiful_chicken_feet.utils;
 
 import android.app.Activity;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
 
 import com.google.android.gms.wallet.PaymentsClient;
 import com.google.android.gms.wallet.Wallet;
@@ -11,8 +8,8 @@ import com.nerd.beautiful_chicken_feet.Constants;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
 import java.util.Optional;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,9 +22,8 @@ import org.json.JSONObject;
  * relevant to your implementation.
  */
 public class PaymentsUtil {
-    private static final BigDecimal MICROS = new BigDecimal(1000000d);
 
-    private PaymentsUtil() {}
+    public static final BigDecimal CENTS_IN_A_UNIT = new BigDecimal(100d);
 
     /**
      * Create a Google Pay API base request object with properties used in all requests.
@@ -62,13 +58,16 @@ public class PaymentsUtil {
      * @return Payment data tokenization for the CARD payment method.
      * @throws JSONException
      * @see <a href=
-     *     "https://developers.google.com/pay/api/android/reference/object#PaymentMethodTokenizationSpecification">PaymentMethodTokenizationSpecification</a>
+     * "https://developers.google.com/pay/api/android/reference/object#PaymentMethodTokenizationSpecification">PaymentMethodTokenizationSpecification</a>
      */
     private static JSONObject getGatewayTokenizationSpecification() throws JSONException {
-        return new JSONObject(){{          put("type", "PAYMENT_GATEWAY");
-            put("parameters", new JSONObject(){{            put("gateway", "");
-                put("gatewayMerchantId", "exampleGatewayMerchantId");
-            }
+        return new JSONObject() {{
+            put("type", "PAYMENT_GATEWAY");
+            put("parameters", new JSONObject() {
+                {
+                    put("gateway", "example");
+                    put("gatewayMerchantId", "exampleGatewayMerchantId");
+                }
             });
         }};
     }
@@ -83,7 +82,7 @@ public class PaymentsUtil {
      * @return Payment data tokenization for the CARD payment method.
      * @throws JSONException
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#PaymentMethodTokenizationSpecification">PaymentMethodTokenizationSpecification</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#PaymentMethodTokenizationSpecification">PaymentMethodTokenizationSpecification</a>
      */
     private static JSONObject getDirectTokenizationSpecification()
             throws JSONException, RuntimeException {
@@ -110,7 +109,7 @@ public class PaymentsUtil {
      *
      * @return Allowed card networks
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#CardParameters">CardParameters</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#CardParameters">CardParameters</a>
      */
     private static JSONArray getAllowedCardNetworks() {
         return new JSONArray(Constants.SUPPORTED_NETWORKS);
@@ -124,7 +123,7 @@ public class PaymentsUtil {
      *
      * @return Allowed card authentication methods.
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#CardParameters">CardParameters</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#CardParameters">CardParameters</a>
      */
     private static JSONArray getAllowedCardAuthMethods() {
         return new JSONArray(Constants.SUPPORTED_METHODS);
@@ -139,7 +138,7 @@ public class PaymentsUtil {
      * @return A CARD PaymentMethod object describing accepted cards.
      * @throws JSONException
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#PaymentMethod">PaymentMethod</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#PaymentMethod">PaymentMethod</a>
      */
     private static JSONObject getBaseCardPaymentMethod() throws JSONException {
         JSONObject cardPaymentMethod = new JSONObject();
@@ -167,7 +166,7 @@ public class PaymentsUtil {
      * @return A CARD PaymentMethod describing accepted cards and optional fields.
      * @throws JSONException
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#PaymentMethod">PaymentMethod</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#PaymentMethod">PaymentMethod</a>
      */
     private static JSONObject getCardPaymentMethod() throws JSONException {
         JSONObject cardPaymentMethod = getBaseCardPaymentMethod();
@@ -182,9 +181,8 @@ public class PaymentsUtil {
      *
      * @return API version and payment methods supported by the app.
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#IsReadyToPayRequest">IsReadyToPayRequest</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#IsReadyToPayRequest">IsReadyToPayRequest</a>
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static Optional<JSONObject> getIsReadyToPayRequest() {
         try {
             JSONObject isReadyToPayRequest = getBaseRequest();
@@ -192,6 +190,7 @@ public class PaymentsUtil {
                     "allowedPaymentMethods", new JSONArray().put(getBaseCardPaymentMethod()));
 
             return Optional.of(isReadyToPayRequest);
+
         } catch (JSONException e) {
             return Optional.empty();
         }
@@ -203,7 +202,7 @@ public class PaymentsUtil {
      * @return information about the requested payment.
      * @throws JSONException
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#TransactionInfo">TransactionInfo</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#TransactionInfo">TransactionInfo</a>
      */
     private static JSONObject getTransactionInfo(String price) throws JSONException {
         JSONObject transactionInfo = new JSONObject();
@@ -211,6 +210,7 @@ public class PaymentsUtil {
         transactionInfo.put("totalPriceStatus", "FINAL");
         transactionInfo.put("countryCode", Constants.COUNTRY_CODE);
         transactionInfo.put("currencyCode", Constants.CURRENCY_CODE);
+        transactionInfo.put("checkoutOption", "COMPLETE_IMMEDIATE_PURCHASE");
 
         return transactionInfo;
     }
@@ -221,7 +221,7 @@ public class PaymentsUtil {
      * @return Information about the merchant.
      * @throws JSONException
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#MerchantInfo">MerchantInfo</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#MerchantInfo">MerchantInfo</a>
      */
     private static JSONObject getMerchantInfo() throws JSONException {
         return new JSONObject().put("merchantName", "Example Merchant");
@@ -232,9 +232,12 @@ public class PaymentsUtil {
      *
      * @return Payment data expected by your app.
      * @see <a
-     *     href="https://developers.google.com/pay/api/android/reference/object#PaymentDataRequest">PaymentDataRequest</a>
+     * href="https://developers.google.com/pay/api/android/reference/object#PaymentDataRequest">PaymentDataRequest</a>
      */
-    public static Optional<JSONObject> getPaymentDataRequest(String price) {
+    public static Optional<JSONObject> getPaymentDataRequest(long priceCents) {
+
+        final String price = PaymentsUtil.centsToString(priceCents);
+
         try {
             JSONObject paymentDataRequest = PaymentsUtil.getBaseRequest();
             paymentDataRequest.put(
@@ -242,8 +245,8 @@ public class PaymentsUtil {
             paymentDataRequest.put("transactionInfo", PaymentsUtil.getTransactionInfo(price));
             paymentDataRequest.put("merchantInfo", PaymentsUtil.getMerchantInfo());
 
-          /* An optional shipping address requirement is a top-level property of the PaymentDataRequest
-          JSON object. */
+      /* An optional shipping address requirement is a top-level property of the PaymentDataRequest
+      JSON object. */
             paymentDataRequest.put("shippingAddressRequired", true);
 
             JSONObject shippingAddressParameters = new JSONObject();
@@ -254,17 +257,21 @@ public class PaymentsUtil {
             shippingAddressParameters.put("allowedCountryCodes", allowedCountryCodes);
             paymentDataRequest.put("shippingAddressParameters", shippingAddressParameters);
             return Optional.of(paymentDataRequest);
+
         } catch (JSONException e) {
             return Optional.empty();
         }
     }
 
     /**
-     * Converts micros to a string format accepted by {@link PaymentsUtil#getPaymentDataRequest}.
+     * Converts cents to a string format accepted by {@link PaymentsUtil#getPaymentDataRequest}.
      *
-     * @param micros value of the price.
+     * @param cents value of the price in cents.
      */
-    public static String microsToString(long micros) {
-        return new BigDecimal(micros).divide(MICROS).setScale(2, RoundingMode.HALF_EVEN).toString();
+    public static String centsToString(long cents) {
+        return new BigDecimal(cents)
+                .divide(CENTS_IN_A_UNIT, RoundingMode.HALF_EVEN)
+                .setScale(2, RoundingMode.HALF_EVEN)
+                .toString();
     }
 }
