@@ -25,8 +25,6 @@ import java.util.Map;
 
 public class Address extends FragmentActivity implements OnMapReadyCallback {
 
-    Map map;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +43,7 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
 
-        LatLng coord = new LatLng(37.560265,126.838157);
+        LatLng coord = new LatLng(37.560296, 126.838154);
 
         Toast.makeText(Address.this,
                 "위도: " + coord.latitude + ", 경도: " + coord.longitude,
@@ -55,9 +53,18 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
 
         Marker marker = new Marker();
         marker.setPosition(coord);
+        marker.setCaptionText("미인닭발");
+        marker.setCaptionColor(Color.RED);
         marker.setIcon(MarkerIcons.RED);
         marker.setIconTintColor(Color.RED);
         marker.setMap(naverMap);
+
+        Marker parkingMarker = new Marker();
+        parkingMarker.setPosition(new LatLng(37.560348, 126.838154));
+        parkingMarker.setCaptionText("미인닭발 주차장입구");
+        parkingMarker.setCaptionColor(Color.BLACK);
+        parkingMarker.setIcon(MarkerIcons.BLACK);
+        parkingMarker.setMap(naverMap);
 
     }
 }
