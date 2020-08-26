@@ -45,7 +45,7 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
 
-        LatLng coord = new LatLng(37.5593,126.8362133);
+        LatLng coord = new LatLng(37.560265,126.838157);
 
         Toast.makeText(Address.this,
                 "위도: " + coord.latitude + ", 경도: " + coord.longitude,
@@ -54,8 +54,8 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         naverMap.setLayerGroupEnabled(NaverMap.LAYER_GROUP_BUILDING, true);
 
         Marker marker = new Marker();
-        marker.setPosition(new LatLng(37.5599712, 126.8361319));
-        marker.setIcon(MarkerIcons.BLACK);
+        marker.setPosition(coord);
+        marker.setIcon(MarkerIcons.RED);
         marker.setIconTintColor(Color.RED);
         marker.setMap(naverMap);
 

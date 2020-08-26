@@ -10,8 +10,8 @@
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:navermap_latitude="37.5593"
-        app:navermap_longitude="126.8362133"
+        app:navermap_latitude="37.560419"
+        app:navermap_longitude="126.838214"
         app:navermap_zoom="16"
         android:name="com.naver.maps.map.MapFragment" >
 
