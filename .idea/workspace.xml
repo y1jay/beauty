@@ -5,18 +5,22 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="be9c3731-a9d6-4f5c-ad4c-7cae77d283c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/Reservation/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/Reservation/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/CheckoutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/CheckoutActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/PaymentTransparentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/PaymentTransparentActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/utils/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/utils/Json.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="ce02171260fb490704" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="LMQ510NGESKDMJR75H" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -25,7 +29,12 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -33,7 +42,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -42,12 +54,22 @@
   </component>
   <component name="ProjectId" id="1fZghrTagBpYAhKK9xADxXDgYbF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.nerd.beautiful_chicken_feet" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.nerd.beautiful_chicken_feet.activity" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.nerd.beautiful_chicken_feet" />
@@ -56,18 +78,6 @@
       <recent name="C:\Users\Admin\Documents\GitHub\beauty\app\src\main\res" />
       <recent name="C:\Users\Admin\Documents\GitHub\beauty\app\src\main\res\values" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -154,5 +164,27 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="101" y="275" key="AndroidCreateResourceFileDialog" timestamp="1598356686545">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="101" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598356686545" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1598357898422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598357898422" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1598357898422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598357898422" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1598357898422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598357898422" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1598357898422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598357898422" />
   </component>
 </project>

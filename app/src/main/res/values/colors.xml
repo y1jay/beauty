@@ -3,4 +3,5 @@
     <color name="colorPrimary">#E83838</color>
     <color name="colorPrimaryDark">#D8CFCF</color>
     <color name="colorAccent">#E83838</color>
+    <color name="price_button_grey">#555</color>
 </resources>
