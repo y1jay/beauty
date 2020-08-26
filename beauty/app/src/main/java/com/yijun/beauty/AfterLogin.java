@@ -22,7 +22,11 @@ Button reservation;
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(AfterLogin.this,MainActivity.class);
+               i.putExtra("key",1);
                 finish();
+                startActivity(i);
+
             }
         });
         reservation.setOnClickListener(new View.OnClickListener() {
