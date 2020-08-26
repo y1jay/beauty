@@ -27,7 +27,9 @@ exports.createUser = async (req, res, next) => {
   try {
     [result] = await connection.query(query);
     user_id = result.insertId;
-    res.status(200).json({ success: true, msg: "회원가입 완료" });
+    res
+      .status(200)
+      .json({ success: true, id: rows[0].email, msg: "회원가입 완료" });
   } catch (e) {
     if (e.errno == 1062) {
       // 이메일 중복된것 이다.
@@ -82,5 +84,18 @@ exports.loginUser = async (req, res, next) => {
   } catch (e) {
     res.status(400).json({ success: false, error: e });
     console.log(e);
+  }
+};
+// @desc 로그아웃
+// @route delete /api/v1/user/logout
+// @ reqest token
+// @ response  success
+exports.logoutUser = async (req, res, next) => {
+  let user_id = req.user.id;
+  let query = `delete from beauty_token where user_id = ${user_id}`;
+  try {
+    res.status(200).json({ success: true, message: "로그아웃 완료" });
+  } catch (e) {
+    res.status(400).json({ success: false, error: e });
   }
 };
