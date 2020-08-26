@@ -3,11 +3,24 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.yijun.beauty.api.NetworkClient;
+import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.UserReq;
+import com.yijun.beauty.model.UserRes;
+import com.yijun.beauty.utils.Utils;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText edtname;
@@ -19,11 +32,6 @@ public class SignUpActivity extends AppCompatActivity {
     EditText edtpasswdcheck;
     Button btnpasswdcheck;
     Button btnsignup;
-
-    EditText edtcostomphone;
-    EditText edtcostomphonecheck;
-    Button btncostomphonecheck;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +47,6 @@ public class SignUpActivity extends AppCompatActivity {
         btnsignup = findViewById(R.id.btnsignup);
 
 
-
         btncheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,8 +58,6 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-
-
             }
         });
 
@@ -60,18 +65,32 @@ public class SignUpActivity extends AppCompatActivity {
         btnidcheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = edtid.getText().toString();
+                String nick_name = edtid.getText().toString().trim();
+                String name = edtname.getText().toString().trim();
+                String passwd = edtpasswd.getText().toString().trim();
+                String phone = edtphoe.getText().toString().trim();
 
-                if (email.contains("@")== false) {
-                    Toast.makeText(SignUpActivity.this, "이메일이 형식이 다름",
-                            Toast.LENGTH_SHORT).show();
-                    return;
+                UserReq userReq = new UserReq(name,nick_name,passwd,phone);
 
-//                }else if("중복체크api랑 연결할 부분"){
-//                }
+                Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
 
+                Call<UserRes> call = userApi.createUser(userReq);
+
+                call.enqueue(new Callback<UserRes>() {
+                    @Override
+                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+                              Toast.makeText(SignUpActivity.this,"이미 있는 아이디입니다",Toast.LENGTH_SHORT).show();
+                              return;
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<UserRes> call, Throwable t) {
+                    }
+                });
                 }
-            }
         });
         btnpasswdcheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,16 +117,51 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = edtid.getText().toString();
-                Intent i = new Intent(SignUpActivity.this,SignupFinish.class);
-                i.putExtra("email",email);
-                startActivity(i);
-                finish();
+                final String nick_name = edtid.getText().toString().trim();
+                final String name = edtname.getText().toString().trim();
+                final String passwd = edtpasswd.getText().toString().trim();
+                final String phone = edtphoe.getText().toString().trim();
+
+                UserReq userReq = new UserReq(name,nick_name,passwd,phone);
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
+
+                Call<UserRes> call = userApi.createUser(userReq);
+
+                call.enqueue(new Callback<UserRes>() {
+                    @Override
+                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+                            // response.body() 가 UserRes.이다.
+                            boolean success = response.body().isSuccess();
+                            String token = response.body().getToken();
+                            Log.i("AAAA","success : "+success +" token : " + token);
+
+//                            SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+//                            SharedPreferences.Editor editor = sp.edit();
+//                            editor.putString("token",token);
+//                            editor.apply();
+
+                            Intent i = new Intent(SignUpActivity.this,AfterLogin.class);
+
+                            startActivity(i);
+                            finish();
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserRes> call, Throwable t) {
+
+                    }
+                });
             }
         });
+
     }
 }
