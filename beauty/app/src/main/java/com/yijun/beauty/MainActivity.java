@@ -30,11 +30,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent i = new Intent(MainActivity.this,LodingActivity.class);
+        int key = getIntent().getIntExtra("key",0);
+        if(key==1){
 
+        }else {
+            startActivity(i);
+        }
         reservation = findViewById(R.id.reservation);
         login = findViewById(R.id.login);
         address = findViewById(R.id.address);
         signUp = findViewById(R.id.signUp);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 Intent i = new Intent(MainActivity.this,AfterLogin.class);
+               finish();
                 startActivity(i);
 
                 dialog.cancel();
