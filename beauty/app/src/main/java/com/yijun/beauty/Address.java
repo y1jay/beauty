@@ -55,7 +55,7 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
 
         Marker marker = new Marker();
         marker.setPosition(new LatLng(37.5593, 126.8362133));
-        marker.setIcon(MarkerIcons.RED);
+        marker.setIcon(MarkerIcons.BLUE);
         marker.setIconTintColor(Color.RED);
         marker.setMap(naverMap);
 
