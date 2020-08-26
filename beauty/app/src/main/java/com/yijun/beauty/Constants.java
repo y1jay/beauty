@@ -9,17 +9,15 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * This file contains several constants you must edit before proceeding.
- * Please take a look at PaymentsUtil.java to see where the constants are used and to potentially
- * remove ones not relevant to your integration.
+ * 이 파일에는 계속하기 전에 편집해야 하는 여러 상수가 포함되어있음.
+ * PaymentsUtil.java 에서 상수가 사용되는 위치를 확인하고 통합과 관련이없는 항목을 잠재적으로 제거해야함.
  *
- * <p>Required changes:
+ * <p> 필수 변경 사항:
  * <ol>
- * <li> Update SUPPORTED_NETWORKS and SUPPORTED_METHODS if required (consult your processor if
- *      unsure)
- * <li> Update CURRENCY_CODE to the currency you use.
- * <li> Update SHIPPING_SUPPORTED_COUNTRIES to list the countries where you currently ship. If this
- *      is not applicable to your app, remove the relevant bits from PaymentsUtil.java.
+ * <li> 필요한 경우 SUPPORTED_NETWORKS 와 SUPPORTED_METHODS 를 업데이트(확실하지않은 경우 프로세서에 문의하셈)
+ * <li> 사용하는 통화로 CURRENCY_CODE 업데이트.
+ * <li> 현재 배송중인 국가를 나열하려면 SHIPPING_SUPPORTED_COUNTRIES 를 업데이트하세요.
+ *      이것이 앱에 적용되지 않는 경우 PaymentsUtil.java 에서 관련 비트를 제거해.
  * <li> If you're integrating with your {@code PAYMENT_GATEWAY}, update
  *      PAYMENT_GATEWAY_TOKENIZATION_NAME and PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS per the
  *      instructions they provided. You don't need to update DIRECT_TOKENIZATION_PUBLIC_KEY.
@@ -65,7 +63,7 @@ public class Constants {
      *
      * @value #COUNTRY_CODE Your local country
      */
-    public static final String COUNTRY_CODE = "US";
+    public static final String COUNTRY_CODE = "KR";
 
     /**
      * Required by the API, but not visible to the user.
