@@ -18,26 +18,25 @@ import java.util.List;
  * <li> 사용하는 통화로 CURRENCY_CODE 업데이트.
  * <li> 현재 배송중인 국가를 나열하려면 SHIPPING_SUPPORTED_COUNTRIES 를 업데이트하세요.
  *      이것이 앱에 적용되지 않는 경우 PaymentsUtil.java 에서 관련 비트를 제거해.
- * <li> If you're integrating with your {@code PAYMENT_GATEWAY}, update
- *      PAYMENT_GATEWAY_TOKENIZATION_NAME and PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS per the
- *      instructions they provided. You don't need to update DIRECT_TOKENIZATION_PUBLIC_KEY.
- * <li> If you're using {@code DIRECT} integration, please edit protocol version and public key as
- *      per the instructions.
+ * <li>
+ *  {@code PAYMENT_GATEWAY}와 통합하는 경우 제공된
+ *  안내에 따라 PAYMENT_GATEWAY_TOKENIZATION_NAME 및 PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS 을 업데이트하세요.
+ *  DIRECT_TOKENIZATION_PUBLIC_KEY 를 업데이트 할 필요가 없습니다.
+ * <li> {@code DIRECT} 통합을 사용하는 경우 지침에 따라 프로토콜 버전과 공개 키를 수정하세요.
  */
 public class Constants {
 
     /**
-     * Changing this to ENVIRONMENT_PRODUCTION will make the API return chargeable card information.
-     * Please refer to the documentation to read about the required steps needed to enable
-     * ENVIRONMENT_PRODUCTION.
+     * ENVIRONMENT_PRODUCTION 으로 변경하면 API에서 청구 가능한 카드 정보를 반환합니다.
+     * ENVIRONMENT_PRODUCTION 을 활성화하는 데 필요한 단계를 읽으려면 설명서를 참조.
      *
      * @value #PAYMENTS_ENVIRONMENT
      */
     public static final int PAYMENTS_ENVIRONMENT = WalletConstants.ENVIRONMENT_TEST;
 
     /**
-     * The allowed networks to be requested from the API. If the user has cards from networks not
-     * specified here in their account, these will not be offered for them to choose in the popup.
+     * API 에서 요청할 수 있는 허용 도니 네트워크.
+     * 사용자의 계정에 여기에 지정되지 않은 네트워크의 카드가있는 경우 팝업 선택항목에 제공되지 않음.
      *
      * @value #SUPPORTED_NETWORKS
      */
@@ -49,8 +48,8 @@ public class Constants {
             "VISA");
 
     /**
-     * The Google Pay API may return cards on file on Google.com (PAN_ONLY) and/or a device token on
-     * an Android device authenticated with a 3-D Secure cryptogram (CRYPTOGRAM_3DS).
+     * Google Pay API 는 Google 에 등록 된 카드를 반환 할 수 있습니다.
+     * com (PAN_ONLY) 및 / 또는 3D 보안 암호화 (CRYPTOGRAM_3DS)로 인증 된 Android 기기의 기기 토큰
      *
      * @value #SUPPORTED_METHODS
      */
