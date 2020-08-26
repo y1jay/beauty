@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Address">
 
-</LinearLayout>
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:navermap_latitude="37.5593"
+        app:navermap_longitude="126.8362133"
+        app:navermap_zoom="16"
+        android:name="com.naver.maps.map.MapFragment" >
+
+<!--        <com.naver.maps.map.widget.ZoomControlView-->
+<!--            android:id="@+id/zoom"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end|bottom"-->
+<!--            android:layout_margin="12dp"-->
+<!--            android:background="#F6B0B0" />-->
+
+    </fragment>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
