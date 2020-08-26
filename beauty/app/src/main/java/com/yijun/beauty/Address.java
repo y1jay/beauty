@@ -46,9 +46,7 @@ public class Address extends AppCompatActivity  implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mapView = googleMap;
 
-      final LatLng main;
-
-       main = new LatLng (37.5593,126.8362133);
+       LatLng main = new LatLng (37.5593,126.8362133);
 
         //지도의 중심으로 잡고 싶은 좌표를 넣어주면 지도의 중심으로 표시된다.
         mapView.addMarker(new MarkerOptions().position(main).title("미인닭발 마곡본점"));
