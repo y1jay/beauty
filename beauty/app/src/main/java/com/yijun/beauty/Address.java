@@ -2,7 +2,11 @@ package com.yijun.beauty;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -10,11 +14,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.yijun.beauty.activity.CheckoutActivity;
 
 public class Address extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+   Button btnReservation;
+   Button btnHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +29,28 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        btnReservation = findViewById(R.id.btnReservation);
+        btnHome = findViewById(R.id.btnHome);
+
+        btnReservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Address.this, CheckoutActivity.class);
+                int add = getIntent().getIntExtra("add",0);
+                if(add==1){
+                    Toast.makeText(Address.this,"로그인 후 사용해주세요",Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    startActivity(i);
+                }
+            }
+        });
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 
