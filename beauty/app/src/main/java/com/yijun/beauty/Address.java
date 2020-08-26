@@ -1,37 +1,58 @@
 package com.yijun.beauty;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.yijun.beauty.activity.CheckoutActivity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+public class Address extends FragmentActivity implements OnMapReadyCallback {
 
-public class Address extends AppCompatActivity  implements OnMapReadyCallback {
-    private GoogleMap mapView;
+    private GoogleMap mMap;
+   Button btnReservation;
+   Button btnHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
-
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.mapView);
+                .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        btnReservation = findViewById(R.id.btnReservation);
+        btnHome = findViewById(R.id.btnHome);
 
-
-
+        btnReservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Address.this, CheckoutActivity.class);
+                int add = getIntent().getIntExtra("add",0);
+                if(add==1){
+                    Toast.makeText(Address.this,"로그인 후 사용해주세요",Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    startActivity(i);
+                }
+            }
+        });
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
 
     /**
      * Manipulates the map once available.
@@ -44,15 +65,15 @@ public class Address extends AppCompatActivity  implements OnMapReadyCallback {
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mapView = googleMap;
+        mMap = googleMap;
 
-       LatLng main = new LatLng (37.5593,126.8362133);
+        final LatLng main;
+
+        main = new LatLng (37.5593,126.8362133);
 
         //지도의 중심으로 잡고 싶은 좌표를 넣어주면 지도의 중심으로 표시된다.
-        mapView.addMarker(new MarkerOptions().position(main).title("미인닭발 마곡본점"));
-        mapView.moveCamera(CameraUpdateFactory.newLatLngZoom(main,16));
+        mMap.addMarker(new MarkerOptions().position(main).title("미인닭발 마곡본점"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(main,16));
 
     }
-
-
 }
