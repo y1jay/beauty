@@ -42,12 +42,6 @@
             android:hint="번호를 입력하세요"
             android:inputType="phone" />
 
-        <Button
-            android:id="@+id/btncheck"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="본인 인증" />
     </LinearLayout>
 
     <LinearLayout

@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class SignUpActivity extends AppCompatActivity {
     EditText edtname;
     EditText edtphoe;
-    Button btncheck;
+
     EditText edtid;
     Button btnidcheck;
     EditText edtpasswd;
@@ -20,9 +20,9 @@ public class SignUpActivity extends AppCompatActivity {
     Button btnpasswdcheck;
     Button btnsignup;
 
-    EditText edtcostomphone;
-    EditText edtcostomphonecheck;
-    Button btncostomphonecheck;
+//    EditText edtcostomphone;
+//    EditText edtcostomphonecheck;
+//    Button btncostomphonecheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,6 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         edtname = findViewById(R.id.edtname);
         edtphoe = findViewById(R.id.edtphone);
-        btncheck = findViewById(R.id.btncheck);
         edtid = findViewById(R.id.edtid);
         btnidcheck = findViewById(R.id.btnidcheck);
         edtpasswd = findViewById(R.id.edtpasswd);
@@ -40,21 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        btncheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String phone = edtphoe.getText().toString().trim();
 
-                if(phone == null){
-                    Toast.makeText(SignUpActivity.this,"핸드폰 번호를 입력하세요",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-
-
-            }
-        });
 
 
         btnidcheck.setOnClickListener(new View.OnClickListener() {

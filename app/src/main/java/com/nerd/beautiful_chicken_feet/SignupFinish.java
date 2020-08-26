@@ -19,6 +19,6 @@ public class SignupFinish extends AppCompatActivity {
         btnfinish = findViewById(R.id.btnfinish);
 
         String email = getIntent().getStringExtra("email");
-        txtfinish.setText(email);
+        txtfinish.setText(email+"님 회원가입 축하합니다!");
     }
 }
