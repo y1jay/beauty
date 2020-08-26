@@ -9,18 +9,13 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be9c3731-a9d6-4f5c-ad4c-7cae77d283c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/CheckoutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/CheckoutActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/PaymentTransparentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/activity/PaymentTransparentActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/utils/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nerd/beautiful_chicken_feet/utils/Json.java" afterDir="false" />
-    </list>
+    <list default="true" id="be9c3731-a9d6-4f5c-ad4c-7cae77d283c2" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="LMQ510NGESKDMJR75H" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ce02171260fb490704" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -78,6 +73,18 @@
       <recent name="C:\Users\Admin\Documents\GitHub\beauty\app\src\main\res" />
       <recent name="C:\Users\Admin\Documents\GitHub\beauty\app\src\main\res\values" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
