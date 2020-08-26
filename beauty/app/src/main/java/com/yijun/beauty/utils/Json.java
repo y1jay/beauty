@@ -21,7 +21,7 @@ public class Json {
      *
      * @param context  실행되는 곳.
      * @param fileName binary 대상을 가리키는 경로.
-     * @return a {@link JSONArray} object with the contents of the stream.
+     * @return a {@link JSONArray} stream 내용이 있는 객체.
      */
     public static JSONArray readFromFile(Context context, String fileName) {
         try {
@@ -37,8 +37,8 @@ public class Json {
      * Loads a resource and creates a {@link JSONArray} object with the contents of the binary.
      * (= 리소스를로드하고 바이너리 콘텐츠로 {@link JSONArray} 객체를 만든다.)
      *
-     * @param context  where the execution is taking place.
-     * @param resource identifier of the binary in the resource folders.
+     * @param context  실행되는 곳.
+     * @param resource 리소스 폴더의 바이너리 식별자.
      * @return a {@link JSONArray} object with the contents of the stream.
      */
     public static JSONArray readFromResources(Context context, int resource) {
@@ -52,8 +52,8 @@ public class Json {
     }
 
     /**
-     * Create a {@link JSONArray} with the contents of an {@link InputStream} holding
-     * JSON information.
+     *
+     * {@link InputStream} 보유의 콘텐츠로 {@link JSONArray}를 만듭니다. JSON 정보.
      *
      * @param inputStream containing the JSON bytes.
      * @return a {@link JSONArray} object with the contents of the stream.
