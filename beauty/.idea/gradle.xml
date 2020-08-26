@@ -6,12 +6,15 @@
         <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+<<<<<<< Updated upstream
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
+=======
+>>>>>>> Stashed changes
         <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
