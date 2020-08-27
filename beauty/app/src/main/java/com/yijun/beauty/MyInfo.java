@@ -17,6 +17,12 @@ import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,7 +68,18 @@ public class MyInfo extends AppCompatActivity {
                         txt_nick_name.setText("닉네임 : "+nick_name);
                         txt_name.setText("이름 : "+name);
                         txt_phone.setText("전화번호 : "+phone);
-                        txt_created_at.setText("가입날짜 : "+created_at);
+
+                        SimpleDateFormat df = new SimpleDateFormat("YYYY-mm-dd", Locale.getDefault());
+                        df.setTimeZone(TimeZone.getTimeZone("UTC"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
+                        try {
+                            Date date = df.parse(created_at);
+                            df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
+                            String strDate = df.format(date);
+                            txt_created_at.setText("가입날짜 : "+strDate);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 }
             }
