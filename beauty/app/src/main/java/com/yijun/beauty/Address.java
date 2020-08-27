@@ -59,8 +59,7 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Address.this, MainActivity.class);
-                startActivity(i);
+               finish();
             }
         });
 
