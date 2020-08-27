@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, SignUpActivity.class);
+                finish();
                 startActivity(i);
             }
         });
