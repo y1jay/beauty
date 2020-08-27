@@ -96,6 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
                 });
                 }
         });
+
         btnpasswdcheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,7 +144,7 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 } else if (passwdcheck!=passwd){
                 Toast.makeText(SignUpActivity.this,"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();
-                return;
+//                return;
             }
 
                 UserReq userReq = new UserReq(name,nick_name,passwd,phone);

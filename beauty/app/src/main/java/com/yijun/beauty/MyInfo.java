@@ -34,6 +34,7 @@ public class MyInfo extends AppCompatActivity {
     TextView txt_name;
     TextView txt_phone;
     TextView txt_created_at;
+    Button btn_update;
     Button btn_die;
     SharedPreferences sp;
 
@@ -46,6 +47,8 @@ public class MyInfo extends AppCompatActivity {
         txt_name = findViewById(R.id.txt_name);
         txt_phone = findViewById(R.id.txt_phone);
         txt_created_at = findViewById(R.id.txt_created_at);
+        btn_die = findViewById(R.id.btn_die);
+        btn_update = findViewById(R.id.btn_update);
 
 
         sp=getSharedPreferences(
@@ -91,7 +94,6 @@ public class MyInfo extends AppCompatActivity {
         });
 
 
-        btn_die = findViewById(R.id.btn_die);
         btn_die.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
