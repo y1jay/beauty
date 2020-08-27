@@ -7,8 +7,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.naver.maps.geometry.LatLng;
@@ -20,17 +24,45 @@ import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.MarkerIcons;
+import com.yijun.beauty.activity.CheckoutActivity;
 
 import java.util.Map;
 
 public class Address extends FragmentActivity implements OnMapReadyCallback {
+
+    Button btn_reservation;
+    Button btn_home;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
 
+        btn_reservation = findViewById(R.id.btn_reservation);
+        btn_home = findViewById(R.id.btn_home);
 
+        btn_reservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              int add = getIntent().getIntExtra("add",0);
+              if (add==1){
+                  Toast.makeText(Address.this,"로그인 후 이용가능합니다.", Toast.LENGTH_SHORT).show();
+                  return;
+              }
+              if (add == 3){
+                  Intent i = new Intent(Address.this, CheckoutActivity.class);
+                  startActivity(i);
+              }
+            }
+        });
+
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Address.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         FragmentManager fm = getSupportFragmentManager();
         MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);

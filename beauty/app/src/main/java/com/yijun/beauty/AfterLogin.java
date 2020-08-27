@@ -42,6 +42,7 @@ Button address;
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AfterLogin.this,Address.class);
+                i.putExtra("add",3);
                 startActivity(i);
             }
         });
