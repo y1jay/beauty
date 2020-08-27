@@ -50,7 +50,7 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
                   return;
               }
               if (add == 3){
-                  Intent i = new Intent(Address.this, CheckoutActivity.class);
+                  Intent i = new Intent(Address.this, Reservation.class);
                   startActivity(i);
               }
             }

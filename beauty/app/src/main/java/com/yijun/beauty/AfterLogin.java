@@ -34,7 +34,7 @@ Button address;
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AfterLogin.this, CheckoutActivity.class);
+                Intent i = new Intent(AfterLogin.this, Reservation.class);
                 startActivity(i);
             }
         });
