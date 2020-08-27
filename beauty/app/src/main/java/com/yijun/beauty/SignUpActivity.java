@@ -15,6 +15,10 @@ import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 
 public class SignUpActivity extends AppCompatActivity {
