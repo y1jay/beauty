@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.ID;
+import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
@@ -273,12 +274,11 @@ public class MainActivity extends AppCompatActivity {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
                             // response.body() 가 UserRes.이다.
-
                             String ID = response.body().getID();
                             Log.i("AAAAA","id : "+ID);
-                            Toast.makeText(MainActivity.this,"고객님의 아이디는 "+ID+" 입니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"고객님의 아이디는 "+ID+" 입니다.",Toast.LENGTH_LONG).show();
 
-                            dialog.cancel();
+                            dialog1.cancel();
                         } else if (response.isSuccessful()==false){
                             Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
 
@@ -340,6 +340,31 @@ public class MainActivity extends AppCompatActivity {
                    Toast.makeText(MainActivity.this,"새로운 패스워드를 입력해주세요",Toast.LENGTH_SHORT).show();
                    return;
                }
+               UserReq userReq = new UserReq(name,id,phone);
+
+               Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+               UserApi userApi = retrofit.create(UserApi.class);
+
+               Call<UserCheck> call = userApi.setPasswd(userReq, newpass);
+               call.enqueue(new Callback<UserCheck>() {
+                   @Override
+                   public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                       // 상태코드가 200 인지 확인
+                       if (response.isSuccessful()){
+                           Toast.makeText(MainActivity.this,"비밀번호가 변경되었습니다.",Toast.LENGTH_SHORT).show();
+                           dialog2.cancel();
+                       }else if(response.isSuccessful()==false){
+                           Toast.makeText(MainActivity.this,"다시 입력해주세요",Toast.LENGTH_SHORT).show();
+                           passName.setText("");
+                           passID.setText("");
+                           passPhone.setText("");
+                           newPass.setText("");
+                       }
+                   }
+                   @Override
+                   public void onFailure(Call<UserCheck> call, Throwable t) {
+                   }
+               });
 
            }
        });

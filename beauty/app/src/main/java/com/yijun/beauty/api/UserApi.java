@@ -13,8 +13,11 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 public interface UserApi {
     // http 메소드와 경로 설정
@@ -37,4 +40,9 @@ public interface UserApi {
 
  @POST("/api/v1/user/findId")
   Call<ID> findID (@Body UserReq userReq);
+
+ @PUT("/api/v1/user/findPasswd")
+    Call<UserCheck> setPasswd(@Body UserReq userReq,
+                              @Query("new_passwd") String new_passwd);
+
 }
