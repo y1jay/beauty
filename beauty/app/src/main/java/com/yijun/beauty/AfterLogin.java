@@ -109,7 +109,8 @@ Button address;
         int id = item.getItemId();
 
         if (id == R.id.myInfo){
-
+            Intent i = new Intent(AfterLogin.this, MyInfo.class);
+            startActivity(i);
             return true;
         }else if (id == R.id.reservation_check){
 
