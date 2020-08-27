@@ -34,11 +34,28 @@ public class MainActivity extends AppCompatActivity {
     Button address;
     Button signUp;
     private AlertDialog dialog;
+    private AlertDialog dialog1;
+    private AlertDialog dialog2;
     EditText editID;
     EditText editPasswd;
     TextView txtNO ;
     TextView txtYES;
+    TextView find_id;
+    TextView find_pass;
+    EditText findPhone;
+    EditText findPasswd;
+    EditText findName;
     CheckBox Auto;
+
+    EditText passName;
+    EditText passID;
+    EditText passPhone;
+    EditText newPass;
+    Button btnSet;
+    Button btnIDNO;
+    Button btnPASSNO;
+
+    Button find;
     SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putString("token", token);
             editor.putBoolean("auto_login",true);
             editor.apply();
+            a.putExtra("key",1);
             startActivity(a);
             finish();
 
@@ -93,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, SignUpActivity.class);
+                finish();
                 startActivity(i);
             }
         });
@@ -114,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
         txtNO = alertView.findViewById(R.id.txtNO);
         txtYES = alertView.findViewById(R.id.txtYES);
          Auto = alertView.findViewById(R.id.Auto);
+        find_id = alertView.findViewById(R.id.find_id);
+        find_pass = alertView.findViewById(R.id.find_pass);
 
 
         txtYES.setOnClickListener(new View.OnClickListener() {
@@ -190,11 +211,21 @@ public class MainActivity extends AppCompatActivity {
         txtNO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.cancel();
+               dialog.cancel();
             }
         });
-
-
+        find_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            find_idPopupDialog();
+            }
+        });
+        find_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              find_passPopupDialog();
+            }
+        });
 
 
         alert.setView(alertView);
@@ -202,5 +233,68 @@ public class MainActivity extends AppCompatActivity {
         dialog=alert.create();
         dialog.setCancelable(false);
         dialog.show();
+    }
+    public void find_idPopupDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder
+                (MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.find_id,null);
+        findName = alertView.findViewById(R.id.findName);
+        findPhone = alertView.findViewById(R.id.findPhone);
+        findPasswd = alertView.findViewById(R.id.findPasswd);
+        find = alertView.findViewById(R.id.btnFind);
+        btnIDNO = alertView.findViewById(R.id.btnIDNO);
+
+        find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               String findname = findName.getText().toString().trim();
+               
+            }
+        });
+
+
+
+        btnIDNO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.cancel();
+            }
+        });
+        alert.setView(alertView);
+
+        dialog1=alert.create();
+        dialog1.setCancelable(false);
+        dialog1.show();
+    }
+    public void find_passPopupDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder
+                (MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.find_pass,null);
+        passName = alertView.findViewById(R.id.passName);
+        passID= alertView.findViewById(R.id.passID);
+        passPhone= alertView.findViewById(R.id.passPhone);
+        newPass= alertView.findViewById(R.id.newPass);
+         btnSet= alertView.findViewById(R.id.btnSet);
+       btnPASSNO = alertView.findViewById(R.id.btnPASSNO);
+
+       btnSet.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+
+
+       btnPASSNO.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               dialog2.cancel();
+           }
+       });
+        alert.setView(alertView);
+
+        dialog2=alert.create();
+        dialog2.setCancelable(false);
+        dialog2.show();
     }
 }
