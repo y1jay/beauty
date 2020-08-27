@@ -44,7 +44,7 @@ public interface UserApi {
  @POST("/api/v1/user/findId")
   Call<ID> findID (@Body FindReq findReq);
 
- @POST("/api/v1/user/findPasswd")
+ @PUT("/api/v1/user/findPasswd")
     Call<UserCheck> setPasswd(@Body UserReq userReq,
                               @Query("new_passwd") String new_passwd);
 
