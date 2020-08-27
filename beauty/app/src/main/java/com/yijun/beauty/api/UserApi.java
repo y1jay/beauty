@@ -30,4 +30,7 @@ public interface UserApi {
 
   @DELETE("/api/v1/user/logout")
   Call<UserRes> logoutUser (@Header("Authorization") String token);
+
+  @DELETE("/api/v1/user/del")
+  Call<UserRes> delUser (@Header("Authorization") String token);
 }

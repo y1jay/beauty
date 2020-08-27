@@ -5,7 +5,7 @@
         android:title="@string/send_notification" />
     <item
         android:id="@+id/myInfo"
-        android:title="내 정보 보기"/>
+        android:title="내 정보 보기" />
     <item
         android:id="@+id/reservation_check"
         android:title="주문기록 보기" />

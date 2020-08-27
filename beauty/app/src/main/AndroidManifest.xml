@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yijun.beauty">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -16,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Reservation"></activity>
+        <activity android:name=".activity.ReservationRecord"></activity>
+        <activity android:name=".MyInfo" />
+        <activity android:name=".Reservation" />
         <activity android:name=".Address" />
 
         <meta-data
