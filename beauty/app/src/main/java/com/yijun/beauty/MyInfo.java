@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
 
@@ -21,6 +23,10 @@ import retrofit2.Retrofit;
 
 public class MyInfo extends AppCompatActivity {
 
+    TextView txt_nick_name;
+    TextView txt_name;
+    TextView txt_phone;
+    TextView txt_created_at;
     Button btn_die;
     SharedPreferences sp;
 
@@ -29,7 +35,45 @@ public class MyInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_info);
 
+        txt_nick_name = findViewById(R.id.txt_nick_name);
+        txt_name = findViewById(R.id.txt_name);
+        txt_phone = findViewById(R.id.txt_phone);
+        txt_created_at = findViewById(R.id.txt_created_at);
         btn_die = findViewById(R.id.btn_die);
+
+        sp=getSharedPreferences(
+                Utils.PREFERENCES_NAME,MODE_PRIVATE);
+        final String token = sp.getString("token",null);
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+        UserApi userApi = retrofit.create(UserApi.class);
+        Call<Rows> call = userApi.myInfo("Bearer "+token);
+        call.enqueue(new Callback<Rows>() {
+            @Override
+            public void onResponse(Call<Rows> call, Response<Rows> response) {
+                if (response.isSuccessful()){
+                    if (response.body().isSuccess()){
+                        String nick_name = response.body().getNick_name();
+                        String name = response.body().getName();
+                        String phone = response.body().getPhone();
+                        String created_at = response.body().getCreated_at();
+
+                        txt_nick_name.setText(nick_name);
+                        txt_name.setText(name);
+                        txt_phone.setText(phone);
+                        txt_created_at.setText(created_at);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Rows> call, Throwable t) {
+
+            }
+        });
+
+
+
         btn_die.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
