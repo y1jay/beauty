@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Intent i = new Intent(MainActivity.this,LodingActivity.class);
         int key = getIntent().getIntExtra("key",0);
         if(key==1){
