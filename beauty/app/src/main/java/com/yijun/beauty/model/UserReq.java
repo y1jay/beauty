@@ -9,11 +9,6 @@ public class UserReq {
     public UserReq() {
     }
 
-    public UserReq(String name, String passwd, String phone) {
-        this.name = name;
-        this.passwd = passwd;
-        this.phone = phone;
-    }
 
     public UserReq(String nick_name, String passwd) {
         this.nick_name = nick_name;
