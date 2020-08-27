@@ -42,9 +42,11 @@
         android:text="TextView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_die"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원탈퇴" />
+        android:background="@drawable/button"
+        android:text="회원탈퇴"
+        android:textSize="18sp" />
 
 </LinearLayout>

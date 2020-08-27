@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.yijun.beauty.activity.CheckoutActivity;
+import com.yijun.beauty.activity.ReservationRecord;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserRes;
@@ -109,10 +110,12 @@ Button address;
         int id = item.getItemId();
 
         if (id == R.id.myInfo){
-
+            Intent i = new Intent(AfterLogin.this, MyInfo.class);
+            startActivity(i);
             return true;
         }else if (id == R.id.reservation_check){
-
+            Intent i = new Intent(AfterLogin.this, ReservationRecord.class);
+            startActivity(i);
             return true;
         }
 
