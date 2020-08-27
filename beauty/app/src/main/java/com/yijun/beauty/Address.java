@@ -59,8 +59,7 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Address.this, MainActivity.class);
-                startActivity(i);
+               finish();
             }
         });
 
@@ -80,9 +79,9 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
 
         LatLng coord = new LatLng(37.560296, 126.838154);
 
-        Toast.makeText(Address.this,
-                "위도: " + coord.latitude + ", 경도: " + coord.longitude,
-                Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Address.this,
+//                "위도: " + coord.latitude + ", 경도: " + coord.longitude,
+//                Toast.LENGTH_SHORT).show();
         naverMap.setLayerGroupEnabled(NaverMap.LAYER_GROUP_TRANSIT, true);
         naverMap.setLayerGroupEnabled(NaverMap.LAYER_GROUP_BUILDING, true);
 

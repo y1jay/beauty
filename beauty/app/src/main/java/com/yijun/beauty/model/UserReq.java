@@ -5,8 +5,16 @@ public class UserReq {
     private String nick_name;
     private String passwd;
     private String phone;
+    private String created_at;
 
     public UserReq() {
+    }
+
+    public UserReq(String nick_name, String name, String phone, String created_at){
+        this.name = name;
+        this.nick_name = nick_name;
+        this.phone = phone;
+        this.created_at = created_at;
     }
 
     public UserReq(String nick_name, String passwd) {
@@ -16,13 +24,6 @@ public class UserReq {
 
     public UserReq(String nick_name) {
         this.nick_name = nick_name;
-    }
-
-    public UserReq(String name, String nick_name, String passwd, String phone) {
-        this.name = name;
-        this.nick_name = nick_name;
-        this.passwd = passwd;
-        this.phone = phone;
     }
 
 
@@ -56,5 +57,13 @@ public class UserReq {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 }
