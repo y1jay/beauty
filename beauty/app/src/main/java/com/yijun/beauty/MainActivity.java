@@ -48,21 +48,24 @@ public class MainActivity extends AppCompatActivity {
         int key = getIntent().getIntExtra("key",0);
         if(key==1){
 
-        }else {
+        }else{
             startActivity(i);
         }
 
         sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
-        String token = sp.getString("token",null);
         boolean auto_login = sp.getBoolean("auto_login",false);
         if (auto_login==true){
             Intent a = new Intent(MainActivity.this,AfterLogin.class);
-            i.putExtra("token",token);
-
+            sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
+            String token = sp.getString("token",null);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("token", token);
+            editor.putBoolean("auto_login",true);
+            editor.apply();
             startActivity(a);
             finish();
 
-        }else{
+        }else if (auto_login == false){
         }
         reservation = findViewById(R.id.reservation);
         login = findViewById(R.id.login);
