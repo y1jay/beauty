@@ -141,7 +141,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }else if (passwd.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"비밀번호를 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
-                } else if (passwdcheck.isEmpty()){
+                } else if (passwdcheck!=passwd){
                 Toast.makeText(SignUpActivity.this,"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();
                 return;
             }

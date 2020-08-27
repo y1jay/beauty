@@ -175,8 +175,7 @@ public class MainActivity extends AppCompatActivity {
                               SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                               SharedPreferences.Editor editor = sp.edit();
                               editor.putString("token", token);
-                              editor.putString("ID",nick_name);
-                              editor.putString("passwd",passwd);
+
                               editor.apply();
 
                             Intent i = new Intent(MainActivity.this,AfterLogin.class);
