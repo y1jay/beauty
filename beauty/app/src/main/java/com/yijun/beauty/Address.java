@@ -62,8 +62,8 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         Marker parkingMarker = new Marker();
         parkingMarker.setPosition(new LatLng(37.560348, 126.838154));
         parkingMarker.setCaptionText("미인닭발 주차장입구");
-        parkingMarker.setCaptionColor(Color.BLACK);
-        parkingMarker.setIcon(MarkerIcons.BLACK);
+        parkingMarker.setCaptionColor(Color.BLUE);
+        parkingMarker.setIcon(MarkerIcons.LIGHTBLUE);
         parkingMarker.setMap(naverMap);
 
     }

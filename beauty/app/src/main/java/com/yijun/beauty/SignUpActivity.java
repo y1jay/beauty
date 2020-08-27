@@ -3,7 +3,6 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +14,6 @@ import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
-import com.yijun.beauty.utils.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;

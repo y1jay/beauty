@@ -2,7 +2,7 @@ package com.yijun.beauty.api;
 
 import android.content.Context;
 
-import com.yijun.beauty.utils.Utils;
+import com.yijun.beauty.url.Utils;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

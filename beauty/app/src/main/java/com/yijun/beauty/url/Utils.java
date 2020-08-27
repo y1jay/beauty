@@ -1,4 +1,4 @@
-package com.yijun.beauty.utils;
+package com.yijun.beauty.url;
 
 public class Utils {
 
