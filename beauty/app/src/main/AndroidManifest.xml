@@ -21,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Reservation"></activity>
+        <activity android:name=".MyInfo"></activity>
+        <activity android:name=".Reservation" />
         <activity android:name=".Address" />
 
         <meta-data
