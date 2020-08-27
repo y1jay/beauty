@@ -2,12 +2,7 @@ package com.yijun.beauty;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
-import android.os.Bundle;
 
-public class MyInfo extends AppCompatActivity {
-
-=======
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,16 +22,15 @@ import retrofit2.Retrofit;
 
 public class MyInfo extends AppCompatActivity {
 
+
     Button btn_die;
     SharedPreferences sp;
 
->>>>>>> test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_info);
-<<<<<<< HEAD
-=======
+
 
         btn_die = findViewById(R.id.btn_die);
         btn_die.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +70,5 @@ public class MyInfo extends AppCompatActivity {
             }
         });
 
->>>>>>> test
     }
 }

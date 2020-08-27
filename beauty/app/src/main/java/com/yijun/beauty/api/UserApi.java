@@ -1,6 +1,7 @@
 package com.yijun.beauty.api;
 
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
@@ -33,4 +34,7 @@ public interface UserApi {
 
   @DELETE("/api/v1/user/del")
   Call<UserRes> delUser (@Header("Authorization") String token);
+
+ @POST("/api/v1/user/findId")
+  Call<ID> findID (@Body UserReq userReq);
 }
