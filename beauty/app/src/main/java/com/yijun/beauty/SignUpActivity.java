@@ -11,11 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.twiml.MessagingResponse;
-import com.twilio.twiml.messaging.Body;
-import com.twilio.type.PhoneNumber;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
@@ -28,8 +23,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-import static spark.Spark.get;
-import static spark.Spark.post;
 
 
 public class SignUpActivity extends AppCompatActivity {
