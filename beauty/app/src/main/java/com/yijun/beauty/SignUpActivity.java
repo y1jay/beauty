@@ -133,7 +133,8 @@ public class SignUpActivity extends AppCompatActivity {
                 if (name.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"이름를 입력해주세요",Toast.LENGTH_SHORT).show();
                   return;
-                }else if (phone.isEmpty()){
+                }
+                else if (phone.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
                 }else if (nick_name.isEmpty()){
