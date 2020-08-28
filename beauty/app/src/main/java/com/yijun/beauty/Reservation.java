@@ -281,6 +281,74 @@ public class Reservation extends AppCompatActivity {
 
         btn_payment = findViewById(R.id.btn_payment);
 
+        if(checkmainmenu1.isChecked()){
+            String mainmenu1 = txtmain1.getText().toString();
+            String pay1  = paymain1.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu1",mainmenu1);
+            i.putExtra("pay1",pay1);
+            startActivity(i);
+        }
+
+        if(checkmainmenu2.isChecked()){
+            String mainmenu2 = txtmain2.getText().toString();
+            String pay2  = paymain2.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu2",mainmenu2);
+            i.putExtra("pay2",pay2);
+            startActivity(i);
+        }
+
+        if(checkmainmenu3.isChecked()){
+            String mainmenu3 = txtmain3.getText().toString();
+            String pay3  = paymain3.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu3",mainmenu3);
+            i.putExtra("pay3",pay3);
+            startActivity(i);
+        }
+
+        if(checkmainmenu4.isChecked()){
+            String mainmenu4 = txtmain4.getText().toString();
+            String pay4  = paymain4.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu4",mainmenu4);
+            i.putExtra("pay4",pay4);
+            startActivity(i);
+        }
+
+        if(checkmainmenu5.isChecked()){
+            String mainmenu5 = txtmain5.getText().toString();
+            String pay5  = paymain5.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu5",mainmenu5);
+            i.putExtra("pay5",pay5);
+            startActivity(i);
+        }
+
+        if(checkmainmenu6.isChecked()){
+            String mainmenu6 = txtmain6.getText().toString();
+            String pay6 = paymain6.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu6",mainmenu6);
+            i.putExtra("pay6",pay6);
+            startActivity(i);
+        }
+
+        if(checksetmenu1.isChecked()){
+            String set1 = txtset1.getText().toString();
+            String paymenuset1 = payset1.getText().toString();
+            
+        }
+
+
+
 
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
