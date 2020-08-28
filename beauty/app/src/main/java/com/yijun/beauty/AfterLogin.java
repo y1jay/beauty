@@ -36,7 +36,13 @@ Button address;
         logout = findViewById(R.id.logout);
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
+        int key = getIntent().getIntExtra("key",0);
+if (key==1){
+    Intent i = new Intent(AfterLogin.this,LodingActivity.class);
+    startActivity(i);
+}else{
 
+}
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,5 +124,13 @@ Button address;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
+
     }
 }

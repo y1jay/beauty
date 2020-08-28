@@ -1,6 +1,7 @@
 package com.yijun.beauty.api;
 
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
@@ -19,7 +20,6 @@ import retrofit2.http.Part;
 public interface UserApi {
     // http 메소드와 경로 설정
   @POST("/api/v1/user/add")
-
     Call<UserRes> createUser(@Body UserReq userReq);
 
   @POST("/api/v1/user/login")
@@ -35,6 +35,9 @@ public interface UserApi {
   @DELETE("/api/v1/user/del")
   Call<UserRes> delUser (@Header("Authorization") String token);
 
-  @GET("/api/v1/user/me")
+  @GET("/api/v1/user/myInfo")
   Call<Rows> myInfo (@Header("Authorization") String token);
+
+ @POST("/api/v1/user/findId")
+  Call<ID> findID (@Body UserReq userReq);
 }
