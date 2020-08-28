@@ -82,7 +82,7 @@
                                           주먹밥(소)+계란찜(소)+음료" />
 
                         <TextView
-                            android:id="@+id/textView599"
+                            android:id="@+id/paymain1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -140,7 +140,7 @@
                             android:text="안주 1가지 이상 주문시 12000원, 곁들임 안주 제외" />
 
                         <TextView
-                            android:id="@+id/textView88"
+                            android:id="@+id/paymain2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -188,7 +188,7 @@
                             android:text="불닭볶음탕(2~3인분)" />
 
                         <TextView
-                            android:id="@+id/textView12"
+                            android:id="@+id/paymain3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -248,7 +248,7 @@
                             android:text="보통맛/매운맛치즈사리 3,000원" />
 
                         <TextView
-                            android:id="@+id/textView144"
+                            android:id="@+id/paymain4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -306,7 +306,7 @@
                             android:text="우동사리 곱배기 추가 +2,000원" />
 
                         <TextView
-                            android:id="@+id/textView188"
+                            android:id="@+id/paymain5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -356,7 +356,7 @@
                             android:text="오돌뼈" />
 
                         <TextView
-                            android:id="@+id/textView20"
+                            android:id="@+id/paymain6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -408,7 +408,7 @@
                 android:text="불닭볶음탕+계란찜+날치알주먹밥" />
 
                 <TextView
-                    android:id="@+id/textView222"
+                    android:id="@+id/payset1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -450,7 +450,7 @@
                     android:text="오돌뼈+계란찜+날치알주먹밥+식혜 175mL" />
 
                 <TextView
-                    android:id="@+id/textView224"
+                    android:id="@+id/payset2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -498,7 +498,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView247"
+                        android:id="@+id/paysetsmall3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -508,7 +508,7 @@
                         android:text="22,000원" />
 
                     <TextView
-                        android:id="@+id/textView237"
+                        android:id="@+id/paysetmedium3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -518,7 +518,7 @@
                         android:text="30,000원" />
 
                     <TextView
-                        android:id="@+id/textView227"
+                        android:id="@+id/paysetbig3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -590,7 +590,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView2417"
+                        android:id="@+id/paysetsmall4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -600,7 +600,7 @@
                         android:text="23,000원" />
 
                     <TextView
-                        android:id="@+id/textView2317"
+                        android:id="@+id/paysetmedium4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -610,7 +610,7 @@
                         android:text="31,000원" />
 
                     <TextView
-                        android:id="@+id/textView2127"
+                        android:id="@+id/paysetbig4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -682,7 +682,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView2471"
+                        android:id="@+id/paysetsmall5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -692,7 +692,7 @@
                         android:text="28,000원" />
 
                     <TextView
-                        android:id="@+id/textView2137"
+                        android:id="@+id/paysetmedium5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -702,7 +702,7 @@
                         android:text="36,000원" />
 
                     <TextView
-                        android:id="@+id/textView1227"
+                        android:id="@+id/paysetbig5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -774,7 +774,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView2447"
+                        android:id="@+id/paysetsmall6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -784,7 +784,7 @@
                         android:text="29,000원" />
 
                     <TextView
-                        android:id="@+id/textView2374"
+                        android:id="@+id/paysetmedium6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -865,7 +865,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView11247"
+                        android:id="@+id/paysetsmall7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -875,7 +875,7 @@
                         android:text="39,000원" />
 
                     <TextView
-                        android:id="@+id/textView11237"
+                        android:id="@+id/paysetmedium7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -937,7 +937,7 @@
                     android:text="치즈떡볶이+계란찜+날치알주먹밥+식혜 175mL" />
 
                 <TextView
-                    android:id="@+id/textView4111"
+                    android:id="@+id/payset8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -989,7 +989,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView24147"
+                        android:id="@+id/paymenusmall1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -999,7 +999,7 @@
                         android:text="17,000원" />
 
                     <TextView
-                        android:id="@+id/textView23174"
+                        android:id="@+id/paymenumedium1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1009,7 +1009,7 @@
                         android:text="25,000원" />
 
                     <TextView
-                        android:id="@+id/textView21247"
+                        android:id="@+id/paymenubig1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1071,7 +1071,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView2413447"
+                        android:id="@+id/paymenusmall2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1081,7 +1081,7 @@
                         android:text="18,000원" />
 
                     <TextView
-                        android:id="@+id/textView2343174"
+                        android:id="@+id/paymenumedium2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1091,7 +1091,7 @@
                         android:text="27,000원" />
 
                     <TextView
-                        android:id="@+id/textView2231247"
+                        android:id="@+id/paymenubig2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1151,7 +1151,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/text23View24147"
+                        android:id="@+id/paymenusmall3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1161,7 +1161,7 @@
                         android:text="23,000원" />
 
                     <TextView
-                        android:id="@+id/textView2233174"
+                        android:id="@+id/paymenumedium3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1217,7 +1217,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textVi1ew24147"
+                        android:id="@+id/paymenusmall4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1227,7 +1227,7 @@
                         android:text="16,000원" />
 
                     <TextView
-                        android:id="@+id/textV1iew23174"
+                        android:id="@+id/paymenumedium4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1237,7 +1237,7 @@
                         android:text="24,000원" />
 
                     <TextView
-                        android:id="@+id/te1xtView21247"
+                        android:id="@+id/paymenubig4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1297,7 +1297,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView24324147"
+                        android:id="@+id/paymenusmall5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1307,7 +1307,7 @@
                         android:text="17,000원" />
 
                     <TextView
-                        android:id="@+id/textView23123474"
+                        android:id="@+id/paymenumedium5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1317,7 +1317,7 @@
                         android:text="25,000원" />
 
                     <TextView
-                        android:id="@+id/textView2124724"
+                        android:id="@+id/paymenubig5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1389,7 +1389,7 @@
                             android:text="닭똥집" />
 
                         <TextView
-                            android:id="@+id/textView55"
+                            android:id="@+id/paymenu6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1423,7 +1423,7 @@
                     android:text="오뎅탕" />
 
                 <TextView
-                    android:id="@+id/textView58"
+                    android:id="@+id/paymenu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1471,7 +1471,7 @@
                     android:text="계란찜" />
 
                 <TextView
-                    android:id="@+id/textView60"
+                    android:id="@+id/payside1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1503,7 +1503,7 @@
                     android:text="아이스황도" />
 
                 <TextView
-                    android:id="@+id/textView62"
+                    android:id="@+id/payside2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="5,000원" />
@@ -1532,7 +1532,7 @@
                     android:text="참치마요주먹밥" />
 
                 <TextView
-                    android:id="@+id/textView64"
+                    android:id="@+id/payside3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1564,7 +1564,7 @@
                     android:text="날치알주먹밥" />
 
                 <TextView
-                    android:id="@+id/textView67"
+                    android:id="@+id/payside4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1614,7 +1614,7 @@
                     android:text="쿨피스(450ml)" />
 
                 <TextView
-                    android:id="@+id/textView71"
+                    android:id="@+id/paydrink1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1646,7 +1646,7 @@
                     android:text="콜라(뚱캔)" />
 
                 <TextView
-                    android:id="@+id/textView73"
+                    android:id="@+id/paydrink2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1678,7 +1678,7 @@
                     android:text="스프라이트(뚱캔)" />
 
                 <TextView
-                    android:id="@+id/textView75"
+                    android:id="@+id/paydrink3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"

@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.yijun.beauty.activity.CheckoutActivity;
 
 public class Reservation extends AppCompatActivity {
 
     Button btn_payment;
+
     CheckBox checkmainmenu1;
     CheckBox checkmainmenu2;
     CheckBox checkmainmenu3;
@@ -59,6 +61,88 @@ public class Reservation extends AppCompatActivity {
     CheckBox checkdrink1;
     CheckBox checkdrink2;
     CheckBox checkdrink3;
+
+    TextView txtmain1;
+    TextView txtmain2;
+    TextView txtmain3;
+    TextView txtmain4;
+    TextView txtmain5;
+    TextView txtmain6;
+    TextView txtset1;
+    TextView txtset2;
+    TextView txtset3;
+    TextView txtset4;
+    TextView txtset5;
+    TextView txtset6;
+    TextView txtset7;
+    TextView txtset8;
+    TextView txtmenu1;
+    TextView txtmenu2;
+    TextView txtmenu3;
+    TextView txtmenu4;
+    TextView txtmenu5;
+    TextView txtmenu6;
+    TextView txtmenu7;
+    TextView txtside1;
+    TextView txtside2;
+    TextView txtside3;
+    TextView txtside4;
+    TextView txtdrink1;
+    TextView txtdrink2;
+    TextView txtdrink3;
+
+    TextView paymain1;
+    TextView paymain2;
+    TextView paymain3;
+    TextView paymain4;
+    TextView paymain5;
+    TextView paymain6;
+    TextView payset1;
+    TextView payset2;
+    TextView paysetsmall3;
+    TextView paysetmedium3;
+    TextView paysetbig3;
+    TextView paysetsmall4;
+    TextView paysetmedium4;
+    TextView paysetbig4;
+    TextView paysetsmall5;
+    TextView paysetmedium5;
+    TextView paysetbig5;
+    TextView paysetsmall6;
+    TextView paysetmedium6;
+    TextView paysetbig6;
+    TextView paysetsmall7;
+    TextView paysetmedium7;
+    TextView paysetbig7;
+    TextView payset8;
+    TextView paymenusmall1;
+    TextView paymenumedium1;
+    TextView paymenubig1;
+    TextView paymenusmall2;
+    TextView paymenumedium2;
+    TextView paymenubig2;
+    TextView paymenusmall3;
+    TextView paymenumedium3;
+    TextView paymenusmall4;
+    TextView paymenumedium4;
+    TextView paymenubig4;
+    TextView paymenusmall5;
+    TextView paymenumedium5;
+    TextView paymenubig5;
+    TextView paymenu6;
+    TextView paymenu7;
+    TextView payside1;
+    TextView payside2;
+    TextView payside3;
+    TextView payside4;
+    TextView paydrink1;
+    TextView paydrink2;
+    TextView paydrink3;
+
+
+
+
+
 
 
 
@@ -117,6 +201,44 @@ public class Reservation extends AppCompatActivity {
         checkdrink1 = findViewById(R.id.checkdrink1);
         checkdrink2 = findViewById(R.id.checkdrink2);
         checkdrink3 = findViewById(R.id.checkdrink3);
+
+        txtmain1 = findViewById(R.id.txtmain1);
+        txtmain2 = findViewById(R.id.txtmain2);
+        txtmain3 = findViewById(R.id.txtmain3);
+        txtmain4 = findViewById(R.id.txtmain4);
+        txtmain5 =findViewById(R.id.txtmain5);
+        txtmain5 = findViewById(R.id.txtmain5);
+        txtmain6 = findViewById(R.id.txtmain6);
+        txtset1 = findViewById(R.id.txtset1);
+        txtset2 = findViewById(R.id.txtset2);
+        txtset3 = findViewById(R.id.txtset3);
+        txtset4 = findViewById(R.id.txtset4);
+        txtset5 = findViewById(R.id.txtset5);
+        txtset6 = findViewById(R.id.txtset6);
+        txtset7 = findViewById(R.id.txtset7);
+        txtset8 = findViewById(R.id.txtset8);
+        txtmenu1 = findViewById(R.id.txtmenu1);
+        txtmenu2 = findViewById(R.id.txtmenu2);
+        txtmenu3 = findViewById(R.id.txtmenu3);
+        txtmenu4 =findViewById(R.id.txtmenu4);
+        txtmenu5 = findViewById(R.id.txtmenu5);
+        txtmenu6 = findViewById(R.id.txtmenu6);
+        txtmenu7 = findViewById(R.id.txtmenu7);
+        txtside1 = findViewById(R.id.txtside1);
+        txtside2 = findViewById(R.id.txtside2);
+        txtside3 = findViewById(R.id.txtside3);
+        txtside4 = findViewById(R.id.txtside4);
+        txtdrink1 = findViewById(R.id.txtdrink1);
+        txtdrink2 =findViewById(R.id.txtdrink2);
+        txtdrink3 =findViewById(R.id.txtdrink3);
+
+        paymain1 = findViewById(R.id.paymain1);
+        paymain2 = findViewById(R.id.paymain2);
+        paymain3 = findViewById(R.id.paymain3);
+        paymain4 = findViewById(R.id.paymain4);
+        paymain5 = findViewById(R.id.paymain5);
+        paymain6 = findViewById(R.id.paymain6);
+
         btn_payment = findViewById(R.id.btn_payment);
 
 
