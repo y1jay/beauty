@@ -1060,15 +1060,6 @@
                             android:layout_marginRight="15dp"
                             android:text="닭똥집" />
 
-                        <TextView
-                            android:id="@+id/textView55"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginRight="15dp"
-                            android:text="TextView" />
-
                         <CheckBox
                             android:id="@+id/menu6"
                             android:layout_width="match_parent"
@@ -1093,15 +1084,6 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:text="오뎅탕" />
-
-                <TextView
-                    android:id="@+id/textView58"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TextView" />
 
                 <CheckBox
                     android:id="@+id/menu7"
@@ -1142,15 +1124,6 @@
                     android:layout_marginRight="15dp"
                     android:text="계란찜" />
 
-                <TextView
-                    android:id="@+id/textView60"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TextView" />
-
                 <CheckBox
                     android:id="@+id/sidemenu1"
                     android:layout_width="match_parent"
@@ -1173,12 +1146,6 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="아이스황도" />
-
-                <TextView
-                    android:id="@+id/textView62"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
 
                 <CheckBox
                     android:id="@+id/sidemenu2"
@@ -1203,15 +1170,6 @@
                     android:layout_marginRight="15dp"
                     android:text="참치마요주먹밥" />
 
-                <TextView
-                    android:id="@+id/textView64"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TextView" />
-
                 <CheckBox
                     android:id="@+id/sidemenu3"
                     android:layout_width="match_parent"
@@ -1234,15 +1192,6 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="날치알주먹밥" />
-
-                <TextView
-                    android:id="@+id/textView67"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TextView" />
 
                 <CheckBox
                     android:id="@+id/sidemenu4"
@@ -1285,15 +1234,6 @@
                     android:layout_marginRight="15dp"
                     android:text="쿨피스(450ml)" />
 
-                <TextView
-                    android:id="@+id/textView71"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TextView" />
-
                 <CheckBox
                     android:id="@+id/drink1"
                     android:layout_width="match_parent"
@@ -1317,15 +1257,6 @@
                     android:layout_marginRight="15dp"
                     android:text="콜라(뚱캔)" />
 
-                <TextView
-                    android:id="@+id/textView73"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TextView" />
-
                 <CheckBox
                     android:id="@+id/drink2"
                     android:layout_width="match_parent"
@@ -1348,15 +1279,6 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="스프라이트(뚱캔)" />
-
-                <TextView
-                    android:id="@+id/textView75"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TextView" />
 
                 <CheckBox
                     android:id="@+id/drink3"

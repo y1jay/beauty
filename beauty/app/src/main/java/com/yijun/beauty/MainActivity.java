@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.FindReq;
 import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
@@ -27,6 +28,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Intent i = new Intent(MainActivity.this,LodingActivity.class);
         int key = getIntent().getIntExtra("key",0);
         if(key==1){
@@ -155,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 UserReq userReq = new UserReq(nick_name,passwd);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
@@ -175,8 +180,7 @@ public class MainActivity extends AppCompatActivity {
                               SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                               SharedPreferences.Editor editor = sp.edit();
                               editor.putString("token", token);
-                              editor.putString("ID",nick_name);
-                              editor.putString("passwd",passwd);
+
                               editor.apply();
 
                             Intent i = new Intent(MainActivity.this,AfterLogin.class);
@@ -238,6 +242,8 @@ public class MainActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
     }
+
+
     public void find_idPopupDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder
                 (MainActivity.this);
@@ -261,12 +267,12 @@ public class MainActivity extends AppCompatActivity {
                    return;
                }
 
-                UserReq userReq = new UserReq(name,phone);
+                FindReq findReq = new FindReq(name,phone);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<ID> call = userApi.findID(userReq);
+                Call<ID> call = userApi.findID(findReq);
 
                 call.enqueue(new Callback<ID>() {
                     @Override
@@ -295,8 +301,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         btnIDNO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -309,6 +313,8 @@ public class MainActivity extends AppCompatActivity {
         dialog1.setCancelable(false);
         dialog1.show();
     }
+
+
     public void find_passPopupDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder
                 (MainActivity.this);
@@ -382,4 +388,5 @@ public class MainActivity extends AppCompatActivity {
         dialog2.setCancelable(false);
         dialog2.show();
     }
+
 }
