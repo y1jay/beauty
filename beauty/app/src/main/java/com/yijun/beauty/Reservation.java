@@ -61,10 +61,6 @@ public class Reservation extends AppCompatActivity {
     CheckBox drink3;
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

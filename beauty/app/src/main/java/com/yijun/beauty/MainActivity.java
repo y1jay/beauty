@@ -101,9 +101,8 @@ public class MainActivity extends AppCompatActivity {
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "로그인 후 이용 가능합니다.",
-                        Toast.LENGTH_SHORT).show();
-                return;
+                Intent i = new Intent(MainActivity.this, Reservation.class);
+                startActivity(i);
             }
         });
 

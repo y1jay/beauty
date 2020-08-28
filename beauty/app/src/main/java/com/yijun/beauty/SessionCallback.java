@@ -1,6 +1,7 @@
 package com.yijun.beauty;
 
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.kakao.auth.ISessionCallback;
@@ -16,6 +17,7 @@ public class SessionCallback implements ISessionCallback {
     @Override
     public void onSessionOpened() {
         requestMe();
+
     }
 
 
