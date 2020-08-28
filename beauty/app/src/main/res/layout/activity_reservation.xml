@@ -8,7 +8,7 @@
     tools:context=".Reservation">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txt122222"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#ED1333"
@@ -64,7 +64,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView"
+                            android:id="@+id/txtmain1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -91,7 +91,7 @@
                             android:text="12,000원" />
 
                         <CheckBox
-                            android:id="@+id/mainmenu1"
+                            android:id="@+id/checkmainmenu1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -123,7 +123,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView7"
+                            android:id="@+id/txtmain2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -148,7 +148,7 @@
                             android:text="14,000원" />
 
                         <CheckBox
-                            android:id="@+id/mainmenu2"
+                            android:id="@+id/checkmainmenu2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -180,7 +180,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView11"
+                            android:id="@+id/txtmain3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -197,7 +197,7 @@
                             android:text="22,000원" />
 
                         <CheckBox
-                            android:id="@+id/mainmenu3"
+                            android:id="@+id/checkmainmenu3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -231,7 +231,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/txtmain4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -257,7 +257,7 @@
                             android:text="17,000원" />
 
                         <CheckBox
-                            android:id="@+id/mainmeun4"
+                            android:id="@+id/checkmainmeun4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -289,7 +289,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView17"
+                            android:id="@+id/txtmain5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -315,7 +315,7 @@
                             android:text="16,000원" />
 
                         <CheckBox
-                            android:id="@+id/mainmenu5"
+                            android:id="@+id/checkmainmenu5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -348,7 +348,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView19"
+                            android:id="@+id/txtmain6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -365,7 +365,7 @@
                             android:text="15,000원" />
 
                         <CheckBox
-                            android:id="@+id/mainmenu6"
+                            android:id="@+id/checkmainmenu6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -390,7 +390,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/txtset1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -417,7 +417,7 @@
                     android:text="25,000원" />
 
                 <CheckBox
-                    android:id="@+id/setmenu1"
+                    android:id="@+id/checksetmenu1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -432,7 +432,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView23"
+                    android:id="@+id/txtset2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -460,7 +460,7 @@
 
 
                 <CheckBox
-                    android:id="@+id/setmenu2"
+                    android:id="@+id/checksetmenu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -475,7 +475,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/txtset3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -534,24 +534,27 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/setmenusmall3"
+                        android:id="@+id/checksetmenusmall3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="15dp"
+                        android:gravity="center"
                         android:text="소" />
 
                     <CheckBox
-                        android:id="@+id/setmenumedium3"
+                        android:id="@+id/checksetmenumedium3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="중" />
 
                     <CheckBox
-                        android:id="@+id/setmenubig3"
+                        android:id="@+id/checksetmenubig3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:layout_weight="1"
                         android:layout_marginRight="15dp"
                         android:text="대" />
@@ -564,7 +567,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView28"
+                    android:id="@+id/txtset4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -623,25 +626,28 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/setmenusmall4"
+                        android:id="@+id/checksetmenusmall4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:layout_marginLeft="15dp"
                         android:text="소" />
 
                     <CheckBox
-                        android:id="@+id/setmenumedium4"
+                        android:id="@+id/checksetmenumedium4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="중" />
 
                     <CheckBox
-                        android:id="@+id/setmenubig4"
+                        android:id="@+id/checksetmenubig4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:layout_marginRight="15dp"
                         android:text="대" />
                 </LinearLayout>
@@ -653,7 +659,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView31"
+                    android:id="@+id/txtset5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -712,25 +718,28 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/setsmall5"
+                        android:id="@+id/checksetsmall5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="15dp"
+                        android:gravity="center"
                         android:text="소" />
 
                     <CheckBox
-                        android:id="@+id/setmenumedium5"
+                        android:id="@+id/checksetmenumedium5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="중" />
 
                     <CheckBox
-                        android:id="@+id/setmenubig5"
+                        android:id="@+id/checksetmenubig5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:layout_marginRight="15dp"
                         android:text="대" />
                 </LinearLayout>
@@ -742,7 +751,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView36"
+                    android:id="@+id/txtset6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -800,26 +809,29 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/setmenusmall6"
+                        android:id="@+id/checksetmenusmall6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:layout_marginLeft="15dp"
                         android:text="소" />
 
                     <CheckBox
-                        android:id="@+id/setmenumedium6"
+                        android:id="@+id/checksetmenumedium6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="중" />
 
                     <CheckBox
-                        android:id="@+id/setmenubig6"
+                        android:id="@+id/checksetmenubig6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginRight="15dp"
+                        android:gravity="center"
                         android:text="대" />
                 </LinearLayout>
             </LinearLayout>
@@ -830,7 +842,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView37"
+                    android:id="@+id/txtset7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -880,18 +892,20 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/setmenusmall7"
+                        android:id="@+id/checksetmenusmall7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:layout_marginLeft="15dp"
                         android:text="소" />
 
                     <CheckBox
-                        android:id="@+id/setmenumedium7"
+                        android:id="@+id/checksetmenumedium7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:layout_marginRight="15dp"
                         android:text="중" />
 
@@ -905,7 +919,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView40"
+                    android:id="@+id/txtset8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -932,7 +946,7 @@
                     android:text="21,000원" />
 
                 <CheckBox
-                    android:id="@+id/setmenu8"
+                    android:id="@+id/checksetmenu8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -945,7 +959,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView42"
+                    android:id="@+id/checktextView42"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -961,7 +975,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView43"
+                    android:id="@+id/txtmenu1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1013,7 +1027,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/menusmall1"
+                        android:id="@+id/checkmenusmall1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1021,14 +1035,14 @@
                         android:text="소(1~2인분)" />
 
                     <CheckBox
-                        android:id="@+id/menumedium1"
+                        android:id="@+id/checkmenumedium1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="중(2~3인분)" />
 
                     <CheckBox
-                        android:id="@+id/menubig1"
+                        android:id="@+id/checkmenubig1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1043,7 +1057,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView46"
+                    android:id="@+id/txtmenu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1093,7 +1107,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/menusmall2"
+                        android:id="@+id/checkmenusmall2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1101,14 +1115,14 @@
                         android:text="소(1~2인분)" />
 
                     <CheckBox
-                        android:id="@+id/menumedium2"
+                        android:id="@+id/checkmenumedium2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="중(2~3인분)" />
 
                     <CheckBox
-                        android:id="@+id/menubig2"
+                        android:id="@+id/checkmenubig2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1123,7 +1137,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView48"
+                    android:id="@+id/txtmenu3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1164,7 +1178,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/menusmall3"
+                        android:id="@+id/checkmenusmall3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1172,7 +1186,7 @@
                         android:text="소" />
 
                     <CheckBox
-                        android:id="@+id/menumedium3"
+                        android:id="@+id/checkmenumedium3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="15dp"
@@ -1189,7 +1203,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView50"
+                    android:id="@+id/txtmenu4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1239,7 +1253,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/menusmall4"
+                        android:id="@+id/checkmenusmall4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1247,14 +1261,14 @@
                         android:text="소(1~2인분)" />
 
                     <CheckBox
-                        android:id="@+id/menumedium4"
+                        android:id="@+id/checkmenumedium4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="중(2~3인분)" />
 
                     <CheckBox
-                        android:id="@+id/menubig4"
+                        android:id="@+id/checkmenubig4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1269,7 +1283,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView52"
+                    android:id="@+id/txtmenu5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1319,7 +1333,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/menusmall5"
+                        android:id="@+id/checkmenusmall5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1327,14 +1341,14 @@
                         android:text="소(1~2인분)" />
 
                     <CheckBox
-                        android:id="@+id/menumedium5"
+                        android:id="@+id/checkmenumedium5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="중(2~3인분)" />
 
                     <CheckBox
-                        android:id="@+id/menubig5"
+                        android:id="@+id/checkmenubig5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1366,7 +1380,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView56"
+                            android:id="@+id/txtmenu6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1384,7 +1398,7 @@
                             android:text="15,000원" />
 
                         <CheckBox
-                            android:id="@+id/menu6"
+                            android:id="@+id/checkmenu6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1400,7 +1414,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView57"
+                    android:id="@+id/txtmenu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1418,7 +1432,7 @@
                     android:text="12,000원" />
 
                 <CheckBox
-                    android:id="@+id/menu7"
+                    android:id="@+id/checkmenu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1448,7 +1462,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView59"
+                    android:id="@+id/txtside1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1466,7 +1480,7 @@
                     android:text="4,000원" />
 
                 <CheckBox
-                    android:id="@+id/sidemenu1"
+                    android:id="@+id/checksidemenu1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1480,7 +1494,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView61"
+                    android:id="@+id/txtside2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1495,7 +1509,7 @@
                     android:text="5,000원" />
 
                 <CheckBox
-                    android:id="@+id/sidemenu2"
+                    android:id="@+id/checksidemenu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1509,7 +1523,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView63"
+                    android:id="@+id/txtside3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1527,7 +1541,7 @@
                     android:text="4,000원" />
 
                 <CheckBox
-                    android:id="@+id/sidemenu3"
+                    android:id="@+id/checksidemenu3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1541,7 +1555,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView65"
+                    android:id="@+id/txtside4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1559,7 +1573,7 @@
                     android:text="3,000원" />
 
                 <CheckBox
-                    android:id="@+id/sidemenu4"
+                    android:id="@+id/checksidemenu4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1591,7 +1605,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView70"
+                    android:id="@+id/txtdrink1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1609,7 +1623,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/drink1"
+                    android:id="@+id/checkdrink1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1623,7 +1637,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView72"
+                    android:id="@+id/txtdrink2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1641,7 +1655,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/drink2"
+                    android:id="@+id/checkdrink2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1655,7 +1669,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView74"
+                    android:id="@+id/txtdrink3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1673,7 +1687,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/drink3"
+                    android:id="@+id/checkdrink3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
