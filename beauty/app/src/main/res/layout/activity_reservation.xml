@@ -81,12 +81,21 @@
                             android:text="국물닭발1인분+콩나물+단무지+오뎅사리+
                                           주먹밥(소)+계란찜(소)+음료" />
 
+                        <TextView
+                            android:id="@+id/textView599"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="15dp"
+                            android:text="12,000원" />
+
                         <CheckBox
                             android:id="@+id/mainmenu1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(12000원)" />
+                            android:text="예약하기" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -130,12 +139,20 @@
                             android:layout_marginRight="15dp"
                             android:text="안주 1가지 이상 주문시 12000원, 곁들임 안주 제외" />
 
+                        <TextView
+                            android:id="@+id/textView88"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="14,000원" />
+
                         <CheckBox
                             android:id="@+id/mainmenu2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(14000원)" />
+                            android:text="예약하기" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -177,14 +194,14 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="" />
+                            android:text="22,000원" />
 
                         <CheckBox
                             android:id="@+id/mainmenu3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(22000원)" />
+                            android:text="예약하기" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -228,14 +245,23 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="보통맛/매운맛치즈사리 3000원" />
+                            android:text="보통맛/매운맛치즈사리 3,000원" />
+
+                        <TextView
+                            android:id="@+id/textView144"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="15dp"
+                            android:text="17,000원" />
 
                         <CheckBox
                             android:id="@+id/mainmeun4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(17000원)" />
+                            android:text="예약하기" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -277,14 +303,23 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="우동사리 곱배기 추가 +2000원" />
+                            android:text="우동사리 곱배기 추가 +2,000원" />
+
+                        <TextView
+                            android:id="@+id/textView188"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="15dp"
+                            android:text="16,000원" />
 
                         <CheckBox
                             android:id="@+id/mainmenu5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(16000원)" />
+                            android:text="예약하기" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -327,14 +362,14 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="" />
+                            android:text="15,000원" />
 
                         <CheckBox
                             android:id="@+id/mainmenu6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(15000원)" />
+                            android:text="예약하기" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -364,13 +399,22 @@
                     android:text="닭볶음탕세트" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:text="불닭볶음탕+계란찜+날치알주먹밥" />
+
+                <TextView
+                    android:id="@+id/textView222"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="불닭볶음탕+계란찜+날치알주먹밥" />
+                    android:text="25,000원" />
 
                 <CheckBox
                     android:id="@+id/setmenu1"
@@ -379,7 +423,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="예약하기(25000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -405,6 +449,16 @@
                     android:layout_marginRight="15dp"
                     android:text="오돌뼈+계란찜+날치알주먹밥+식혜 175mL" />
 
+                <TextView
+                    android:id="@+id/textView224"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="15dp"
+                    android:text="21,000원" />
+
+
                 <CheckBox
                     android:id="@+id/setmenu2"
                     android:layout_width="match_parent"
@@ -412,7 +466,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="예약하기(21000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -438,14 +492,41 @@
                     android:layout_marginRight="15dp"
                     android:text="(직화통 or 직화무뼈)+계란찜+날치알주먹밥+식혜 175mL" />
 
-                <TextView
-                    android:id="@+id/textView27"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(22000원) , 중(30000원) , 대(38000)" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView247"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="22,000원" />
+
+                    <TextView
+                        android:id="@+id/textView237"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="30,000원" />
+
+                    <TextView
+                        android:id="@+id/textView227"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="38,000원" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -500,14 +581,41 @@
                     android:layout_marginRight="15dp"
                     android:text="(국물통 or 국물무뼈)+계란찜+날치알주먹밥+식혜 175mL" />
 
-                <TextView
-                    android:id="@+id/textView30"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(23000원)  , 중(31000원)  , 대(39000원)"  />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView2417"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="23,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2317"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="31,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2127"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="39,000원" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -562,14 +670,41 @@
                     android:layout_marginRight="15dp"
                     android:text="(직화통 or 직화무뼈)+새우그라탕+식혜175mL" />
 
-                <TextView
-                    android:id="@+id/textView33"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(28000원)  ,  중(36000원)  , 대(44000원)" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView2471"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="28,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2137"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="36,000원" />
+
+                    <TextView
+                        android:id="@+id/textView1227"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="44,000원" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -624,15 +759,41 @@
                     android:layout_marginRight="15dp"
                     android:text="(국물통 or 국물무뼈)+새우그라탕+식혜 175mL" />
 
-                <TextView
-                    android:id="@+id/textView34"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(29000원)  , 중(37000원)  , 대(45000원)" />
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/textView2447"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="29,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2374"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="37,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2247"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="45,000원" />
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -686,14 +847,32 @@
                     android:layout_marginRight="15dp"
                     android:text="(국물통 or 국물무뼈)+(직화통 or 직화무뼈)+계란찜+날치주벅밥+식헤 175mL" />
 
-                <TextView
-                    android:id="@+id/textView39"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(39000원)    , 중(55000원)" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView11247"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="39,000원" />
+
+                    <TextView
+                        android:id="@+id/textView11237"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="55,000원" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -743,12 +922,21 @@
                     android:layout_marginRight="15dp"
                     android:text="치즈떡볶이+계란찜+날치알주먹밥+식혜 175mL" />
 
+                <TextView
+                    android:id="@+id/textView4111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="15dp"
+                    android:text="21,000원" />
+
                 <CheckBox
                     android:id="@+id/setmenu8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="예약하기(21000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -781,14 +969,41 @@
                     android:layout_marginRight="15dp"
                     android:text="국물닭발" />
 
-                <TextView
-                    android:id="@+id/textView44"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(17000원),중(25000원),대(33000원)" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView24147"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="17,000원" />
+
+                    <TextView
+                        android:id="@+id/textView23174"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="25,000원" />
+
+                    <TextView
+                        android:id="@+id/textView21247"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="33,000원" />
+                </LinearLayout>
 
 
 
@@ -836,14 +1051,41 @@
                     android:layout_marginRight="15dp"
                     android:text="국물무뼈닭발" />
 
-                <TextView
-                    android:id="@+id/textView47"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(18000원),중(27000원),대(35000원)" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView2413447"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="18,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2343174"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="27,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2231247"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="35,000원" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -889,15 +1131,33 @@
                     android:layout_marginRight="15dp"
                     android:text="국물새우닭발" />
 
-                <TextView
-                    android:id="@+id/textView49"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(1~2인분 23000원) 중(2~3인분 31000원)" />
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/text23View24147"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="23,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2233174"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="31,000원" />
+
+
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -937,14 +1197,41 @@
                     android:layout_marginRight="15dp"
                     android:text="직화통닭발" />
 
-                <TextView
-                    android:id="@+id/textView51"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(16000원)중(24000원)대(31000원)" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textVi1ew24147"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="16,000원" />
+
+                    <TextView
+                        android:id="@+id/textV1iew23174"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="24,000원" />
+
+                    <TextView
+                        android:id="@+id/te1xtView21247"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="31,000원" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -990,14 +1277,41 @@
                     android:layout_marginRight="15dp"
                     android:text="직화무뼈닭발" />
 
-                <TextView
-                    android:id="@+id/textView53"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:text="소(17000원)중(25000원)대(33000원)" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView24324147"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="17,000원" />
+
+                    <TextView
+                        android:id="@+id/textView23123474"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        android:text="25,000원" />
+
+                    <TextView
+                        android:id="@+id/textView2124724"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="15dp"
+                        android:text="33,000원" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1067,7 +1381,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="" />
+                            android:text="15,000원" />
 
                         <CheckBox
                             android:id="@+id/menu6"
@@ -1075,7 +1389,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
-                            android:text="예약하기(15000원)" />
+                            android:text="예약하기" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -1101,7 +1415,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="" />
+                    android:text="12,000원" />
 
                 <CheckBox
                     android:id="@+id/menu7"
@@ -1109,7 +1423,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(12000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -1149,7 +1463,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="" />
+                    android:text="4,000원" />
 
                 <CheckBox
                     android:id="@+id/sidemenu1"
@@ -1178,7 +1492,7 @@
                     android:id="@+id/textView62"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:text="5,000원" />
 
                 <CheckBox
                     android:id="@+id/sidemenu2"
@@ -1186,7 +1500,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(5000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -1210,7 +1524,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="" />
+                    android:text="4,000원" />
 
                 <CheckBox
                     android:id="@+id/sidemenu3"
@@ -1218,7 +1532,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(4000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -1242,7 +1556,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="" />
+                    android:text="3,000원" />
 
                 <CheckBox
                     android:id="@+id/sidemenu4"
@@ -1250,7 +1564,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(3000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
 
@@ -1292,7 +1606,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="" />
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/drink1"
@@ -1300,7 +1614,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(2000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -1324,7 +1638,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="" />
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/drink2"
@@ -1332,7 +1646,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(2000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
             <LinearLayout
@@ -1356,7 +1670,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="" />
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/drink3"
@@ -1364,7 +1678,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(2000원)" />
+                    android:text="예약하기" />
             </LinearLayout>
 
         </LinearLayout>
