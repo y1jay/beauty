@@ -113,6 +113,7 @@ public class Reservation extends AppCompatActivity {
         drink1 = findViewById(R.id.drink1);
         drink2 = findViewById(R.id.drink2);
         drink3 = findViewById(R.id.drink3);
+        
         btn_payment = findViewById(R.id.btn_payment);
 
 
