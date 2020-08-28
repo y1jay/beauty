@@ -44,16 +44,10 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog dialog;
     private AlertDialog dialog1;
     private AlertDialog dialog2;
-    EditText editID;
-    EditText editPasswd;
-    TextView txtNO ;
-    TextView txtYES;
-    TextView find_id;
-    TextView find_pass;
+
     EditText findPhone;
-    EditText findPasswd;
+
     EditText findName;
-    CheckBox Auto;
     EditText passName;
     EditText passID;
     EditText passPhone;
@@ -117,17 +111,9 @@ public class MainActivity extends AppCompatActivity {
         reservation = findViewById(R.id.reservation);
 
         address = findViewById(R.id.address);
-        signUp = findViewById(R.id.signUp);
 
 
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                  createPopupDialog();
-//
-//            }
-//        });
+
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,14 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         });
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, SignUpActivity.class);
-                finish();
-                startActivity(i);
-            }
-        });
+
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
