@@ -9,15 +9,15 @@ public class UserReq {
     public UserReq() {
     }
 
-    public UserReq(String name, String passwd, String phone) {
+    public UserReq(String name, String nick_name, String phone) {
         this.name = name;
-        this.passwd = passwd;
+        this.nick_name = nick_name;
         this.phone = phone;
     }
 
-    public UserReq(String nick_name, String passwd) {
-        this.nick_name = nick_name;
-        this.passwd = passwd;
+    public UserReq(String name, String phone) {
+        this.name = name;
+        this.phone = phone;
     }
 
     public UserReq(String nick_name) {

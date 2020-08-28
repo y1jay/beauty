@@ -36,7 +36,6 @@
         android:id="@+id/passID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="아이디"
@@ -50,7 +49,7 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="휴대폰 번호"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textSize="25sp" />
 
     <EditText

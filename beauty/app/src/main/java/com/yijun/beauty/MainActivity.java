@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.ID;
+import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtYES;
     TextView find_id;
     TextView find_pass;
+
     EditText findPhone;
     EditText findPasswd;
     EditText findName;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     EditText passID;
     EditText passPhone;
     EditText newPass;
+
     Button btnSet;
     Button btnIDNO;
     Button btnPASSNO;
@@ -240,15 +244,54 @@ public class MainActivity extends AppCompatActivity {
         View alertView = getLayoutInflater().inflate(R.layout.find_id,null);
         findName = alertView.findViewById(R.id.findName);
         findPhone = alertView.findViewById(R.id.findPhone);
-        findPasswd = alertView.findViewById(R.id.findPasswd);
+
         find = alertView.findViewById(R.id.btnFind);
         btnIDNO = alertView.findViewById(R.id.btnIDNO);
 
         find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               String findname = findName.getText().toString().trim();
-               
+               String name = findName.getText().toString().trim();
+               String phone = findPhone.getText().toString().trim();
+               if (name.isEmpty()){
+                   Toast.makeText(MainActivity.this,"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
+                   return;
+               }else if (phone.isEmpty()){
+                   Toast.makeText(MainActivity.this,"전화번호를 입력해주세요",Toast.LENGTH_SHORT).show();
+                   return;
+               }
+
+                UserReq userReq = new UserReq(name,phone);
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
+
+                Call<ID> call = userApi.findID(userReq);
+
+                call.enqueue(new Callback<ID>() {
+                    @Override
+                    public void onResponse(Call<ID> call, Response<ID> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+                            // response.body() 가 UserRes.이다.
+                            String ID = response.body().getID();
+                            Log.i("AAAAA","id : "+ID);
+                            Toast.makeText(MainActivity.this,"고객님의 아이디는 "+ID+" 입니다.",Toast.LENGTH_LONG).show();
+
+                            dialog1.cancel();
+                        } else if (response.isSuccessful()==false){
+                            Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ID> call, Throwable t) {
+
+                    }
+                });
+
             }
         });
 
@@ -280,6 +323,48 @@ public class MainActivity extends AppCompatActivity {
        btnSet.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+          String name = passName.getText().toString().trim();
+          String id = passID.getText().toString().trim();
+          String phone = passPhone.getText().toString().trim();
+          String newpass = newPass.getText().toString().trim();
+               if (name.isEmpty()){
+                   Toast.makeText(MainActivity.this,"이름을 입력해주세요",Toast.LENGTH_SHORT).show();
+                   return;
+               }else if (id.isEmpty()){
+                   Toast.makeText(MainActivity.this,"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
+                   return;
+               }else if (phone.isEmpty()){
+                   Toast.makeText(MainActivity.this,"전화번호를 입력해주세요",Toast.LENGTH_SHORT).show();
+                   return;
+               }else if (newpass.isEmpty()){
+                   Toast.makeText(MainActivity.this,"새로운 패스워드를 입력해주세요",Toast.LENGTH_SHORT).show();
+                   return;
+               }
+               UserReq userReq = new UserReq(name,id,phone);
+
+               Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+               UserApi userApi = retrofit.create(UserApi.class);
+
+               Call<UserCheck> call = userApi.setPasswd(userReq, newpass);
+               call.enqueue(new Callback<UserCheck>() {
+                   @Override
+                   public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                       // 상태코드가 200 인지 확인
+                       if (response.isSuccessful()){
+                           Toast.makeText(MainActivity.this,"비밀번호가 변경되었습니다.",Toast.LENGTH_SHORT).show();
+                           dialog2.cancel();
+                       }else if(response.isSuccessful()==false){
+                           Toast.makeText(MainActivity.this,"다시 입력해주세요",Toast.LENGTH_SHORT).show();
+                           passName.setText("");
+                           passID.setText("");
+                           passPhone.setText("");
+                           newPass.setText("");
+                       }
+                   }
+                   @Override
+                   public void onFailure(Call<UserCheck> call, Throwable t) {
+                   }
+               });
 
            }
        });

@@ -104,7 +104,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String passwdcheck = edtpasswdcheck.getText().toString();
 
                 if (passwd.length() >13 || passwd.length() < 5){
-                    Toast.makeText(SignUpActivity.this, "비밀번호를 6이상 13이하로",
+                    Toast.makeText(SignUpActivity.this, "비밀번호를 6자리이상 13자리이하로",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -140,6 +140,10 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }else if (passwd.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"비밀번호를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    return;
+                }  else if (passwd.length() >13 || passwd.length() < 5){
+                    Toast.makeText(SignUpActivity.this, "비밀번호를 6자리이상 13자리이하로 해주세요",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 } else if (passwdcheck.isEmpty()){
                 Toast.makeText(SignUpActivity.this,"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();
