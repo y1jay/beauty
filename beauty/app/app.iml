@@ -123,6 +123,8 @@
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:17.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:17.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-v4:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.kakao.sdk:usermgmt:1.5.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.kakao.sdk:auth:1.5.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat-resources:1.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar" level="project" />
@@ -154,5 +156,8 @@
     <orderEntry type="library" name="Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.print:print:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.getkeepsafe.relinker:relinker:1.4.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.kakao.sdk:s2-lite:1.5.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.kakao.sdk:network:1.5.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.kakao.sdk:util:1.5.1@aar" level="project" />
   </component>
 </module>
