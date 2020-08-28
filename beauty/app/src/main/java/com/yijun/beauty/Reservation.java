@@ -110,7 +110,6 @@ public class Reservation extends AppCompatActivity {
     TextView paysetbig5;
     TextView paysetsmall6;
     TextView paysetmedium6;
-    TextView paysetbig6;
     TextView paysetsmall7;
     TextView paysetmedium7;
     TextView payset8;
@@ -237,7 +236,8 @@ public class Reservation extends AppCompatActivity {
         paymain4 = findViewById(R.id.paymain4);
         paymain5 = findViewById(R.id.paymain5);
         paymain6 = findViewById(R.id.paymain6);
-        payset1 = findViewById(R.id.payset2);
+        payset1 = findViewById(R.id.payset1);
+        payset2 = findViewById(R.id.payset2);
         paysetsmall3 = findViewById(R.id.paysetsmall3);
         paysetmedium3 = findViewById(R.id.paysetmedium3);
         paysetbig3 = findViewById(R.id.paysetbig3);
@@ -247,7 +247,8 @@ public class Reservation extends AppCompatActivity {
         paysetsmall5 = findViewById(R.id.paysetsmall5);
         paysetmedium5 = findViewById(R.id.paysetmedium5);
         paysetbig5 = findViewById(R.id.paysetbig5);
-        paysetsmall6 = findViewById(R.id.paysetmedium6);
+        paysetsmall6 = findViewById(R.id.paysetsmall6);
+        paysetmedium6 = findViewById(R.id.paysetmedium6);
         paysetsmall7 = findViewById(R.id.paysetsmall7);
         paysetmedium7 = findViewById(R.id.paysetmedium7);
         payset8 = findViewById(R.id.payset8);
