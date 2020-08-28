@@ -1,4 +1,4 @@
-package com.yijun.beauty.activity;
+package com.yijun.beauty;
 
 import androidx.appcompat.app.AppCompatActivity;
 

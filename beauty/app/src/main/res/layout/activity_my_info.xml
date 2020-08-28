@@ -9,11 +9,10 @@
 
     <TextView
 
-        android:id="@+id/textView3"
-
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="30dp"
+        android:layout_marginVertical="50dp"
         android:gravity="center"
         android:text="내 정보 보기"
         android:textColor="#000000"
@@ -21,45 +20,51 @@
 
     <TextView
 
-        android:id="@+id/textView4"
-
-
+        android:id="@+id/txt_nick_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <TextView
 
-        android:id="@+id/textView5"
-
-
+        android:id="@+id/txt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txt_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/txt_created_at"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="회원탈퇴"
-        android:textColor="#FBFAF1" />
+        android:layout_marginLeft="20dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/btn_die"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/button"
         android:text="회원탈퇴"
         android:textSize="18sp" />

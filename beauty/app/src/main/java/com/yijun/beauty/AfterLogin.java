@@ -13,8 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.yijun.beauty.activity.CheckoutActivity;
-import com.yijun.beauty.activity.ReservationRecord;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserRes;
