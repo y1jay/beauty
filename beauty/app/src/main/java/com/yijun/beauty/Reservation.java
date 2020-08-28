@@ -113,7 +113,6 @@ public class Reservation extends AppCompatActivity {
     TextView paysetbig6;
     TextView paysetsmall7;
     TextView paysetmedium7;
-    TextView paysetbig7;
     TextView payset8;
     TextView paymenusmall1;
     TextView paymenumedium1;
@@ -238,6 +237,46 @@ public class Reservation extends AppCompatActivity {
         paymain4 = findViewById(R.id.paymain4);
         paymain5 = findViewById(R.id.paymain5);
         paymain6 = findViewById(R.id.paymain6);
+        payset1 = findViewById(R.id.payset2);
+        paysetsmall3 = findViewById(R.id.paysetsmall3);
+        paysetmedium3 = findViewById(R.id.paysetmedium3);
+        paysetbig3 = findViewById(R.id.paysetbig3);
+        paysetsmall4= findViewById(R.id.paysetsmall4);
+        paysetmedium4 =findViewById(R.id.paysetmedium4);
+        paysetbig4 = findViewById(R.id.paysetbig4);
+        paysetsmall5 = findViewById(R.id.paysetsmall5);
+        paysetmedium5 = findViewById(R.id.paysetmedium5);
+        paysetbig5 = findViewById(R.id.paysetbig5);
+        paysetsmall6 = findViewById(R.id.paysetmedium6);
+        paysetsmall7 = findViewById(R.id.paysetsmall7);
+        paysetmedium7 = findViewById(R.id.paysetmedium7);
+        payset8 = findViewById(R.id.payset8);
+        paymenusmall1 = findViewById(R.id.paymenusmall1);
+        paymenumedium1 = findViewById(R.id.paymenumedium1);
+        paymenubig1 = findViewById(R.id.paymenubig1);
+        paymenusmall2 = findViewById(R.id.paymenusmall2);
+        paymenumedium2 = findViewById(R.id.paymenumedium2);
+        paymenubig2 = findViewById(R.id.paymenubig2);
+        paymenusmall3 = findViewById(R.id.paymenusmall3);
+        paymenumedium3 = findViewById(R.id.paymenumedium3);
+        paymenusmall4 = findViewById(R.id.paymenusmall4);
+        paymenumedium4 = findViewById(R.id.paymenumedium4);
+        paymenubig4 = findViewById(R.id.paymenubig4);
+        paymenusmall5 = findViewById(R.id.paymenusmall5);
+        paymenumedium5 = findViewById(R.id.paymenumedium5);
+        paymenubig5 = findViewById(R.id.paymenubig5);
+        paymenu6 = findViewById(R.id.paymenu6);
+        paymenu7 = findViewById(R.id.paymenu7);
+        payside1 = findViewById(R.id.payside1);
+        payside2 = findViewById(R.id.payside2);
+        payside3 = findViewById(R.id.payside3);
+        payside4 = findViewById(R.id.payside4);
+        paydrink1 = findViewById(R.id.paydrink1);
+        paydrink2 = findViewById(R.id.paydrink2);
+        paydrink3 = findViewById(R.id.paydrink3);
+
+
+
 
         btn_payment = findViewById(R.id.btn_payment);
 
