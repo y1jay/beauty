@@ -22,6 +22,9 @@
     <string name="notification_text">Your account balance in close to zero. Top it up now.</string>
     <string name="pay_other_method">Top-up using a different method</string>
 
+    <string name="kakao_app_key">370fd4194ea2a34d09a77fa0311db0c2</string>
+
+
     <!-- Checkout -->
     <string name="googlepay_status_unavailable">Unfortunately, Google Pay is not available on this device.</string>
     <string name="payments_show_name">Successfully received payment data for %s!</string>
