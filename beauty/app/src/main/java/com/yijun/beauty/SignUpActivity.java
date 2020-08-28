@@ -11,6 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.twiml.MessagingResponse;
+import com.twilio.twiml.messaging.Body;
+import com.twilio.type.PhoneNumber;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
@@ -23,6 +28,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import static spark.Spark.get;
+import static spark.Spark.post;
+
 
 public class SignUpActivity extends AppCompatActivity {
     EditText edtname;
@@ -34,6 +42,9 @@ public class SignUpActivity extends AppCompatActivity {
     EditText edtpasswdcheck;
     Button btnpasswdcheck;
     Button btnsignup;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +71,8 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
+
+
             }
         });
 
@@ -72,7 +85,6 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this,"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 UserReq userReq = new UserReq(nick_name);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
@@ -133,6 +145,12 @@ public class SignUpActivity extends AppCompatActivity {
                 if (name.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"이름를 입력해주세요",Toast.LENGTH_SHORT).show();
                   return;
+                }else if (name.length()<2){
+                    Toast.makeText(SignUpActivity.this,"이름은 두글자 부터 가능합니다",Toast.LENGTH_SHORT).show();
+                    return;
+                }else if (name.length()>10){
+                    Toast.makeText(SignUpActivity.this,"이름를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 else if (phone.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
@@ -147,6 +165,10 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(SignUpActivity.this,"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();
                 return;
             }
+
+
+
+
 
                 UserReq userReq = new UserReq(name,nick_name,passwd,phone);
 
