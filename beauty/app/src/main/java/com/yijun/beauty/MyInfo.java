@@ -22,7 +22,6 @@ import retrofit2.Retrofit;
 
 public class MyInfo extends AppCompatActivity {
 
-
     Button btn_die;
     SharedPreferences sp;
 
