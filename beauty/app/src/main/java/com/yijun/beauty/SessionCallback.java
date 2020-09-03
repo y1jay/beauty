@@ -1,6 +1,7 @@
 package com.yijun.beauty;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
@@ -17,7 +18,6 @@ public class SessionCallback implements ISessionCallback {
     @Override
     public void onSessionOpened() {
         requestMe();
-
     }
 
 
@@ -103,6 +103,7 @@ public class SessionCallback implements ISessionCallback {
                 Log.e("Profile : ", UUID + "");
 
                 Log.e("Profile : ", id + "");
+
 
             }
 
