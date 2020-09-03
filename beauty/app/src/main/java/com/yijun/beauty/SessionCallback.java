@@ -22,6 +22,7 @@ public class SessionCallback implements ISessionCallback {
     // 로그인에 성공한 상태
     @Override
     public void onSessionOpened() {
+
         requestMe();
 
     }
@@ -88,7 +89,6 @@ public class SessionCallback implements ISessionCallback {
 
                 String email = userProfile.getEmail();
 
-                String profileImagePath = userProfile.getProfileImagePath();
 
                 String thumnailPath = userProfile.getThumbnailImagePath();
 
@@ -96,13 +96,13 @@ public class SessionCallback implements ISessionCallback {
 
                 long id = userProfile.getId();
 
-
+                Log.i("AAA",nickname+email);
 
                 Log.e("Profile : ", nickname + "");
 
                 Log.e("Profile : ", email + "");
 
-                Log.e("Profile : ", profileImagePath  + "");
+
 
                 Log.e("Profile : ", thumnailPath + "");
 
@@ -110,8 +110,7 @@ public class SessionCallback implements ISessionCallback {
 
                 Log.e("Profile : ", id + "");
 
-                Intent i = new Intent(context, AfterLogin.class);
-                context.startActivity(i);
+
 
             }
 
