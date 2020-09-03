@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Session session = Session.getCurrentSession();
 
-                session.addCallback(new SessionCallback());
+                session.addCallback(new SessionCallback(MainActivity.this));
 
                 session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
 
