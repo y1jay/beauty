@@ -1,6 +1,7 @@
 package com.yijun.beauty;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
@@ -12,6 +13,11 @@ import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
 
 public class SessionCallback implements ISessionCallback {
+    Context context;
+
+    public SessionCallback(Context context) {
+        this.context = context;
+    }
 
     // 로그인에 성공한 상태
     @Override
@@ -103,6 +109,9 @@ public class SessionCallback implements ISessionCallback {
                 Log.e("Profile : ", UUID + "");
 
                 Log.e("Profile : ", id + "");
+
+                Intent i = new Intent(context, AfterLogin.class);
+                context.startActivity(i);
 
             }
 
