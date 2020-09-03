@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.kakao.auth.Session;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserRes;
@@ -25,24 +26,27 @@ import retrofit2.Retrofit;
 
 
 public class AfterLogin extends AppCompatActivity {
-Button logout;
-Button reservation;
-Button address;
+    Button logout;
+    Button reservation;
+    Button address;
     SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
+
         logout = findViewById(R.id.logout);
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
-        int key = getIntent().getIntExtra("key",0);
-if (key==1){
-    Intent i = new Intent(AfterLogin.this,LodingActivity.class);
-    startActivity(i);
-}else{
 
-}
+        int key = getIntent().getIntExtra("key",0);
+        if (key==1){
+        Intent i = new Intent(AfterLogin.this,LodingActivity.class);
+        startActivity(i);
+        }else{
+
+        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

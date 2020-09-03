@@ -4,6 +4,7 @@ package com.yijun.beauty;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.kakao.auth.ISessionCallback;
 import com.kakao.network.ErrorResult;
@@ -13,9 +14,14 @@ import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
 
 public class SessionCallback implements ISessionCallback {
+
     Context context;
 
     public SessionCallback(Context context) {
+        this.context = context;
+    }
+
+    public SessionCallback(){
         this.context = context;
     }
 
@@ -23,7 +29,6 @@ public class SessionCallback implements ISessionCallback {
     @Override
     public void onSessionOpened() {
         requestMe();
-
     }
 
 
@@ -112,7 +117,6 @@ public class SessionCallback implements ISessionCallback {
 
                 Intent i = new Intent(context, AfterLogin.class);
                 context.startActivity(i);
-
             }
 
 
@@ -124,7 +128,6 @@ public class SessionCallback implements ISessionCallback {
             public void onFailure(ErrorResult errorResult) {
 
                 Log.e("SessionCallback :: ", "onFailure : " + errorResult.getErrorMessage());
-
             }
 
         });

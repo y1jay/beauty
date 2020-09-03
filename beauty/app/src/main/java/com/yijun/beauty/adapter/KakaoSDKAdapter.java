@@ -7,12 +7,15 @@ import com.kakao.auth.AuthType;
 import com.kakao.auth.IApplicationConfig;
 import com.kakao.auth.ISessionConfig;
 import com.kakao.auth.KakaoAdapter;
+import com.kakao.auth.KakaoSDK;
 import com.yijun.beauty.GlobalApplication;
+
+import static okhttp3.internal.Internal.instance;
 
 public class KakaoSDKAdapter extends KakaoAdapter {
 
 
-
+    private static volatile KakaoSDKAdapter instance = null;
     // 로그인 시 사용 될, Session의 옵션 설정을 위한 인터페이스 입니다.
 
     @Override
@@ -30,7 +33,6 @@ public class KakaoSDKAdapter extends KakaoAdapter {
                 // KAKAO_TALK_EXCLUDE_NATIVE_LOGIN : 카카오톡 로그인 타입과 함께 계정생성을 위한 버튼을 함께 제공
                 // KAKAO_LOGIN_ALL : 모든 로그인 방식을 제공
                 return new AuthType[] {AuthType.KAKAO_ACCOUNT};
-
             }
 
             // 로그인 웹뷰에서 pause와 resume시에 타이머를 설정하여, CPU의 소모를 절약 할 지의 여부를 지정합니다.

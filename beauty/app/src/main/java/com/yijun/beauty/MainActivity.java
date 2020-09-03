@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
     Button find;
     SharedPreferences sp;
 
-
     private Button btn_custom_login;
+    SessionCallback sessionCallback;
 
 
     @Override
@@ -77,20 +77,24 @@ public class MainActivity extends AppCompatActivity {
         }else{
             startActivity(i);
         }
+
+
         btn_custom_login = (Button) findViewById(R.id.btn_custom_login);
 
         btn_custom_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Session session = Session.getCurrentSession();
-
-                session.addCallback(new SessionCallback(MainActivity.this));
-
+                session.addCallback(new SessionCallback());
                 session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
+                session.checkAndImplicitOpen();
+
+//                sessionCallback = new SessionCallback(); //SessionCallback 초기화
+//                Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
+//                Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
             }
         });
-
 
         reservation = findViewById(R.id.reservation);
 
