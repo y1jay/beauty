@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.kakao.auth.AuthType;
 import com.kakao.auth.Session;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;

@@ -87,11 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 Session session = Session.getCurrentSession();
                 session.addCallback(new SessionCallback());
                 session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
-                session.checkAndImplicitOpen();
-
-//                sessionCallback = new SessionCallback(); //SessionCallback 초기화
-//                Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
-//                Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
             }
         });
