@@ -1,5 +1,6 @@
 package com.yijun.beauty;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,6 +22,8 @@ import android.widget.Toast;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.Session;
 import com.kakao.usermgmt.LoginButton;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.FindReq;
@@ -61,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
 
     private Button btn_custom_login;
-    SessionCallback sessionCallback;
 
 
     @Override
@@ -84,9 +89,27 @@ public class MainActivity extends AppCompatActivity {
         btn_custom_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Session session = Session.getCurrentSession();
                 session.addCallback(new SessionCallback());
                 session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
+
+                reservation.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(MainActivity.this, Reservation.class);
+                        startActivity(i);
+                    }
+                });
+
+                address.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(MainActivity.this, Address.class);
+                        i.putExtra("add",1);
+                        startActivity(i);
+                    }
+                });
 
             }
         });
@@ -100,8 +123,7 @@ public class MainActivity extends AppCompatActivity {
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Reservation.class);
-                startActivity(i);
+                Toast.makeText(MainActivity.this, "로그인 후 이용가능합니다.", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -113,6 +135,49 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menus, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.myInfo){
+            Intent i = new Intent(MainActivity.this, MyInfo.class);
+            startActivity(i);
+            return true;
+        }else if (id == R.id.reservation_check){
+            Intent i = new Intent(MainActivity.this, ReservationRecord.class);
+            startActivity(i);
+            return true;
+        }else if (id == R.id.logout){
+            /**카카오톡 로그아웃 요청**/
+            //한번 로그인이 성공하면 세션 정보가 남아있어서 로그인창이 뜨지 않고 바로 onSuccess()메서드를 호출합니다.
+            //테스트 하시기 편하라고 매번 로그아웃 요청을 수행하도록 코드를 넣었습니다 ^^
+            UserManagement.requestLogout(new LogoutResponseCallback() {
+                @Override
+                public void onCompleteLogout() {
+                    //로그아웃 성공 후 하고싶은 내용 코딩 ~
+                    Toast.makeText(MainActivity.this, "로그아웃되었습니다.", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
+
     }
 //    public void createPopupDialog(){
 //        AlertDialog.Builder alert = new AlertDialog.Builder
