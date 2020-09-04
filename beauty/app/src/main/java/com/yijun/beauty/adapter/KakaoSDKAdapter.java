@@ -1,5 +1,6 @@
 package com.yijun.beauty.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.kakao.auth.ApprovalType;
@@ -29,7 +30,7 @@ public class KakaoSDKAdapter extends KakaoAdapter {
                 // KAKAO_ACCOUNT : 웹뷰 다이얼로그를 통한 계정연결 타입
                 // KAKAO_TALK_EXCLUDE_NATIVE_LOGIN : 카카오톡 로그인 타입과 함께 계정생성을 위한 버튼을 함께 제공
                 // KAKAO_LOGIN_ALL : 모든 로그인 방식을 제공
-                return new AuthType[] {AuthType.KAKAO_ACCOUNT};
+                return new AuthType[] {AuthType.KAKAO_LOGIN_ALL};
 
             }
 
@@ -62,6 +63,7 @@ public class KakaoSDKAdapter extends KakaoAdapter {
     @Override
     public IApplicationConfig getApplicationConfig() {
         return new IApplicationConfig() {
+
             @Override
             public Context getApplicationContext() {
                 return GlobalApplication.getGlobalApplicationContext();

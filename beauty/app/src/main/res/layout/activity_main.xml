@@ -147,7 +147,7 @@
 
     </LinearLayout>
 
-    <Button
+    <com.kakao.usermgmt.LoginButton
         android:id="@+id/btn_custom_login"
         android:layout_width="371dp"
         android:layout_height="wrap_content"

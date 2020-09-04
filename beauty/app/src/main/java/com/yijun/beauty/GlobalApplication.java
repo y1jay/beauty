@@ -1,49 +1,33 @@
 package com.yijun.beauty;
 
+
+import android.app.Activity;
 import android.app.Application;
 
 import com.kakao.auth.KakaoSDK;
 import com.yijun.beauty.adapter.KakaoSDKAdapter;
 
 public class GlobalApplication extends Application {
+    private static volatile GlobalApplication obj = null;
+    private static volatile Activity currentActivity = null;
 
-    private static GlobalApplication instance;
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        obj = this;
+        KakaoSDK.init(new KakaoSDKAdapter());
+    }
 
     public static GlobalApplication getGlobalApplicationContext() {
-
-        if (instance == null) {
-
-            throw new IllegalStateException("This Application does not inherit com.kakao.GlobalApplication");
-        }
-
-        return instance;
-
+        return obj;
     }
 
-    @Override
-
-    public void onCreate() {
-
-        super.onCreate();
-
-        instance = this;
-
-
-
-        // Kakao Sdk 초기화
-
-        KakaoSDK.init(new KakaoSDKAdapter());
-
+    public static Activity getCurrentActivity() {
+        return currentActivity;
     }
 
-    @Override
-
-    public void onTerminate() {
-
-        super.onTerminate();
-
-        instance = null;
-
+    // Activity가 올라올때마다 Activity의 onCreate에서 호출해줘야한다.
+    public static void setCurrentActivity(Activity currentActivity) {
+        GlobalApplication.currentActivity = currentActivity;
     }
-
 }
