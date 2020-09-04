@@ -35,6 +35,7 @@ Button address;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
+
 //        Session session = Session.getCurrentSession();
 //        session.open(AuthType.KAKAO_LOGIN_ALL, AfterLogin.this);
 //
