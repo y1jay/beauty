@@ -83,7 +83,8 @@ public class SessionCallback implements ISessionCallback {
 
             public void onSuccess(UserProfile userProfile) {
 
-
+                Intent i = new Intent(context, AfterLogin.class);
+                context.startActivity(i);
 
                 Log.e("SessionCallback :: ", "onSuccess");
 
@@ -115,8 +116,6 @@ public class SessionCallback implements ISessionCallback {
 
                 Log.e("Profile : ", id + "");
 
-                Intent i = new Intent(context, AfterLogin.class);
-                context.startActivity(i);
             }
 
 
