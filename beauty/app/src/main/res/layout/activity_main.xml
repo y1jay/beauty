@@ -147,14 +147,21 @@
 
     </LinearLayout>
 
-    <Button
+    <com.kakao.usermgmt.LoginButton
         android:id="@+id/btn_custom_login"
-        android:layout_width="371dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="18sp"></com.kakao.usermgmt.LoginButton>
 
-        android:background="@drawable/kakao_login_large_wide"
-        android:textSize="18sp" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_custom_login"-->
+<!--        android:layout_width="371dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="20dp"-->
+
+<!--        android:background="@drawable/kakao_login_large_wide"-->
+<!--        android:textSize="18sp" />-->
 
 
     <TextView

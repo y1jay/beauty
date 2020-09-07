@@ -7,7 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,11 +23,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kakao.auth.ApiErrorCode;
 import com.kakao.auth.AuthType;
+import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
+import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.kakao.usermgmt.callback.MeV2ResponseCallback;
+import com.kakao.usermgmt.response.MeV2Response;
+import com.kakao.util.OptionalBoolean;
+import com.kakao.util.exception.KakaoException;
+import com.kakao.util.helper.Utility;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.FindReq;
@@ -32,6 +44,8 @@ import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
+
+import java.security.MessageDigest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
 
     private Button btn_custom_login;
+    private SessionCallback sessionCallback;
 
 
     @Override
@@ -74,51 +89,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent i = new Intent(MainActivity.this, LodingActivity.class);
+        int key = getIntent().getIntExtra("key", 0);
+        if (key == 1) {
 
-        Intent i = new Intent(MainActivity.this,LodingActivity.class);
-        int key = getIntent().getIntExtra("key",0);
-        if(key==1){
-
-        }else{
+        } else {
             startActivity(i);
         }
 
 
-        btn_custom_login = (Button) findViewById(R.id.btn_custom_login);
+        sessionCallback = new SessionCallback(); //SessionCallback 초기화
+        Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
+        Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
-        btn_custom_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//               Session session = Session.getCurrentSession();
+//               session.addCallback(new SessionCallback());
+//               session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
+//               getAppKeyHash();
 
-                Session session = Session.getCurrentSession();
-                session.addCallback(new SessionCallback());
-                session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
-
-                reservation.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent i = new Intent(MainActivity.this, Reservation.class);
-                        startActivity(i);
-                    }
-                });
-
-                address.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent i = new Intent(MainActivity.this, Address.class);
-                        i.putExtra("add",1);
-                        startActivity(i);
-                    }
-                });
-
-            }
-        });
 
         reservation = findViewById(R.id.reservation);
-
         address = findViewById(R.id.address);
-
-
 
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,54 +122,70 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, Address.class);
-                i.putExtra("add",1);
+                i.putExtra("add", 1);
                 startActivity(i);
             }
         });
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menus, menu);
-        return true;
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+    protected void onDestroy() {
+        super.onDestroy();
+        Session.getCurrentSession().removeCallback(sessionCallback);
+    }
 
-        if (id == R.id.myInfo){
-            Intent i = new Intent(MainActivity.this, MyInfo.class);
-            startActivity(i);
-            return true;
-        }else if (id == R.id.reservation_check){
-            Intent i = new Intent(MainActivity.this, ReservationRecord.class);
-            startActivity(i);
-            return true;
-        }else if (id == R.id.logout){
-            /**카카오톡 로그아웃 요청**/
-            //한번 로그인이 성공하면 세션 정보가 남아있어서 로그인창이 뜨지 않고 바로 onSuccess()메서드를 호출합니다.
-            //테스트 하시기 편하라고 매번 로그아웃 요청을 수행하도록 코드를 넣었습니다 ^^
-            UserManagement.requestLogout(new LogoutResponseCallback() {
+    private class SessionCallback implements ISessionCallback {
+        @Override
+        public void onSessionOpened() {
+            UserManagement.getInstance().me(new MeV2ResponseCallback() {
                 @Override
-                public void onCompleteLogout() {
-                    //로그아웃 성공 후 하고싶은 내용 코딩 ~
-                    Toast.makeText(MainActivity.this, "로그아웃되었습니다.", Toast.LENGTH_LONG).show();
+                public void onFailure(ErrorResult errorResult) {
+                    int result = errorResult.getErrorCode();
+
+                    if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                        Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다: " + errorResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+                    Toast.makeText(getApplicationContext(), "세션이 닫혔습니다. 다시 시도해 주세요: " + errorResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onSuccess(MeV2Response result) {
+                    Intent intent = new Intent(getApplicationContext(), AfterLogin.class);
+                    if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
+                        intent.putExtra("email", result.getKakaoAccount().getEmail());
+                    else
+                        intent.putExtra("email", "none");
+                        Log.i("email : ", result.getKakaoAccount().getEmail());
+                        startActivity(intent);
+                        finish();
+
                 }
             });
         }
 
-        return super.onOptionsItemSelected(item);
+        @Override
+        public void onSessionOpenFailed(KakaoException e) {
+            Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다. 인터넷 연결을 확인해주세요: " + e.toString(), Toast.LENGTH_SHORT).show();
+            Log.e("openfailed ", e.toString());
+        }
     }
+}
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        finish();
-
-    }
 //    public void createPopupDialog(){
 //        AlertDialog.Builder alert = new AlertDialog.Builder
 //                (MainActivity.this);
@@ -292,4 +299,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-}

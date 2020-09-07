@@ -1,8 +1,10 @@
 package com.yijun.beauty;
 
+import android.app.Activity;
 import android.app.Application;
 
 import com.kakao.auth.KakaoSDK;
+import com.yijun.beauty.adapter.App;
 import com.yijun.beauty.adapter.KakaoSDKAdapter;
 
 public class GlobalApplication extends Application {

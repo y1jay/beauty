@@ -17,7 +17,7 @@
         android:usesCleartextTraffic="true">
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="370fd4194ea2a34d09a77fa0311db0c2" />
+            android:value="@string/kakao_app_key" />
         <activity android:name=".ReservationRecord" />
         <activity android:name=".MyInfo" />
         <activity android:name=".Reservation" />
