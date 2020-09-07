@@ -5,20 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.kakao.auth.AuthType;
 import com.kakao.auth.Session;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.kakao.util.helper.Utility;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
+
+import java.security.MessageDigest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,71 +37,45 @@ import retrofit2.Retrofit;
 
 
 public class AfterLogin extends AppCompatActivity {
-Button logout;
-Button reservation;
-Button address;
+    Button logout;
+    Button reservation;
+    Button address;
     SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
 
-//        Session session = Session.getCurrentSession();
-//        session.open(AuthType.KAKAO_LOGIN_ALL, AfterLogin.this);
-//
-
         logout = findViewById(R.id.logout);
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
-        int key = getIntent().getIntExtra("key",0);
-if (key==1){
-    Intent i = new Intent(AfterLogin.this,LodingActivity.class);
-    startActivity(i);
-}else{
 
-}
+        int key = getIntent().getIntExtra("key",0);
+        if (key==1){
+        Intent i = new Intent(AfterLogin.this,LodingActivity.class);
+        startActivity(i);
+        }else{
+
+        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sp=getSharedPreferences(
-                        Utils.PREFERENCES_NAME,MODE_PRIVATE);
-                final String token = sp.getString("token",null);
+                Toast.makeText(getApplicationContext(), "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
 
-                Retrofit retrofit = NetworkClient.getRetrofitClient(AfterLogin.this);
-                UserApi userApi = retrofit.create(UserApi.class);
-                Call<UserRes> call = userApi.logoutUser("Bearer "+token);
-                call.enqueue(new Callback<UserRes>() {
+                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
                     @Override
-                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
-                        if (response.isSuccessful()){
-                            if (response.body().isSuccess()){
-                                sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("token",null);
-                                editor.putBoolean("auto_login",false);
-                                editor.apply();
-                                Intent i = new Intent(AfterLogin.this,MainActivity.class);
-                                i.putExtra("key",1);
-
-                                finish();
-                                startActivity(i);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<UserRes> call, Throwable t) {
-                        Log.i("AAAA","? ",t);
+                    public void onCompleteLogout() {
+                        Intent intent = new Intent(AfterLogin.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                     }
                 });
 
-
-
-
-
             }
         });
+
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +83,7 @@ if (key==1){
                 startActivity(i);
             }
         });
+
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +93,7 @@ if (key==1){
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
