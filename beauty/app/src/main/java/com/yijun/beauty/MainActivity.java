@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -118,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
     }
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        Session.getCurrentSession().removeCallback(callback);
-    }
+//    @Override
+//    protected void onDestroy(){
+//        super.onDestroy();
+//        Session.getCurrentSession().removeCallback(callback);
+//    }
     private class SessionCallback implements ISessionCallback{
 
         @Override
@@ -133,13 +134,13 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(ErrorResult errorResult) {
                     String message = "failed to get user info. msg=" + errorResult;
-                    Logger.d(message);
+                    Log.i("fail", message);
 
                     ErrorCode result = ErrorCode.valueOf(errorResult.getErrorCode());
                     if (result == ErrorCode.CLIENT_ERROR_CODE) {
                         finish();
                     } else {
-                        //redirectMainActivity();
+//                        redirectMainActivity();
                     }
                 }
 
