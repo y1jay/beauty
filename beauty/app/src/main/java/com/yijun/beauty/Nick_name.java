@@ -75,7 +75,7 @@ EditText edit_nick_name;
 //                            editor.apply();
 
                             Intent i = new Intent(Nick_name.this,AfterLogin.class);
-                            
+
                             finish();
                             startActivity(i);
 
