@@ -53,10 +53,11 @@ public class AfterLogin extends AppCompatActivity {
 
         int key = getIntent().getIntExtra("key",0);
         if (key==1){
-        Intent i = new Intent(AfterLogin.this,LodingActivity.class);
-        startActivity(i);
+            Intent i = new Intent(AfterLogin.this,LodingActivity.class);
+            startActivity(i);
         }else{
-
+            String email = getIntent().getStringExtra("email");
+            Toast.makeText(AfterLogin.this,email+"님 환영합니다",Toast.LENGTH_SHORT).show();
         }
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +69,7 @@ public class AfterLogin extends AppCompatActivity {
                     @Override
                     public void onCompleteLogout() {
                         Intent intent = new Intent(AfterLogin.this, MainActivity.class);
+                        intent.putExtra("key",1);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
@@ -93,7 +95,6 @@ public class AfterLogin extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

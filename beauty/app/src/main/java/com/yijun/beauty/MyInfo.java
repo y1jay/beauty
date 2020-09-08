@@ -52,6 +52,7 @@ public class MyInfo extends AppCompatActivity {
                                         //다시 로그인해달라는 Toast 메세지를 띄우고 로그인 창으로 이동함
                                         Toast.makeText(getApplicationContext(), "로그인 세션이 닫혔습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(MyInfo.this, MainActivity.class);
+                                        intent.putExtra("key",1);
                                         startActivity(intent);
                                         finish();
                                     }
@@ -71,6 +72,7 @@ public class MyInfo extends AppCompatActivity {
                                         //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
                                         Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(MyInfo.this, MainActivity.class);
+                                        intent.putExtra("key",1);
                                         startActivity(intent);
                                         finish();
                                     }
