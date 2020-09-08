@@ -51,8 +51,8 @@ public class AfterLogin extends AppCompatActivity {
             Intent i = new Intent(AfterLogin.this,LodingActivity.class);
             startActivity(i);
         }else{
-//            String email = getIntent().getStringExtra("email");
-//            Toast.makeText(AfterLogin.this,email+"님 환영합니다",Toast.LENGTH_SHORT);
+            String nick_name = getIntent().getStringExtra("nick_name");
+            Toast.makeText(AfterLogin.this,nick_name+" 님 환영합니다",Toast.LENGTH_SHORT).show();
 
         }
 

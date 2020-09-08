@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                             // response.body() ==> PostRes 클래스
                             if (response.isSuccessful()){
                                 Intent i = new Intent(MainActivity.this,AfterLogin.class);
+                                i.putExtra("nick_name",response.body().getNick_name());
                                 finish();
                                 startActivity(i);
                             }else if (response.isSuccessful()==false){
