@@ -144,14 +144,40 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(MeV2Response result) {
-                    Intent intent = new Intent(getApplicationContext(), Nick_name.class);
-                    if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
-                        intent.putExtra("email", result.getKakaoAccount().getEmail());
-                    else
-                        intent.putExtra("email", "none");
-                        Log.i("email : ", result.getKakaoAccount().getEmail());
-                        finish();
-                        startActivity(intent);
+                    String email = result.getKakaoAccount().getEmail();
+                    Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+
+                    UserApi userApi = retrofit.create(UserApi.class);
+
+                    Call<UserCheck> call = userApi.checkUser(email);
+                    call.enqueue(new Callback<UserCheck>() {
+                        @Override
+                        public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                            // response.body() ==> PostRes 클래스
+                            if (response.isSuccessful()){
+                                Intent i = new Intent(MainActivity.this,AfterLogin.class);
+                                finish();
+                                startActivity(i);
+                            }else if (response.isSuccessful()==false){
+                                Intent intent = new Intent(getApplicationContext(), Nick_name.class);
+                                if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
+                                    intent.putExtra("email", result.getKakaoAccount().getEmail());
+                                else
+                                    intent.putExtra("email", "none");
+                                Log.i("email : ", result.getKakaoAccount().getEmail());
+                                finish();
+                                startActivity(intent);
+
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<UserCheck> call, Throwable t) {
+
+                        }
+                    });
 
 
                 }
