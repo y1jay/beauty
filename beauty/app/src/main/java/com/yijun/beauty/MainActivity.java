@@ -1,51 +1,28 @@
 package com.yijun.beauty;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kakao.auth.ApiErrorCode;
-import com.kakao.auth.AuthType;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
-import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
 import com.kakao.util.exception.KakaoException;
-import com.kakao.util.helper.Utility;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
-import com.yijun.beauty.model.FindReq;
-import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.UserCheck;
-import com.yijun.beauty.model.UserReq;
-import com.yijun.beauty.model.UserRes;
-import com.yijun.beauty.url.Utils;
-
-import java.security.MessageDigest;
 
 import retrofit2.Call;
 import retrofit2.Callback;

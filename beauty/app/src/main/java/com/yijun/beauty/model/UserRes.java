@@ -7,8 +7,7 @@ public class UserRes {
     @SerializedName("success")
     private boolean success;
 
-    @SerializedName("token")
-    private String token;
+
 
 
     public boolean isSuccess() {
@@ -19,11 +18,5 @@ public class UserRes {
         this.success = success;
     }
 
-    public String getToken() {
-        return token;
-    }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
 }
