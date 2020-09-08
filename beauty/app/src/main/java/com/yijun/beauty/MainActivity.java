@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Button reservation;
-
+    Button review;
     Button address;
 
     SharedPreferences sp;
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
+        review = findViewById(R.id.review);
 
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,8 +169,6 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i("email : ", result.getKakaoAccount().getEmail());
                                 finish();
                                 startActivity(intent);
-
-
                             }
 
                         }
@@ -180,6 +179,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
+                    // email 저장.
+                    sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("email", email);
+                    editor.apply();
 
                 }
             });
