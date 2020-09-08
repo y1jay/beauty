@@ -56,7 +56,7 @@ EditText edit_nick_name;
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<UserRes> call = userApi.loginUser(userReq);
+                Call<UserRes> call = userApi.createUser(userReq);
 
                 call.enqueue(new Callback<UserRes>() {
                     @Override
