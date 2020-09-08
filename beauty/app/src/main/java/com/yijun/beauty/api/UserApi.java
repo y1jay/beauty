@@ -24,7 +24,8 @@ import retrofit2.http.Query;
 public interface UserApi {
     // http 메소드와 경로 설정
   @POST("/api/v1/user/add")
-    Call<UserRes> createUser(@Body UserReq userReq);
+    Call<UserRes> createUser(@Body UserReq userReq,
+                             @Body String email);
 
   @POST("/api/v1/user/login")
     Call<UserRes> loginUser(@Body UserReq userReq);
@@ -32,19 +33,11 @@ public interface UserApi {
   @POST("/api/v1/user/checkID")
     Call<UserCheck> checkId (@Body UserReq userReq);
 
-  @DELETE("/api/v1/user/logout")
-  Call<UserRes> logoutUser (@Header("Authorization") String token);
-
-  @DELETE("/api/v1/user/del")
-  Call<UserRes> delUser (@Header("Authorization") String token);
-
-  @GET("/api/v1/user/myInfo")
-  Call<Rows> myInfo (@Header("Authorization") String token);
 
  @POST("/api/v1/user/findId")
   Call<ID> findID (@Body FindReq findReq);
 
- @PUT("/api/v1/user/findPasswd")
+ @POST("/api/v1/user/findPasswd")
     Call<UserCheck> setPasswd(@Body UserReq userReq,
                               @Query("new_passwd") String new_passwd);
 

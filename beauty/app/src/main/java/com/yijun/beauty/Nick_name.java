@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Nick_name extends AppCompatActivity {
 Button btn_check;
@@ -29,6 +30,15 @@ EditText edit_nick_name;
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email = txt_email.getText().toString().trim();
+                String nick_name = edit_nick_name.getText().toString().trim();
+                if (nick_name.isEmpty()){
+                    Toast.makeText(Nick_name.this,"닉네임을 입력해주세요,",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
                 Intent i = new Intent(Nick_name.this,AfterLogin.class);
                 finish();
                 startActivity(i);
