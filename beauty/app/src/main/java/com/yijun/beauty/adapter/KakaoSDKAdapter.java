@@ -1,5 +1,6 @@
 package com.yijun.beauty.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.kakao.auth.ApprovalType;

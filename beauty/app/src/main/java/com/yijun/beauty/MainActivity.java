@@ -56,9 +56,13 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
+    RecyclerView recyclerView;
     Button reservation;
 
     Button address;
+
+    SharedPreferences sp;
+
 
     private SessionCallback sessionCallback;
 
@@ -81,9 +85,7 @@ public class MainActivity extends AppCompatActivity {
         Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
-//               Session session = Session.getCurrentSession();
-//               session.addCallback(new SessionCallback());
-//               session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
+
 
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
@@ -142,14 +144,15 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(MeV2Response result) {
-                    Intent intent = new Intent(getApplicationContext(), AfterLogin.class);
+                    Intent intent = new Intent(getApplicationContext(), Nick_name.class);
                     if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
                         intent.putExtra("email", result.getKakaoAccount().getEmail());
                     else
                         intent.putExtra("email", "none");
                         Log.i("email : ", result.getKakaoAccount().getEmail());
-                        startActivity(intent);
                         finish();
+                        startActivity(intent);
+
 
                 }
             });
