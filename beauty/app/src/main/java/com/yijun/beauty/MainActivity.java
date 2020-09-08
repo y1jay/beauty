@@ -56,16 +56,11 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
     Button reservation;
-
     Button address;
-
-    SharedPreferences sp;
-
+    Button review;
 
     private SessionCallback sessionCallback;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
+        review = findViewById(R.id.review);
 
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,8 +148,6 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("email : ", result.getKakaoAccount().getEmail());
                         finish();
                         startActivity(intent);
-
-
                 }
             });
         }
