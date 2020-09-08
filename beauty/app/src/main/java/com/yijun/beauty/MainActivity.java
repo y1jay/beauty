@@ -60,27 +60,10 @@ public class MainActivity extends AppCompatActivity {
     Button reservation;
 
     Button address;
-    Button signUp;
-    private AlertDialog dialog;
-    private AlertDialog dialog1;
-    private AlertDialog dialog2;
 
-    EditText findPhone;
-
-    EditText findName;
-    EditText passName;
-    EditText passID;
-    EditText passPhone;
-    EditText newPass;
-
-    Button btnSet;
-    Button btnIDNO;
-    Button btnPASSNO;
-
-    Button find;
     SharedPreferences sp;
 
-    private Button btn_custom_login;
+
     private SessionCallback sessionCallback;
 
 
@@ -102,10 +85,6 @@ public class MainActivity extends AppCompatActivity {
         Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
-//               Session session = Session.getCurrentSession();
-//               session.addCallback(new SessionCallback());
-//               session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
-//               getAppKeyHash();
 
 
         reservation = findViewById(R.id.reservation);
