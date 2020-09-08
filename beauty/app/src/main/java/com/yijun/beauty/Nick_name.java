@@ -64,15 +64,6 @@ EditText edit_nick_name;
                     public void onResponse(Call<UserRes> call, Response<UserRes> response) {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
-                            // response.body() 가 UserRes.이다.
-//                            boolean success = response.body().isSuccess();
-//                            String token = response.body().getToken();
-//                            Log.i("AAAA","success : "+success +" token : " + token);
-//
-//                            SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
-//                            SharedPreferences.Editor editor = sp.edit();
-//                            editor.putString("token", token);
-//                            editor.apply();
 
                             Intent i = new Intent(Nick_name.this,AfterLogin.class);
                             i.putExtra("nick_name", nick_name);
@@ -92,9 +83,7 @@ EditText edit_nick_name;
                     }
                 });
 
-//                Intent i = new Intent(Nick_name.this,AfterLogin.class);
-//                finish();
-//                startActivity(i);
+
             }
         });
     }
