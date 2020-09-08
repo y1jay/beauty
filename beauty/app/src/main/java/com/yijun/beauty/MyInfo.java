@@ -76,18 +76,17 @@ public class MyInfo extends AppCompatActivity {
 
                     txt_nick_name.setText(nick_name);
                     txt_email.setText(email);
-                    txt_created_at.setText(created_at.replace("T", " ").replace("Z", ""));
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+                    df.setTimeZone(TimeZone.getTimeZone("UTF"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
 
-//                    SimpleDateFormat df = new SimpleDateFormat("YYYY-MM-dd'T'HH:mm");
-//                    df.setTimeZone(TimeZone.getTimeZone("UTC"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
-//                    try {
-//                        Date date = df.parse(created_at);
-//                        df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
-//                        String strDate = df.format(date).replace("T", " ");
-//                        txt_created_at.setText(strDate);
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
+                    try {
+                        Date date = df.parse(created_at);
+                        df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
+                        String strDate = df.format(date).replace("T", " ");
+                        txt_created_at.setText(strDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
 
                 }else {
 

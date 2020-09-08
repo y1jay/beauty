@@ -1,24 +1,15 @@
 package com.yijun.beauty.api;
 
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.yijun.beauty.model.FindReq;
-import com.yijun.beauty.model.ID;
-import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface UserApi {
@@ -29,23 +20,12 @@ public interface UserApi {
   @GET("/api/v1/user/check")
     Call<UserCheck> checkUser(@Query("email") String email);
 
-  @POST("/api/v1/user/checkID")
-    Call<UserCheck> checkId (@Body UserReq userReq);
-
-  @DELETE("/api/v1/user/logout")
-  Call<UserRes> logoutUser (@Header("Authorization") String token);
-
+  @PUT("/api/v1/user/change")
+    Call<UserRes> changeUser(@Query("email") String email,
+                             @Query("new_nick_name") String new_nick_name);
   @DELETE("/api/v1/user/del")
-  Call<UserRes> delUser (@Header("Authorization") String token);
+  Call<UserRes> delUser (@Query("email") String email);
 
-  @GET("/api/v1/user/myInfo")
-  Call<Rows> myInfo (@Header("Authorization") String token);
 
- @POST("/api/v1/user/findId")
-  Call<ID> findID (@Body FindReq findReq);
-
- @POST("/api/v1/user/findPasswd")
-    Call<UserCheck> setPasswd(@Body UserReq userReq,
-                              @Query("new_passwd") String new_passwd);
 
 }
