@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
         Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
-//               Session session = Session.getCurrentSession();
-//               session.addCallback(new SessionCallback());
-//               session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
+               Session session = Session.getCurrentSession();
+               session.addCallback(new SessionCallback());
+               session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
 //               getAppKeyHash();
 
 
