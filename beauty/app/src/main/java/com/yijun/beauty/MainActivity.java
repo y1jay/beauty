@@ -23,6 +23,7 @@ import com.kakao.util.exception.KakaoException;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
+import com.yijun.beauty.url.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
