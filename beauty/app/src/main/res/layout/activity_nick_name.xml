@@ -38,7 +38,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="nick_name"
+        android:hint="닉네임을 입력해주세요"
         android:inputType="textPersonName" />
 
     <Button
