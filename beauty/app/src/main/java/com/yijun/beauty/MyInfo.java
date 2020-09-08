@@ -82,7 +82,7 @@ public class MyInfo extends AppCompatActivity {
 
                     Log.i("info", nick_name + created_at + email);
 
-                    txt_nick_name.setText("닉네임  :  "+nick_name);
+                    txt_nick_name.setText(nick_name);
                     txt_email.setText("이메일  :  "+email);
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
                     df.setTimeZone(TimeZone.getTimeZone("UTF"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
