@@ -56,31 +56,12 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+
     Button reservation;
 
     Button address;
-    Button signUp;
-    private AlertDialog dialog;
-    private AlertDialog dialog1;
-    private AlertDialog dialog2;
 
-    EditText findPhone;
 
-    EditText findName;
-    EditText passName;
-    EditText passID;
-    EditText passPhone;
-    EditText newPass;
-
-    Button btnSet;
-    Button btnIDNO;
-    Button btnPASSNO;
-
-    Button find;
-    SharedPreferences sp;
-
-    private Button btn_custom_login;
     private SessionCallback sessionCallback;
 
 
