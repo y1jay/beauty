@@ -1,36 +1,22 @@
 package com.yijun.beauty.model;
 
-public class UserReq {
+public class FindReq {
     private String name;
     private String nick_name;
     private String passwd;
     private String phone;
 
-    public UserReq() {
-    }
-
-    public UserReq(String nick_name, String passwd){
-        this.nick_name = nick_name;
-        this.passwd = passwd;
-    }
-
-    public UserReq(String name, String nick_name, String phone) {
+    public FindReq(String name, String phone) {
         this.name = name;
-        this.nick_name = nick_name;
         this.phone = phone;
     }
 
-    public UserReq(String nick_name) {
-        this.nick_name = nick_name;
-    }
-
-    public UserReq(String name, String nick_name, String passwd, String phone) {
+    public FindReq(String name, String nick_name, String passwd, String phone) {
         this.name = name;
         this.nick_name = nick_name;
         this.passwd = passwd;
         this.phone = phone;
     }
-
 
     public String getName() {
         return name;

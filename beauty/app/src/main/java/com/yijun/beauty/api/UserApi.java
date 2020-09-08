@@ -1,6 +1,7 @@
 package com.yijun.beauty.api;
 
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import com.yijun.beauty.model.FindReq;
 import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.model.UserCheck;
@@ -26,7 +27,6 @@ public interface UserApi {
     Call<UserRes> createUser(@Body UserReq userReq);
 
   @POST("/api/v1/user/login")
-
     Call<UserRes> loginUser(@Body UserReq userReq);
 
   @POST("/api/v1/user/checkID")
@@ -42,7 +42,7 @@ public interface UserApi {
   Call<Rows> myInfo (@Header("Authorization") String token);
 
  @POST("/api/v1/user/findId")
-  Call<ID> findID (@Body UserReq userReq);
+  Call<ID> findID (@Body FindReq findReq);
 
  @PUT("/api/v1/user/findPasswd")
     Call<UserCheck> setPasswd(@Body UserReq userReq,
