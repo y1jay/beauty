@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(MeV2Response result) {
-                    Intent intent = new Intent(getApplicationContext(), AfterLogin.class);
+                    Intent intent = new Intent(getApplicationContext(), Nick_name.class);
                     if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
                         intent.putExtra("email", result.getKakaoAccount().getEmail());
                     else
