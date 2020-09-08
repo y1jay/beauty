@@ -125,7 +125,7 @@ public class MyInfo extends AppCompatActivity {
 
                         if (new_nick_name.equals(txt_nick_name.getText().toString().trim())){
                             Log.i("nick_name", txt_nick_name.getText().toString().trim() +new_nick_name);
-                            Toast.makeText(MyInfo.this, "현재 닉네임과 동일합니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MyInfo.this, "현재 닉네임과 동일합니다.", Toast.LENGTH_LONG).show();
                             return;
                         }
 
