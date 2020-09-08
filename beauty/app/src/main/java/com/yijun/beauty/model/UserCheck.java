@@ -10,6 +10,12 @@ public class UserCheck {
     @SerializedName("nick_name")
     private String nick_name;
 
+    @SerializedName("email")
+    private String email;
+
+    @SerializedName("created_at")
+    private String created_at;
+
     public String getNick_name() {
         return nick_name;
     }
@@ -26,5 +32,19 @@ public class UserCheck {
         this.success = success;
     }
 
+    public String getCreated_at() {
+        return created_at;
+    }
 
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

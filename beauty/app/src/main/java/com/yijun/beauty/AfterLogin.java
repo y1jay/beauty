@@ -53,15 +53,11 @@ public class AfterLogin extends AppCompatActivity {
         }else{
             String nick_name = getIntent().getStringExtra("nick_name");
             Toast.makeText(AfterLogin.this,nick_name+" 님 환영합니다",Toast.LENGTH_SHORT).show();
-
         }
-
 
         logout = findViewById(R.id.logout);
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
-
-
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
