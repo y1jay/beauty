@@ -66,7 +66,7 @@ EditText edit_nick_name;
                         if (response.isSuccessful()){
 
                             Intent i = new Intent(Nick_name.this,AfterLogin.class);
-
+                            i.putExtra("nick_name", nick_name);
                             finish();
                             startActivity(i);
 
