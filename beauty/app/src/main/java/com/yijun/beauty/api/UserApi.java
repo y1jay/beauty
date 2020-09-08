@@ -26,8 +26,8 @@ public interface UserApi {
   @POST("/api/v1/user/add")
     Call<UserRes> createUser(@Body UserReq userReq);
 
-  @POST("/api/v1/user/login")
-    Call<UserRes> loginUser(@Body UserReq userReq);
+  @GET("/api/v1/user/check")
+    Call<UserCheck> checkUser(@Query("email") String email);
 
   @POST("/api/v1/user/checkID")
     Call<UserCheck> checkId (@Body UserReq userReq);

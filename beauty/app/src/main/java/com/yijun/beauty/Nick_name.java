@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
@@ -38,7 +39,7 @@ EditText edit_nick_name;
 
         String email = getIntent().getStringExtra("email");
 
-        txt_email.setText("이메일 = "+email);
+        txt_email.setText("이메일  "+email);
 
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +47,7 @@ EditText edit_nick_name;
                 String email = getIntent().getStringExtra("email");
                 String nick_name = edit_nick_name.getText().toString().trim();
                 if (nick_name.isEmpty()){
-                    Toast.makeText(Nick_name.this,"닉네임을 입력해주세요",
+                    Toast.makeText(Nick_name.this,"닉네임을 입력해주세요.",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -74,12 +75,13 @@ EditText edit_nick_name;
 //                            editor.apply();
 
                             Intent i = new Intent(Nick_name.this,AfterLogin.class);
-                            i.putExtra("nick_name", nick_name);
+
                             finish();
                             startActivity(i);
 
                         } else if (response.isSuccessful()==false){
                             Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+
                         }
 
                     }

@@ -8,10 +8,21 @@ public class UserReq {
     public UserReq() {
     }
 
+    public UserReq(String email) {
+        this.email = email;
+    }
 
     public UserReq(String email, String nick_name) {
         this.email = email;
         this.nick_name = nick_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNick_name() {
