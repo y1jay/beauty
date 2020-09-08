@@ -23,9 +23,8 @@ public interface UserApi {
   @PUT("/api/v1/user/change")
     Call<UserRes> changeUser(@Query("email") String email,
                              @Query("new_nick_name") String new_nick_name);
+
   @DELETE("/api/v1/user/del")
-  Call<UserRes> delUser (@Query("email") String email);
-
-
+    Call<UserRes> delUser (@Query("email") String email);
 
 }

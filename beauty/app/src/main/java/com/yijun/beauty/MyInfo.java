@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,10 +43,17 @@ import static com.kakao.usermgmt.StringSet.email;
 
 public class MyInfo extends AppCompatActivity {
 
-    Button btn_end;
     TextView txt_nick_name;
     TextView txt_email;
     TextView txt_created_at;
+    Button btn_update;
+    Button btn_end;
+
+    private AlertDialog alertDialog;
+    EditText txt_new_nick_name;
+    Button btn_change;
+    Button btn_no;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +108,79 @@ public class MyInfo extends AppCompatActivity {
             }
         });
 
+        btn_update = findViewById(R.id.btn_update);
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(MyInfo.this);
+                View alertView = getLayoutInflater().inflate(R.layout.change_nick_name,null);
+                txt_new_nick_name = alertView.findViewById(R.id.txt_new_nick_name);
+                btn_change = alertView.findViewById(R.id.btn_change);
+                btn_no = alertView.findViewById(R.id.btn_no);
+
+                btn_change.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String new_nick_name = txt_new_nick_name.getText().toString().trim();
+
+                        if (new_nick_name.equals(txt_nick_name.getText().toString().trim())){
+                            Log.i("nick_name", txt_nick_name.getText().toString().trim() +new_nick_name);
+                            Toast.makeText(MyInfo.this, "현재 닉네임과 동일합니다.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+
+                        UserApi userApi = retrofit.create(UserApi.class);
+
+                        Call<UserRes> call = userApi.changeUser(email, new_nick_name);
+                        call.enqueue(new Callback<UserRes>() {
+                            @Override
+                            public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                                // response.body() ==> PostRes 클래스
+                                if (response.isSuccessful()){
+                                    //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
+                                    Toast.makeText(MyInfo.this, "닉네임이 변경되었습니다.", Toast.LENGTH_SHORT).show();
+                                    Log.i("nick_name", response.message());
+                                    txt_nick_name.setText(new_nick_name);
+                                }else if (response.isSuccessful()==false){
+                                    Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                                    Log.i("nick_name", response.message());
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<UserRes> call, Throwable t) {
+
+                            }
+                        });
+
+                        alertDialog.cancel();
+                    }
+                });
+
+                btn_no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.cancel();
+                    }
+                });
+
+                alert.setView(alertView);
+
+                alertDialog = alert.create();
+                alertDialog.setCancelable(false);
+                alertDialog.show();
+
+            }
+        });
+
 
         btn_end = findViewById(R.id.btn_end);
         btn_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 카카오 탈퇴
                 new AlertDialog.Builder(MyInfo.this)
                         .setMessage("탈퇴하시겠습니까?")
                         .setPositiveButton("네", new DialogInterface.OnClickListener() {
@@ -134,12 +210,34 @@ public class MyInfo extends AppCompatActivity {
                                     }
                                     @Override
                                     public void onSuccess(Long result) { //회원탈퇴에 성공하면
-                                        //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                        Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(MyInfo.this, MainActivity.class);
-                                        intent.putExtra("key",1);
-                                        startActivity(intent);
-                                        finish();
+                                        // 디비 탈퇴
+                                        Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+
+                                        UserApi userApi = retrofit.create(UserApi.class);
+
+                                        Call<UserRes> call = userApi.delUser(email);
+                                        call.enqueue(new Callback<UserRes>() {
+                                            @Override
+                                            public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                                                // response.body() ==> PostRes 클래스
+                                                if (response.isSuccessful()){
+                                                    //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
+                                                    Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(MyInfo.this, MainActivity.class);
+                                                    intent.putExtra("key",1);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }else {
+
+                                                }
+
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<UserRes> call, Throwable t) {
+
+                                            }
+                                        });
                                     }
                                 });
 
@@ -153,6 +251,7 @@ public class MyInfo extends AppCompatActivity {
                                 dialog.dismiss(); //팝업창 종료
                             }
                         }).show();
+
             }
         });
 

@@ -7,9 +7,6 @@ public class UserRes {
     @SerializedName("success")
     private boolean success;
 
-
-
-
     public boolean isSuccess() {
         return success;
     }
