@@ -139,15 +139,6 @@ public class Reservation extends AppCompatActivity {
     TextView paydrink3;
 
 
-
-
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
