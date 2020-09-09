@@ -202,6 +202,7 @@ public class Reservation extends AppCompatActivity {
 //                    i.putExtra("pay", pay);
 //                    startActivity(i);
 //                }
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 menu = alertView.findViewById(R.id.menu);
@@ -210,22 +211,22 @@ public class Reservation extends AppCompatActivity {
                 order_no = alertView.findViewById(R.id.order_no);
                 order_payment = alertView.findViewById(R.id.order_payment);
 
-                String menu1 = menuArrayList.get(0).toString();
-                String price1 = priceArrayList.get(0).toString();
+                String main = main_menu1.getText().toString().trim();
+                String pay = pay_main1.getText().toString().trim();
+                if (check_main_menu1.isChecked() == true){
 
-                String menu2 = menuArrayList.get(1).toString();
-                String price2 = priceArrayList.get(1).toString();
-
-                menu.setText(menu1+"\n"+menu2);
-                price.setText(price1+"\n"+price2);
-
-                total.setText(price1+price2);
+                    menu.setText(main);
+                    String nowon = pay.replace("원", "");
+                    price.setText(nowon);
+                    total.setText(pay);
+                }
 
                 order_payment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         Intent i = new Intent(Reservation.this, CheckoutActivity.class);
+                        i.putExtra("main", main);
+                        i.putExtra("pay",pay);
                         startActivity(i);
                     }
                 });
