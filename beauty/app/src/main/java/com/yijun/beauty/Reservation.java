@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -282,15 +283,8 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkmainmenu2.isChecked()){
-                    String mainmenu2 = txtmain2.getText().toString().trim();
-                    String pay2  = paymain2.getText().toString().trim();
-
-                    Intent i = new Intent(Reservation.this,CheckoutActivity.class);
-                    i.putExtra("menu2",mainmenu2);
-                    i.putExtra("pay2",pay2);
-                    startActivity(i);
-                }
+                Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+                startActivity(i);
             }
         });
 
@@ -304,7 +298,7 @@ public class Reservation extends AppCompatActivity {
             startActivity(i);
         }
 
-        if(checkmainmenu2.isChecked()){
+        if(checkmainmenu2.isChecked() == true){
             String mainmenu2 = txtmain2.getText().toString().trim();
             String pay2  = paymain2.getText().toString().trim();
 
