@@ -152,211 +152,211 @@ public class Reservation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
 
-//
-//        checkmainmenu1 = findViewById(R.id.checkmainmenu1);
-//        checkmainmenu2 = findViewById(R.id.checkmainmenu2);
-//        checkmainmenu3 = findViewById(R.id.checkmainmenu3);
-//        checkmainmenu4 = findViewById(R.id.checkmainmeun4);
-//        checkmainmenu5 = findViewById(R.id.checkmainmenu5);
-//        checkmainmenu6 = findViewById(R.id.checkmainmenu6);
-//        checksetmenu1 = findViewById(R.id.checksetmenu1);
-//        checksetmenu2 = findViewById(R.id.checksetmenu2);
-//        checksetmenusmall3 = findViewById(R.id.checksetmenusmall3);
-//        checksetmenumedium3 = findViewById(R.id.checksetmenumedium3);
-//        checksetmenubig3 = findViewById(R.id.checksetmenubig3);
-//        checksetmenusmall4 = findViewById(R.id.checksetmenusmall4);
-//        checksetmenumedium4 = findViewById(R.id.checksetmenumedium4);
-//        checksetmenubig4 = findViewById(R.id.checksetmenubig4);
-//        checksetmenusmall5 = findViewById(R.id.checksetsmall5);
-//        checksetmenumedium5 = findViewById(R.id.checksetmenumedium5);
-//        checksetmenubig5 = findViewById(R.id.checksetmenubig5);
-//        checksetmenusmall6 = findViewById(R.id.checksetmenusmall6);
-//        checksetmenumedium6 = findViewById(R.id.checksetmenumedium6);
-//        checksetmenubig6 = findViewById(R.id.checksetmenubig6);
-//        checksetmenusmall7 = findViewById(R.id.checksetmenusmall7);
-//        checksetmenumedium7 = findViewById(R.id.checksetmenumedium7);
-//        checksetmenu8 = findViewById(R.id.checksetmenu8);
-//        checkmenusmall1 = findViewById(R.id.checkmenusmall1);
-//        checkmenumedium1 = findViewById(R.id.checkmenumedium1);
-//        checkmenubig1 = findViewById(R.id.checkmenubig1);
-//        checkmenusmall2 = findViewById(R.id.checkmenusmall2);
-//        checkmenumedium2 = findViewById(R.id.checkmenumedium2);
-//        checkmenubig2 = findViewById(R.id.checkmenubig2);
-//        checkmenusmall3 = findViewById(R.id.checkmenusmall3);
-//        checkmenumedium3 = findViewById(R.id.checkmenumedium3);
-//        checkmenusmall4 = findViewById(R.id.checkmenusmall4);
-//        checkmenumedium4 = findViewById(R.id.checkmenumedium4);
-//        checkmenubig4 = findViewById(R.id.checkmenubig4);
-//        checkmenusmall5 = findViewById(R.id.checkmenusmall5);
-//        checkmenumedium5 = findViewById(R.id.checkmenumedium5);
-//        checkmenubig5 = findViewById(R.id.checkmenubig5);
-//        checkmenu6 = findViewById(R.id.checkmenu6);
-//        checkmenu7 = findViewById(R.id.checkmenu7);
-//        checksidemenu1 = findViewById(R.id.checksidemenu1);
-//        checksidemenu2 = findViewById(R.id.checksidemenu2);
-//        checksidemenu3 = findViewById(R.id.checksidemenu3);
-//        checksidemenu4 = findViewById(R.id.checksidemenu4);
-//        checkdrink1 = findViewById(R.id.checkdrink1);
-//        checkdrink2 = findViewById(R.id.checkdrink2);
-//        checkdrink3 = findViewById(R.id.checkdrink3);
-//
-//        txtmain1 = findViewById(R.id.txtmain1);
-//        txtmain2 = findViewById(R.id.txtmain2);
-//        txtmain3 = findViewById(R.id.txtmain3);
-//        txtmain4 = findViewById(R.id.txtmain4);
-//        txtmain5 =findViewById(R.id.txtmain5);
-//        txtmain5 = findViewById(R.id.txtmain5);
-//        txtmain6 = findViewById(R.id.txtmain6);
-//        txtset1 = findViewById(R.id.txtset1);
-//        txtset2 = findViewById(R.id.txtset2);
-//        txtset3 = findViewById(R.id.txtset3);
-//        txtset4 = findViewById(R.id.txtset4);
-//        txtset5 = findViewById(R.id.txtset5);
-//        txtset6 = findViewById(R.id.txtset6);
-//        txtset7 = findViewById(R.id.txtset7);
-//        txtset8 = findViewById(R.id.txtset8);
-//        txtmenu1 = findViewById(R.id.txtmenu1);
-//        txtmenu2 = findViewById(R.id.txtmenu2);
-//        txtmenu3 = findViewById(R.id.txtmenu3);
-//        txtmenu4 =findViewById(R.id.txtmenu4);
-//        txtmenu5 = findViewById(R.id.txtmenu5);
-//        txtmenu6 = findViewById(R.id.txtmenu6);
-//        txtmenu7 = findViewById(R.id.txtmenu7);
-//        txtside1 = findViewById(R.id.txtside1);
-//        txtside2 = findViewById(R.id.txtside2);
-//        txtside3 = findViewById(R.id.txtside3);
-//        txtside4 = findViewById(R.id.txtside4);
-//        txtdrink1 = findViewById(R.id.txtdrink1);
-//        txtdrink2 =findViewById(R.id.txtdrink2);
-//        txtdrink3 =findViewById(R.id.txtdrink3);
-//
-//        paymain1 = findViewById(R.id.paymain1);
-//        paymain2 = findViewById(R.id.paymain2);
-//        paymain3 = findViewById(R.id.paymain3);
-//        paymain4 = findViewById(R.id.paymain4);
-//        paymain5 = findViewById(R.id.paymain5);
-//        paymain6 = findViewById(R.id.paymain6);
-//        payset1 = findViewById(R.id.payset1);
-//        payset2 = findViewById(R.id.payset2);
-//        paysetsmall3 = findViewById(R.id.paysetsmall3);
-//        paysetmedium3 = findViewById(R.id.paysetmedium3);
-//        paysetbig3 = findViewById(R.id.paysetbig3);
-//        paysetsmall4= findViewById(R.id.paysetsmall4);
-//        paysetmedium4 =findViewById(R.id.paysetmedium4);
-//        paysetbig4 = findViewById(R.id.paysetbig4);
-//        paysetsmall5 = findViewById(R.id.paysetsmall5);
-//        paysetmedium5 = findViewById(R.id.paysetmedium5);
-//        paysetbig5 = findViewById(R.id.paysetbig5);
-//        paysetsmall6 = findViewById(R.id.paysetsmall6);
-//        paysetmedium6 = findViewById(R.id.paysetmedium6);
-//        paysetsmall7 = findViewById(R.id.paysetsmall7);
-//        paysetmedium7 = findViewById(R.id.paysetmedium7);
-//        payset8 = findViewById(R.id.payset8);
-//        paymenusmall1 = findViewById(R.id.paymenusmall1);
-//        paymenumedium1 = findViewById(R.id.paymenumedium1);
-//        paymenubig1 = findViewById(R.id.paymenubig1);
-//        paymenusmall2 = findViewById(R.id.paymenusmall2);
-//        paymenumedium2 = findViewById(R.id.paymenumedium2);
-//        paymenubig2 = findViewById(R.id.paymenubig2);
-//        paymenusmall3 = findViewById(R.id.paymenusmall3);
-//        paymenumedium3 = findViewById(R.id.paymenumedium3);
-//        paymenusmall4 = findViewById(R.id.paymenusmall4);
-//        paymenumedium4 = findViewById(R.id.paymenumedium4);
-//        paymenubig4 = findViewById(R.id.paymenubig4);
-//        paymenusmall5 = findViewById(R.id.paymenusmall5);
-//        paymenumedium5 = findViewById(R.id.paymenumedium5);
-//        paymenubig5 = findViewById(R.id.paymenubig5);
-//        paymenu6 = findViewById(R.id.paymenu6);
-//        paymenu7 = findViewById(R.id.paymenu7);
-//        payside1 = findViewById(R.id.payside1);
-//        payside2 = findViewById(R.id.payside2);
-//        payside3 = findViewById(R.id.payside3);
-//        payside4 = findViewById(R.id.payside4);
-//        paydrink1 = findViewById(R.id.paydrink1);
-//        paydrink2 = findViewById(R.id.paydrink2);
-//        paydrink3 = findViewById(R.id.paydrink3);
-//
-//
-//
-//
-//        btn_payment = findViewById(R.id.btn_payment);
-//
-//        if(checkmainmenu1.isChecked()){
-//            String mainmenu1 = txtmain1.getText().toString();
-//            String pay1  = paymain1.getText().toString();
-//
-//            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
-//            i.putExtra("menu1",mainmenu1);
-//            i.putExtra("pay1",pay1);
-//            startActivity(i);
-//        }
-//
-//        if(checkmainmenu2.isChecked()){
-//            String mainmenu2 = txtmain2.getText().toString();
-//            String pay2  = paymain2.getText().toString();
-//
-//            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
-//            i.putExtra("menu2",mainmenu2);
-//            i.putExtra("pay2",pay2);
-//            startActivity(i);
-//        }
-//
-//        if(checkmainmenu3.isChecked()){
-//            String mainmenu3 = txtmain3.getText().toString();
-//            String pay3  = paymain3.getText().toString();
-//
-//            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
-//            i.putExtra("menu3",mainmenu3);
-//            i.putExtra("pay3",pay3);
-//            startActivity(i);
-//        }
-//
-//        if(checkmainmenu4.isChecked()){
-//            String mainmenu4 = txtmain4.getText().toString();
-//            String pay4  = paymain4.getText().toString();
-//
-//            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
-//            i.putExtra("menu4",mainmenu4);
-//            i.putExtra("pay4",pay4);
-//            startActivity(i);
-//        }
-//
-//        if(checkmainmenu5.isChecked()){
-//            String mainmenu5 = txtmain5.getText().toString();
-//            String pay5  = paymain5.getText().toString();
-//
-//            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
-//            i.putExtra("menu5",mainmenu5);
-//            i.putExtra("pay5",pay5);
-//            startActivity(i);
-//        }
-//
-//        if(checkmainmenu6.isChecked()){
-//            String mainmenu6 = txtmain6.getText().toString();
-//            String pay6 = paymain6.getText().toString();
-//
-//            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
-//            i.putExtra("menu6",mainmenu6);
-//            i.putExtra("pay6",pay6);
-//            startActivity(i);
-//        }
-//
-//        if(checksetmenu1.isChecked()){
-//            String set1 = txtset1.getText().toString();
-//            String paymenuset1 = payset1.getText().toString();
-//
-//        }
-//
-//
-//
-//
-//        btn_payment.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
+
+        checkmainmenu1 = findViewById(R.id.checkmainmenu1);
+        checkmainmenu2 = findViewById(R.id.checkmainmenu2);
+        checkmainmenu3 = findViewById(R.id.checkmainmenu3);
+        checkmainmenu4 = findViewById(R.id.checkmainmeun4);
+        checkmainmenu5 = findViewById(R.id.checkmainmenu5);
+        checkmainmenu6 = findViewById(R.id.checkmainmenu6);
+        checksetmenu1 = findViewById(R.id.checksetmenu1);
+        checksetmenu2 = findViewById(R.id.checksetmenu2);
+        checksetmenusmall3 = findViewById(R.id.checksetmenusmall3);
+        checksetmenumedium3 = findViewById(R.id.checksetmenumedium3);
+        checksetmenubig3 = findViewById(R.id.checksetmenubig3);
+        checksetmenusmall4 = findViewById(R.id.checksetmenusmall4);
+        checksetmenumedium4 = findViewById(R.id.checksetmenumedium4);
+        checksetmenubig4 = findViewById(R.id.checksetmenubig4);
+        checksetmenusmall5 = findViewById(R.id.checksetsmall5);
+        checksetmenumedium5 = findViewById(R.id.checksetmenumedium5);
+        checksetmenubig5 = findViewById(R.id.checksetmenubig5);
+        checksetmenusmall6 = findViewById(R.id.checksetmenusmall6);
+        checksetmenumedium6 = findViewById(R.id.checksetmenumedium6);
+        checksetmenubig6 = findViewById(R.id.checksetmenubig6);
+        checksetmenusmall7 = findViewById(R.id.checksetmenusmall7);
+        checksetmenumedium7 = findViewById(R.id.checksetmenumedium7);
+        checksetmenu8 = findViewById(R.id.checksetmenu8);
+        checkmenusmall1 = findViewById(R.id.checkmenusmall1);
+        checkmenumedium1 = findViewById(R.id.checkmenumedium1);
+        checkmenubig1 = findViewById(R.id.checkmenubig1);
+        checkmenusmall2 = findViewById(R.id.checkmenusmall2);
+        checkmenumedium2 = findViewById(R.id.checkmenumedium2);
+        checkmenubig2 = findViewById(R.id.checkmenubig2);
+        checkmenusmall3 = findViewById(R.id.checkmenusmall3);
+        checkmenumedium3 = findViewById(R.id.checkmenumedium3);
+        checkmenusmall4 = findViewById(R.id.checkmenusmall4);
+        checkmenumedium4 = findViewById(R.id.checkmenumedium4);
+        checkmenubig4 = findViewById(R.id.checkmenubig4);
+        checkmenusmall5 = findViewById(R.id.checkmenusmall5);
+        checkmenumedium5 = findViewById(R.id.checkmenumedium5);
+        checkmenubig5 = findViewById(R.id.checkmenubig5);
+        checkmenu6 = findViewById(R.id.checkmenu6);
+        checkmenu7 = findViewById(R.id.checkmenu7);
+        checksidemenu1 = findViewById(R.id.checksidemenu1);
+        checksidemenu2 = findViewById(R.id.checksidemenu2);
+        checksidemenu3 = findViewById(R.id.checksidemenu3);
+        checksidemenu4 = findViewById(R.id.checksidemenu4);
+        checkdrink1 = findViewById(R.id.checkdrink1);
+        checkdrink2 = findViewById(R.id.checkdrink2);
+        checkdrink3 = findViewById(R.id.checkdrink3);
+
+        txtmain1 = findViewById(R.id.txtmain1);
+        txtmain2 = findViewById(R.id.txtmain2);
+        txtmain3 = findViewById(R.id.txtmain3);
+        txtmain4 = findViewById(R.id.txtmain4);
+        txtmain5 =findViewById(R.id.txtmain5);
+        txtmain5 = findViewById(R.id.txtmain5);
+        txtmain6 = findViewById(R.id.txtmain6);
+        txtset1 = findViewById(R.id.txtset1);
+        txtset2 = findViewById(R.id.txtset2);
+        txtset3 = findViewById(R.id.txtset3);
+        txtset4 = findViewById(R.id.txtset4);
+        txtset5 = findViewById(R.id.txtset5);
+        txtset6 = findViewById(R.id.txtset6);
+        txtset7 = findViewById(R.id.txtset7);
+        txtset8 = findViewById(R.id.txtset8);
+        txtmenu1 = findViewById(R.id.txtmenu1);
+        txtmenu2 = findViewById(R.id.txtmenu2);
+        txtmenu3 = findViewById(R.id.txtmenu3);
+        txtmenu4 =findViewById(R.id.txtmenu4);
+        txtmenu5 = findViewById(R.id.txtmenu5);
+        txtmenu6 = findViewById(R.id.txtmenu6);
+        txtmenu7 = findViewById(R.id.txtmenu7);
+        txtside1 = findViewById(R.id.txtside1);
+        txtside2 = findViewById(R.id.txtside2);
+        txtside3 = findViewById(R.id.txtside3);
+        txtside4 = findViewById(R.id.txtside4);
+        txtdrink1 = findViewById(R.id.txtdrink1);
+        txtdrink2 =findViewById(R.id.txtdrink2);
+        txtdrink3 =findViewById(R.id.txtdrink3);
+
+        paymain1 = findViewById(R.id.paymain1);
+        paymain2 = findViewById(R.id.paymain2);
+        paymain3 = findViewById(R.id.paymain3);
+        paymain4 = findViewById(R.id.paymain4);
+        paymain5 = findViewById(R.id.paymain5);
+        paymain6 = findViewById(R.id.paymain6);
+        payset1 = findViewById(R.id.payset1);
+        payset2 = findViewById(R.id.payset2);
+        paysetsmall3 = findViewById(R.id.paysetsmall3);
+        paysetmedium3 = findViewById(R.id.paysetmedium3);
+        paysetbig3 = findViewById(R.id.paysetbig3);
+        paysetsmall4= findViewById(R.id.paysetsmall4);
+        paysetmedium4 =findViewById(R.id.paysetmedium4);
+        paysetbig4 = findViewById(R.id.paysetbig4);
+        paysetsmall5 = findViewById(R.id.paysetsmall5);
+        paysetmedium5 = findViewById(R.id.paysetmedium5);
+        paysetbig5 = findViewById(R.id.paysetbig5);
+        paysetsmall6 = findViewById(R.id.paysetsmall6);
+        paysetmedium6 = findViewById(R.id.paysetmedium6);
+        paysetsmall7 = findViewById(R.id.paysetsmall7);
+        paysetmedium7 = findViewById(R.id.paysetmedium7);
+        payset8 = findViewById(R.id.payset8);
+        paymenusmall1 = findViewById(R.id.paymenusmall1);
+        paymenumedium1 = findViewById(R.id.paymenumedium1);
+        paymenubig1 = findViewById(R.id.paymenubig1);
+        paymenusmall2 = findViewById(R.id.paymenusmall2);
+        paymenumedium2 = findViewById(R.id.paymenumedium2);
+        paymenubig2 = findViewById(R.id.paymenubig2);
+        paymenusmall3 = findViewById(R.id.paymenusmall3);
+        paymenumedium3 = findViewById(R.id.paymenumedium3);
+        paymenusmall4 = findViewById(R.id.paymenusmall4);
+        paymenumedium4 = findViewById(R.id.paymenumedium4);
+        paymenubig4 = findViewById(R.id.paymenubig4);
+        paymenusmall5 = findViewById(R.id.paymenusmall5);
+        paymenumedium5 = findViewById(R.id.paymenumedium5);
+        paymenubig5 = findViewById(R.id.paymenubig5);
+        paymenu6 = findViewById(R.id.paymenu6);
+        paymenu7 = findViewById(R.id.paymenu7);
+        payside1 = findViewById(R.id.payside1);
+        payside2 = findViewById(R.id.payside2);
+        payside3 = findViewById(R.id.payside3);
+        payside4 = findViewById(R.id.payside4);
+        paydrink1 = findViewById(R.id.paydrink1);
+        paydrink2 = findViewById(R.id.paydrink2);
+        paydrink3 = findViewById(R.id.paydrink3);
+
+
+
+
+        btn_payment = findViewById(R.id.btn_payment);
+
+        if(checkmainmenu1.isChecked()){
+            String mainmenu1 = txtmain1.getText().toString();
+            String pay1  = paymain1.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu1",mainmenu1);
+            i.putExtra("pay1",pay1);
+            startActivity(i);
+        }
+
+        if(checkmainmenu2.isChecked()){
+            String mainmenu2 = txtmain2.getText().toString();
+            String pay2  = paymain2.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu2",mainmenu2);
+            i.putExtra("pay2",pay2);
+            startActivity(i);
+        }
+
+        if(checkmainmenu3.isChecked()){
+            String mainmenu3 = txtmain3.getText().toString();
+            String pay3  = paymain3.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu3",mainmenu3);
+            i.putExtra("pay3",pay3);
+            startActivity(i);
+        }
+
+        if(checkmainmenu4.isChecked()){
+            String mainmenu4 = txtmain4.getText().toString();
+            String pay4  = paymain4.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu4",mainmenu4);
+            i.putExtra("pay4",pay4);
+            startActivity(i);
+        }
+
+        if(checkmainmenu5.isChecked()){
+            String mainmenu5 = txtmain5.getText().toString();
+            String pay5  = paymain5.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu5",mainmenu5);
+            i.putExtra("pay5",pay5);
+            startActivity(i);
+        }
+
+        if(checkmainmenu6.isChecked()){
+            String mainmenu6 = txtmain6.getText().toString();
+            String pay6 = paymain6.getText().toString();
+
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu6",mainmenu6);
+            i.putExtra("pay6",pay6);
+            startActivity(i);
+        }
+
+        if(checksetmenu1.isChecked()){
+            String set1 = txtset1.getText().toString();
+            String paymenuset1 = payset1.getText().toString();
+
+        }
+
+
+
+
+        btn_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Reservation.this, CheckoutActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 }

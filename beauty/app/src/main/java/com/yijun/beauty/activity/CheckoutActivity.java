@@ -151,24 +151,24 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private void initializeUi() {
 
-//        // view binding(뷰 결합) 을 사용해 UI 요소에 접속(access), build.gradle(app) 25~27
-//        layoutBinding = ActivityCheckoutBinding.inflate(getLayoutInflater());
-//        setContentView(layoutBinding.getRoot());
+        // view binding(뷰 결합) 을 사용해 UI 요소에 접속(access), build.gradle(app) 25~27
+        layoutBinding = ActivityCheckoutBinding.inflate(getLayoutInflater());
+        setContentView(layoutBinding.getRoot());
 
         // 활동이 알림에서 열린 경우 알림 UI 닫기
         if (Notifications.ACTION_PAY_GOOGLE_PAY.equals(getIntent().getAction())) {
             sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         }
 
-//        //Google Pay 버튼은 레이아웃 파일 – root view 사용해
-//        googlePayButton = layoutBinding.googlePayButton.getRoot();
-//        googlePayButton.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        requestPayment(view);
-//                    }
-//                });
+        //Google Pay 버튼은 레이아웃 파일 – root view 사용해
+        googlePayButton = layoutBinding.googlePayButton.getRoot();
+        googlePayButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        requestPayment(view);
+                    }
+                });
     }
 
     private void displayGarment(JSONObject garment) throws JSONException {

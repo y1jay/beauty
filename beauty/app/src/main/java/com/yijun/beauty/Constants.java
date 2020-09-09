@@ -67,21 +67,21 @@ public class Constants {
      *
      * @value #COUNTRY_CODE 우리 지역 국가
      */
-    public static final String COUNTRY_CODE = "KR";
+    public static final String COUNTRY_CODE = "US";
 
     /**
      * API에 필요하지만 사용자에게 표시되지 않음
      *
      * @value #CURRENCY_CODE 현지 통화
      */
-    public static final String CURRENCY_CODE = "KRW";
+    public static final String CURRENCY_CODE = "USD";
 
     /**
      * 배송이 지원되는 국가 (ISO 3166-1 alpha-2 국가 코드 사용). 배송지 주소를 요청할 때만 관련됩니다.
      *
      * @value #SHIPPING_SUPPORTED_COUNTRIES
      */
-//    public static final List<String> SHIPPING_SUPPORTED_COUNTRIES = Arrays.asList("US", "GB");
+    public static final List<String> SHIPPING_SUPPORTED_COUNTRIES = Arrays.asList("US", "GB");
 
     /**
      * 결제 처리자 / 게이트웨이의 이름입니다. 자세한 내용은 해당 설명서를 참조하십시오.
