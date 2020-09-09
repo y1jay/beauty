@@ -1,7 +1,5 @@
 package com.yijun.beauty;
 
-
-
 import com.google.android.gms.wallet.WalletConstants;
 
 import java.util.Arrays;

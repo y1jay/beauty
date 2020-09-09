@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -274,7 +273,7 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+                Intent i = new Intent(Reservation.this, CheckoutActivity.class);
                 startActivity(i);
             }
         });

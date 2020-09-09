@@ -11,18 +11,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-import java.util.Locale;
-import java.util.Optional;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,17 +25,20 @@ import com.google.android.gms.wallet.IsReadyToPayRequest;
 import com.google.android.gms.wallet.PaymentData;
 import com.google.android.gms.wallet.PaymentDataRequest;
 import com.google.android.gms.wallet.PaymentsClient;
-import com.yijun.beauty.AfterLogin;
 import com.yijun.beauty.MyInfo;
 import com.yijun.beauty.R;
 import com.yijun.beauty.ReservationRecord;
 import com.yijun.beauty.databinding.ActivityCheckoutBinding;
-import com.yijun.beauty.databinding.GooglepayButtonBinding;
 import com.yijun.beauty.utils.Json;
 import com.yijun.beauty.utils.Notifications;
 import com.yijun.beauty.utils.PaymentsUtil;
 
-import static com.yijun.beauty.utils.Notifications.OPTION_PRICE_EXTRA;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Locale;
+import java.util.Optional;
 
 /**
  * 앱에 대한 결제 구현
@@ -94,14 +87,14 @@ public class CheckoutActivity extends AppCompatActivity {
         } catch (JSONException e) {
             throw new RuntimeException("The list of garments cannot be loaded");
         }
-//        detailTitle = findViewById(R.id.detailTitle);
-//        detailPrice = findViewById(R.id.detailPrice);
-//
-//        String title = getIntent().getStringExtra("menu2");
-//        String price = getIntent().getStringExtra("pay2");
-//
-//        detailTitle.setText(title);
-//        detailPrice.setText(price);
+        detailTitle = findViewById(R.id.detailTitle);
+        detailPrice = findViewById(R.id.detailPrice);
+
+        String title = getIntent().getStringExtra("menu2");
+        String price = getIntent().getStringExtra("pay2");
+
+        detailTitle.setText(title);
+        detailPrice.setText(price);
 
 
         // 테스트에 적합한 환경을 위해 Google Pay API 클라이언트 초기화.
