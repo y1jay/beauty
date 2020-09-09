@@ -72,7 +72,7 @@
 
                         <EditText
                             android:id="@+id/edit_review"
-                            android:layout_width="350dp"
+                            android:layout_width="330dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="15dp"
                             android:scrollHorizontally="false"
