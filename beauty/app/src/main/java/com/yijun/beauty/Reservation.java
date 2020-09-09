@@ -2,14 +2,12 @@ package com.yijun.beauty;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yijun.beauty.activity.CheckoutActivity;
 
@@ -140,11 +138,13 @@ public class Reservation extends AppCompatActivity {
     TextView paydrink3;
 
 
-    AlertDialog alertDialog;
-    TextView txt_menu;
-    TextView txt_price;
-    TextView txt_cancle;
-    TextView txt_payment;
+
+
+
+
+
+
+
 
 
     @Override
@@ -204,7 +204,7 @@ public class Reservation extends AppCompatActivity {
         txtmain2 = findViewById(R.id.txtmain2);
         txtmain3 = findViewById(R.id.txtmain3);
         txtmain4 = findViewById(R.id.txtmain4);
-        txtmain5 = findViewById(R.id.txtmain5);
+        txtmain5 =findViewById(R.id.txtmain5);
         txtmain5 = findViewById(R.id.txtmain5);
         txtmain6 = findViewById(R.id.txtmain6);
         txtset1 = findViewById(R.id.txtset1);
@@ -218,7 +218,7 @@ public class Reservation extends AppCompatActivity {
         txtmenu1 = findViewById(R.id.txtmenu1);
         txtmenu2 = findViewById(R.id.txtmenu2);
         txtmenu3 = findViewById(R.id.txtmenu3);
-        txtmenu4 = findViewById(R.id.txtmenu4);
+        txtmenu4 =findViewById(R.id.txtmenu4);
         txtmenu5 = findViewById(R.id.txtmenu5);
         txtmenu6 = findViewById(R.id.txtmenu6);
         txtmenu7 = findViewById(R.id.txtmenu7);
@@ -227,8 +227,8 @@ public class Reservation extends AppCompatActivity {
         txtside3 = findViewById(R.id.txtside3);
         txtside4 = findViewById(R.id.txtside4);
         txtdrink1 = findViewById(R.id.txtdrink1);
-        txtdrink2 = findViewById(R.id.txtdrink2);
-        txtdrink3 = findViewById(R.id.txtdrink3);
+        txtdrink2 =findViewById(R.id.txtdrink2);
+        txtdrink3 =findViewById(R.id.txtdrink3);
 
         paymain1 = findViewById(R.id.paymain1);
         paymain2 = findViewById(R.id.paymain2);
@@ -241,8 +241,8 @@ public class Reservation extends AppCompatActivity {
         paysetsmall3 = findViewById(R.id.paysetsmall3);
         paysetmedium3 = findViewById(R.id.paysetmedium3);
         paysetbig3 = findViewById(R.id.paysetbig3);
-        paysetsmall4 = findViewById(R.id.paysetsmall4);
-        paysetmedium4 = findViewById(R.id.paysetmedium4);
+        paysetsmall4= findViewById(R.id.paysetsmall4);
+        paysetmedium4 =findViewById(R.id.paysetmedium4);
         paysetbig4 = findViewById(R.id.paysetbig4);
         paysetsmall5 = findViewById(R.id.paysetsmall5);
         paysetmedium5 = findViewById(R.id.paysetmedium5);
@@ -277,73 +277,77 @@ public class Reservation extends AppCompatActivity {
         paydrink3 = findViewById(R.id.paydrink3);
 
 
+
+
         btn_payment = findViewById(R.id.btn_payment);
 
-        if (checkmainmenu1.isChecked()) {
+        if(checkmainmenu1.isChecked()){
             String mainmenu1 = txtmain1.getText().toString();
-            String pay1 = paymain1.getText().toString();
+            String pay1  = paymain1.getText().toString();
 
-            Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-            i.putExtra("menu1", mainmenu1);
-            i.putExtra("pay1", pay1);
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu1",mainmenu1);
+            i.putExtra("pay1",pay1);
             startActivity(i);
         }
 
-        if (checkmainmenu2.isChecked()) {
+        if(checkmainmenu2.isChecked()){
             String mainmenu2 = txtmain2.getText().toString();
-            String pay2 = paymain2.getText().toString();
+            String pay2  = paymain2.getText().toString();
 
-            Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-            i.putExtra("menu2", mainmenu2);
-            i.putExtra("pay2", pay2);
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu2",mainmenu2);
+            i.putExtra("pay2",pay2);
             startActivity(i);
         }
 
-        if (checkmainmenu3.isChecked()) {
+        if(checkmainmenu3.isChecked()){
             String mainmenu3 = txtmain3.getText().toString();
-            String pay3 = paymain3.getText().toString();
+            String pay3  = paymain3.getText().toString();
 
-            Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-            i.putExtra("menu3", mainmenu3);
-            i.putExtra("pay3", pay3);
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu3",mainmenu3);
+            i.putExtra("pay3",pay3);
             startActivity(i);
         }
 
-        if (checkmainmenu4.isChecked()) {
+        if(checkmainmenu4.isChecked()){
             String mainmenu4 = txtmain4.getText().toString();
-            String pay4 = paymain4.getText().toString();
+            String pay4  = paymain4.getText().toString();
 
-            Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-            i.putExtra("menu4", mainmenu4);
-            i.putExtra("pay4", pay4);
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu4",mainmenu4);
+            i.putExtra("pay4",pay4);
             startActivity(i);
         }
 
-        if (checkmainmenu5.isChecked()) {
+        if(checkmainmenu5.isChecked()){
             String mainmenu5 = txtmain5.getText().toString();
-            String pay5 = paymain5.getText().toString();
+            String pay5  = paymain5.getText().toString();
 
-            Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-            i.putExtra("menu5", mainmenu5);
-            i.putExtra("pay5", pay5);
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu5",mainmenu5);
+            i.putExtra("pay5",pay5);
             startActivity(i);
         }
 
-        if (checkmainmenu6.isChecked()) {
+        if(checkmainmenu6.isChecked()){
             String mainmenu6 = txtmain6.getText().toString();
             String pay6 = paymain6.getText().toString();
 
-            Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-            i.putExtra("menu6", mainmenu6);
-            i.putExtra("pay6", pay6);
+            Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+            i.putExtra("menu6",mainmenu6);
+            i.putExtra("pay6",pay6);
             startActivity(i);
         }
 
-        if (checksetmenu1.isChecked()) {
+        if(checksetmenu1.isChecked()){
             String set1 = txtset1.getText().toString();
             String paymenuset1 = payset1.getText().toString();
-
+            
         }
+
+
 
 
         btn_payment.setOnClickListener(new View.OnClickListener() {
@@ -354,87 +358,5 @@ public class Reservation extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    public void createPopupDialog() {
-        AlertDialog.Builder alert = new AlertDialog.Builder
-                (Reservation.this);
-        View alertView = getLayoutInflater().inflate(R.layout.order, null);
-        txt_menu = alertView.findViewById(R.id.txt_menu);
-        txt_price = alertView.findViewById(R.id.txt_price);
-        txt_payment = alertView.findViewById(R.id.txt_payment);
-        txt_cancle = alertView.findViewById(R.id.txt_cancle);
-
-        txt_payment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                String nick_name = editID.getText().toString().trim();
-//                String passwd = editPasswd.getText().toString().trim();
-//                if (nick_name.isEmpty()) {
-//                    Toast.makeText(MainActivity.this, "아이디를 입력하세요",
-//                            Toast.LENGTH_SHORT).show();
-//                    return;
-//                } else if (passwd.isEmpty()) {
-//                    Toast.makeText(MainActivity.this, "비밀번호를 입력하세요",
-//                            Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                UserReq userReq = new UserReq(nick_name, passwd);
-//
-//                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
-//                UserApi userApi = retrofit.create(UserApi.class);
-//
-//                Call<UserRes> call = userApi.loginUser(userReq);
-//
-//                call.enqueue(new Callback<UserRes>() {
-//                    @Override
-//                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
-//                        // 상태코드가 200 인지 확인
-//                        if (response.isSuccessful()) {
-//                            // response.body() 가 UserRes.이다.
-//                            boolean success = response.body().isSuccess();
-//                            String token = response.body().getToken();
-//                            Log.i("AAAA", "success : " + success + " token : " + token);
-//
-//                            SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
-//                            SharedPreferences.Editor editor = sp.edit();
-//                            editor.putString("token", token);
-//
-//                            editor.apply();
-//
-//                            Intent i = new Intent(MainActivity.this, AfterLogin.class);
-//                            Toast.makeText(MainActivity.this, "환영합니다.", Toast.LENGTH_SHORT).show();
-//
-//                            startActivity(i);
-//                            finish();
-//                            dialog.cancel();
-//                        } else if (response.isSuccessful() == false) {
-//                            Toast.makeText(MainActivity.this, "입력하신 정보가 맞지 않습니다.", Toast.LENGTH_SHORT).show();
-//
-//                        }
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<UserRes> call, Throwable t) {
-//
-//                    }
-//                });
-//
-//                if (Auto.isChecked()) {
-//                    SharedPreferences.Editor editor = sp.edit();
-//                    editor.putBoolean("auto_login", true);
-//                    editor.apply();
-//                } else {
-//                    SharedPreferences.Editor editor = sp.edit();
-//                    editor.putBoolean("auto_login", false);
-//                    editor.apply();
-//                }
-
-
-            }
-        });
     }
 }

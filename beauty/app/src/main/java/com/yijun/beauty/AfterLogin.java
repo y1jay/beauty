@@ -46,18 +46,22 @@ public class AfterLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
+        int key = getIntent().getIntExtra("key",0);
+        if (key==1){
+            Intent i = new Intent(AfterLogin.this,LodingActivity.class);
+            startActivity(i);
+        }else{
+//            String email = getIntent().getStringExtra("email");
+//            Toast.makeText(AfterLogin.this,email+"님 환영합니다",Toast.LENGTH_SHORT);
+
+        }
+
 
         logout = findViewById(R.id.logout);
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
 
-        int key = getIntent().getIntExtra("key",0);
-        if (key==1){
-        Intent i = new Intent(AfterLogin.this,LodingActivity.class);
-        startActivity(i);
-        }else{
 
-        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +72,7 @@ public class AfterLogin extends AppCompatActivity {
                     @Override
                     public void onCompleteLogout() {
                         Intent intent = new Intent(AfterLogin.this, MainActivity.class);
+                        intent.putExtra("key",1);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
