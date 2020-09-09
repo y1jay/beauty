@@ -26,7 +26,7 @@
 
 
     <!-- Checkout -->
-    <string name="googlepay_status_unavailable">Unfortunately, Google Pay is not available on this device.</string>
+    <string name="googlepay_status_unavailable">이 기기에서는 Google Pay를 사용할 수 없습니다.</string>
     <string name="payments_show_name">Successfully received payment data for %s!</string>
     <string name="gateway_replace_name_example">"Gateway name set to \"example\" - please modify Constants.java and replace it with your own gateway."</string>
     <string name="checkout_item_description">Description</string>
