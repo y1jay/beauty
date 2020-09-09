@@ -35,10 +35,11 @@ public class Constants {
     public static final int PAYMENTS_ENVIRONMENT = WalletConstants.ENVIRONMENT_TEST;
 
     /**
-     * API 에서 요청할 수 있는 허용 도니 네트워크.
+     * API 에서 요청할 수 있는 허용 된 네트워크.
      * 사용자의 계정에 여기에 지정되지 않은 네트워크의 카드가있는 경우 팝업 선택항목에 제공되지 않음.
+     * 우리가 지정한 카드목록들!
      *
-     * @value #SUPPORTED_NETWORKS
+     * @value #SUPPORTED_NETWORKS = 대행업체 및 Google Pay API에서 지원하는 카드 네트워크 목록.
      */
     public static final List<String> SUPPORTED_NETWORKS = Arrays.asList(
             "AMEX",
@@ -50,6 +51,10 @@ public class Constants {
     /**
      * Google Pay API 는 Google 에 등록 된 카드를 반환 할 수 있습니다.
      * com (PAN_ONLY) 및 / 또는 3D 보안 암호화 (CRYPTOGRAM_3DS)로 인증 된 Android 기기의 기기 토큰
+     * PAN_ONLY: 이 인증 방법은 사용자의 Google 계정에 등록되어 저장된 결제 카드와 연결됩니다.
+     *          반환된 결제 데이터에는 만료 월 및 만료 연도가 포함된 개인 계좌 번호(PAN)가 포함됩니다.
+     * CRYPTOGRAM_3DS: 이 인증 방법은 Android 기기 토큰으로 저장된 카드와 연결됩니다.
+     *          반환된 결제 데이터에는 기기에 생성된 3DS(3D Secure) 암호가 포함됩니다.
      *
      * @value #SUPPORTED_METHODS
      */
@@ -58,40 +63,37 @@ public class Constants {
             "CRYPTOGRAM_3DS");
 
     /**
-     * Required by the API, but not visible to the user.
+     * API에 필요하지만 사용자에게 표시되지 않음
      *
-     * @value #COUNTRY_CODE Your local country
+     * @value #COUNTRY_CODE 우리 지역 국가
      */
     public static final String COUNTRY_CODE = "KR";
 
     /**
-     * Required by the API, but not visible to the user.
+     * API에 필요하지만 사용자에게 표시되지 않음
      *
-     * @value #CURRENCY_CODE Your local currency
+     * @value #CURRENCY_CODE 현지 통화
      */
-    public static final String CURRENCY_CODE = "USD";
+    public static final String CURRENCY_CODE = "KRW";
 
     /**
-     * Supported countries for shipping (use ISO 3166-1 alpha-2 country codes). Relevant only when
-     * requesting a shipping address.
+     * 배송이 지원되는 국가 (ISO 3166-1 alpha-2 국가 코드 사용). 배송지 주소를 요청할 때만 관련됩니다.
      *
      * @value #SHIPPING_SUPPORTED_COUNTRIES
      */
-    public static final List<String> SHIPPING_SUPPORTED_COUNTRIES = Arrays.asList("US", "GB");
+//    public static final List<String> SHIPPING_SUPPORTED_COUNTRIES = Arrays.asList("US", "GB");
 
     /**
-     * The name of your payment processor/gateway. Please refer to their documentation for more
-     * information.
+     * 결제 처리자 / 게이트웨이의 이름입니다. 자세한 내용은 해당 설명서를 참조하십시오.
      *
      * @value #PAYMENT_GATEWAY_TOKENIZATION_NAME
      */
     public static final String PAYMENT_GATEWAY_TOKENIZATION_NAME = "example";
 
     /**
-     * Custom parameters required by the processor/gateway.
-     * In many cases, your processor / gateway will only require a gatewayMerchantId.
-     * Please refer to your processor's documentation for more information. The number of parameters
-     * required and their names vary depending on the processor.
+     * 프로세서 / 게이트웨이에 필요한 사용자 지정 매개 변수입니다.
+     * 대부분의 경우 프로세서 / 게이트웨이에는 gatewayMerchantId 만 필요합니다.
+     * 자세한 내용은 프로세서의 설명서를 참조하십시오. 필요한 매개 변수의 수와 이름은 프로세서에 따라 다릅니다.
      *
      * @value #PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS
      */
@@ -103,17 +105,15 @@ public class Constants {
             }};
 
     /**
-     * Only used for {@code DIRECT} tokenization. Can be removed when using {@code PAYMENT_GATEWAY}
-     * tokenization.
+     * {@code DIRECT} 토큰 화에만 사용됩니다. {@code PAYMENT_GATEWAY} 토큰 화를 사용할 때 제거 할 수 있습니다
      *
      * @value #DIRECT_TOKENIZATION_PUBLIC_KEY
      */
     public static final String DIRECT_TOKENIZATION_PUBLIC_KEY = "REPLACE_ME";
 
     /**
-     * Parameters required for {@code DIRECT} tokenization.
-     * Only used for {@code DIRECT} tokenization. Can be removed when using {@code PAYMENT_GATEWAY}
-     * tokenization.
+     * {@code DIRECT} 토큰 화에 필요한 매개 변수
+     * {@code DIRECT} 토큰 화에만 사용됩니다. {@code PAYMENT_GATEWAY} 토큰 화를 사용할 때 제거 할 수 있습니다.
      *
      * @value #DIRECT_TOKENIZATION_PARAMETERS
      */
