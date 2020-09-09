@@ -152,7 +152,6 @@ public class Reservation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
 
-
         checkmainmenu1 = findViewById(R.id.checkmainmenu1);
         checkmainmenu2 = findViewById(R.id.checkmainmenu2);
         checkmainmenu3 = findViewById(R.id.checkmainmenu3);
@@ -280,6 +279,20 @@ public class Reservation extends AppCompatActivity {
 
 
         btn_payment = findViewById(R.id.btn_payment);
+        btn_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkmainmenu2.isChecked()){
+                    String mainmenu2 = txtmain2.getText().toString().trim();
+                    String pay2  = paymain2.getText().toString().trim();
+
+                    Intent i = new Intent(Reservation.this,CheckoutActivity.class);
+                    i.putExtra("menu2",mainmenu2);
+                    i.putExtra("pay2",pay2);
+                    startActivity(i);
+                }
+            }
+        });
 
         if(checkmainmenu1.isChecked()){
             String mainmenu1 = txtmain1.getText().toString();
@@ -292,8 +305,8 @@ public class Reservation extends AppCompatActivity {
         }
 
         if(checkmainmenu2.isChecked()){
-            String mainmenu2 = txtmain2.getText().toString();
-            String pay2  = paymain2.getText().toString();
+            String mainmenu2 = txtmain2.getText().toString().trim();
+            String pay2  = paymain2.getText().toString().trim();
 
             Intent i = new Intent(Reservation.this,CheckoutActivity.class);
             i.putExtra("menu2",mainmenu2);
