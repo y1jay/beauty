@@ -1,7 +1,5 @@
 package com.yijun.beauty;
 
-
-
 import com.google.android.gms.wallet.WalletConstants;
 
 import java.util.Arrays;
@@ -67,14 +65,14 @@ public class Constants {
      *
      * @value #COUNTRY_CODE 우리 지역 국가
      */
-    public static final String COUNTRY_CODE = "US";
+    public static final String COUNTRY_CODE = "KR";
 
     /**
      * API에 필요하지만 사용자에게 표시되지 않음
      *
      * @value #CURRENCY_CODE 현지 통화
      */
-    public static final String CURRENCY_CODE = "USD";
+    public static final String CURRENCY_CODE = "KRW";
 
     /**
      * 배송이 지원되는 국가 (ISO 3166-1 alpha-2 국가 코드 사용). 배송지 주소를 요청할 때만 관련됩니다.
