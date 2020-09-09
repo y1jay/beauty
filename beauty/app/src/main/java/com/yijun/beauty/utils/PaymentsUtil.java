@@ -145,13 +145,13 @@ public class PaymentsUtil {
         JSONObject parameters = new JSONObject();
         parameters.put("allowedAuthMethods", getAllowedCardAuthMethods());
         parameters.put("allowedCardNetworks", getAllowedCardNetworks());
-//        //선택적으로 CARD 결제 방법과 관련된 청구 주소 / 전화 번호를 추가 할 수 있습니다.
-//        parameters.put("billingAddressRequired", true);
-//
-//        JSONObject billingAddressParameters = new JSONObject();
-//        billingAddressParameters.put("format", "FULL");
-//
-//        parameters.put("billingAddressParameters", billingAddressParameters);
+        //선택적으로 CARD 결제 방법과 관련된 청구 주소 / 전화 번호를 추가 할 수 있습니다.
+        parameters.put("billingAddressRequired", true);
+
+        JSONObject billingAddressParameters = new JSONObject();
+        billingAddressParameters.put("format", "FULL");
+
+        parameters.put("billingAddressParameters", billingAddressParameters);
 
         cardPaymentMethod.put("parameters", parameters);
 
@@ -244,15 +244,15 @@ public class PaymentsUtil {
             paymentDataRequest.put("merchantInfo", PaymentsUtil.getMerchantInfo());
 
             /* 선택적 배송 주소 요구 사항은 PaymentDataRequest JSON 개체의 최상위 속성입니다. */
-//            paymentDataRequest.put("shippingAddressRequired", true);
-//
-//            JSONObject shippingAddressParameters = new JSONObject();
-//            shippingAddressParameters.put("phoneNumberRequired", false);
-//
-//            JSONArray allowedCountryCodes = new JSONArray(Constants.SHIPPING_SUPPORTED_COUNTRIES);
-//
-//            shippingAddressParameters.put("allowedCountryCodes", allowedCountryCodes);
-//            paymentDataRequest.put("shippingAddressParameters", shippingAddressParameters);
+            paymentDataRequest.put("shippingAddressRequired", true);
+
+            JSONObject shippingAddressParameters = new JSONObject();
+            shippingAddressParameters.put("phoneNumberRequired", false);
+
+            JSONArray allowedCountryCodes = new JSONArray(Constants.SHIPPING_SUPPORTED_COUNTRIES);
+
+            shippingAddressParameters.put("allowedCountryCodes", allowedCountryCodes);
+            paymentDataRequest.put("shippingAddressParameters", shippingAddressParameters);
             return Optional.of(paymentDataRequest);
 
         } catch (JSONException e) {
