@@ -16,20 +16,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Contains helper static methods for dealing with the Payments API.
+ * Payments API를 처리하기위한 도우미 정적 메서드를 포함합니다.
  *
- * <p>Many of the parameters used in the code are optional and are set here merely to call out their
- * existence. Please consult the documentation to learn more and feel free to remove ones not
- * relevant to your implementation.
+ * <p>
+ * 코드에 사용 된 많은 매개 변수는 선택 사항이며 여기에서 그 존재를 알리기 위해 설정됩니다.
+ * 자세한 내용은 설명서를 참조하고 구현과 관련이없는 항목을 자유롭게 제거하십시오.
  */
 public class PaymentsUtil {
 
     public static final BigDecimal CENTS_IN_A_UNIT = new BigDecimal(100d);
 
     /**
-     * Create a Google Pay API base request object with properties used in all requests.
+     * 모든 요청에 사용되는 속성으로 Google Pay API 기본 요청 객체를 만듭니다.
      *
-     * @return Google Pay API base request object.
+     * @return Google Pay API 기본 요청 객체.
      * @throws JSONException
      */
     private static JSONObject getBaseRequest() throws JSONException {
@@ -37,10 +37,10 @@ public class PaymentsUtil {
     }
 
     /**
-     * Creates an instance of {@link PaymentsClient} for use in an {@link Activity} using the
-     * environment and theme set in {@link Constants}.
+     * {@link Constants}에 설정된 환경 및 테마를 사용하여 {@link Activity}에서
+     * 사용할 {@link PaymentsClient}의 인스턴스를 만듭니다.
      *
-     * @param activity is the caller's activity.
+     * @param activity = 발신자의 활동.
      */
     public static PaymentsClient createPaymentsClient(Activity activity) {
         Wallet.WalletOptions walletOptions =
@@ -49,14 +49,13 @@ public class PaymentsUtil {
     }
 
     /**
-     * Gateway Integration: Identify your gateway and your app's gateway merchant identifier.
+     * 게이트웨이 통합 : 게이트웨이와 앱의 게이트웨이 판매자 식별자를 식별합니다.
      *
-     * <p>The Google Pay API response will return an encrypted payment method capable of being charged
-     * by a supported gateway after payer authorization.
+     * <p> Google Pay API 응답은 지불 인 승인 후 지원되는 게이트웨이에서 청구 할 수있는 암호화 된 결제 수단을 반환합니다.
      *
-     * <p>TODO: Check with your gateway on the parameters to pass and modify them in Constants.java.
+     * <p>TODO: 매개 변수에 대한 게이트웨이를 확인하여 Constants.java 에서 전달하고 수정하십시오.
      *
-     * @return Payment data tokenization for the CARD payment method.
+     * @return CARD 결제 수단에 대한 결제 데이터 토큰 화.
      * @throws JSONException
      * @see <a href=
      * "https://developers.google.com/pay/api/android/reference/object#PaymentMethodTokenizationSpecification">PaymentMethodTokenizationSpecification</a>
@@ -74,13 +73,13 @@ public class PaymentsUtil {
     }
 
     /**
-     * {@code DIRECT} Integration: Decrypt a response directly on your servers. This configuration has
-     * additional data security requirements from Google and additional PCI DSS compliance complexity.
      *
-     * <p>Please refer to the documentation for more information about {@code DIRECT} integration. The
-     * type of integration you use depends on your payment processor.
+     * {@code DIRECT} 통합 : 서버에서 직접 응답을 복호화합니다.
+     * 이 구성에는 Google 의 추가 데이터 보안 요구 사항과 추가적인 PCI DSS 준수 복잡성이 있습니다.
      *
-     * @return Payment data tokenization for the CARD payment method.
+     * <p> {@code DIRECT} 통합에 대한 자세한 내용은 문서를 참조하세요. 사용하는 통합 유형은 결제 프로세서에 따라 다릅니다.
+     *
+     * @return CARD 결제 수단에 대한 결제 데이터 토큰 화.
      * @throws JSONException
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#PaymentMethodTokenizationSpecification">PaymentMethodTokenizationSpecification</a>
@@ -104,11 +103,11 @@ public class PaymentsUtil {
     }
 
     /**
-     * Card networks supported by your app and your gateway.
+     * 앱과 게이트웨이에서 지원하는 카드 네트워크.
      *
-     * <p>TODO: Confirm card networks supported by your app and gateway & update in Constants.java.
+     * <p>TODO: 앱 및 게이트웨이에서 지원하는 카드 네트워크를 확인하고 Constants.java에서 업데이트합니다.
      *
-     * @return Allowed card networks
+     * @return 허용 된 카드 네트워크
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#CardParameters">CardParameters</a>
      */
@@ -117,12 +116,11 @@ public class PaymentsUtil {
     }
 
     /**
-     * Card authentication methods supported by your app and your gateway.
+     * 앱과 게이트웨이에서 지원하는 카드 인증 방법.
      *
-     * <p>TODO: Confirm your processor supports Android device tokens on your supported card networks
-     * and make updates in Constants.java.
+     * <p>TODO: 프로세서가 지원되는 카드 네트워크에서 Android 장치 토큰을 지원하는지 확인하고 Constants.java에서 업데이트합니다.
      *
-     * @return Allowed card authentication methods.
+     * @return 허용 된 카드 인증 방법.
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#CardParameters">CardParameters</a>
      */
@@ -131,12 +129,11 @@ public class PaymentsUtil {
     }
 
     /**
-     * Describe your app's support for the CARD payment method.
+     * CARD 결제 수단에 대한 앱의 지원을 설명하세요.
      *
-     * <p>The provided properties are applicable to both an IsReadyToPayRequest and a
-     * PaymentDataRequest.
+     * <p> 제공된 속성은 IsReadyToPayRequest 및 PaymentDataRequest 모두에 적용됩니다.
      *
-     * @return A CARD PaymentMethod object describing accepted cards.
+     * @return 허용되는 카드를 설명하는 CARD PaymentMethod 객체입니다.
      * @throws JSONException
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#PaymentMethod">PaymentMethod</a>
@@ -148,7 +145,7 @@ public class PaymentsUtil {
         JSONObject parameters = new JSONObject();
         parameters.put("allowedAuthMethods", getAllowedCardAuthMethods());
         parameters.put("allowedCardNetworks", getAllowedCardNetworks());
-        // Optionally, you can add billing address/phone number associated with a CARD payment method.
+        //선택적으로 CARD 결제 방법과 관련된 청구 주소 / 전화 번호를 추가 할 수 있습니다.
         parameters.put("billingAddressRequired", true);
 
         JSONObject billingAddressParameters = new JSONObject();
@@ -162,9 +159,9 @@ public class PaymentsUtil {
     }
 
     /**
-     * Describe the expected returned payment data for the CARD payment method
+     * CARD 결제 수단에 대해 예상되는 반환 결제 데이터를 설명하세요.
      *
-     * @return A CARD PaymentMethod describing accepted cards and optional fields.
+     * @return 허용되는 카드 및 선택적 필드를 설명하는 CARD PaymentMethod 입니다.
      * @throws JSONException
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#PaymentMethod">PaymentMethod</a>
@@ -177,10 +174,9 @@ public class PaymentsUtil {
     }
 
     /**
-     * An object describing accepted forms of payment by your app, used to determine a viewer's
-     * readiness to pay.
+     * 앱에서 허용되는 결제 방법을 설명하는 개체로, 시청자의 결제 준비 여부를 결정하는 데 사용됩니다.
      *
-     * @return API version and payment methods supported by the app.
+     * @return 앱에서 지원하는 API 버전 및 결제 수단
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#IsReadyToPayRequest">IsReadyToPayRequest</a>
      */
@@ -198,9 +194,9 @@ public class PaymentsUtil {
     }
 
     /**
-     * Provide Google Pay API with a payment amount, currency, and amount status.
+     * 결제 금액, 통화 및 금액 상태를 Google Pay API에 제공합니다.
      *
-     * @return information about the requested payment.
+     * @return 요청 된 지불에 대한 정보.
      * @throws JSONException
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#TransactionInfo">TransactionInfo</a>
@@ -211,15 +207,16 @@ public class PaymentsUtil {
         transactionInfo.put("totalPriceStatus", "FINAL");
         transactionInfo.put("countryCode", Constants.COUNTRY_CODE);
         transactionInfo.put("currencyCode", Constants.CURRENCY_CODE);
+        //지급인이 선택사항을 확인한 직후 선택한 결제 수단으로 청구됩니다. 이 옵션은 totalPriceStatus 가 FINAL 로 설정된 경우에만 사용할 수 있습니다.
         transactionInfo.put("checkoutOption", "COMPLETE_IMMEDIATE_PURCHASE");
 
         return transactionInfo;
     }
 
     /**
-     * Information about the merchant requesting payment information
+     * 결제 정보를 요청하는 가맹점에 대한 정보
      *
-     * @return Information about the merchant.
+     * @return 판매자에 대한 정보.
      * @throws JSONException
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#MerchantInfo">MerchantInfo</a>
@@ -229,9 +226,9 @@ public class PaymentsUtil {
     }
 
     /**
-     * An object describing information requested in a Google Pay payment sheet
+     * Google Pay 결제 명세서에서 요청 된 정보를 설명하는 객체
      *
-     * @return Payment data expected by your app.
+     * @return 앱에서 예상하는 결제 데이터입니다.
      * @see <a
      * href="https://developers.google.com/pay/api/android/reference/object#PaymentDataRequest">PaymentDataRequest</a>
      */
@@ -246,8 +243,7 @@ public class PaymentsUtil {
             paymentDataRequest.put("transactionInfo", PaymentsUtil.getTransactionInfo(price));
             paymentDataRequest.put("merchantInfo", PaymentsUtil.getMerchantInfo());
 
-      /* An optional shipping address requirement is a top-level property of the PaymentDataRequest
-      JSON object. */
+            /* 선택적 배송 주소 요구 사항은 PaymentDataRequest JSON 개체의 최상위 속성입니다. */
             paymentDataRequest.put("shippingAddressRequired", true);
 
             JSONObject shippingAddressParameters = new JSONObject();
@@ -265,9 +261,9 @@ public class PaymentsUtil {
     }
 
     /**
-     * Converts cents to a string format accepted by {@link PaymentsUtil#getPaymentDataRequest}.
+     * cents 를 {@link PaymentsUtil # getPaymentDataRequest}에서 허용하는 문자열 형식으로 변환합니다.
      *
-     * @param cents value of the price in cents.
+     * @param cents 센트 단위의 가격 가치.
      */
     public static String centsToString(long cents) {
         return new BigDecimal(cents)

@@ -75,6 +75,7 @@ public class CheckoutActivity extends AppCompatActivity {
         }
 
         // UI(user interface)에서 항목(Item)에 대한 모의 정보 설정.
+        // 주문목록 = fetchRandomGarment() 함수
         try {
             selectedGarment = fetchRandomGarment();
             displayGarment(selectedGarment);

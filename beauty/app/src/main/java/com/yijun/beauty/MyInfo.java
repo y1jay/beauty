@@ -143,9 +143,9 @@ public class MyInfo extends AppCompatActivity {
                                     Toast.makeText(MyInfo.this, "닉네임이 변경되었습니다.", Toast.LENGTH_SHORT).show();
                                     Log.i("nick_name", response.message());
                                     txt_nick_name.setText(new_nick_name);
+                                    alertDialog.cancel();
                                 }else if (response.isSuccessful()==false){
                                     Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
-                                    Log.i("nick_name", response.message());
                                 }
                             }
 
@@ -154,8 +154,6 @@ public class MyInfo extends AppCompatActivity {
 
                             }
                         });
-
-                        alertDialog.cancel();
                     }
                 });
 
