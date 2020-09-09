@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,67 +24,63 @@
     android:orientation="vertical"
     tools:context=".activity.CheckoutActivity">
 
-    <ImageView
-        android:id="@+id/detailImage"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ts_10_11019a" />
-
-    <TextView
-        android:id="@+id/detailTitle"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="[Placeholder] Men's Tech Shell Full-Zip"
-        android:textColor="#333333"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/detailPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="$50.20"
-        android:textColor="#777777"
-        android:textSize="15sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="영수증"
-        android:textColor="#333333"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginVertical="5dp">
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/detailImage"
             android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ts_10_11019a" />
+
+        <TextView
+            android:id="@+id/detailTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="15dp"
+            android:text="[Placeholder] Men's Tech Shell Full-Zip"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/detailDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="15dp"
-                android:text="[Placeholder] A versatile full-zip that you can wear all day long and even..."
-                android:textColor="#777777" />
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/detailPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="$50.20"
+            android:textColor="#777777" />
 
-    <include
-        android:id="@+id/googlePayButton"
-        layout="@layout/googlepay_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/buy_button_height"
-        android:layout_marginBottom="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/checkout_item_description"
+            android:textColor="#333333"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/detailDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:text="[Placeholder] A versatile full-zip that you can wear all day long and even..."
+            android:textColor="#777777" />
+
+        <include
+            android:id="@+id/googlePayButton"
+            layout="@layout/buy_with_googlepay_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/buy_button_height"
+            android:layout_marginBottom="20dp"/>
+<!--            android:visibility="gone" />-->
+
+    </LinearLayout>
+
+</ScrollView>

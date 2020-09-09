@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,9 +40,12 @@ import com.yijun.beauty.MyInfo;
 import com.yijun.beauty.R;
 import com.yijun.beauty.ReservationRecord;
 import com.yijun.beauty.databinding.ActivityCheckoutBinding;
+import com.yijun.beauty.databinding.GooglepayButtonBinding;
 import com.yijun.beauty.utils.Json;
 import com.yijun.beauty.utils.Notifications;
 import com.yijun.beauty.utils.PaymentsUtil;
+
+import static com.yijun.beauty.utils.Notifications.OPTION_PRICE_EXTRA;
 
 /**
  * 앱에 대한 결제 구현
@@ -84,20 +88,21 @@ public class CheckoutActivity extends AppCompatActivity {
 
         // UI(user interface)에서 항목(Item)에 대한 모의 정보 설정.
         // 주문목록 = fetchRandomGarment() 함수
-//        try {
-//            selectedGarment = fetchRandomGarment();
-//            displayGarment(selectedGarment);
-//        } catch (JSONException e) {
-//            throw new RuntimeException("The list of garments cannot be loaded");
-//        }
-        detailTitle = findViewById(R.id.detailTitle);
-        detailPrice = findViewById(R.id.detailPrice);
+        try {
+            selectedGarment = fetchRandomGarment();
+            displayGarment(selectedGarment);
+        } catch (JSONException e) {
+            throw new RuntimeException("The list of garments cannot be loaded");
+        }
+//        detailTitle = findViewById(R.id.detailTitle);
+//        detailPrice = findViewById(R.id.detailPrice);
+//
+//        String title = getIntent().getStringExtra("menu2");
+//        String price = getIntent().getStringExtra("pay2");
+//
+//        detailTitle.setText(title);
+//        detailPrice.setText(price);
 
-        String title = getIntent().getStringExtra("menu2");
-        String price = getIntent().getStringExtra("pay2");
-
-        detailTitle.setText(title);
-        detailPrice.setText(price);
 
         // 테스트에 적합한 환경을 위해 Google Pay API 클라이언트 초기화.
         // onCreate 메서드 내부에 PaymentsClient 개체를 만드는 게 좋음.
@@ -195,20 +200,20 @@ public class CheckoutActivity extends AppCompatActivity {
                 });
     }
 
-//    private void displayGarment(JSONObject garment) throws JSONException {
-//        layoutBinding.detailTitle.setText(garment.getString("title"));
-//        layoutBinding.detailPrice.setText(
-//                String.format(Locale.getDefault(), "$%.2f", garment.getDouble("price")));
-//
-//        final String escapedHtmlText = Html.fromHtml(
-//                garment.getString("description"), Html.FROM_HTML_MODE_COMPACT).toString();
-//        layoutBinding.detailDescription.setText(Html.fromHtml(
-//                escapedHtmlText, Html.FROM_HTML_MODE_COMPACT));
-//
-//        final String imageUri = String.format("@drawable/%s", garment.getString("image"));
-//        final int imageResource = getResources().getIdentifier(imageUri, null, getPackageName());
-//        layoutBinding.detailImage.setImageResource(imageResource);
-//    }
+    private void displayGarment(JSONObject garment) throws JSONException {
+        layoutBinding.detailTitle.setText(garment.getString("title"));
+        layoutBinding.detailPrice.setText(
+                String.format(Locale.getDefault(), "$%.2f", garment.getDouble("price")));
+
+        final String escapedHtmlText = Html.fromHtml(
+                garment.getString("description"), Html.FROM_HTML_MODE_COMPACT).toString();
+        layoutBinding.detailDescription.setText(Html.fromHtml(
+                escapedHtmlText, Html.FROM_HTML_MODE_COMPACT));
+
+        final String imageUri = String.format("@drawable/%s", garment.getString("image"));
+        final int imageResource = getResources().getIdentifier(imageUri, null, getPackageName());
+        layoutBinding.detailImage.setImageResource(imageResource);
+    }
 
     /**
      * 앱에서 지원하는 결제 수단으로 시청자가 결제 할 수 있는지 확인하고
@@ -350,19 +355,19 @@ public class CheckoutActivity extends AppCompatActivity {
         }
     }
 
-//    private JSONObject fetchRandomGarment() {
-//
-//        // 이전에 로드되지 않은 경우에만 항목 목록을로드합니다
-//        if (garmentList == null) {
-//            garmentList = Json.readFromResources(this, R.raw.tshirts);
-//        }
-//
-//        //목록에서 임의의 요소를 가져옵니다
-//        int randomIndex = Math.toIntExact(Math.round(Math.random() * (garmentList.length() - 1)));
-//        try {
-//            return garmentList.getJSONObject(randomIndex);
-//        } catch (JSONException e) {
-//            throw new RuntimeException("The index specified is out of bounds.");
-//        }
-//    }
+    private JSONObject fetchRandomGarment() {
+
+        // 이전에 로드되지 않은 경우에만 항목 목록을로드합니다
+        if (garmentList == null) {
+            garmentList = Json.readFromResources(this, R.raw.tshirts);
+        }
+
+        //목록에서 임의의 요소를 가져옵니다
+        int randomIndex = Math.toIntExact(Math.round(Math.random() * (garmentList.length() - 1)));
+        try {
+            return garmentList.getJSONObject(randomIndex);
+        } catch (JSONException e) {
+            throw new RuntimeException("The index specified is out of bounds.");
+        }
+    }
 }
