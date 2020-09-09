@@ -58,13 +58,9 @@ public class AfterLogin extends AppCompatActivity {
     SharedPreferences sp;
     RecyclerView reviewcyclerView;
     RecyclerViewAdapter adapter;
-    private AlertDialog dialog;
+
     List<Rows> reviewArrayList = new ArrayList<>();
-    TextView txt_nick_name;
-    RatingBar ratingBar;
-    EditText edit_review;
-    Button btn_register;
-    Button btn_cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,13 +81,14 @@ public class AfterLogin extends AppCompatActivity {
         reviewcyclerView.setHasFixedSize(true);
         reviewcyclerView.setLayoutManager(new LinearLayoutManager(AfterLogin.this));
 
+        String nick_name = getIntent().getStringExtra("nick_name");
+        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+        SharedPreferences.Editor editor= sp.edit();
+        editor.putString("nick_name", nick_name);
+        editor.apply();
 
-        reviewcyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createPopupDialog();
-            }
-        });
+        getNetworkData();
+
 
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -162,38 +159,7 @@ public class AfterLogin extends AppCompatActivity {
         finish();
 
     }
-    public void createPopupDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
-        View alertView = getLayoutInflater().inflate(R.layout.review,null);
-        txt_nick_name = alertView.findViewById(R.id.txt_nick_name);
-        edit_review = alertView.findViewById(R.id.edit_review);
-        btn_register = alertView.findViewById(R.id.btn_register);
-        ratingBar = alertView.findViewById(R.id.ratingBar);
-        btn_cancel = alertView.findViewById(R.id.btn_cancel);
 
-
-        ratingBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-        alert.setView(alertView);
-
-        dialog=alert.create();
-//                alert.setCancelable(false);
-        dialog.setCancelable(false);
-        dialog.show();
-    }
     private void getNetworkData() {
         Retrofit retrofit = NetworkClient.getRetrofitClient(AfterLogin.this);
 
@@ -212,7 +178,7 @@ public class AfterLogin extends AppCompatActivity {
 
                 reviewArrayList = response.body().getRows();
 
-                adapter = new RecyclerViewAdapter(AfterLogin.this,reviewArrayList);
+                adapter = new RecyclerViewAdapter(AfterLogin.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
             }
 

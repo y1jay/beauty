@@ -7,13 +7,13 @@ public class Review implements Serializable {
     int id;
     String nick_name;
     String review;
-    int rating;
+    Float rating;
     String created_at;
 
     public Review() {
     }
 
-    public Review(int id, String nick_name, String review, int rating, String created_at) {
+    public Review(int id, String nick_name, String review, Float rating, String created_at) {
         this.id = id;
         this.nick_name = nick_name;
         this.review = review;
@@ -45,11 +45,11 @@ public class Review implements Serializable {
         this.review = review;
     }
 
-    public int getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
     }
 

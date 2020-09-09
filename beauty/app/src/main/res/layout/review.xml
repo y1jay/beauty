@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#E83838"
+    android:background="#00000000"
 
     android:orientation="vertical">
 
@@ -16,13 +16,13 @@
         android:layout_margin="8dp"
 
         app:cardBackgroundColor="#454343"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="8dp"
         app:cardElevation="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFFFFF"
+            android:background="@drawable/button"
             android:orientation="vertical">
 
             <RatingBar
@@ -34,8 +34,14 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:numStars="5"
+                android:max = "5"
+                android:stepSize="0.5"
+                android:isIndicator = "false"
                 android:progressTint="#E83838"
-                android:rating="4" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:rating="3.5" />
 
             <TextView
                 android:id="@+id/txt_nick_name"
@@ -61,16 +67,18 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="15dp"
                         android:orientation="vertical">
 
                         <EditText
                             android:id="@+id/edit_review"
-                            android:layout_width="374dp"
+                            android:layout_width="350dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="15dp"
+                            android:scrollHorizontally="false"
                             android:ems="10"
                             android:hint="리뷰를 작성해주세요"
-                            android:inputType="text"
+                            android:inputType="textMultiLine"
                             android:maxLines="10" />
                     </LinearLayout>
                 </ScrollView>
@@ -87,15 +95,18 @@
                     android:id="@+id/btn_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/button"
                     android:text="취소" />
 
                 <Button
-                    android:id="@+id/btn_register"
+                    android:id="@+id/btn_set"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/button"
                     android:text="등록" />
             </LinearLayout>
 
