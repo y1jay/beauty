@@ -27,24 +27,24 @@ public class Reservation extends AppCompatActivity {
     CheckBox check_main_menu3;
     CheckBox check_set_menu1;
     CheckBox check_set_menu2;
-    CheckBox chek_chicken_feet_big1;
-    CheckBox chek_chicken_feet_middle1;
-    CheckBox chek_chicken_feet_small1;
-    CheckBox chek_chicken_feet_big2;
-    CheckBox chek_chicken_feet_middle2;
-    CheckBox chek_chicken_feet_small2;
-    CheckBox chek_chicken_feet_big3;
-    CheckBox chek_chicken_feet_middle3;
-    CheckBox chek_chicken_feet_small3;
-    CheckBox chek_chicken_feet_big4;
-    CheckBox chek_chicken_feet_middle4;
-    CheckBox chek_chicken_feet_small4;
-    CheckBox chek_chicken_feet_big5;
-    CheckBox chek_chicken_feet_middle5;
-    CheckBox chek_chicken_feet_small5;
-    CheckBox chek_chicken_feet_big6;
-    CheckBox chek_chicken_feet_middle6;
-    CheckBox chek_chicken_feet_small6;
+    CheckBox check_chicken_feet_big1;
+    CheckBox check_chicken_feet_middle1;
+    CheckBox check_chicken_feet_small1;
+    CheckBox check_chicken_feet_big2;
+    CheckBox check_chicken_feet_middle2;
+    CheckBox check_chicken_feet_small2;
+    CheckBox check_chicken_feet_big3;
+    CheckBox check_chicken_feet_middle3;
+    CheckBox check_chicken_feet_small3;
+    CheckBox check_chicken_feet_big4;
+    CheckBox check_chicken_feet_middle4;
+    CheckBox check_chicken_feet_small4;
+    CheckBox check_chicken_feet_big5;
+    CheckBox check_chicken_feet_middle5;
+    CheckBox check_chicken_feet_small5;
+    CheckBox check_chicken_feet_big6;
+    CheckBox check_chicken_feet_middle6;
+    CheckBox check_chicken_feet_small6;
     CheckBox check_pocha_menu1;
     CheckBox check_pocha_menu2;
     CheckBox check_pocha_menu_basick3;
@@ -197,11 +197,80 @@ public class Reservation extends AppCompatActivity {
         setContentView(R.layout.activity_reservation);
 
         check_main_menu1 = findViewById(R.id.check_main_menu1);
-        main_menu1 = findViewById(R.id.main_menu1);
-        pay_main1 = findViewById(R.id.pay_main1);
-
         check_main_menu2 = findViewById(R.id.check_main_menu2);
+        check_main_menu3 = findViewById(R.id.check_main_menu3);
+        check_set_menu1 = findViewById(R.id.check_set_menu1);
+        check_set_menu2 = findViewById(R.id.check_set_menu2);
+        check_chicken_feet_big1 = findViewById(R.id.check_chicken_feet_big1);
+        check_chicken_feet_middle1 = findViewById(R.id.check_chicken_feet_middle1);
+        check_chicken_feet_small1 = findViewById(R.id.check_chicken_feet_small1);
+        check_chicken_feet_big2 = findViewById(R.id.check_chicken_feet_big2);
+        check_chicken_feet_middle2 = findViewById(R.id.check_chicken_feet_middle2);
+        check_chicken_feet_small2 = findViewById(R.id.check_chicken_feet_small2);
+        check_chicken_feet_big3 = findViewById(R.id.check_chicken_feet_big3);
+        check_chicken_feet_middle3 = findViewById(R.id.check_chicken_feet_middle3);
+        check_chicken_feet_small3  = findViewById(R.id.check_chicken_feet_small3);
+        check_chicken_feet_big4 = findViewById(R.id.check_chicken_feet_big4);
+        check_chicken_feet_middle4 = findViewById(R.id.check_chicken_feet_middle4);
+        check_chicken_feet_small4 = findViewById(R.id.check_chicken_feet_small4);
+        check_chicken_feet_big5 = findViewById(R.id.check_chicken_feet_big5);
+        check_chicken_feet_middle5 = findViewById(R.id.check_chicken_feet_middle5);
+        check_chicken_feet_big6 = findViewById(R.id.check_chicken_feet_big6);
+        check_chicken_feet_middle6 = findViewById(R.id.check_chicken_feet_middle6);
+        check_chicken_feet_small6 = findViewById(R.id.check_chicken_feet_small6);
+        check_pocha_menu1 = findViewById(R.id.check_pocha_menu1);
+        check_pocha_menu2 = findViewById(R.id.check_pocha_menu2);
+        check_pocha_menu_basick3 = findViewById(R.id.check_pocha_menu_basic3);
+        check_pocha_menu_hot3 = findViewById(R.id.check_pocha_menu_hot3);
+        check_pocha_menu4 = findViewById(R.id.check_pocha_menu4);
+        check_pocha_menu5 = findViewById(R.id.check_pocha_menu5);
+        check_pocha_menu6 = findViewById(R.id.check_pocha_menu6);
+        check_pocha_menu7 = findViewById(R.id.check_pocha_menu7);
+        check_side1 = findViewById(R.id.check_side1);
+        check_side2 = findViewById(R.id.check_side2);
+        check_side3 = findViewById(R.id.check_side3);
+        check_side4 = findViewById(R.id.check_side4);
+        check_add1 = findViewById(R.id.check_add1);
+        check_add2 = findViewById(R.id.check_add2);
+        check_add3 = findViewById(R.id.check_add3);
+        check_add4 = findViewById(R.id.check_add4);
+        check_add5 = findViewById(R.id.check_add5);
+        check_add6 = findViewById(R.id.check_add6);
+        check_add7 = findViewById(R.id.check_add7);
+        check_add8 = findViewById(R.id.check_add8);
+        check_add9 = findViewById(R.id.check_add9);
+        check_add10 = findViewById(R.id.check_add10);
+        check_add11 =findViewById(R.id.check_add11);
+        check_add12 = findViewById(R.id.check_add12);
+        check_add13 = findViewById(R.id.check_add13);
+        check_drink1 = findViewById(R.id.check_drink1);
+        check_drink2 = findViewById(R.id.check_drink2);
+        check_drink3 = findViewById(R.id.check_drink3);
+
+
+
+
+
+
+
+
+
+        main_menu1 = findViewById(R.id.main_menu1);
         main_menu2 = findViewById(R.id.main_menu2);
+        main_menu3 = findViewById(R.id.main_menu3);
+        set_menu1 = findViewById(R.id.set_menu1);
+        set_menu2 = findViewById(R.id.set_menu2);
+        chicken_feet1 = findViewById(R.id.chicken_feet1);
+        chicken_feet2 = findViewById(R.id.chicken_feet2);
+        chicken_feet3 = findViewById(R.id.chicken_feet3);
+        chicken_feet4 = findViewById(R.id.chicken_feet4);
+        chicken_feet5 = findViewById(R.id.chicken_feet5);
+        chicken_feet6 = findViewById(R.id.chicken_feet6);
+
+
+
+
+        pay_main1 = findViewById(R.id.pay_main1);
         pay_main2 = findViewById(R.id.pay_main2);
 
         if (check_main_menu1.isChecked() == true){
