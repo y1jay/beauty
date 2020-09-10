@@ -86,7 +86,6 @@ public class AfterLogin extends AppCompatActivity {
         SharedPreferences.Editor editor= sp.edit();
         editor.putString("nick_name", nick_name);
         editor.apply();
-
         getNetworkData();
 
 

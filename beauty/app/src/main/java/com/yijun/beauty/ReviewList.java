@@ -47,7 +47,7 @@ RecyclerView reviewcyclerView;
     SharedPreferences sp;
     private AlertDialog dialog;
     List<Rows> reviewArrayList = new ArrayList<>();
-
+    Button btn_setting;
     TextView txt_nick_name;
     RatingBar ratingbar;
     EditText edit_review;
@@ -110,7 +110,7 @@ RecyclerView reviewcyclerView;
         View alertView = getLayoutInflater().inflate(R.layout.review,null);
         txt_nick_name = alertView.findViewById(R.id.txt_nick_name);
         edit_review = alertView.findViewById(R.id.edit_review);
-        btn_set = alertView.findViewById(R.id.btn_set);
+        btn_setting = alertView.findViewById(R.id.btn_setting);
         ratingbar = alertView.findViewById(R.id.ratingBar);
         btn_cancel = alertView.findViewById(R.id.btn_cancel);
 
@@ -121,7 +121,7 @@ RecyclerView reviewcyclerView;
         txt_nick_name.setText(nick_name);
 
 
-        btn_set.setOnClickListener(new View.OnClickListener() {
+        btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String review = edit_review.getText().toString().trim();
@@ -132,8 +132,8 @@ RecyclerView reviewcyclerView;
                     }
                 });
                 Float rating = ratingbar.getRating();
-
-                String nick_name1 =sp.getString("nick_name",null);
+               SharedPreferences sp1 = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                String nick_name1 =sp1.getString("nick_name",null);
 
                 if (review.isEmpty()){
                     Toast.makeText(ReviewList.this,
@@ -158,7 +158,7 @@ RecyclerView reviewcyclerView;
                             Toast.makeText(ReviewList.this,"리뷰가 작성되었습니다"
                                     ,Toast.LENGTH_SHORT).show();
                             dialog.cancel();
-                            adapter.notifyDataSetChanged();
+
                         } else if (response.isSuccessful()==false){
 
                         }
@@ -198,5 +198,6 @@ RecyclerView reviewcyclerView;
             default: return super.onOptionsItemSelected(item);
         }
     }
+    
 
 }
