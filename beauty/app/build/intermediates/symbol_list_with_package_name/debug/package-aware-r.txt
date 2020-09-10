@@ -1293,6 +1293,7 @@ drawable ts_10_24102b
 drawable ts_10_25058a
 drawable ts_10_25058b
 id ALT
+id Auto
 id CTRL
 id FUNCTION
 id META
@@ -1397,6 +1398,10 @@ id blocking
 id book_now
 id bottom
 id bounce
+id btnFind
+id btnIDNO
+id btnPASSNO
+id btnSet
 id btn_cancel
 id btn_change
 id btn_check
@@ -1525,6 +1530,8 @@ id drink3
 id easeIn
 id easeInOut
 id easeOut
+id editID
+id editPasswd
 id edit_nick_name
 id edit_query
 id edit_review
@@ -1535,6 +1542,10 @@ id expanded_menu
 id fill
 id fill_horizontal
 id fill_vertical
+id findName
+id findPhone
+id find_id
+id find_pass
 id flip
 id forever
 id gone
@@ -1650,6 +1661,7 @@ id navermap_zoom_control
 id navermap_zoom_in
 id navermap_zoom_out
 id never
+id newPass
 id none
 id normal
 id notification_background
@@ -1664,6 +1676,9 @@ id packed
 id parent
 id parentPanel
 id parentRelative
+id passID
+id passName
+id passPhone
 id path
 id pathRelative
 id pay_add1
@@ -1839,6 +1854,8 @@ id transitionToEnd
 id transitionToStart
 id triangle
 id txt122222
+id txtNO
+id txtYES
 id txt_address
 id txt_created_at
 id txt_email
@@ -1911,10 +1928,13 @@ layout activity_review_list
 layout buy_with_googlepay_button
 layout change_nick_name
 layout custom_dialog
+layout find_id
+layout find_pass
 layout googlepay_button
 layout kakao_login_layout
 layout layout_login_dialog
 layout layout_login_item
+layout login
 layout navermap_compass_view
 layout navermap_indoor_level_item
 layout navermap_indoor_level_picker
