@@ -133,7 +133,7 @@ public class Reservation extends AppCompatActivity {
     TextView pay_chicken_feet_small1;
     TextView pay_chicken_feet_big2;
     TextView pay_chicken_feet_middle2;
-    TextView getPay_chicken_feet_small2;
+    TextView pay_chicken_feet_small2;
     TextView pay_chicken_feet_big3;
     TextView pay_chicken_feet_middle3;
     TextView pay_chicken_feet_small3;
@@ -148,8 +148,7 @@ public class Reservation extends AppCompatActivity {
     TextView pay_chicken_feet_small6;
     TextView pay_pocha_menu1;
     TextView pay_pocha_menu2;
-    TextView pay_pocha_menu_basic3;
-    TextView pay_menu_hot3;
+    TextView pay_pocha_menu3;
     TextView pay_pocha_menu4;
     TextView pay_pocha_menu5;
     TextView pay_pocha_menu6;
@@ -301,6 +300,55 @@ public class Reservation extends AppCompatActivity {
 
         pay_main1 = findViewById(R.id.pay_main1);
         pay_main2 = findViewById(R.id.pay_main2);
+        pay_main3 = findViewById(R.id.pay_main3);
+        pay_set1 = findViewById(R.id.pay_set1);
+        pay_set2 = findViewById(R.id.pay_set2);
+        pay_chicken_feet_big1 = findViewById(R.id.pay_chicken_feet_big1);
+        pay_chicken_feet_middle1 = findViewById(R.id.pay_chicken_feet_middle1);
+        pay_chicken_feet_small1 = findViewById(R.id.pay_chicken_feet_small1);
+        pay_chicken_feet_big2 = findViewById(R.id.pay_chicken_feet_big2);
+        pay_chicken_feet_middle2 = findViewById(R.id.pay_chicken_feet_middle2);
+        pay_chicken_feet_small2 = findViewById(R.id.pay_chicken_feet_small2);
+        pay_chicken_feet_big3 = findViewById(R.id.pay_chicken_feet_big3);
+        pay_chicken_feet_middle3 = findViewById(R.id.pay_chicken_feet_middle3);
+        pay_chicken_feet_small3 = findViewById(R.id.pay_chicken_feet_small3);
+        pay_chicken_feet_big4 = findViewById(R.id.pay_chicken_feet_big4);
+        pay_chicken_feet_middle4 = findViewById(R.id.pay_chicken_feet_middle4);
+        pay_chicken_feet_small4 = findViewById(R.id.pay_chicken_feet_small4);
+        pay_chicken_feet_big5 = findViewById(R.id.pay_chicken_feet_big5);
+        pay_chicken_feet_middle5 = findViewById(R.id.pay_chicken_feet_middle5);
+        pay_chicken_feet_small5 = findViewById(R.id.pay_chicken_feet_small5);
+        pay_chicken_feet_big6 = findViewById(R.id.pay_chicken_feet_big6);
+        pay_chicken_feet_middle6 = findViewById(R.id.pay_chicken_feet_middle6);
+        pay_chicken_feet_small6 =findViewById(R.id.pay_chicken_feet_small6);
+        pay_pocha_menu1 = findViewById(R.id.pay_pocha_menu1);
+        pay_pocha_menu2 = findViewById(R.id.pay_pocha_menu2);
+        pay_pocha_menu3 = findViewById(R.id.pay_pocha_menu3);
+        pay_pocha_menu4 = findViewById(R.id.pay_pocha_menu4);
+        pay_pocha_menu5 = findViewById(R.id.pay_pocha_menu5);
+        pay_pocha_menu6 = findViewById(R.id.pay_pocha_menu6);
+        pay_pocha_menu7 = findViewById(R.id.pay_pocha_menu7);
+        pay_side1 = findViewById(R.id.pay_side1);
+        pay_side2 = findViewById(R.id.pay_side2);
+        pay_side3 = findViewById(R.id.pay_side3);
+        pay_side4 = findViewById(R.id.pay_side4);
+        pay_add1 = findViewById(R.id.pay_add1);
+        pay_add2 = findViewById(R.id.pay_add2);
+        pay_add3 = findViewById(R.id.pay_add3);
+        pay_add4 = findViewById(R.id.pay_add4);
+        pay_add5 = findViewById(R.id.pay_add5);
+        pay_add6 = findViewById(R.id.pay_add6);
+        pay_add7 = findViewById(R.id.pay_add7);
+        pay_add8 = findViewById(R.id.pay_add8);
+        pay_add9 = findViewById(R.id.pay_add9);
+        pay_add10 = findViewById(R.id.pay_add10);
+        pay_add11 = findViewById(R.id.pay_add11);
+        pay_add12 = findViewById(R.id.pay_add12);
+        pay_add13 = findViewById(R.id.pay_add13);
+        pay_drink1 = findViewById(R.id.pay_drink1);
+        pay_drink2 = findViewById(R.id.pay_drink2);
+        pay_drink3 = findViewById(R.id.pay_drink3);
+
 
         if (check_main_menu1.isChecked() == true){
             String main = main_menu1.getText().toString().trim();
