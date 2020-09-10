@@ -15,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Nick_name"></activity>
+        <activity android:name=".ReviewList"
+            android:label="리뷰">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity android:name=".Nick_name" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
@@ -35,7 +41,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.CheckoutActivity"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name=".activity.PaymentTransparentActivity"
             android:launchMode="singleTask"
