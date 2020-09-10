@@ -1,37 +1,40 @@
 package com.yijun.beauty.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Rows {
-    @SerializedName("success")
-    private boolean success;
-
-    @SerializedName("name")
-    private String name;
+    @SerializedName("id")
+    @Expose
+    private Integer Id;
 
     @SerializedName("nick_name")
+    @Expose
     private String nick_name;
 
-    @SerializedName("phone")
-    private String phone;
+    @SerializedName("review")
+    @Expose
+    private String review;
+
+    @SerializedName("rating")
+    @Expose
+    private Float rating;
 
     @SerializedName("created_at")
+    @Expose
     private String created_at;
 
-    public boolean isSuccess() {
-        return success;
+    public Rows(String review, Float rating) {
+        this.review = review;
+        this.rating = rating;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public Integer getId() {
+        return Id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public String getNick_name() {
@@ -42,12 +45,20 @@ public class Rows {
         this.nick_name = nick_name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getReview() {
+        return review;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
     }
 
     public String getCreated_at() {

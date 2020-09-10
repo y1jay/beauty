@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
+        android:name="com.yijun.beauty.adapter.App"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -34,6 +35,15 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity
+            android:name="com.yijun.beauty.ReviewList"
+            android:label="리뷰" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name="com.yijun.beauty.Nick_name" />
+
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
@@ -41,7 +51,6 @@
         <activity android:name="com.yijun.beauty.ReservationRecord" />
         <activity android:name="com.yijun.beauty.MyInfo" />
         <activity android:name="com.yijun.beauty.Reservation" />
-        <activity android:name="com.yijun.beauty.Address" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
@@ -52,7 +61,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.yijun.beauty.activity.CheckoutActivity"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.yijun.beauty.activity.PaymentTransparentActivity"
             android:launchMode="singleTask"

@@ -61,21 +61,21 @@ public class Notifications {
     }
 
     /**
-     * Triggers/updates a payment notification
+     * 결제 알림을 트리거 / 업데이트합니다.
      */
     public static void triggerPaymentNotification(Context context, String selectedOption) {
 
         final Resources res = context.getResources();
         final String packageName = context.getPackageName();
 
-        // Create a custom notification layout
+        //사용자 지정 알림 레이아웃 만들기
         RemoteViews notificationLayout = new RemoteViews(packageName, R.layout.notification_top_up_account);
 
-        // Creates the selectable options
+        // 선택 가능한 옵션을 만듬
         final List<String> options = new ArrayList<>(OPTION_PRICE_CENTS.keySet());
         for (String option : options) {
 
-            // Adjust color based on selected option
+            // 선택한 옵션에 따라 색상 조정
             int optionColor = res.getColor(R.color.price_button_grey, context.getTheme());
             int optionBg = R.drawable.price_button_background;
             if (option.equals(selectedOption)) {
@@ -87,7 +87,7 @@ public class Notifications {
             notificationLayout.setTextColor(buttonId, optionColor);
             notificationLayout.setInt(buttonId, "setBackgroundResource", optionBg);
 
-            // Create pendingIntent to respond to the click event
+            //click 이벤트에 응답 할 pendingIntent 만들기
             Intent selectOptionIntent = new Intent(context, PaymentNotificationIntentService.class);
             selectOptionIntent.setAction(ACTION_SELECT_PREFIX + option);
             notificationLayout.setOnClickPendingIntent(buttonId, PendingIntent.getService(
@@ -95,14 +95,14 @@ public class Notifications {
                     PendingIntent.FLAG_UPDATE_CURRENT));
         }
 
-        // Set Google Pay button action
+        //Google Pay 버튼 동작 설정
         Intent payIntent = new Intent(context, PaymentTransparentActivity.class);
         payIntent.setAction(ACTION_PAY_GOOGLE_PAY);
         payIntent.putExtra(OPTION_PRICE_EXTRA, OPTION_PRICE_CENTS.get(selectedOption));
         notificationLayout.setOnClickPendingIntent(
                 R.id.googlePayButton, pendingIntentForActivity(context, payIntent));
 
-        // Create a notification and set the notification channel
+        //알림 생성 및 알림 채널 설정
         Notification notification = new NotificationCompat
                 .Builder(context, NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -114,7 +114,7 @@ public class Notifications {
                 .setOnlyAlertOnce(true)
                 .build();
 
-        // Trigger or update the notification.
+        //알림을 트리거하거나 업데이트합니다.
         NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, notification);
     }
 
@@ -123,10 +123,10 @@ public class Notifications {
     }
 
     /**
-     * Create the notification channel for API 26+, to help the system group notifications
-     * based on logical groups that users can make sense of and manage collectively.
+     * API 26+에 대한 알림 채널을 생성하여 사용자가 종합적으로 이해하고 관리 할 수있는
+     * 논리적 그룹을 기반으로 시스템 그룹 알림을 지원합니다.
      *
-     * @param context where the channel is being created from
+     * @param context 채널이 생성되는 위치
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void createNotificationChannelIfNotCreated(Context context) {
