@@ -24,8 +24,7 @@ public class Rows {
     @Expose
     private String created_at;
 
-    public Rows(String nick_name, String review, Float rating) {
-        this.nick_name = nick_name;
+    public Rows(String review, Float rating) {
         this.review = review;
         this.rating = rating;
     }
