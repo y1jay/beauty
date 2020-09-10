@@ -69,17 +69,12 @@ EditText edit_nick_name;
                             i.putExtra("nick_name", nick_name);
                             finish();
                             startActivity(i);
-
-<<<<<<< HEAD
                         }
                         else if (response.isSuccessful()==false){
                             Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
                             Log.i("tlqkf", "tlqkftlqkf");
-=======
                         } else if (response.isSuccessful()==false){
                             Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
-
->>>>>>> kakao
                         }
 
                     }

@@ -1,16 +1,14 @@
 package com.yijun.beauty.adapter;
 
-<<<<<<< HEAD
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-=======
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
->>>>>>> kakao
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,11 +111,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
-<<<<<<< HEAD
-=======
                     CheckTypesTask task = new CheckTypesTask();
                     task.execute();
->>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -125,11 +120,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
-<<<<<<< HEAD
-=======
                     CheckTypesTask task = new CheckTypesTask();
                     task.execute();
->>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -137,11 +129,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
-<<<<<<< HEAD
-=======
                     CheckTypesTask task = new CheckTypesTask();
                     task.execute();
->>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -149,11 +138,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
-<<<<<<< HEAD
-=======
                     CheckTypesTask task = new CheckTypesTask();
                     task.execute();
->>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -161,11 +147,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
-<<<<<<< HEAD
-=======
                     CheckTypesTask task = new CheckTypesTask();
                     task.execute();
->>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -173,19 +156,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
-<<<<<<< HEAD
-=======
+
                     CheckTypesTask task = new CheckTypesTask();
                     task.execute();
->>>>>>> kakao
+
                     context.startActivity(i);
                 }
             });
         }
 
     }
-<<<<<<< HEAD
-=======
+
     private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
         ProgressDialog asyncDialog = new ProgressDialog(context);
 
@@ -223,5 +204,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
 
     }
->>>>>>> kakao
 }
