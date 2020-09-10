@@ -41,17 +41,18 @@ import retrofit2.Retrofit;
 import retrofit2.http.Body;
 
 public class ReviewList extends AppCompatActivity {
-RecyclerView reviewcyclerView;
+    RecyclerView reviewcyclerView;
     ReviewclerViewAdapter adapter;
-    Button btn_set;
+    Button set_review;
     SharedPreferences sp;
     private AlertDialog dialog;
     List<Rows> reviewArrayList = new ArrayList<>();
-    Button btn_setting;
+
     TextView txt_nick_name;
     RatingBar ratingbar;
     EditText edit_review;
     Button btn_cancel;
+    Button btn_set;
 
 
     @Override
@@ -62,20 +63,20 @@ RecyclerView reviewcyclerView;
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        btn_set= findViewById(R.id.btn_set);
+        set_review= findViewById(R.id.set_review);
         reviewcyclerView = findViewById(R.id.reviewcyclerView);
         reviewcyclerView.setHasFixedSize(true);
         reviewcyclerView.setLayoutManager(new LinearLayoutManager(ReviewList.this));
         sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
 
         getNetworkData();
-        btn_set.setOnClickListener(new View.OnClickListener() {
+        set_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createPopupDialog();
-
             }
         });
+
 
     }
     private void getNetworkData() {
@@ -110,55 +111,50 @@ RecyclerView reviewcyclerView;
         View alertView = getLayoutInflater().inflate(R.layout.review,null);
         txt_nick_name = alertView.findViewById(R.id.txt_nick_name);
         edit_review = alertView.findViewById(R.id.edit_review);
-        btn_setting = alertView.findViewById(R.id.btn_setting);
+        btn_set = alertView.findViewById(R.id.btn_set);
         ratingbar = alertView.findViewById(R.id.ratingBar);
         btn_cancel = alertView.findViewById(R.id.btn_cancel);
-
-
-
 
         String nick_name =sp.getString("nick_name",null);
         txt_nick_name.setText(nick_name);
 
-
-        btn_setting.setOnClickListener(new View.OnClickListener() {
+        btn_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String review = edit_review.getText().toString().trim();
+
                 ratingbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float rating,
                                                 boolean fromUser) {
                     }
                 });
+
                 Float rating = ratingbar.getRating();
-               SharedPreferences sp1 = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-                String nick_name1 =sp1.getString("nick_name",null);
 
                 if (review.isEmpty()){
                     Toast.makeText(ReviewList.this,
                             "리뷰를 입력해주세요",Toast.LENGTH_SHORT).show();
                 }
 
-                Review review1 = new Review(nick_name1,review,rating);
+//                Review review1 = new Review(nick_name1,review,rating);
+                Rows rows = new Rows(nick_name,review,rating);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
                 ReviewApi reviewApi = retrofit.create(ReviewApi.class);
 
-                Call<UserRes> call = reviewApi.createReview(review1);
+                Call<UserRes> call = reviewApi.createReview(rows);
 
                 call.enqueue(new Callback<UserRes>() {
                     @Override
                     public void onResponse(Call<UserRes> call, Response<UserRes> response) {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
-
-
                             Log.i("AAAAA","? : "+response.body().toString());
                             Toast.makeText(ReviewList.this,"리뷰가 작성되었습니다"
                                     ,Toast.LENGTH_SHORT).show();
                             dialog.cancel();
-
+                            adapter.notifyDataSetChanged();
                         } else if (response.isSuccessful()==false){
 
                         }
@@ -190,6 +186,7 @@ RecyclerView reviewcyclerView;
         dialog.setCancelable(false);
         dialog.show();
     }
+
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case android.R.id.home:
@@ -198,6 +195,16 @@ RecyclerView reviewcyclerView;
             default: return super.onOptionsItemSelected(item);
         }
     }
-
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
+//        reviewcyclerView.setAdapter(adapter);
+////        DatabaseHandler db = new DatabaseHandler(MoveRecord.this);
+////        moveRecordArrayList = db.getAllRecord();
+////        // 어댑터를 연결해야지 화면에 표시가 됨.
+////        recyclerViewAdapter = new RecyclerViewAdapter(MoveRecord.this, moveRecordArrayList);
+////        recyclerView.setAdapter(recyclerViewAdapter);
+//    }
 
 }

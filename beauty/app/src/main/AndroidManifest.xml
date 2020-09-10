@@ -41,7 +41,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.CheckoutActivity"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name=".activity.PaymentTransparentActivity"
             android:launchMode="singleTask"
