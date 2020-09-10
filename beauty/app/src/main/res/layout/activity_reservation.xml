@@ -11,19 +11,19 @@
         android:id="@+id/txt122222"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:text="예약하기"
         android:textColor="#ED1333"
-        android:textSize="30dp" />
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="예약하기" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="580dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button">
 
         <LinearLayout
@@ -35,10 +35,10 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor= "#ED1333"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="* 모든 메뉴는 직접 손질하며 주문 즉시 조리합니다 *"
-                android:textColor="#ED1333" />
+                android:text="* 모든 메뉴는 직접 손질하며 주문 즉시 조리합니다 *" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -46,21 +46,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:textColor= "#ED1333"
                 android:gravity="center"
-                android:text="대표 메뉴"
-                android:textColor="#ED1333"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:text="대표 메뉴" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
 
 
                 <LinearLayout
@@ -74,8 +75,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="11dp"
-                        android:text="직화무뼈세트"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="직화무뼈세트" />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -84,8 +85,8 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="15dp"
-                        android:text="직화무뼈+새우그라탕"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="직화무뼈+새우그라탕" />
 
                     <TextView
                         android:id="@+id/pay_main1"
@@ -94,28 +95,32 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="15dp"
-                        android:text="29,000원"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="29,000원" />
 
                     <CheckBox
                         android:id="@+id/check_main_menu1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:text="예약하기"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="예약하기" />
 
 
                 </LinearLayout>
+
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
-                    android:background="#B5B0B0" />
+                    android:background="#B5B0B0"/>
 
             </LinearLayout>
+
+
+
 
 
             <LinearLayout
@@ -129,8 +134,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="11dp"
-                    android:text="국물그라탕세트"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="국물그라탕세트" />
 
                 <TextView
                     android:id="@+id/textVie332w5"
@@ -139,8 +144,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="국물무뼈+새우그라탕"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="국물무뼈+새우그라탕" />
 
                 <TextView
                     android:id="@+id/pay_main2"
@@ -149,26 +154,29 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="30,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="30,000원" />
 
                 <CheckBox
                     android:id="@+id/check_main_menu2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
 
 
             </LinearLayout>
+
 
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
+
+
 
 
             <LinearLayout
@@ -188,8 +196,8 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="15dp"
-                        android:text="닭볶음탕세트"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="닭볶음탕세트" />
 
                     <TextView
                         android:id="@+id/textView22"
@@ -198,8 +206,8 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="15dp"
-                        android:text="불닭볶음탕+계란찜+쿨피스"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="불닭볶음탕+계란찜+쿨피스" />
 
                     <TextView
                         android:id="@+id/pay_main3"
@@ -208,8 +216,8 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="15dp"
-                        android:text="27,000원"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="27,000원" />
 
                     <CheckBox
                         android:id="@+id/check_main_menu3"
@@ -218,8 +226,8 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="15dp"
-                        android:text="예약하기"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="예약하기" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -227,7 +235,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <TextView
                 android:id="@+id/textView66"
@@ -236,15 +244,18 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
+                android:textColor= "#ED1333"
                 android:text="세트 메뉴"
-                android:textColor="#ED1333"
                 android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
+
+
+
 
 
             <LinearLayout
@@ -259,8 +270,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="패밀리세트"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="패밀리세트" />
 
                 <TextView
                     android:id="@+id/textView38"
@@ -269,31 +280,33 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="국물닭발+새우그라탕+계란찜+날치주먹밥+선택1"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="국물닭발+새우그라탕+계란찜+날치주먹밥+선택1" />
 
 
                 <TextView
                     android:id="@+id/pay_set1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="55,000원"
-                    android:textColor="#3A0404" />
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#3A0404"
+                    android:text="55,000원" />
+
+
 
 
                 <CheckBox
                     android:id="@+id/check_set_menu1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
 
 
             </LinearLayout>
@@ -302,7 +315,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -316,8 +329,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="국물닭발세트"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="국물닭발세트" />
 
                 <TextView
                     android:id="@+id/textView41"
@@ -326,8 +339,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="국물닭발+날치주먹밥+계란찜+선택1"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="국물닭발+날치주먹밥+계란찜+선택1" />
 
                 <TextView
                     android:id="@+id/pay_set2"
@@ -336,23 +349,23 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="37,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="37,000원" />
 
                 <CheckBox
                     android:id="@+id/check_set_menu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -366,16 +379,16 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="닭발"
-                    android:textColor="#ED1333"
-                    android:textSize="20dp" />
+                    android:textColor= "#ED1333"
+                    android:textSize="20dp"
+                    android:text="닭발" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -395,8 +408,8 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="15dp"
-                        android:text="치즈무뼈닭발"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="치즈무뼈닭발" />
 
                     <TextView
                         android:id="@+id/textView"
@@ -404,8 +417,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:layout_weight="1"
-                        android:text="★사장님 추천메뉴★"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="★사장님 추천메뉴★" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -417,7 +430,7 @@
                         android:id="@+id/imageView"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
-                        app:srcCompat="@drawable/menu123" />
+                        app:srcCompat="@drawable/menu123"  />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -438,23 +451,23 @@
                                     android:id="@+id/pay_chicken_feet_big1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="36,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="36,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_big1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="대" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -467,23 +480,23 @@
                                     android:id="@+id/pay_chicken_feet_middle1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
+                                    android:textColor="#3A0404"
                                     android:gravity="center"
-                                    android:text="28,000원"
-                                    android:textColor="#3A0404" />
+                                    android:text="28,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_middle1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="중" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -496,24 +509,24 @@
                                     android:id="@+id/pay_chicken_feet_small1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
+                                    android:textColor="#3A0404"
                                     android:gravity="center"
-                                    android:text="20,000원"
 
-                                    android:textColor="#3A0404" />
+                                    android:text="20,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_small1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="소" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -529,7 +542,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -549,8 +562,8 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="15dp"
-                        android:text="국물삼겹닭발"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="국물삼겹닭발" />
 
                     <TextView
                         android:id="@+id/te2323xtView"
@@ -558,8 +571,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:layout_weight="1"
-                        android:text="★사장님 추천메뉴★"
-                        android:textColor="#3A0404" />
+                        android:textColor="#3A0404"
+                        android:text="★사장님 추천메뉴★" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -592,23 +605,23 @@
                                     android:id="@+id/pay_chicken_feet_big2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="미정"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="미정" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_big2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="대" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -621,23 +634,23 @@
                                     android:id="@+id/pay_chicken_feet_middle2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
+                                    android:textColor="#3A0404"
                                     android:gravity="center"
-                                    android:text="미정"
-                                    android:textColor="#3A0404" />
+                                    android:text="미정" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_middle2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="중" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -650,24 +663,24 @@
                                     android:id="@+id/pay_chicken_feet_small2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
+                                    android:textColor="#3A0404"
                                     android:gravity="center"
-                                    android:text="미정"
 
-                                    android:textColor="#3A0404" />
+                                    android:text="미정" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_small2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="소" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -683,7 +696,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -698,8 +711,8 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="국물닭발"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="국물닭발" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -731,23 +744,23 @@
                                     android:id="@+id/pay_chicken_feet_big3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="33,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="33,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_big3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="대" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -760,23 +773,23 @@
                                     android:id="@+id/pay_chicken_feet_middle3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="25,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="25,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_middle3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="중" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -789,24 +802,24 @@
                                     android:id="@+id/pay_chicken_feet_small3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
+                                    android:textColor="#3A0404"
                                     android:gravity="center"
-                                    android:text="17,000원"
 
-                                    android:textColor="#3A0404" />
+                                    android:text="17,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_small3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="소" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -822,7 +835,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -837,8 +850,8 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="국물무뼈닭발"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="국물무뼈닭발" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -870,23 +883,23 @@
                                     android:id="@+id/pay_chicken_feet_big4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="35,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="35,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_big4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="대" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -899,23 +912,23 @@
                                     android:id="@+id/pay_chicken_feet_middle4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="27,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="27,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_middle4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="중" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -928,24 +941,24 @@
                                     android:id="@+id/pay_chicken_feet_small4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
+                                    android:textColor="#3A0404"
                                     android:gravity="center"
-                                    android:text="18,000원"
 
-                                    android:textColor="#3A0404" />
+                                    android:text="18,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_small4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="소" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -961,7 +974,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -976,8 +989,8 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="직화통닭발"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="직화통닭발" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1009,23 +1022,23 @@
                                     android:id="@+id/pay_chicken_feet_big5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="31,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="31,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_big5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="대" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1038,23 +1051,23 @@
                                     android:id="@+id/pay_chicken_feet_middle5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="24,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="24,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_middle5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="중" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1067,23 +1080,23 @@
                                     android:id="@+id/pay_chicken_feet_small5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="16,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="16,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_small5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="소" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -1098,7 +1111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1113,8 +1126,8 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="직화무뼈닭발"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="직화무뼈닭발" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1146,23 +1159,23 @@
                                     android:id="@+id/pay_chicken_feet_big6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="33,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="33,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_big6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="대" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1175,23 +1188,23 @@
                                     android:id="@+id/pay_chicken_feet_middle6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="25,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="25,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_middle6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="중" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1204,23 +1217,23 @@
                                     android:id="@+id/pay_chicken_feet_small6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="17,000원"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="17,000원" />
 
                                 <CheckBox
                                     android:id="@+id/check_chicken_feet_small6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                                    android:textColor="#3A0404"
+                                    android:text="소" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -1230,13 +1243,13 @@
                 </LinearLayout>
 
 
-            </LinearLayout>
 
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1250,9 +1263,9 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="포차 메뉴"
-                    android:textColor="#ED1333"
-                    android:textSize="20dp" />
+                    android:textColor= "#ED1333"
+                    android:textSize="20dp"
+                    android:text="포차 메뉴" />
             </LinearLayout>
 
 
@@ -1260,7 +1273,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1289,8 +1302,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
-                            android:text="불닭볶음탕(2~3인분)"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="불닭볶음탕(2~3인분)" />
 
                         <TextView
                             android:id="@+id/pay_pocha_menu1"
@@ -1299,16 +1312,16 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="22,000원"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="22,000원" />
 
                         <CheckBox
                             android:id="@+id/check_pocha_menu1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="예약하기" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1317,7 +1330,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
-                    android:background="#B5B0B0" />
+                    android:background="#B5B0B0"/>
 
 
             </LinearLayout>
@@ -1350,8 +1363,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
-                            android:text="오돌뼈"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="오돌뼈" />
 
                         <TextView
                             android:id="@+id/pay_pocha_menu2"
@@ -1360,16 +1373,16 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="15,000원"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="15,000원" />
 
                         <CheckBox
                             android:id="@+id/check_pocha_menu2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="예약하기" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1377,7 +1390,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
-                    android:background="#B5B0B0" />
+                    android:background="#B5B0B0"/>
 
             </LinearLayout>
 
@@ -1409,8 +1422,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
-                            android:text="치즈떡볶이"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="치즈떡볶이" />
+
 
 
                         <TextView
@@ -1420,8 +1434,9 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="15,000원"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="15,000원" />
+
 
 
                         <CheckBox
@@ -1429,16 +1444,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(보통맛)"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="예약하기(보통맛)" />
 
                         <CheckBox
                             android:id="@+id/check_pocha_menu_hot3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기(매운맛)"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="예약하기(매운맛)" />
+
 
 
                     </LinearLayout>
@@ -1449,7 +1465,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
-                    android:background="#B5B0B0" />
+                    android:background="#B5B0B0"/>
 
             </LinearLayout>
 
@@ -1481,8 +1497,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
-                            android:text="골뱅이무침"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="골뱅이무침" />
+
 
 
                         <TextView
@@ -1492,8 +1509,9 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="면추가 가능(우동,쫄면,소면)"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="면추가 가능(우동,쫄면,소면)" />
+
 
 
                         <TextView
@@ -1503,16 +1521,17 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="16,000원"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="16,000원" />
 
                         <CheckBox
                             android:id="@+id/check_pocha_menu4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="예약하기" />
+
 
 
                     </LinearLayout>
@@ -1523,7 +1542,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
-                    android:background="#B5B0B0" />
+                    android:background="#B5B0B0"/>
 
             </LinearLayout>
 
@@ -1556,8 +1575,8 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginRight="15dp"
-                            android:text="닭똥집"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="닭똥집" />
 
                         <TextView
                             android:id="@+id/pay_pocha_menu5"
@@ -1566,8 +1585,8 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="15,000원"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="15,000원" />
 
                         <CheckBox
                             android:id="@+id/check_pocha_menu5"
@@ -1575,8 +1594,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
-                            android:text="예약하기"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="예약하기" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -1585,7 +1604,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1615,8 +1634,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
-                            android:text="새우그라탕"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="새우그라탕" />
 
                         <TextView
                             android:id="@+id/pay_pocha_menu6"
@@ -1625,8 +1644,8 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="14,000원"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="14,000원" />
 
                         <TextView
                             android:id="@+id/paym34342234ain6"
@@ -1635,16 +1654,16 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="메인메뉴 주문시 12,000원"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="메인메뉴 주문시 12,000원" />
 
                         <CheckBox
                             android:id="@+id/check_pocha_menu6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="예약하기"
-                            android:textColor="#3A0404" />
+                            android:textColor="#3A0404"
+                            android:text="예약하기" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1652,9 +1671,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
-                    android:background="#B5B0B0" />
+                    android:background="#B5B0B0"/>
 
             </LinearLayout>
+
 
 
             <LinearLayout
@@ -1669,8 +1689,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="오뎅탕"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="오뎅탕" />
 
                 <TextView
                     android:id="@+id/pay_pocha_menu7"
@@ -1679,8 +1699,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="12,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="12,000원" />
 
                 <CheckBox
                     android:id="@+id/check_pocha_menu7"
@@ -1688,15 +1708,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1710,16 +1730,16 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="곁들임 메뉴"
-                    android:textColor="#ED1333"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor= "#ED1333"
+                    android:text="곁들임 메뉴" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1733,8 +1753,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="계란찜"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="계란찜" />
 
                 <TextView
                     android:id="@+id/pay_side1"
@@ -1743,8 +1763,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="4,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="4,000원" />
 
                 <CheckBox
                     android:id="@+id/check_side1"
@@ -1752,15 +1772,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(4000원)"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기(4000원)" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1774,8 +1794,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="아이스황도"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="아이스황도" />
 
                 <TextView
                     android:id="@+id/pay_side2"
@@ -1784,8 +1804,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="5,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="5,000원" />
 
                 <CheckBox
                     android:id="@+id/check_side2"
@@ -1793,15 +1813,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1815,8 +1835,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="참치마요주먹밥"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="참치마요주먹밥" />
 
                 <TextView
                     android:id="@+id/pay_side3"
@@ -1825,8 +1845,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="4,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="4,000원" />
 
                 <CheckBox
                     android:id="@+id/check_side3"
@@ -1834,15 +1854,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1856,8 +1876,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="날치알주먹밥"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="날치알주먹밥" />
 
                 <TextView
                     android:id="@+id/pay_side4"
@@ -1866,8 +1886,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="3,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="3,000원" />
 
                 <CheckBox
                     android:id="@+id/check_side4"
@@ -1875,15 +1895,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1897,16 +1917,16 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="추가 사리"
-                    android:textColor="#ED1333"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor= "#ED1333"
+                    android:text="추가 사리" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1920,8 +1940,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="새우 사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="새우 사리" />
 
                 <TextView
                     android:id="@+id/pay_add1"
@@ -1930,8 +1950,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="6,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="6,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add1"
@@ -1939,15 +1959,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1961,8 +1981,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="치즈사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="치즈사리" />
 
                 <TextView
                     android:id="@+id/pay_add2"
@@ -1971,8 +1991,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="3,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="3,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add2"
@@ -1980,8 +2000,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
 
@@ -1989,7 +2009,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2003,8 +2023,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="오뎅사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="오뎅사리" />
 
                 <TextView
                     android:id="@+id/pay_add3"
@@ -2013,8 +2033,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add3"
@@ -2022,15 +2042,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2044,8 +2064,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="떡사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="떡사리" />
 
                 <TextView
                     android:id="@+id/pay_add4"
@@ -2054,8 +2074,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add4"
@@ -2063,15 +2083,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2085,8 +2105,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="비엔나"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="비엔나" />
 
                 <TextView
                     android:id="@+id/pay_add5"
@@ -2095,8 +2115,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add5"
@@ -2104,15 +2124,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2126,8 +2146,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="메추리 알"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="메추리 알" />
 
                 <TextView
                     android:id="@+id/pay_add6"
@@ -2136,8 +2156,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add6"
@@ -2145,15 +2165,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2167,8 +2187,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="라면사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="라면사리" />
 
                 <TextView
                     android:id="@+id/pay_add7"
@@ -2177,8 +2197,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="1,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="1,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add7"
@@ -2186,15 +2206,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2208,8 +2228,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="우동사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="우동사리" />
 
                 <TextView
                     android:id="@+id/pay_add8"
@@ -2218,8 +2238,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add8"
@@ -2227,15 +2247,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2249,8 +2269,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="쫄면사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="쫄면사리" />
 
                 <TextView
                     android:id="@+id/pay_add9"
@@ -2259,8 +2279,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add9"
@@ -2268,15 +2288,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2290,8 +2310,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="넓적당면"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="넓적당면" />
 
                 <TextView
                     android:id="@+id/pay_add10"
@@ -2300,8 +2320,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add10"
@@ -2309,15 +2329,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2331,8 +2351,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="너구리사리"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="너구리사리" />
 
                 <TextView
                     android:id="@+id/pay_add11"
@@ -2341,8 +2361,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="3,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="3,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add11"
@@ -2350,15 +2370,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2372,8 +2392,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="셀프볶음밥"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="셀프볶음밥" />
 
                 <TextView
                     android:id="@+id/pay_add12"
@@ -2382,8 +2402,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add12"
@@ -2391,15 +2411,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2413,8 +2433,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="셀프치즈볶음밥"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="셀프치즈볶음밥" />
 
                 <TextView
                     android:id="@+id/pay_add13"
@@ -2423,8 +2443,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
-                    android:text="4,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="4,000원" />
 
                 <CheckBox
                     android:id="@+id/check_add13"
@@ -2432,15 +2452,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
 
             <LinearLayout
@@ -2455,8 +2475,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
+                    android:textColor= "#ED1333"
                     android:text="음료"
-                    android:textColor="#ED1333"
                     android:textSize="20dp" />
             </LinearLayout>
 
@@ -2464,7 +2484,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#FF0000" />
+                android:background="#FF0000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2478,8 +2498,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="쿨피스(450ml)"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="쿨피스(450ml)" />
 
                 <TextView
                     android:id="@+id/pay_drink1"
@@ -2488,8 +2508,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_drink1"
@@ -2497,15 +2517,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2519,8 +2539,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="콜라(뚱캔)"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="콜라(뚱캔)" />
 
                 <TextView
                     android:id="@+id/pay_drink2"
@@ -2529,8 +2549,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_drink2"
@@ -2538,15 +2558,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
-                android:background="#B5B0B0" />
+                android:background="#B5B0B0"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -2560,8 +2580,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="스프라이트(뚱캔)"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="스프라이트(뚱캔)" />
 
                 <TextView
                     android:id="@+id/pay_drink3"
@@ -2570,8 +2590,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="2,000원"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="2,000원" />
 
                 <CheckBox
                     android:id="@+id/check_drink3"
@@ -2579,9 +2599,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기"
-                    android:textColor="#3A0404" />
+                    android:textColor="#3A0404"
+                    android:text="예약하기" />
             </LinearLayout>
+
 
 
         </LinearLayout>
@@ -2594,8 +2615,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/button"
         android:text="결제하기"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:background="@drawable/button" />
 </LinearLayout>
