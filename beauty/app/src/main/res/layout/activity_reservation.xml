@@ -190,7 +190,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txtset1"
+                        android:id="@+id/main_menu3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -210,7 +210,7 @@
                         android:text="불닭볶음탕+계란찜+쿨피스" />
 
                     <TextView
-                        android:id="@+id/payset1"
+                        android:id="@+id/pay_main3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -220,7 +220,7 @@
                         android:text="27,000원" />
 
                     <CheckBox
-                        android:id="@+id/checksetmenu1"
+                        android:id="@+id/check_main_menu3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -264,7 +264,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtset7"
+                    android:id="@+id/set_menu1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -285,7 +285,7 @@
 
 
                 <TextView
-                    android:id="@+id/paysetmedium7"
+                    android:id="@+id/pay_set1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -299,7 +299,7 @@
 
 
                 <CheckBox
-                    android:id="@+id/checksetmenusmall7"
+                    android:id="@+id/check_set_menu1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -323,7 +323,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtset8"
+                    android:id="@+id/set_menu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -343,7 +343,7 @@
                     android:text="국물닭발+날치주먹밥+계란찜+선택1" />
 
                 <TextView
-                    android:id="@+id/payset8"
+                    android:id="@+id/pay_set2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -353,7 +353,7 @@
                     android:text="37,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksetmenu8"
+                    android:id="@+id/check_set_menu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -401,7 +401,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txtmen123u1"
+                        android:id="@+id/chicken_feet1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -448,7 +448,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymen123ubig1"
+                                    android:id="@+id/pay_chicken_feet_big1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -460,7 +460,7 @@
                                     android:text="36,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/ch343eckmenubig1"
+                                    android:id="@+id/check_chicken_feet_big1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -477,7 +477,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymenus123mall1"
+                                    android:id="@+id/pay_chicken_feet_middle1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -489,7 +489,7 @@
                                     android:text="28,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/checkm3434enusmall1"
+                                    android:id="@+id/check_chicken_feet_middle1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -506,7 +506,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymenum123edium1"
+                                    android:id="@+id/pay_chicken_feet_small1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -519,7 +519,7 @@
                                     android:text="20,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/checkmenu3434medium1"
+                                    android:id="@+id/check_chicken_feet_small1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -555,7 +555,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txtme2323n123u1"
+                        android:id="@+id/chicken_feet2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -602,7 +602,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymen1223433ubig1"
+                                    android:id="@+id/pay_chicken_feet_big2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -614,7 +614,7 @@
                                     android:text="미정" />
 
                                 <CheckBox
-                                    android:id="@+id/ch343eck23434menubig1"
+                                    android:id="@+id/check_chicken_feet_big2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -631,7 +631,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/payme2343nus123mall1"
+                                    android:id="@+id/pay_chicken_feet_middle2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -643,7 +643,7 @@
                                     android:text="미정" />
 
                                 <CheckBox
-                                    android:id="@+id/check3143m3434enusmall1"
+                                    android:id="@+id/check_chicken_feet_middle2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -660,7 +660,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymenum34123edium1"
+                                    android:id="@+id/pay_chicken_feet_small2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -673,7 +673,7 @@
                                     android:text="미정" />
 
                                 <CheckBox
-                                    android:id="@+id/check23menu3434medium1"
+                                    android:id="@+id/check_chicken_feet_small2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -704,7 +704,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtmen13423423u1"
+                    android:id="@+id/chicken_feet3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -741,7 +741,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymen123ub234324ig1"
+                                    android:id="@+id/pay_chicken_feet_big3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -753,7 +753,7 @@
                                     android:text="33,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/ch323423eckmenubig1"
+                                    android:id="@+id/check_chicken_feet_big3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -770,7 +770,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymen23434us123mall1"
+                                    android:id="@+id/pay_chicken_feet_middle3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -782,7 +782,7 @@
                                     android:text="25,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/check24324m3434enusmall1"
+                                    android:id="@+id/check_chicken_feet_middle3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -799,7 +799,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paym234324enum123edium1"
+                                    android:id="@+id/pay_chicken_feet_small3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -812,7 +812,7 @@
                                     android:text="17,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/checkme234324nu3434medium1"
+                                    android:id="@+id/check_chicken_feet_small3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -843,7 +843,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtmen2321123u1"
+                    android:id="@+id/chicken_feet4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -880,7 +880,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/payme234n123ubig1"
+                                    android:id="@+id/pay_chicken_feet_big4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -892,7 +892,7 @@
                                     android:text="35,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/ch343234eckmenubig1"
+                                    android:id="@+id/check_chicken_feet_big4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -909,7 +909,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/payme234nus123mall1"
+                                    android:id="@+id/pay_chicken_feet_middle4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -921,7 +921,7 @@
                                     android:text="27,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/checkm3234434enusmall1"
+                                    android:id="@+id/check_chicken_feet_middle4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -938,7 +938,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymenum123423edium1"
+                                    android:id="@+id/pay_chicken_feet_small4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -951,7 +951,7 @@
                                     android:text="18,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/checkme234nu3434medium1"
+                                    android:id="@+id/check_chicken_feet_small4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -982,7 +982,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt234men123u1"
+                    android:id="@+id/chicken_feet5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1019,7 +1019,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/pay23432men123ubig1"
+                                    android:id="@+id/pay_chicken_feet_big5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -1031,7 +1031,7 @@
                                     android:text="31,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/ch323443eckmenubig1"
+                                    android:id="@+id/check_chicken_feet_big5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -1048,7 +1048,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/paymen2344us123mall1"
+                                    android:id="@+id/pay_chicken_feet_middle5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -1060,7 +1060,7 @@
                                     android:text="24,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/checkm3432344enusmall1"
+                                    android:id="@+id/check_chicken_feet_middle5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -1077,7 +1077,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/payme2345num123edium1"
+                                    android:id="@+id/pay_chicken_feet_small5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -1089,7 +1089,7 @@
                                     android:text="16,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/check3243menu3434medium1"
+                                    android:id="@+id/check_chicken_feet_small5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -1119,7 +1119,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt234234men123u1"
+                    android:id="@+id/chicken_feet6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1156,7 +1156,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/p234ay23432men123ubig1"
+                                    android:id="@+id/pay_chicken_feet_big6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -1168,7 +1168,7 @@
                                     android:text="33,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/ch323443ec234kmenubig1"
+                                    android:id="@+id/check_chicken_feet_big6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -1185,7 +1185,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/pay234men2344us123mall1"
+                                    android:id="@+id/pay_chicken_feet_middle6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -1197,7 +1197,7 @@
                                     android:text="25,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/checkm3432344e4545nusmall1"
+                                    android:id="@+id/check_chicken_feet_middle6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -1214,7 +1214,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/p2344ayme2345num123edium1"
+                                    android:id="@+id/pay_chicken_feet_small6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -1226,7 +1226,7 @@
                                     android:text="17,000원" />
 
                                 <CheckBox
-                                    android:id="@+id/check3243me3423nu3434medium1"
+                                    android:id="@+id/check_chicken_feet_small6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
@@ -1297,7 +1297,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/txtmain3"
+                            android:id="@+id/pocha_menu1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1306,7 +1306,7 @@
                             android:text="불닭볶음탕(2~3인분)" />
 
                         <TextView
-                            android:id="@+id/paymain3"
+                            android:id="@+id/pay_pocha_menu1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1316,7 +1316,7 @@
                             android:text="22,000원" />
 
                         <CheckBox
-                            android:id="@+id/checkmainmenu3"
+                            android:id="@+id/check_pocha_menu1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1358,7 +1358,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/txtmain6"
+                            android:id="@+id/pocha_menu2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1367,7 +1367,7 @@
                             android:text="오돌뼈" />
 
                         <TextView
-                            android:id="@+id/paymain6"
+                            android:id="@+id/pay_pocha_menu2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1377,7 +1377,7 @@
                             android:text="15,000원" />
 
                         <CheckBox
-                            android:id="@+id/checkmainmenu6"
+                            android:id="@+id/check_pocha_menu2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1417,7 +1417,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/t33xtmain1"
+                            android:id="@+id/pocha_menu3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1428,7 +1428,7 @@
 
 
                         <TextView
-                            android:id="@+id/pa33ymain1"
+                            android:id="@+id/pay_pocha_menu3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1440,7 +1440,7 @@
 
 
                         <CheckBox
-                            android:id="@+id/checkmain333menu1"
+                            android:id="@+id/check_pocha_menu_basic3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1448,7 +1448,7 @@
                             android:text="예약하기(보통맛)" />
 
                         <CheckBox
-                            android:id="@+id/ch11eckBox"
+                            android:id="@+id/check_pocha_menu_hot3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1492,7 +1492,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/t3324343xtmain1"
+                            android:id="@+id/pocha_menu4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1515,7 +1515,7 @@
 
 
                         <TextView
-                            android:id="@+id/pa33ymai34234n1"
+                            android:id="@+id/pay_pocha_menu4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1525,7 +1525,7 @@
                             android:text="16,000원" />
 
                         <CheckBox
-                            android:id="@+id/checkBox"
+                            android:id="@+id/check_pocha_menu4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1569,7 +1569,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/txtmenu6"
+                            android:id="@+id/pocha_menu5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1579,7 +1579,7 @@
                             android:text="닭똥집" />
 
                         <TextView
-                            android:id="@+id/paymenu6"
+                            android:id="@+id/pay_pocha_menu5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1589,7 +1589,7 @@
                             android:text="15,000원" />
 
                         <CheckBox
-                            android:id="@+id/checkmenu6"
+                            android:id="@+id/check_pocha_menu5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1629,7 +1629,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/t234xtmain6"
+                            android:id="@+id/pocha_menu6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1638,7 +1638,7 @@
                             android:text="새우그라탕" />
 
                         <TextView
-                            android:id="@+id/paym234ain6"
+                            android:id="@+id/pay_pocha_menu6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1658,7 +1658,7 @@
                             android:text="메인메뉴 주문시 12,000원" />
 
                         <CheckBox
-                            android:id="@+id/chec324kmainmenu6"
+                            android:id="@+id/check_pocha_menu6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1683,7 +1683,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtmenu7"
+                    android:id="@+id/pocha_menu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1693,7 +1693,7 @@
                     android:text="오뎅탕" />
 
                 <TextView
-                    android:id="@+id/paymenu7"
+                    android:id="@+id/pay_pocha_menu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1703,7 +1703,7 @@
                     android:text="12,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkmenu7"
+                    android:id="@+id/check_pocha_menu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1747,7 +1747,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtside1"
+                    android:id="@+id/side_menu1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1757,7 +1757,7 @@
                     android:text="계란찜" />
 
                 <TextView
-                    android:id="@+id/payside1"
+                    android:id="@+id/pay_side1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1767,7 +1767,7 @@
                     android:text="4,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksidemenu1"
+                    android:id="@+id/check_side1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1788,7 +1788,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtside2"
+                    android:id="@+id/side_menu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1798,7 +1798,7 @@
                     android:text="아이스황도" />
 
                 <TextView
-                    android:id="@+id/payside2"
+                    android:id="@+id/pay_side2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1808,7 +1808,7 @@
                     android:text="5,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksidemenu2"
+                    android:id="@+id/check_side2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1829,7 +1829,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtside3"
+                    android:id="@+id/side_menu3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1839,7 +1839,7 @@
                     android:text="참치마요주먹밥" />
 
                 <TextView
-                    android:id="@+id/payside3"
+                    android:id="@+id/pay_side3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1849,7 +1849,7 @@
                     android:text="4,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksidemenu3"
+                    android:id="@+id/check_side3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1870,7 +1870,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtside4"
+                    android:id="@+id/side_menu4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1880,7 +1880,7 @@
                     android:text="날치알주먹밥" />
 
                 <TextView
-                    android:id="@+id/payside4"
+                    android:id="@+id/pay_side4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1890,7 +1890,7 @@
                     android:text="3,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksidemenu4"
+                    android:id="@+id/check_side4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1934,7 +1934,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsid2221"
+                    android:id="@+id/add_menu1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1944,7 +1944,7 @@
                     android:text="새우 사리" />
 
                 <TextView
-                    android:id="@+id/pay3side1"
+                    android:id="@+id/pay_add1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1954,7 +1954,7 @@
                     android:text="6,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksideme33nu1"
+                    android:id="@+id/check_add1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1975,7 +1975,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtside22323"
+                    android:id="@+id/add_menu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1985,7 +1985,7 @@
                     android:text="치즈사리" />
 
                 <TextView
-                    android:id="@+id/pa22ys3ide2"
+                    android:id="@+id/pay_add2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -1995,7 +1995,7 @@
                     android:text="3,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkside3434menu2"
+                    android:id="@+id/check_add2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2017,7 +2017,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsid3434e3"
+                    android:id="@+id/add_menu3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2027,7 +2027,7 @@
                     android:text="오뎅사리" />
 
                 <TextView
-                    android:id="@+id/paysid3434e3"
+                    android:id="@+id/pay_add3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2037,7 +2037,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkside3434menu3"
+                    android:id="@+id/check_add3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2058,7 +2058,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsid3343434e3"
+                    android:id="@+id/add_menu4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2068,7 +2068,7 @@
                     android:text="떡사리" />
 
                 <TextView
-                    android:id="@+id/paysi343d3434e3"
+                    android:id="@+id/pay_add4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2078,7 +2078,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksid343e3434menu3"
+                    android:id="@+id/check_add4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2099,7 +2099,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsid334443434e3"
+                    android:id="@+id/add_menu5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2109,7 +2109,7 @@
                     android:text="비엔나" />
 
                 <TextView
-                    android:id="@+id/paysid3434343e3"
+                    android:id="@+id/pay_add5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2119,7 +2119,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkside3434me343nu3"
+                    android:id="@+id/check_add5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2140,7 +2140,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txts343id3434e3"
+                    android:id="@+id/add_menu6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2150,7 +2150,7 @@
                     android:text="메추리 알" />
 
                 <TextView
-                    android:id="@+id/pays3434id3434e3"
+                    android:id="@+id/pay_add6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2160,7 +2160,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checks343ide3434menu3"
+                    android:id="@+id/check_add6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2181,7 +2181,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsid345534e3"
+                    android:id="@+id/add_menu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2191,7 +2191,7 @@
                     android:text="라면사리" />
 
                 <TextView
-                    android:id="@+id/paysid355434e3"
+                    android:id="@+id/pay_add7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2201,7 +2201,7 @@
                     android:text="1,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkside355434menu3"
+                    android:id="@+id/check_add7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2222,7 +2222,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsid347734e3"
+                    android:id="@+id/add_menu8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2232,7 +2232,7 @@
                     android:text="우동사리" />
 
                 <TextView
-                    android:id="@+id/paysid377434e3"
+                    android:id="@+id/pay_add8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2242,7 +2242,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/check77side3434menu3"
+                    android:id="@+id/check_add8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2263,7 +2263,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsid33356434e3"
+                    android:id="@+id/add_menu9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2273,7 +2273,7 @@
                     android:text="쫄면사리" />
 
                 <TextView
-                    android:id="@+id/paysid5653434e3"
+                    android:id="@+id/pay_add9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2283,7 +2283,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/chec565657kside3434menu3"
+                    android:id="@+id/check_add9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2304,7 +2304,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtsi3434de4"
+                    android:id="@+id/add_menu10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2314,7 +2314,7 @@
                     android:text="넓적당면" />
 
                 <TextView
-                    android:id="@+id/pay3434side4"
+                    android:id="@+id/pay_add10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2324,7 +2324,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checksidem3434enu4"
+                    android:id="@+id/check_add10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2345,7 +2345,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt34343sid3434e3"
+                    android:id="@+id/add_menu11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2355,7 +2355,7 @@
                     android:text="너구리사리" />
 
                 <TextView
-                    android:id="@+id/pay34sid3434e3"
+                    android:id="@+id/pay_add11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2365,7 +2365,7 @@
                     android:text="3,000원" />
 
                 <CheckBox
-                    android:id="@+id/chec234kside3434menu3"
+                    android:id="@+id/check_add11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2386,7 +2386,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tx132tsid3434e3"
+                    android:id="@+id/add_menu12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2396,7 +2396,7 @@
                     android:text="셀프볶음밥" />
 
                 <TextView
-                    android:id="@+id/pays34321id3434e3"
+                    android:id="@+id/pay_add12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2406,7 +2406,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/ch12435eckside3434menu3"
+                    android:id="@+id/check_add12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2427,7 +2427,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tx3545tsid3434e3"
+                    android:id="@+id/add_menu13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2437,7 +2437,7 @@
                     android:text="셀프치즈볶음밥" />
 
                 <TextView
-                    android:id="@+id/p3445aysid3434e3"
+                    android:id="@+id/pay_add13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2447,7 +2447,7 @@
                     android:text="4,000원" />
 
                 <CheckBox
-                    android:id="@+id/ch34345eckside3434menu3"
+                    android:id="@+id/check_add13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2492,7 +2492,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtdrink1"
+                    android:id="@+id/drink1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2502,7 +2502,7 @@
                     android:text="쿨피스(450ml)" />
 
                 <TextView
-                    android:id="@+id/paydrink1"
+                    android:id="@+id/pay_drink1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2512,7 +2512,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkdrink1"
+                    android:id="@+id/check_drink1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2533,7 +2533,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtdrink2"
+                    android:id="@+id/drink2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2543,7 +2543,7 @@
                     android:text="콜라(뚱캔)" />
 
                 <TextView
-                    android:id="@+id/paydrink2"
+                    android:id="@+id/pay_drink2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2553,7 +2553,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkdrink2"
+                    android:id="@+id/check_drink2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2574,7 +2574,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtdrink3"
+                    android:id="@+id/drink3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2584,7 +2584,7 @@
                     android:text="스프라이트(뚱캔)" />
 
                 <TextView
-                    android:id="@+id/paydrink3"
+                    android:id="@+id/pay_drink3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -2594,7 +2594,7 @@
                     android:text="2,000원" />
 
                 <CheckBox
-                    android:id="@+id/checkdrink3"
+                    android:id="@+id/check_drink3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
