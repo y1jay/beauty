@@ -14,6 +14,7 @@ import com.yijun.beauty.activity.CheckoutActivity;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Reservation extends AppCompatActivity {
@@ -214,6 +215,7 @@ public class Reservation extends AppCompatActivity {
         check_chicken_feet_small4 = findViewById(R.id.check_chicken_feet_small4);
         check_chicken_feet_big5 = findViewById(R.id.check_chicken_feet_big5);
         check_chicken_feet_middle5 = findViewById(R.id.check_chicken_feet_middle5);
+        check_chicken_feet_small5 = findViewById(R.id.check_chicken_feet_small5);
         check_chicken_feet_big6 = findViewById(R.id.check_chicken_feet_big6);
         check_chicken_feet_middle6 = findViewById(R.id.check_chicken_feet_middle6);
         check_chicken_feet_small6 = findViewById(R.id.check_chicken_feet_small6);
@@ -350,60 +352,87 @@ public class Reservation extends AppCompatActivity {
         pay_drink3 = findViewById(R.id.pay_drink3);
 
 
-        if (check_main_menu1.isChecked() == true){
-            String main = main_menu1.getText().toString().trim();
-            String pay = pay_main1.getText().toString().trim();
 
-            menuArrayList.add(0, main);
-            priceArrayList.add(0, pay);
-        }
 
-        if (check_main_menu2.isChecked() == true){
-            String main = main_menu2.getText().toString().trim();
-            String pay = pay_main2.getText().toString().trim();
-
-            menuArrayList.add(1, main);
-            priceArrayList.add(2, pay);
-        }
 
         btn_payment = findViewById(R.id.btn_payment);
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (check_main_menu1.isChecked() == true){
-//                    String main = main_menu1.getText().toString().trim();
-//                    String pay = pay_main1.getText().toString().trim();
-//
-//                    Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-//                    i.putExtra("main", main);
-//                    i.putExtra("pay", pay);
-//                    startActivity(i);
-//                }
+
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 menu = alertView.findViewById(R.id.menu);
                 price = alertView.findViewById(R.id.price);
-                total = alertView.findViewById(R.id.total);
                 order_no = alertView.findViewById(R.id.order_no);
                 order_payment = alertView.findViewById(R.id.order_payment);
 
-                String main = main_menu1.getText().toString().trim();
-                String pay = pay_main1.getText().toString().trim();
-                if (check_main_menu1.isChecked() == true){
 
-                    menu.setText(main);
+//                if (check_main_menu1.isChecked() == true){
+//
+//                    String main = main_menu1.getText().toString().trim();
+//                    String pay = pay_main1.getText().toString().trim();
+//
+//                    menu.setText(main+"/n");
+//                    String nowon = pay.replace("원", "");
+//                    long value = Long.parseLong(nowon);
+//                    DecimalFormat format = new DecimalFormat("###,###");//콤마
+//                    format.format(value);
+//                    String result_int = format.format(value);
+//                    int num = Integer.parseInt(result_int);
+//
+//
+//
+//                }
+
+                if (check_main_menu2.isChecked() == true && check_main_menu1.isChecked() == true ){
+
+
+                    String main = main_menu1.getText().toString().trim();
+                    String pay = pay_main1.getText().toString().trim();
                     String nowon = pay.replace("원", "");
-                    price.setText(nowon);
-                    total.setText(pay);
+                    String nocomma = nowon.replace(",","");
+
+
+                    String main2 = main_menu2.getText().toString().trim();
+                    String pay2 = pay_main2.getText().toString().trim();
+
+                    menu.setText(main+"\n"+main2);
+                    String noowon = pay2.replace("원", "");
+                    String nocomma1 = noowon.replace(",","");
+
+
+
+                    int num1 = Integer.parseInt(nocomma1);
+                    int num = Integer.parseInt(nocomma);
+
+                    int result = num+num1;
+                    String string = Integer.toString(result);
+
+
+
+                    long valoue = Long.parseLong(string);
+                    DecimalFormat format = new DecimalFormat("###,###");//콤마
+                    format.format(valoue);
+                    String result_int = format.format(valoue);
+
+
+
+
+
+                    price.setText(result_int);
+
+
+
                 }
 
                 order_payment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-                        i.putExtra("main", main);
-                        i.putExtra("pay",pay);
+//                        i.putExtra("main", main );
+//                        i.putExtra("pay",);
                         startActivity(i);
                     }
                 });

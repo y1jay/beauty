@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
+import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.util.MarkerIcons;
 
@@ -35,27 +35,27 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         btn_reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              int add = getIntent().getIntExtra("add",0);
-              if (add==1){
-                  Toast.makeText(Address.this,"로그인 후 이용가능합니다.", Toast.LENGTH_SHORT).show();
-                  return;
-              }
-              if (add == 3){
-                  Intent i = new Intent(Address.this, Reservation.class);
-                  startActivity(i);
-              }
+                int add = getIntent().getIntExtra("add", 0);
+                if (add == 1) {
+                    Toast.makeText(Address.this, "로그인 후 이용가능합니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (add == 3) {
+                    Intent i = new Intent(Address.this, Reservation.class);
+                    startActivity(i);
+                }
             }
         });
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               finish();
+                finish();
             }
         });
 
         FragmentManager fm = getSupportFragmentManager();
-        MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);
+        MapFragment mapFragment = (MapFragment) fm.findFragmentById(R.id.map);
 
         if (mapFragment == null) {
             mapFragment = MapFragment.newInstance();
@@ -92,5 +92,6 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         parkingMarker.setMap(naverMap);
 
     }
+}
 
     
