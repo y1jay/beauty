@@ -1,8 +1,16 @@
 package com.yijun.beauty.adapter;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+=======
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+>>>>>>> kakao
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,6 +113,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
+<<<<<<< HEAD
+=======
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+>>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -112,6 +125,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
+<<<<<<< HEAD
+=======
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+>>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -119,6 +137,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
+<<<<<<< HEAD
+=======
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+>>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -126,6 +149,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
+<<<<<<< HEAD
+=======
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+>>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -133,6 +161,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
+<<<<<<< HEAD
+=======
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+>>>>>>> kakao
                     context.startActivity(i);
                 }
             });
@@ -140,10 +173,55 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
+<<<<<<< HEAD
+=======
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+>>>>>>> kakao
                     context.startActivity(i);
                 }
             });
         }
 
     }
+<<<<<<< HEAD
+=======
+    private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
+        ProgressDialog asyncDialog = new ProgressDialog(context);
+
+        @Override
+        protected void onPreExecute(){
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로딩중..");
+            asyncDialog.show();
+            asyncDialog.setCancelable(false);
+            super.onPreExecute();
+        }
+        @Override
+        protected Boolean doInBackground(Void... strings){
+
+            for(int i = 0; i<10000; i++){
+                publishProgress(i);
+
+
+            }
+            return true;
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean s){
+
+            asyncDialog.dismiss();
+            super.onPostExecute(s);
+        }
+
+
+        @Override
+        protected void onCancelled(Boolean s){
+            super.onCancelled(s);
+        }
+
+    }
+>>>>>>> kakao
 }

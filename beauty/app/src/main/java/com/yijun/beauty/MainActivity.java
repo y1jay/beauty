@@ -3,8 +3,10 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -80,15 +82,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, Address.class);
                 i.putExtra("add", 1);
-                startActivity(i);
-            }
-        });
-
-        review.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, ReviewList.class);
-                i.putExtra("add", 1);
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
                 startActivity(i);
             }
         });
@@ -153,8 +148,12 @@ public class MainActivity extends AppCompatActivity {
                                 else
                                     intent.putExtra("email", "none");
                                 Log.i("email : ", result.getKakaoAccount().getEmail());
+
                                 finish();
+                                CheckTypesTask task = new CheckTypesTask();
+                                task.execute();
                                 startActivity(intent);
+
                             }
 
                         }
@@ -180,6 +179,43 @@ public class MainActivity extends AppCompatActivity {
 //            Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다. 인터넷 연결을 확인해주세요: " + e.toString(), Toast.LENGTH_SHORT).show();
             Log.e("openfailed ", e.toString());
         }
+    }
+    private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
+        ProgressDialog asyncDialog = new ProgressDialog(MainActivity.this);
+
+        @Override
+        protected void onPreExecute(){
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로딩중..");
+            asyncDialog.show();
+            asyncDialog.setCancelable(false);
+            super.onPreExecute();
+        }
+        @Override
+        protected Boolean doInBackground(Void... strings){
+
+            for(int i = 0; i<10000; i++){
+                publishProgress(i);
+
+
+            }
+            return true;
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean s){
+
+            asyncDialog.dismiss();
+            super.onPostExecute(s);
+        }
+
+
+        @Override
+        protected void onCancelled(Boolean s){
+            super.onCancelled(s);
+        }
+
     }
 }
 

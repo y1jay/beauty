@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +43,9 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
               }
               if (add == 3){
                   Intent i = new Intent(Address.this, Reservation.class);
+                  finish();
+                  CheckTypesTask task = new CheckTypesTask();
+                  task.execute();
                   startActivity(i);
               }
             }
@@ -89,6 +94,43 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
         parkingMarker.setCaptionColor(Color.BLACK);
         parkingMarker.setIcon(MarkerIcons.LIGHTBLUE);
         parkingMarker.setMap(naverMap);
+
+    }
+    private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
+        ProgressDialog asyncDialog = new ProgressDialog(Address.this);
+
+        @Override
+        protected void onPreExecute(){
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로딩중..");
+            asyncDialog.show();
+            asyncDialog.setCancelable(false);
+            super.onPreExecute();
+        }
+        @Override
+        protected Boolean doInBackground(Void... strings){
+
+            for(int i = 0; i<10000; i++){
+                publishProgress(i);
+
+
+            }
+            return true;
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean s){
+
+            asyncDialog.dismiss();
+            super.onPostExecute(s);
+        }
+
+
+        @Override
+        protected void onCancelled(Boolean s){
+            super.onCancelled(s);
+        }
 
     }
 }
