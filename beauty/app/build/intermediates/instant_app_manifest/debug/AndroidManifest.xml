@@ -52,6 +52,7 @@
         <activity android:name="com.yijun.beauty.ReservationRecord" />
         <activity android:name="com.yijun.beauty.MyInfo" />
         <activity android:name="com.yijun.beauty.Reservation" />
+        <activity android:name="com.yijun.beauty.Address" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

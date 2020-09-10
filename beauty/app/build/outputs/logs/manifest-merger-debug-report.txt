@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
 MERGED from [androidx.databinding:viewbinding:3.6.3] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\d7e1dbd864e0a6730701e1279eb2c5bf\jetified-viewbinding-3.6.3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\26387bff2f08c8b0b0182a21d571e761\constraintlayout-2.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\8df8b9f98f434ac907333cc8102b6389\jetified-map-sdk-3.9.0\AndroidManifest.xml:2:1-40:12
@@ -53,20 +53,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\lee\.gra
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\13ac386f95e101744ae5f7d486caaa8c\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.1] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\8a10890fd112adc3eed08d7ec8f34577\jetified-relinker-1.4.1\AndroidManifest.xml:2:1-7:12
 MERGED from [com.kakao.sdk:util:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\9d0bb77dabc782fa0542a6f91b15cffe\jetified-util-1.27.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
 	package
 		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:3:5-31
 		INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
 		INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-70:12
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:1-71:12
 		INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:2:11-69
@@ -79,7 +79,7 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\lee\.gra
 	android:name
 		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:7:5-68:19
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:7:5-69:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\26387bff2f08c8b0b0182a21d571e761\constraintlayout-2.0.0\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\26387bff2f08c8b0b0182a21d571e761\constraintlayout-2.0.0\AndroidManifest.xml:9:5-20
 MERGED from [com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\8df8b9f98f434ac907333cc8102b6389\jetified-map-sdk-3.9.0\AndroidManifest.xml:22:5-38:19
@@ -156,68 +156,72 @@ activity#com.yijun.beauty.Reservation
 ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:32:9-49
 	android:name
 		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:32:19-46
+activity#com.yijun.beauty.Address
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:33:9-45
+	android:name
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:33:19-42
 meta-data#com.naver.maps.map.CLIENT_ID
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:34:9-36:42
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:35:9-37:42
 	android:value
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:36:13-39
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:37:13-39
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:35:13-56
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:36:13-56
 activity#com.yijun.beauty.LodingActivity
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:38:9-40:59
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:39:9-41:59
 	android:theme
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:40:13-56
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:41:13-56
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:39:13-43
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:40:13-43
 activity#com.yijun.beauty.activity.CheckoutActivity
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:41:9-44:20
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:42:9-45:20
 	android:screenOrientation
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:43:13-49
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:44:13-49
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:42:13-54
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:43:13-54
 activity#com.yijun.beauty.activity.PaymentTransparentActivity
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:45:9-49:50
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:46:9-50:50
 	android:launchMode
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:47:13-44
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:48:13-44
 	android:theme
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:49:13-47
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:50:13-47
 	android:taskAffinity
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:48:13-36
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:49:13-36
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:46:13-64
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:47:13-64
 meta-data#com.google.android.gms.wallet.api.enabled
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:50:9-52:36
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:51:9-53:36
 	android:value
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:52:13-33
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:53:13-33
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:51:13-69
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:52:13-69
 service#com.yijun.beauty.service.PaymentNotificationIntentService
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:54:9-58:48
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:55:9-59:48
 	android:enabled
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:56:13-35
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:57:13-35
 	android:label
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:58:13-45
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:59:13-45
 	android:icon
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:57:13-62
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:58:13-62
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:55:13-69
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:56:13-69
 activity#com.yijun.beauty.AfterLogin
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:60:9-48
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:9-48
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:60:19-45
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:19-45
 activity#com.yijun.beauty.MainActivity
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:9-67:20
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:9-68:20
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:19-47
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:13-66:29
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:63:13-67:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:63:17-69
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:64:17-69
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:63:25-66
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:64:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:65:17-77
+ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:66:17-77
 	android:name
-		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:65:27-74
+		ADDED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:66:27-74
 uses-sdk
 INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml

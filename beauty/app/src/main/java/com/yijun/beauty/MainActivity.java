@@ -83,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ReviewList.class);
+                i.putExtra("add", 1);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
