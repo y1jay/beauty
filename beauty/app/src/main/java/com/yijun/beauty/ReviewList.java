@@ -73,6 +73,7 @@ RecyclerView reviewcyclerView;
             @Override
             public void onClick(View v) {
                 createPopupDialog();
+
             }
         });
 
@@ -86,10 +87,8 @@ RecyclerView reviewcyclerView;
         call.enqueue(new Callback<ReviewRes>() {
             @Override
             public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
-                // response.body() ==> PostRes 클래스
+
                 Log.i("AAAA",response.body().getSuccess().toString());
-                //PostRes.get(0) => List<row>의 첫번째 Item 객체.
-                // PostRes.get(0).getPosting()=> 위의 Row 객체에 저장된 Posting 값
 
                 Log.i("AAAA",response.body().getCnt().toString());
 
@@ -154,11 +153,12 @@ RecyclerView reviewcyclerView;
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
 
-                            adapter.notifyDataSetChanged();
+
                             Log.i("AAAAA","? : "+response.body().toString());
                             Toast.makeText(ReviewList.this,"리뷰가 작성되었습니다"
                                     ,Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            adapter.notifyDataSetChanged();
                         } else if (response.isSuccessful()==false){
 
                         }
