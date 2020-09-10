@@ -137,13 +137,12 @@ public class ReviewList extends AppCompatActivity {
                             "리뷰를 입력해주세요",Toast.LENGTH_SHORT).show();
                 }
 
-//                Review review1 = new Review(nick_name1,review,rating);
-                Rows rows = new Rows(nick_name,review,rating);
+                Rows rows = new Rows(review,rating);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
                 ReviewApi reviewApi = retrofit.create(ReviewApi.class);
 
-                Call<UserRes> call = reviewApi.createReview(rows);
+                Call<UserRes> call = reviewApi.createReview(nick_name,rows);
 
                 call.enqueue(new Callback<UserRes>() {
                     @Override
@@ -166,9 +165,6 @@ public class ReviewList extends AppCompatActivity {
                         Log.i("AAAAA",""+t.toString());
                     }
                 });
-//                reviewArrayList.clear();
-//                adapter.notifyDataSetChanged();
-
             }
         });
 
