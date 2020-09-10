@@ -19,19 +19,12 @@ import java.util.ArrayList;
 public class Reservation extends AppCompatActivity {
 
     Button btn_payment;
-
-
-
-
-
+    
     CheckBox check_main_menu1;
     CheckBox check_main_menu2;
 
-
     TextView main_menu1;
     TextView main_menu2;
-
-
 
     TextView pay_main1;
     TextView pay_main2;
