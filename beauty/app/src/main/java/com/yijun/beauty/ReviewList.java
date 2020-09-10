@@ -44,11 +44,13 @@ import retrofit2.http.Body;
 public class ReviewList extends AppCompatActivity {
     RecyclerView reviewcyclerView;
     ReviewclerViewAdapter adapter;
+    List<Rows> reviewArrayList = new ArrayList<>();
+    List<Rows> arraylist = new ArrayList<>();
+
     Button set_review;
     SharedPreferences sp;
 
     private AlertDialog dialog;
-    List<Rows> reviewArrayList = new ArrayList<>();
     String baseUrl = Utils.BASE_URL+"/api/v1/review/select";
 
     TextView txt_nick_name;
@@ -58,8 +60,7 @@ public class ReviewList extends AppCompatActivity {
     Button btn_set;
 
     int offset = 0;
-    int cnt;
-    String url;
+    int cnt = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +70,9 @@ public class ReviewList extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        set_review= findViewById(R.id.set_review);
         reviewcyclerView = findViewById(R.id.reviewcyclerView);
         reviewcyclerView.setHasFixedSize(true);
         reviewcyclerView.setLayoutManager(new LinearLayoutManager(ReviewList.this));
-
-        getNetworkData();
 
         reviewcyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -91,17 +89,21 @@ public class ReviewList extends AppCompatActivity {
 
                 lastPosition = lastPosition +1;
                 if(lastPosition == totalCount){
-                    //아이템 추가 ! 입맛에 맞게 설정하시면됩니다.
-                    if(cnt == 25){
+
+                    if(offset >= 25){
+//                        offset = cnt + offset;
                         addNetworkData();
-                    }else {
+                    }else if(offset < 25){
                         Toast.makeText(ReviewList.this, "모든 리뷰를 표시했습니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
 
+        set_review= findViewById(R.id.set_review);
         sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+
+        getNetworkData();
 
         set_review.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,9 +111,8 @@ public class ReviewList extends AppCompatActivity {
                 createPopupDialog();
             }
         });
-
-
     }
+
     private void getNetworkData() {
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
@@ -129,12 +130,12 @@ public class ReviewList extends AppCompatActivity {
 
                 reviewArrayList = response.body().getRows();
                 cnt = response.body().getCnt();
-                Log.i("cnt", ""+cnt);
+                offset = cnt + offset;
 
                 adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
-            }
 
+            }
             @Override
             public void onFailure(Call<ReviewRes> call, Throwable t) {
 
@@ -143,14 +144,11 @@ public class ReviewList extends AppCompatActivity {
 
     }
     private void addNetworkData() {
-        if (cnt==0){
-            reviewArrayList.clear();
-        }
         Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
 
         ReviewApi reviewApi = retrofit.create(ReviewApi.class);
 
-        Call<ReviewRes> call = reviewApi.selectReview(cnt,25);
+        Call<ReviewRes> call = reviewApi.selectReview(offset,25);
         call.enqueue(new Callback<ReviewRes>() {
             @Override
             public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
@@ -159,9 +157,11 @@ public class ReviewList extends AppCompatActivity {
 
                 Log.i("AAAA",response.body().getCnt().toString());
 
-                reviewArrayList = response.body().getRows();
-                cnt = response.body().getCnt() + 25;
+                arraylist = response.body().getRows();
+                cnt = response.body().getCnt();
+                offset = cnt + offset;
 
+                reviewArrayList.addAll(arraylist);
                 adapter.notifyDataSetChanged();
             }
 

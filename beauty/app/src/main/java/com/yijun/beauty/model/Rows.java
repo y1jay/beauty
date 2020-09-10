@@ -3,6 +3,8 @@ package com.yijun.beauty.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Rows {
     @SerializedName("id")
     @Expose
@@ -27,6 +29,9 @@ public class Rows {
     public Rows(String review, Float rating) {
         this.review = review;
         this.rating = rating;
+    }
+
+    public Rows(List<Rows> rows){
     }
 
     public Integer getId() {
