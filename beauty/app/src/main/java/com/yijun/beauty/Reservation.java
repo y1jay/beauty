@@ -266,6 +266,35 @@ public class Reservation extends AppCompatActivity {
         chicken_feet4 = findViewById(R.id.chicken_feet4);
         chicken_feet5 = findViewById(R.id.chicken_feet5);
         chicken_feet6 = findViewById(R.id.chicken_feet6);
+        pocha_menu1 = findViewById(R.id.pocha_menu1);
+        pocha_menu2 = findViewById(R.id.pocha_menu2);
+        pocha_menu3 = findViewById(R.id.pocha_menu3);
+        pocha_menu4 = findViewById(R.id.pocha_menu4);
+        pocha_menu5 = findViewById(R.id.pocha_menu5);
+        pocha_menu6 = findViewById(R.id.pocha_menu6);
+        pocha_menu7 = findViewById(R.id.pocha_menu7);
+        side_menu1 = findViewById(R.id.side_menu1);
+        side_menu2 = findViewById(R.id.set_menu2);
+        side_menu3 = findViewById(R.id.side_menu3);
+        side_menu4 = findViewById(R.id.side_menu4);
+        add_menu1 = findViewById(R.id.add_menu1);
+        add_menu2 = findViewById(R.id.add_menu2);
+        add_menu3 = findViewById(R.id.add_menu3);
+        add_menu4 = findViewById(R.id.add_menu4);
+        add_menu5= findViewById(R.id.add_menu5);
+        add_menu6 = findViewById(R.id.add_menu6);
+        add_menu7 = findViewById(R.id.add_menu7);
+        add_menu8 = findViewById(R.id.add_menu8);
+        add_menu9 = findViewById(R.id.add_menu9);
+        add_menu10 = findViewById(R.id.add_menu10);
+        add_menu11 = findViewById(R.id.add_menu11);
+        add_menu12 = findViewById(R.id.add_menu12);
+        add_menu13 = findViewById(R.id.add_menu13);
+        drink1 = findViewById(R.id.drink1);
+        drink2 = findViewById(R.id.drink2);
+        drink3 = findViewById(R.id.drink3);
+
+
 
 
 
