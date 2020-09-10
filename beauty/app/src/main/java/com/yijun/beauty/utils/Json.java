@@ -19,7 +19,7 @@ public class Json {
      * Loads a resource and creates a {@link JSONArray} object with the contents of the binary.
      * (= 리소스를로드하고 바이너리 콘텐츠로 {@link JSONArray} 객체를 만든다.)
      *
-     * @param context  실행되는 곳.
+     * @param context  실행되는 곳.return a {@link JSONArray} stream 내용이 있는 객체
      * @param fileName binary 대상을 가리키는 경로.
      * @return a {@link JSONArray} stream 내용이 있는 객체.
      */
@@ -57,7 +57,7 @@ public class Json {
      *
      * @param inputStream containing the JSON bytes.
      * @return a {@link JSONArray} object with the contents of the stream.
-     * @throws JSONException if the content could not be parsed.
+     * @throws JSONException 콘텐츠를 구문 분석 할 수 없는 경우.
      */
     private static JSONArray readFromInputStream(InputStream inputStream) throws JSONException {
         final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

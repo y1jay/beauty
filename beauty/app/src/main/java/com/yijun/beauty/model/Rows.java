@@ -7,15 +7,27 @@ public class Rows {
     @SerializedName("id")
     @Expose
     private Integer Id;
+
     @SerializedName("nick_name")
     @Expose
     private String nick_name;
+
     @SerializedName("review")
     @Expose
     private String review;
+
+    @SerializedName("rating")
+    @Expose
+    private Float rating;
+
     @SerializedName("created_at")
     @Expose
-    private String createdAt;
+    private String created_at;
+
+    public Rows(String review, Float rating) {
+        this.review = review;
+        this.rating = rating;
+    }
 
     public Integer getId() {
         return Id;
@@ -41,11 +53,19 @@ public class Rows {
         this.review = review;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public Float getRating() {
+        return rating;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 }

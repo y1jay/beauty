@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -58,13 +60,9 @@ public class AfterLogin extends AppCompatActivity {
     SharedPreferences sp;
     RecyclerView reviewcyclerView;
     RecyclerViewAdapter adapter;
-    private AlertDialog dialog;
+
     List<Rows> reviewArrayList = new ArrayList<>();
-    TextView txt_nick_name;
-    RatingBar ratingBar;
-    EditText edit_review;
-    Button btn_register;
-    Button btn_cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,13 +83,13 @@ public class AfterLogin extends AppCompatActivity {
         reviewcyclerView.setHasFixedSize(true);
         reviewcyclerView.setLayoutManager(new LinearLayoutManager(AfterLogin.this));
 
+        String nick_name = getIntent().getStringExtra("nick_name");
+        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+        SharedPreferences.Editor editor= sp.edit();
+        editor.putString("nick_name", nick_name);
+        editor.apply();
+        getNetworkData();
 
-        reviewcyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createPopupDialog();
-            }
-        });
 
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +103,8 @@ public class AfterLogin extends AppCompatActivity {
                         Intent intent = new Intent(AfterLogin.this, MainActivity.class);
                         intent.putExtra("key",1);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        CheckTypesTask task = new CheckTypesTask();
+                        task.execute();
                         startActivity(intent);
                     }
                 });
@@ -116,6 +116,8 @@ public class AfterLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AfterLogin.this, Reservation.class);
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
                 startActivity(i);
             }
         });
@@ -125,6 +127,8 @@ public class AfterLogin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(AfterLogin.this,Address.class);
                 i.putExtra("add",3);
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
                 startActivity(i);
             }
         });
@@ -144,10 +148,14 @@ public class AfterLogin extends AppCompatActivity {
 
         if (id == R.id.myInfo){
             Intent i = new Intent(AfterLogin.this, MyInfo.class);
+            CheckTypesTask task = new CheckTypesTask();
+            task.execute();
             startActivity(i);
             return true;
         }else if (id == R.id.reservation_check){
             Intent i = new Intent(AfterLogin.this, ReservationRecord.class);
+            CheckTypesTask task = new CheckTypesTask();
+            task.execute();
             startActivity(i);
             return true;
         }
@@ -158,42 +166,10 @@ public class AfterLogin extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
         finish();
 
     }
-    public void createPopupDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
-        View alertView = getLayoutInflater().inflate(R.layout.review,null);
-        txt_nick_name = alertView.findViewById(R.id.txt_nick_name);
-        edit_review = alertView.findViewById(R.id.edit_review);
-        btn_register = alertView.findViewById(R.id.btn_register);
-        ratingBar = alertView.findViewById(R.id.ratingBar);
-        btn_cancel = alertView.findViewById(R.id.btn_cancel);
 
-
-        ratingBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-        alert.setView(alertView);
-
-        dialog=alert.create();
-//                alert.setCancelable(false);
-        dialog.setCancelable(false);
-        dialog.show();
-    }
     private void getNetworkData() {
         Retrofit retrofit = NetworkClient.getRetrofitClient(AfterLogin.this);
 
@@ -212,7 +188,7 @@ public class AfterLogin extends AppCompatActivity {
 
                 reviewArrayList = response.body().getRows();
 
-                adapter = new RecyclerViewAdapter(AfterLogin.this,reviewArrayList);
+                adapter = new RecyclerViewAdapter(AfterLogin.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
             }
 
@@ -221,6 +197,43 @@ public class AfterLogin extends AppCompatActivity {
 
             }
         });
+
+    }
+    private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
+        ProgressDialog asyncDialog = new ProgressDialog(AfterLogin.this);
+
+        @Override
+        protected void onPreExecute(){
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로딩중..");
+            asyncDialog.show();
+            asyncDialog.setCancelable(false);
+            super.onPreExecute();
+        }
+        @Override
+        protected Boolean doInBackground(Void... strings){
+
+            for(int i = 0; i<10000; i++){
+                publishProgress(i);
+
+
+            }
+            return true;
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean s){
+
+            asyncDialog.dismiss();
+            super.onPostExecute(s);
+        }
+
+
+        @Override
+        protected void onCancelled(Boolean s){
+            super.onCancelled(s);
+        }
 
     }
 }

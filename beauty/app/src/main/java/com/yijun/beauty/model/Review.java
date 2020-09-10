@@ -4,29 +4,18 @@ import java.io.Serializable;
 
 public class Review implements Serializable {
 
-    int id;
     String nick_name;
     String review;
-    int rating;
-    String created_at;
+    Float rating;
+
 
     public Review() {
     }
 
-    public Review(int id, String nick_name, String review, int rating, String created_at) {
-        this.id = id;
+    public Review(String nick_name, String review, Float rating) {
         this.nick_name = nick_name;
         this.review = review;
         this.rating = rating;
-        this.created_at = created_at;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNick_name() {
@@ -45,19 +34,11 @@ public class Review implements Serializable {
         this.review = review;
     }
 
-    public int getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
-    }
-
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
     }
 }
