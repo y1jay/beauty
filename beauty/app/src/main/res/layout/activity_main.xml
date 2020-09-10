@@ -147,7 +147,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/review"
+            android:id="@+id/reviewcyclerView"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button"
