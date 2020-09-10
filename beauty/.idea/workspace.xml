@@ -20,10 +20,18 @@
       </state>
     </system>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1hJDPcQ7gxNbZpRnKPlsfjZnSis" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -97,5 +105,11 @@
       <updated>1599707755023</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="749" y="167" key="#app" timestamp="1599720311168">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="749" y="167" key="#app/0.0.1920.1040@0.0.1920.1040" timestamp="1599720311168" />
   </component>
 </project>
