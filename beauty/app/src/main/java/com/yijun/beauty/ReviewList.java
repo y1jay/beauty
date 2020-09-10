@@ -46,9 +46,11 @@ public class ReviewList extends AppCompatActivity {
     ReviewclerViewAdapter adapter;
     Button set_review;
     SharedPreferences sp;
+
     private AlertDialog dialog;
     List<Rows> reviewArrayList = new ArrayList<>();
     String baseUrl = Utils.BASE_URL+"/api/v1/review/select";
+
     TextView txt_nick_name;
     RatingBar ratingbar;
     EditText edit_review;
@@ -71,7 +73,6 @@ public class ReviewList extends AppCompatActivity {
         reviewcyclerView = findViewById(R.id.reviewcyclerView);
         reviewcyclerView.setHasFixedSize(true);
         reviewcyclerView.setLayoutManager(new LinearLayoutManager(ReviewList.this));
-        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
 
         getNetworkData();
 
@@ -87,12 +88,12 @@ public class ReviewList extends AppCompatActivity {
 
                 int lastPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
                 int totalCount = recyclerView.getAdapter().getItemCount();
+
                 lastPosition = lastPosition +1;
                 if(lastPosition == totalCount){
                     //아이템 추가 ! 입맛에 맞게 설정하시면됩니다.
-                    if(cnt != 0){
-                        url = baseUrl+"&offset="+offset;
-                        getNetworkData(url);
+                    if(cnt == 25){
+                        addNetworkData();
                     }else {
                         Toast.makeText(ReviewList.this, "모든 리뷰를 표시했습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -102,7 +103,6 @@ public class ReviewList extends AppCompatActivity {
 
         sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
 
-        getNetworkData(url);
         set_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,22 +112,13 @@ public class ReviewList extends AppCompatActivity {
 
 
     }
-
     private void getNetworkData() {
-
-    }
-    private void getNetworkData(String url) {
-        if (cnt==0){
-            reviewArrayList.clear();
-        }
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
 
         ReviewApi reviewApi = retrofit.create(ReviewApi.class);
 
-
-//        Call<ReviewRes> call = reviewApi.selectReview(0,25);
-        Call<ReviewRes> call = reviewApi.selectReview(offset,25);
+        Call<ReviewRes> call = reviewApi.selectReview(0,25);
         call.enqueue(new Callback<ReviewRes>() {
             @Override
             public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
@@ -137,10 +128,11 @@ public class ReviewList extends AppCompatActivity {
                 Log.i("AAAA",response.body().getCnt().toString());
 
                 reviewArrayList = response.body().getRows();
+                cnt = response.body().getCnt();
+                Log.i("cnt", ""+cnt);
 
                 adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
-                offset = response.body().getCnt();
             }
 
             @Override
@@ -150,6 +142,38 @@ public class ReviewList extends AppCompatActivity {
         });
 
     }
+    private void addNetworkData() {
+        if (cnt==0){
+            reviewArrayList.clear();
+        }
+        Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
+
+        ReviewApi reviewApi = retrofit.create(ReviewApi.class);
+
+        Call<ReviewRes> call = reviewApi.selectReview(cnt,25);
+        call.enqueue(new Callback<ReviewRes>() {
+            @Override
+            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
+
+                Log.i("AAAA",response.body().getSuccess().toString());
+
+                Log.i("AAAA",response.body().getCnt().toString());
+
+                reviewArrayList = response.body().getRows();
+                cnt = response.body().getCnt() + 25;
+
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<ReviewRes> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+
     public void createPopupDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(ReviewList.this);
         View alertView = getLayoutInflater().inflate(R.layout.review,null);
@@ -196,15 +220,11 @@ public class ReviewList extends AppCompatActivity {
                             Log.i("AAAAA","? : "+response.body().toString());
                             Toast.makeText(ReviewList.this,"리뷰가 작성되었습니다"
                                     ,Toast.LENGTH_SHORT).show();
-                            dialog.cancel();
-                            adapter.notifyDataSetChanged();
-
 
                             adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
                             reviewcyclerView.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
                             dialog.cancel();
-
                         } else if (response.isSuccessful()==false){
 
                         }
