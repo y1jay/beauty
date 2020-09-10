@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
-        review = findViewById(R.id.review);
+        review = findViewById(R.id.reviewcyclerView);
 
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
