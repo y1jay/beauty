@@ -1052,6 +1052,8 @@ public class Reservation extends AppCompatActivity {
 
                             Log.i("menu", menuArrayList + "\n"+priceArrayList);
 
+                            for (int total = 0; total < priceArrayList.size(); )
+
 //                            menu.setText(menuArrayList);
 //                            price.setText(total_price);
 
