@@ -80,21 +80,13 @@
             android:icon="@drawable/googlepay_button_overlay"
             android:label="@string/app_name" />
 
-        <activity android:name="com.yijun.beauty.AfterLogin" >
+        <activity android:name="com.yijun.beauty.AfterLogin" />
+        <activity android:name="com.yijun.beauty.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.yijun.beauty.MainActivity" >
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name="com.naver.maps.map.app.LegendActivity"

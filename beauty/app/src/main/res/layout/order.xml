@@ -49,9 +49,10 @@
 
                 <TextView
                     android:id="@+id/total"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
                     android:text="총 금액:"
                     android:textColor="#000000"
@@ -61,22 +62,22 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
                     android:gravity="right"
-                    android:layout_weight="1"
+                    android:text="TextView"
                     android:textColor="#000000"
-                    android:textSize="25sp"
-                    android:text="TextView" />
+                    android:textSize="25sp" />
 
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
                     android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="원"
                     android:textColor="#000000"
-                    android:textSize="25sp"
-                    android:text="원" />
+                    android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

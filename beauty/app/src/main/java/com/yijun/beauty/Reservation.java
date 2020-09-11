@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +17,7 @@ import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
 import com.yijun.beauty.model.ReservationReq;
 import com.yijun.beauty.model.ReservationRes;
+import com.yijun.beauty.url.Utils;
 
 import org.w3c.dom.Text;
 
@@ -186,8 +188,8 @@ public class Reservation extends AppCompatActivity {
 
     SharedPreferences sp;
 
-    ArrayList menuArrayList;
-    ArrayList priceArrayList;
+    ArrayList menuArrayList = new ArrayList();
+    ArrayList priceArrayList = new ArrayList();
 
 
     @Override
@@ -340,22 +342,686 @@ public class Reservation extends AppCompatActivity {
         pay_drink3 = findViewById(R.id.pay_drink3);
 
 
+        // check box 확인
+        check_main_menu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = main_menu1.getText().toString().trim();
+                String pay = pay_main1.getText().toString().trim();
+
+                if (check_main_menu1.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_main_menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = main_menu2.getText().toString().trim();
+                String pay = pay_main2.getText().toString().trim();
+
+                if (check_main_menu2.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_main_menu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = main_menu3.getText().toString().trim();
+                String pay = pay_main3.getText().toString().trim();
+
+                if (check_main_menu3.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_set_menu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = set_menu1.getText().toString().trim();
+                String pay = pay_set1.getText().toString().trim();
+
+                if (check_set_menu1.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_set_menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = set_menu2.getText().toString().trim();
+                String pay = pay_set2.getText().toString().trim();
+
+                if (check_set_menu2.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_chicken_feet_big1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet1.getText().toString().trim();
+                String pay = pay_chicken_feet_big1.getText().toString().trim();
+
+                if (check_chicken_feet_big1.isChecked() == true){
+                    add_menu(main+"(대)", pay);
+                }else {
+                    delete_menu(main+"(대)", pay);
+                }
+            }
+        });
+        check_chicken_feet_middle1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet1.getText().toString().trim();
+                String pay = pay_chicken_feet_middle1.getText().toString().trim();
+
+                if (check_chicken_feet_middle1.isChecked() == true){
+                    add_menu(main+"(중)", pay);
+                }else {
+                    delete_menu(main+"(중)", pay);
+                }
+            }
+        });
+        check_chicken_feet_small1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet1.getText().toString().trim();
+                String pay = pay_chicken_feet_small1.getText().toString().trim();
+
+                if (check_chicken_feet_small1.isChecked() == true){
+                    add_menu(main+"(소)", pay);
+                }else {
+                    delete_menu(main+"(소)", pay);
+                }
+            }
+        });
+        check_chicken_feet_big2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet2.getText().toString().trim();
+                String pay = pay_chicken_feet_big2.getText().toString().trim();
+
+                if (check_chicken_feet_big2.isChecked() == true){
+                    add_menu(main+"(대)", pay);
+                }else {
+                    delete_menu(main+"(대)", pay);
+                }
+            }
+        });
+        check_chicken_feet_middle2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet2.getText().toString().trim();
+                String pay = pay_chicken_feet_middle2.getText().toString().trim();
+
+                if (check_chicken_feet_middle2.isChecked() == true){
+                    add_menu(main+"(중)", pay);
+                }else {
+                    delete_menu(main+"(중)", pay);
+                }
+            }
+        });
+        check_chicken_feet_small2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet2.getText().toString().trim();
+                String pay = pay_chicken_feet_small2.getText().toString().trim();
+
+                if (check_chicken_feet_small2.isChecked() == true){
+                    add_menu(main+"(소)", pay);
+                }else {
+                    delete_menu(main+"(소)", pay);
+                }
+            }
+        });
+        check_chicken_feet_big3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet3.getText().toString().trim();
+                String pay = pay_chicken_feet_big3.getText().toString().trim();
+
+                if (check_chicken_feet_big3.isChecked() == true){
+                    add_menu(main+"(대)", pay);
+                }else {
+                    delete_menu(main+"(대)", pay);
+                }
+            }
+        });
+        check_chicken_feet_middle3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet3.getText().toString().trim();
+                String pay = pay_chicken_feet_middle3.getText().toString().trim();
+
+                if (check_chicken_feet_middle3.isChecked() == true){
+                    add_menu(main+"(중)", pay);
+                }else {
+                    delete_menu(main+"(중)", pay);
+                }
+            }
+        });
+        check_chicken_feet_small3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet3.getText().toString().trim();
+                String pay = pay_chicken_feet_small3.getText().toString().trim();
+
+                if (check_chicken_feet_small3.isChecked() == true){
+                    add_menu(main+"(소)", pay);
+                }else {
+                    delete_menu(main+"(소)", pay);
+                }
+            }
+        });
+        check_chicken_feet_big4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet4.getText().toString().trim();
+                String pay = pay_chicken_feet_big4.getText().toString().trim();
+
+                if (check_chicken_feet_big4.isChecked() == true){
+                    add_menu(main+"(대)", pay);
+                }else {
+                    delete_menu(main+"(대)", pay);
+                }
+            }
+        });
+        check_chicken_feet_middle4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet4.getText().toString().trim();
+                String pay = pay_chicken_feet_middle4.getText().toString().trim();
+
+                if (check_chicken_feet_middle4.isChecked() == true){
+                    add_menu(main+"(중)", pay);
+                }else {
+                    delete_menu(main+"(중)", pay);
+                }
+            }
+        });
+        check_chicken_feet_small4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet4.getText().toString().trim();
+                String pay = pay_chicken_feet_small4.getText().toString().trim();
+
+                if (check_chicken_feet_small4.isChecked() == true){
+                    add_menu(main+"(소)", pay);
+                }else {
+                    delete_menu(main+"(소)", pay);
+                }
+            }
+        });
+        check_chicken_feet_big5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet5.getText().toString().trim();
+                String pay = pay_chicken_feet_big5.getText().toString().trim();
+
+                if (check_chicken_feet_big5.isChecked() == true){
+                    add_menu(main+"(대)", pay);
+                }else {
+                    delete_menu(main+"(대)", pay);
+                }
+            }
+        });
+        check_chicken_feet_middle5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet5.getText().toString().trim();
+                String pay = pay_chicken_feet_middle5.getText().toString().trim();
+
+                if (check_chicken_feet_middle5.isChecked() == true){
+                    add_menu(main+"(중)", pay);
+                }else {
+                    delete_menu(main+"(중)", pay);
+                }
+            }
+        });
+        check_chicken_feet_small5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet5.getText().toString().trim();
+                String pay = pay_chicken_feet_small5.getText().toString().trim();
+
+                if (check_chicken_feet_small5.isChecked() == true){
+                    add_menu(main+"(소)", pay);
+                }else {
+                    delete_menu(main+"(소)", pay);
+                }
+            }
+        });
+        check_chicken_feet_big6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet6.getText().toString().trim();
+                String pay = pay_chicken_feet_big6.getText().toString().trim();
+
+                if (check_chicken_feet_big6.isChecked() == true){
+                    add_menu(main+"(대)", pay);
+                }else {
+                    delete_menu(main+"(대)", pay);
+                }
+            }
+        });
+        check_chicken_feet_middle6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet6.getText().toString().trim();
+                String pay = pay_chicken_feet_middle6.getText().toString().trim();
+
+                if (check_chicken_feet_middle6.isChecked() == true){
+                    add_menu(main+"(중)", pay);
+                }else {
+                    delete_menu(main+"(중)", pay);
+                }
+            }
+        });
+        check_chicken_feet_small6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = chicken_feet6.getText().toString().trim();
+                String pay = pay_chicken_feet_small6.getText().toString().trim();
+
+                if (check_chicken_feet_small6.isChecked() == true){
+                    add_menu(main+"(소)", pay);
+                }else {
+                    delete_menu(main+"(소)", pay);
+                }
+            }
+        });
+        check_pocha_menu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu1.getText().toString().trim();
+                String pay = pay_pocha_menu1.getText().toString().trim();
+
+                if (check_pocha_menu1.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_pocha_menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu2.getText().toString().trim();
+                String pay = pay_pocha_menu2.getText().toString().trim();
+
+                if (check_pocha_menu2.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        // 치즈떡볶이 보통맛
+        check_pocha_menu_basick3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu3.getText().toString().trim();
+                String pay = pay_pocha_menu3.getText().toString().trim();
+
+                if (check_pocha_menu_basick3.isChecked() == true){
+                    add_menu(main+"(보통맛)", pay);
+                }else {
+                    delete_menu(main+"(보통맛)", pay);
+                }
+            }
+        });
+        // 치즈떡볶이 매운맛
+        check_pocha_menu_hot3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu3.getText().toString().trim();
+                String pay = pay_pocha_menu3.getText().toString().trim();
+
+                if (check_pocha_menu_hot3.isChecked() == true){
+                    add_menu(main+"(매운맛)", pay);
+                }else {
+                    delete_menu(main+"(매운맛)", pay);
+                }
+            }
+        });
+        check_pocha_menu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu4.getText().toString().trim();
+                String pay = pay_pocha_menu4.getText().toString().trim();
+
+                if (check_pocha_menu4.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_pocha_menu5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu5.getText().toString().trim();
+                String pay = pay_pocha_menu5.getText().toString().trim();
+
+                if (check_pocha_menu5.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_pocha_menu6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu6.getText().toString().trim();
+                String pay = pay_pocha_menu6.getText().toString().trim();
+
+                if (check_pocha_menu6.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_pocha_menu7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = pocha_menu7.getText().toString().trim();
+                String pay = pay_pocha_menu7.getText().toString().trim();
+
+                if (check_pocha_menu7.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_side1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = side_menu1.getText().toString().trim();
+                String pay = pay_side1.getText().toString().trim();
+
+                if (check_side1.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_side2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = side_menu2.getText().toString().trim();
+                String pay = pay_side2.getText().toString().trim();
+
+                if (check_side2.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_side3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = side_menu3.getText().toString().trim();
+                String pay = pay_side3.getText().toString().trim();
+
+                if (check_side3.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_side4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = side_menu4.getText().toString().trim();
+                String pay = pay_side4.getText().toString().trim();
+
+                if (check_side4.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu1.getText().toString().trim();
+                String pay = pay_add1.getText().toString().trim();
+
+                if (check_add1.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu2.getText().toString().trim();
+                String pay = pay_add2.getText().toString().trim();
+
+                if (check_add2.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu3.getText().toString().trim();
+                String pay = pay_add3.getText().toString().trim();
+
+                if (check_add3.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu4.getText().toString().trim();
+                String pay = pay_add4.getText().toString().trim();
+
+                if (check_add4.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu5.getText().toString().trim();
+                String pay = pay_add5.getText().toString().trim();
+
+                if (check_add5.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu6.getText().toString().trim();
+                String pay = pay_add6.getText().toString().trim();
+
+                if (check_add6.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu7.getText().toString().trim();
+                String pay = pay_add7.getText().toString().trim();
+
+                if (check_add7.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu8.getText().toString().trim();
+                String pay = pay_add8.getText().toString().trim();
+
+                if (check_add8.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu9.getText().toString().trim();
+                String pay = pay_add9.getText().toString().trim();
+
+                if (check_add9.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu10.getText().toString().trim();
+                String pay = pay_add10.getText().toString().trim();
+
+                if (check_add10.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu11.getText().toString().trim();
+                String pay = pay_add11.getText().toString().trim();
+
+                if (check_add11.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu12.getText().toString().trim();
+                String pay = pay_add12.getText().toString().trim();
+
+                if (check_add12.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_add13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = add_menu13.getText().toString().trim();
+                String pay = pay_add13.getText().toString().trim();
+
+                if (check_add13.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_drink1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = drink1.getText().toString().trim();
+                String pay = pay_drink1.getText().toString().trim();
+
+                if (check_drink1.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_drink2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = drink2.getText().toString().trim();
+                String pay = pay_drink2.getText().toString().trim();
+
+                if (check_drink2.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
+        check_drink3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String main = drink3.getText().toString().trim();
+                String pay = pay_drink3.getText().toString().trim();
+
+                if (check_drink3.isChecked() == true){
+                    add_menu(main, pay);
+                }else {
+                    delete_menu(main, pay);
+                }
+            }
+        });
 
 
-       btn_payment = findViewById(R.id.btn_payment);
+        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+
+        btn_payment = findViewById(R.id.btn_payment);
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 menu = alertView.findViewById(R.id.menu);
                 price = alertView.findViewById(R.id.price);
                 order_no = alertView.findViewById(R.id.order_no);
                 order_payment = alertView.findViewById(R.id.order_payment);
-
-
 //                if (check_main_menu1.isChecked() == true){
 //
 //                    String main = main_menu1.getText().toString().trim();
@@ -368,51 +1034,68 @@ public class Reservation extends AppCompatActivity {
 //                    format.format(value);
 //                    String result_int = format.format(value);
 //                    int num = Integer.parseInt(result_int);
+//                }
+                String nick_name = sp.getString("nick_name", null);
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+                ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+
+                call.enqueue(new Callback<ReservationRes>() {
+                    @Override
+                    public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()) {
+                            menuArrayList = response.body().getMenu();
+                            priceArrayList = response.body().getPrice();
+
+                            Log.i("menu", menuArrayList + "\n"+priceArrayList);
+
+//                            menu.setText(menuArrayList);
+//                            price.setText(total_price);
+
+
+                        }else {
+                            Log.i("menu", "success = fail");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ReservationRes> call, Throwable t) {
+                        Log.i("menu", "fail");
+                    }
+                });
+
+
+//                if (check_main_menu2.isChecked() == true && check_main_menu1.isChecked() == true ){
 //
+//                    String main = main_menu1.getText().toString().trim();
+//                    String pay = pay_main1.getText().toString().trim();
+//                    String nowon = pay.replace("원", "");
+//                    String nocomma = nowon.replace(",","");
 //
+//                    String main2 = main_menu2.getText().toString().trim();
+//                    String pay2 = pay_main2.getText().toString().trim();
+//
+//                    menu.setText(main+"\n"+main2);
+//                    String noowon = pay2.replace("원", "");
+//                    String nocomma1 = noowon.replace(",","");
+//
+//                    int num1 = Integer.parseInt(nocomma1);
+//                    int num = Integer.parseInt(nocomma);
+//
+//                    int result = num+num1;
+//                    String string = Integer.toString(result);
+//
+//                    long valoue = Long.parseLong(string);
+//                    DecimalFormat format = new DecimalFormat("###,###");//콤마
+//                    format.format(valoue);
+//                    String result_int = format.format(valoue);
+//
+//                    price.setText(result_int);
 //
 //                }
-
-                if (check_main_menu2.isChecked() == true && check_main_menu1.isChecked() == true ){
-
-
-                    String main = main_menu1.getText().toString().trim();
-                    String pay = pay_main1.getText().toString().trim();
-                    String nowon = pay.replace("원", "");
-                    String nocomma = nowon.replace(",","");
-
-
-                    String main2 = main_menu2.getText().toString().trim();
-                    String pay2 = pay_main2.getText().toString().trim();
-
-                    menu.setText(main+"\n"+main2);
-                    String noowon = pay2.replace("원", "");
-                    String nocomma1 = noowon.replace(",","");
-
-
-
-                    int num1 = Integer.parseInt(nocomma1);
-                    int num = Integer.parseInt(nocomma);
-
-                    int result = num+num1;
-                    String string = Integer.toString(result);
-
-
-
-                    long valoue = Long.parseLong(string);
-                    DecimalFormat format = new DecimalFormat("###,###");//콤마
-                    format.format(valoue);
-                    String result_int = format.format(valoue);
-
-
-
-
-
-                    price.setText(result_int);
-
-
-
-                }
 
                 order_payment.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -440,6 +1123,7 @@ public class Reservation extends AppCompatActivity {
         });
     }
 
+
     public void add_menu(String menu, String price){
         String nick_name =sp.getString("nick_name",null);
 
@@ -456,6 +1140,8 @@ public class Reservation extends AppCompatActivity {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()){
 
+                }else {
+                    return;
                 }
             }
 
@@ -464,5 +1150,88 @@ public class Reservation extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void delete_menu(String menu, String price){
+        String nick_name =sp.getString("nick_name",null);
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.deleteMenu(nick_name, menu, price);
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()){
+
+                }else {
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+
+            }
+        });
+    }
+
+//    public void select_menu() {
+//        String nick_name = sp.getString("nick_name", null);
+//
+//        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+//        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+//
+//        Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+//
+//        call.enqueue(new Callback<ReservationRes>() {
+//            @Override
+//            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+//                // 상태코드가 200 인지 확인
+//                if (response.isSuccessful()) {
+//                    String menu = response.body().getMenu();
+//                    for (int i = 0; i < response.body().getMenu().length(); i++) {
+//
+//                    }
+//                    String price = response.body().getPrice();
+//                    for (int p = 0; p < response.body().getPrice().length(); p++) {
+//
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ReservationRes> call, Throwable t) {
+//
+//            }
+//        });
+//    }
+
+    @Override
+    public void onBackPressed() {
+        String nick_name =sp.getString("nick_name",null);
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.cancle(nick_name);
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()){
+
+                }else {
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+
+            }
+        });
+        super.onBackPressed();
     }
 }
