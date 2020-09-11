@@ -1616,7 +1616,6 @@ id map
 id match_parent
 id material
 id media_actions
-id menu
 id message
 id middle
 id monochrome
@@ -1794,6 +1793,7 @@ id staticLayout
 id staticPostLayout
 id status_bar_latest_event_content
 id stop
+id store
 id strict_sandbox
 id submenuarrow
 id submit_area
@@ -1806,6 +1806,7 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id take_out
 id te2323xtView
 id terrain
 id test

@@ -1018,54 +1018,64 @@ public class Reservation extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
-                menu = alertView.findViewById(R.id.menu);
                 price = alertView.findViewById(R.id.price);
                 order_no = alertView.findViewById(R.id.order_no);
                 order_payment = alertView.findViewById(R.id.order_payment);
-//                if (check_main_menu1.isChecked() == true){
-//
-//                    String main = main_menu1.getText().toString().trim();
-//                    String pay = pay_main1.getText().toString().trim();
-//
-//                    menu.setText(main+"/n");
-//                    String nowon = pay.replace("원", "");
-//                    long value = Long.parseLong(nowon);
-//                    DecimalFormat format = new DecimalFormat("###,###");//콤마
-//                    format.format(value);
-//                    String result_int = format.format(value);
-//                    int num = Integer.parseInt(result_int);
-//                }
-                String nick_name = sp.getString("nick_name", null);
+
+                String nick_name =sp.getString("nick_name",null);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
 
-                Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
-
+                Call<ReservationRes> call = reservationApi.total(nick_name);
                 call.enqueue(new Callback<ReservationRes>() {
                     @Override
                     public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
                         // 상태코드가 200 인지 확인
-                        if (response.isSuccessful()) {
-                            menuArrayList = response.body().getMenu();
-                            priceArrayList = response.body().getPrice();
-
-                            Log.i("menu", menuArrayList + "\n"+priceArrayList);
-
-//                            menu.setText(menuArrayList);
-//                            price.setText(total_price);
-
-
+                        if (response.isSuccessful()){
+                            String total = response.body().getTotal();
+                            Log.i("total", total);
+                            price.setText(total);
                         }else {
-                            Log.i("menu", "success = fail");
+                            return;
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ReservationRes> call, Throwable t) {
-                        Log.i("menu", "fail");
+
                     }
                 });
+//                String nick_name = sp.getString("nick_name", null);
+//
+//                Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+//                ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+//
+//                Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+//
+//                call.enqueue(new Callback<ReservationRes>() {
+//                    @Override
+//                    public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+//                        // 상태코드가 200 인지 확인
+//                        if (response.isSuccessful()) {
+//                            String menu = response.body().getMenu();
+//                            String price = response.body().getPrice();
+//
+//                            Log.i("menu", menu + " "+price);
+//
+//
+//
+//
+//                        }else {
+//                            Log.i("menu", "success = fail");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<ReservationRes> call, Throwable t) {
+//                        Log.i("menu", "fail");
+//                    }
+//                });
 
 
 //                if (check_main_menu2.isChecked() == true && check_main_menu1.isChecked() == true ){
@@ -1124,6 +1134,7 @@ public class Reservation extends AppCompatActivity {
     }
 
 
+    // 메뉴 추가
     public void add_menu(String menu, String price){
         String nick_name =sp.getString("nick_name",null);
 
@@ -1152,6 +1163,7 @@ public class Reservation extends AppCompatActivity {
         });
     }
 
+    // 메뉴 삭제
     public void delete_menu(String menu, String price){
         String nick_name =sp.getString("nick_name",null);
 
@@ -1164,7 +1176,6 @@ public class Reservation extends AppCompatActivity {
             public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()){
-
                 }else {
                     return;
                 }
@@ -1177,39 +1188,34 @@ public class Reservation extends AppCompatActivity {
         });
     }
 
-//    public void select_menu() {
-//        String nick_name = sp.getString("nick_name", null);
-//
-//        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
-//        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
-//
-//        Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
-//
-//        call.enqueue(new Callback<ReservationRes>() {
-//            @Override
-//            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
-//                // 상태코드가 200 인지 확인
-//                if (response.isSuccessful()) {
-//                    String menu = response.body().getMenu();
-//                    for (int i = 0; i < response.body().getMenu().length(); i++) {
-//
-//                    }
-//                    String price = response.body().getPrice();
-//                    for (int p = 0; p < response.body().getPrice().length(); p++) {
-//
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ReservationRes> call, Throwable t) {
-//
-//            }
-//        });
-//    }
+    // 메뉴 총합
+    public void price_total(){
+        String nick_name =sp.getString("nick_name",null);
 
-    @Override
-    public void onBackPressed() {
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.total(nick_name);
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()){
+                    String total = response.body().getTotal();
+                    Log.i("total", total);
+                }else {
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void cancle(){
         String nick_name =sp.getString("nick_name",null);
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1232,6 +1238,11 @@ public class Reservation extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        cancle();
         super.onBackPressed();
     }
 }

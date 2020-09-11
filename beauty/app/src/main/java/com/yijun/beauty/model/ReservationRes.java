@@ -9,10 +9,13 @@ public class ReservationRes {
     private boolean success;
 
     @SerializedName("menu")
-    private ArrayList menu;
+    private String menu;
 
     @SerializedName("price")
-    private ArrayList price;
+    private String price;
+
+    @SerializedName("total")
+    private String total;
 
     public boolean isSuccess() {
         return success;
@@ -22,19 +25,27 @@ public class ReservationRes {
         this.success = success;
     }
 
-    public ArrayList getMenu() {
+    public String getMenu() {
         return menu;
     }
 
-    public void setMenu(ArrayList menu) {
+    public void setMenu(String menu) {
         this.menu = menu;
     }
 
-    public ArrayList getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(ArrayList price) {
+    public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
     }
 }
