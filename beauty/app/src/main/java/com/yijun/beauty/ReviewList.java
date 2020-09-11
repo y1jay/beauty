@@ -160,6 +160,9 @@ public class ReviewList extends AppCompatActivity {
                 arraylist = response.body().getRows();
                 cnt = response.body().getCnt();
                 offset = cnt + offset;
+                if (cnt < 25){
+                    offset = cnt;
+                }
 
                 reviewArrayList.addAll(arraylist);
                 adapter.notifyDataSetChanged();

@@ -2,6 +2,8 @@ package com.yijun.beauty;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,16 +15,21 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.yijun.beauty.activity.CheckoutActivity;
+import com.yijun.beauty.adapter.OrderSheetAdapter;
+import com.yijun.beauty.adapter.ReviewclerViewAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
+import com.yijun.beauty.model.Orders;
 import com.yijun.beauty.model.ReservationReq;
 import com.yijun.beauty.model.ReservationRes;
+import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.url.Utils;
 
 import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -180,16 +187,15 @@ public class Reservation extends AppCompatActivity {
 
 
     AlertDialog alertDialog;
-    TextView menu;
+    RecyclerView recyclerView;
+    OrderSheetAdapter adapter;
+    ArrayList<Orders> orderArrayList = new ArrayList<>();
     TextView price;
-    TextView total;
     Button order_no;
     Button order_payment;
 
     SharedPreferences sp;
 
-    ArrayList menuArrayList = new ArrayList();
-    ArrayList priceArrayList = new ArrayList();
 
 
     @Override
@@ -1021,91 +1027,40 @@ public class Reservation extends AppCompatActivity {
                 price = alertView.findViewById(R.id.price);
                 order_no = alertView.findViewById(R.id.order_no);
                 order_payment = alertView.findViewById(R.id.order_payment);
+                recyclerView = alertView.findViewById(R.id.recyclerView);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(Reservation.this));
 
-                String nick_name =sp.getString("nick_name",null);
+                price_total(price);
+
+                String nick_name = sp.getString("nick_name", null);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
 
-                Call<ReservationRes> call = reservationApi.total(nick_name);
+                Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+
                 call.enqueue(new Callback<ReservationRes>() {
                     @Override
                     public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
                         // 상태코드가 200 인지 확인
-                        if (response.isSuccessful()){
-                            String total = response.body().getTotal();
-                            Log.i("total", total);
-                            price.setText(total);
+                        if (response.isSuccessful()) {
+                            orderArrayList = response.body().getRows();
+
+                            adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
+                            recyclerView.setAdapter(adapter);
+                            Log.i("menu", orderArrayList.toString());
+
                         }else {
-                            return;
+                            Log.i("menu", "success = fail");
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ReservationRes> call, Throwable t) {
-
+                        Log.i("menu", "fail");
                     }
                 });
-//                String nick_name = sp.getString("nick_name", null);
-//
-//                Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
-//                ReservationApi reservationApi = retrofit.create(ReservationApi.class);
-//
-//                Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
-//
-//                call.enqueue(new Callback<ReservationRes>() {
-//                    @Override
-//                    public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
-//                        // 상태코드가 200 인지 확인
-//                        if (response.isSuccessful()) {
-//                            String menu = response.body().getMenu();
-//                            String price = response.body().getPrice();
-//
-//                            Log.i("menu", menu + " "+price);
-//
-//
-//
-//
-//                        }else {
-//                            Log.i("menu", "success = fail");
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<ReservationRes> call, Throwable t) {
-//                        Log.i("menu", "fail");
-//                    }
-//                });
-
-
-//                if (check_main_menu2.isChecked() == true && check_main_menu1.isChecked() == true ){
-//
-//                    String main = main_menu1.getText().toString().trim();
-//                    String pay = pay_main1.getText().toString().trim();
-//                    String nowon = pay.replace("원", "");
-//                    String nocomma = nowon.replace(",","");
-//
-//                    String main2 = main_menu2.getText().toString().trim();
-//                    String pay2 = pay_main2.getText().toString().trim();
-//
-//                    menu.setText(main+"\n"+main2);
-//                    String noowon = pay2.replace("원", "");
-//                    String nocomma1 = noowon.replace(",","");
-//
-//                    int num1 = Integer.parseInt(nocomma1);
-//                    int num = Integer.parseInt(nocomma);
-//
-//                    int result = num+num1;
-//                    String string = Integer.toString(result);
-//
-//                    long valoue = Long.parseLong(string);
-//                    DecimalFormat format = new DecimalFormat("###,###");//콤마
-//                    format.format(valoue);
-//                    String result_int = format.format(valoue);
-//
-//                    price.setText(result_int);
-//
-//                }
 
                 order_payment.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -1120,6 +1075,7 @@ public class Reservation extends AppCompatActivity {
                 order_no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+//                        cancle();
                         alertDialog.cancel();
                     }
                 });
@@ -1176,6 +1132,7 @@ public class Reservation extends AppCompatActivity {
             public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()){
+
                 }else {
                     return;
                 }
@@ -1189,7 +1146,7 @@ public class Reservation extends AppCompatActivity {
     }
 
     // 메뉴 총합
-    public void price_total(){
+    public void price_total(TextView textView){
         String nick_name =sp.getString("nick_name",null);
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1201,8 +1158,12 @@ public class Reservation extends AppCompatActivity {
             public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()){
-                    String total = response.body().getTotal();
+                    String rows = response.body().getTotal();
+                    long tlqkf = Long.parseLong(rows);
+                    DecimalFormat format = new DecimalFormat("###,###");//콤마
+                    String total = format.format(tlqkf);
                     Log.i("total", total);
+                    textView.setText(total);
                 }else {
                     return;
                 }
@@ -1210,7 +1171,7 @@ public class Reservation extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ReservationRes> call, Throwable t) {
-
+                Log.i("total", t.toString());
             }
         });
     }
@@ -1244,5 +1205,11 @@ public class Reservation extends AppCompatActivity {
     public void onBackPressed() {
         cancle();
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onRestart() {
+        cancle();
+        super.onRestart();
     }
 }

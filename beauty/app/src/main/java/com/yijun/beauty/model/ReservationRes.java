@@ -3,6 +3,7 @@ package com.yijun.beauty.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReservationRes {
     @SerializedName("success")
@@ -16,6 +17,9 @@ public class ReservationRes {
 
     @SerializedName("total")
     private String total;
+
+    @SerializedName("rows")
+    private ArrayList<Orders> rows;
 
     public boolean isSuccess() {
         return success;
@@ -47,5 +51,13 @@ public class ReservationRes {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    public ArrayList<Orders> getRows() {
+        return rows;
+    }
+
+    public void setRows(ArrayList<Orders> rows) {
+        this.rows = rows;
     }
 }

@@ -26,6 +26,6 @@ public interface ReservationApi {
     @DELETE("api/v1/reservation/cancle")
     Call<ReservationRes> cancle(@Query("nick_name") String nick_name);
 
-    @GET("api/v1/reservation/total")
+    @GET("api/v1/reservation")
     Call<ReservationRes> total(@Query("nick_name") String nick_name);
 }

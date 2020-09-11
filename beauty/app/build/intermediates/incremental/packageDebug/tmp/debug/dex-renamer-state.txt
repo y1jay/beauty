@@ -1,4 +1,4 @@
-#Fri Sep 11 16:10:36 KST 2020
+#Fri Sep 11 18:17:32 KST 2020
 base.0=C\:\\Users\\lee\\Documents\\GitHub\\beauty\\beauty\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
