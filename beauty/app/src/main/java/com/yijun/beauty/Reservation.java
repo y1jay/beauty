@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,16 +12,24 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.yijun.beauty.activity.CheckoutActivity;
+import com.yijun.beauty.api.NetworkClient;
+import com.yijun.beauty.api.ReservationApi;
+import com.yijun.beauty.model.ReservationReq;
+import com.yijun.beauty.model.ReservationRes;
 
 import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class Reservation extends AppCompatActivity {
 
     Button btn_payment;
-
 
 
     CheckBox check_main_menu1;
@@ -74,14 +83,6 @@ public class Reservation extends AppCompatActivity {
     CheckBox check_drink1;
     CheckBox check_drink2;
     CheckBox check_drink3;
-
-
-
-
-
-
-
-
 
 
     TextView main_menu1;
@@ -176,16 +177,14 @@ public class Reservation extends AppCompatActivity {
     TextView pay_drink3;
 
 
-
-
-
-
     AlertDialog alertDialog;
     TextView menu;
     TextView price;
     TextView total;
     Button order_no;
     Button order_payment;
+
+    SharedPreferences sp;
 
     ArrayList menuArrayList;
     ArrayList priceArrayList;
@@ -249,13 +248,6 @@ public class Reservation extends AppCompatActivity {
         check_drink3 = findViewById(R.id.check_drink3);
 
 
-
-
-
-
-
-
-
         main_menu1 = findViewById(R.id.main_menu1);
         main_menu2 = findViewById(R.id.main_menu2);
         main_menu3 = findViewById(R.id.main_menu3);
@@ -294,10 +286,6 @@ public class Reservation extends AppCompatActivity {
         drink1 = findViewById(R.id.drink1);
         drink2 = findViewById(R.id.drink2);
         drink3 = findViewById(R.id.drink3);
-
-
-
-
 
 
         pay_main1 = findViewById(R.id.pay_main1);
@@ -354,8 +342,7 @@ public class Reservation extends AppCompatActivity {
 
 
 
-
-        btn_payment = findViewById(R.id.btn_payment);
+       btn_payment = findViewById(R.id.btn_payment);
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -451,8 +438,31 @@ public class Reservation extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+    }
 
+    public void add_menu(String menu, String price){
+        String nick_name =sp.getString("nick_name",null);
 
+        ReservationReq reservationReq = new ReservationReq(menu, price, nick_name);
 
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.addMenu(reservationReq);
+
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+
+            }
+        });
     }
 }
