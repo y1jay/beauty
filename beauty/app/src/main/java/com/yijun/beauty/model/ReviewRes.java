@@ -3,6 +3,7 @@ package com.yijun.beauty.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewRes {
@@ -12,7 +13,7 @@ public class ReviewRes {
     private Boolean success;
     @SerializedName("rows")
     @Expose
-    private List<Rows> rows = null;
+    private ArrayList<Rows> rows = null;
     @SerializedName("cnt")
     @Expose
     private Integer cnt;
@@ -25,11 +26,11 @@ public class ReviewRes {
         this.success = success;
     }
 
-    public List<Rows> getRows() {
+    public ArrayList<Rows> getRows() {
         return rows;
     }
 
-    public void setRows(List<Rows> rows) {
+    public void setRows(ArrayList<Rows> rows) {
         this.rows = rows;
     }
 

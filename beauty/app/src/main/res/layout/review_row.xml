@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
-
     android:orientation="vertical">
 
 
@@ -14,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="8dp"
-
         app:cardBackgroundColor="#454343"
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp">

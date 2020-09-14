@@ -1,5 +1,6 @@
 package com.yijun.beauty;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
@@ -43,10 +44,14 @@ import retrofit2.http.Body;
 public class ReviewList extends AppCompatActivity {
     RecyclerView reviewcyclerView;
     ReviewclerViewAdapter adapter;
+    List<Rows> reviewArrayList = new ArrayList<>();
+    List<Rows> arraylist = new ArrayList<>();
+
     Button set_review;
     SharedPreferences sp;
+
     private AlertDialog dialog;
-    List<Rows> reviewArrayList = new ArrayList<>();
+    String baseUrl = Utils.BASE_URL+"/api/v1/review/select";
 
     TextView txt_nick_name;
     RatingBar ratingbar;
@@ -54,6 +59,8 @@ public class ReviewList extends AppCompatActivity {
     Button btn_cancel;
     Button btn_set;
 
+    int offset = 0;
+    int cnt = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,23 +70,51 @@ public class ReviewList extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        set_review= findViewById(R.id.set_review);
         reviewcyclerView = findViewById(R.id.reviewcyclerView);
         reviewcyclerView.setHasFixedSize(true);
         reviewcyclerView.setLayoutManager(new LinearLayoutManager(ReviewList.this));
+
+        reviewcyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                int lastPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+                int totalCount = recyclerView.getAdapter().getItemCount();
+
+                lastPosition = lastPosition +1;
+                if(lastPosition == totalCount){
+
+                    if(offset >= 25){
+//                        offset = cnt + offset;
+                        addNetworkData();
+                    }else if(offset < 25){
+                        Toast.makeText(ReviewList.this, "모든 리뷰를 표시했습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        set_review= findViewById(R.id.set_review);
         sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
 
         getNetworkData();
+
         set_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createPopupDialog();
             }
         });
-
-
     }
+
     private void getNetworkData() {
+
         Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
 
         ReviewApi reviewApi = retrofit.create(ReviewApi.class);
@@ -94,9 +129,43 @@ public class ReviewList extends AppCompatActivity {
                 Log.i("AAAA",response.body().getCnt().toString());
 
                 reviewArrayList = response.body().getRows();
+                cnt = response.body().getCnt();
+                offset = cnt + offset;
 
                 adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
+
+            }
+            @Override
+            public void onFailure(Call<ReviewRes> call, Throwable t) {
+
+            }
+        });
+
+    }
+    private void addNetworkData() {
+        Retrofit retrofit = NetworkClient.getRetrofitClient(ReviewList.this);
+
+        ReviewApi reviewApi = retrofit.create(ReviewApi.class);
+
+        Call<ReviewRes> call = reviewApi.selectReview(offset,25);
+        call.enqueue(new Callback<ReviewRes>() {
+            @Override
+            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
+
+                Log.i("AAAA",response.body().getSuccess().toString());
+
+                Log.i("AAAA",response.body().getCnt().toString());
+
+                arraylist = response.body().getRows();
+                cnt = response.body().getCnt();
+                offset = cnt + offset;
+                if (cnt < 25){
+                    offset = cnt;
+                }
+
+                reviewArrayList.addAll(arraylist);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -106,6 +175,8 @@ public class ReviewList extends AppCompatActivity {
         });
 
     }
+
+
     public void createPopupDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(ReviewList.this);
         View alertView = getLayoutInflater().inflate(R.layout.review,null);
@@ -152,8 +223,11 @@ public class ReviewList extends AppCompatActivity {
                             Log.i("AAAAA","? : "+response.body().toString());
                             Toast.makeText(ReviewList.this,"리뷰가 작성되었습니다"
                                     ,Toast.LENGTH_SHORT).show();
-                            dialog.cancel();
+
+                            adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
+                            reviewcyclerView.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
+                            dialog.cancel();
                         } else if (response.isSuccessful()==false){
 
                         }
@@ -182,7 +256,6 @@ public class ReviewList extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
     }
-
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case android.R.id.home:

@@ -5,6 +5,9 @@
       <map>
         <entry key="imageWizard">
           <value>
+<<<<<<< HEAD
+            <PersistentState />
+=======
             <PersistentState>
               <option name="children">
                 <map>
@@ -290,6 +293,7 @@
                 </map>
               </option>
             </PersistentState>
+>>>>>>> kakao
           </value>
         </entry>
       </map>

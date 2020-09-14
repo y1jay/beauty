@@ -1,5 +1,9 @@
 package com.yijun.beauty.adapter;
 
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -152,14 +156,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, ReviewList.class);
+
                     CheckTypesTask task = new CheckTypesTask();
                     task.execute();
+
                     context.startActivity(i);
                 }
             });
         }
 
     }
+
     private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
         ProgressDialog asyncDialog = new ProgressDialog(context);
 

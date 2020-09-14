@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                             if (response.isSuccessful()){
                                 Intent i = new Intent(MainActivity.this,AfterLogin.class);
                                 i.putExtra("nick_name",response.body().getNick_name());
+                                Log.i("nick_name", response.body().getNick_name());
                                 finish();
                                 startActivity(i);
                             }else if (response.isSuccessful()==false){

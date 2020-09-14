@@ -4,7 +4,11 @@
 <<<<<<< HEAD
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
 =======
+<<<<<<< HEAD
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+=======
     <mapping directory="" vcs="Git" />
 >>>>>>> d4381cf07ffb68d070ab56568f04446434296816
+>>>>>>> kakao
   </component>
 </project>

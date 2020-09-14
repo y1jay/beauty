@@ -73,7 +73,7 @@ public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAd
         return reviewArrayList.size();
     }
 
-    public  class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView txt_nick_name;
         public TextView txt_review;
         public TextView txt_created_at;
