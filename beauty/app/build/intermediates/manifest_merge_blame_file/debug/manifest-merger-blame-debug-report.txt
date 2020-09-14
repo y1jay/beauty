@@ -6,230 +6,230 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
-8-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
+8-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml
+9-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:5:5-67
-11-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:5:22-64
+11-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <uses-feature
-13-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:11:5-13:35
+13-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:11:5-13:35
 14        android:glEsVersion="0x00020000"
-14-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:12:9-41
+14-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:12:9-41
 15        android:required="true" />
-15-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:13:9-32
+15-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:13:9-32
 16    <uses-feature
-16-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:14:5-16:36
+16-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:14:5-16:36
 17        android:name="android.hardware.wifi"
-17-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:15:9-45
+17-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:15:9-45
 18        android:required="false" />
-18-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:16:9-33
+18-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:16:9-33
 19
 20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:5-79
-20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:22-76
+20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:5-79
+20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:22-76
 21    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:5-76
-21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:22-73
+21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:5-76
+21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:22-73
 22
 23    <application
-23-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:7:5-69:19
+23-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:7:5-69:19
 24        android:name="com.yijun.beauty.adapter.App"
-24-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:8:9-36
+24-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:8:9-36
 25        android:allowBackup="true"
-25-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:9:9-35
+25-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:9:9-35
 26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-26-->[androidx.core:core:1.3.1] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\71a518e76846ab80d37be4a111af366a\core-1.3.1\AndroidManifest.xml:24:18-86
+26-->[androidx.core:core:1.3.1] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\71a518e76846ab80d37be4a111af366a\core-1.3.1\AndroidManifest.xml:24:18-86
 27        android:debuggable="true"
 28        android:extractNativeLibs="false"
 29        android:icon="@mipmap/ic_launcher"
-29-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:10:9-43
+29-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:10:9-43
 30        android:label="@string/app_name"
-30-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:11:9-41
+30-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:11:9-41
 31        android:networkSecurityConfig="@xml/network_security_config"
-31-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:12:9-69
+31-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:12:9-69
 32        android:requestLegacyExternalStorage="true"
-32-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:13:9-52
+32-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:13:9-52
 33        android:roundIcon="@mipmap/ic_launcher_round"
-33-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:14:9-54
+33-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:14:9-54
 34        android:supportsRtl="true"
-34-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:15:9-35
+34-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:15:9-35
 35        android:testOnly="true"
 36        android:theme="@style/AppTheme"
-36-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:16:9-40
+36-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:16:9-40
 37        android:usesCleartextTraffic="true" >
-37-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:17:9-44
+37-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:17:9-44
 38        <activity
-38-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:18:9-23:20
+38-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:18:9-23:20
 39            android:name="com.yijun.beauty.ReviewList"
-39-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:18:19-45
+39-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:18:19-45
 40            android:label="리뷰" >
-40-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:19:13-31
+40-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:19:13-31
 41            <meta-data
-41-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:20:13-22:48
+41-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:20:13-22:48
 42                android:name="android.support.PARENT_ACTIVITY"
-42-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:21:17-63
+42-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:21:17-63
 43                android:value=".MainActivity" />
-43-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:22:17-46
+43-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:22:17-46
 44        </activity>
 45        <activity android:name="com.yijun.beauty.Nick_name" />
-45-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:24:9-47
-45-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:24:19-44
+45-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:24:9-47
+45-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:24:19-44
 46
 47        <meta-data
-47-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:26:9-28:53
+47-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:26:9-28:53
 48            android:name="com.kakao.sdk.AppKey"
-48-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:27:13-48
+48-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:27:13-48
 49            android:value="@string/kakao_app_key" />
-49-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:28:13-50
+49-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:28:13-50
 50
 51        <activity android:name="com.yijun.beauty.ReservationRecord" />
-51-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:30:9-55
-51-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:30:19-52
+51-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:30:9-55
+51-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:30:19-52
 52        <activity android:name="com.yijun.beauty.MyInfo" />
-52-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:31:9-44
-52-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:31:19-41
+52-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:31:9-44
+52-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:31:19-41
 53        <activity android:name="com.yijun.beauty.Reservation" />
-53-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:32:9-49
-53-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:32:19-46
+53-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:32:9-49
+53-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:32:19-46
 54        <activity android:name="com.yijun.beauty.Address" />
-54-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:33:9-45
-54-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:33:19-42
+54-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:33:9-45
+54-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:33:19-42
 55
 56        <meta-data
-56-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:35:9-37:42
+56-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:35:9-37:42
 57            android:name="com.naver.maps.map.CLIENT_ID"
-57-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:36:13-56
+57-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:36:13-56
 58            android:value="9s3u08ar9q" />
-58-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:37:13-39
+58-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:37:13-39
 59
 60        <activity
-60-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:39:9-41:59
+60-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:39:9-41:59
 61            android:name="com.yijun.beauty.LodingActivity"
-61-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:40:13-43
+61-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:40:13-43
 62            android:theme="@style/AppTheme.NoActionBar" />
-62-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:41:13-56
+62-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:41:13-56
 63        <activity
-63-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:42:9-45:20
+63-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:42:9-45:20
 64            android:name="com.yijun.beauty.activity.CheckoutActivity"
-64-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:43:13-54
+64-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:43:13-54
 65            android:screenOrientation="portrait" >
-65-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:44:13-49
+65-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:44:13-49
 66        </activity>
 67        <activity
-67-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:46:9-50:50
+67-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:46:9-50:50
 68            android:name="com.yijun.beauty.activity.PaymentTransparentActivity"
-68-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:47:13-64
+68-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:47:13-64
 69            android:launchMode="singleTask"
-69-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:48:13-44
+69-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:48:13-44
 70            android:taskAffinity=""
-70-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:49:13-36
+70-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:49:13-36
 71            android:theme="@style/Transparent" /> <!-- Enabling this flag is required in order to use the PaymentsClient -->
-71-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:50:13-47
+71-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:50:13-47
 72        <meta-data
-72-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:51:9-53:36
+72-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:51:9-53:36
 73            android:name="com.google.android.gms.wallet.api.enabled"
-73-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:52:13-69
+73-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:52:13-69
 74            android:value="true" />
-74-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:53:13-33
+74-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:53:13-33
 75
 76        <service
-76-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:55:9-59:48
+76-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:55:9-59:48
 77            android:name="com.yijun.beauty.service.PaymentNotificationIntentService"
-77-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:56:13-69
+77-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:56:13-69
 78            android:enabled="true"
-78-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:57:13-35
+78-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:57:13-35
 79            android:icon="@drawable/googlepay_button_overlay"
-79-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:58:13-62
+79-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:58:13-62
 80            android:label="@string/app_name" />
-80-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:59:13-45
+80-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:59:13-45
 81
 82        <activity android:name="com.yijun.beauty.AfterLogin" />
-82-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:9-48
-82-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:19-45
+82-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:61:9-48
+82-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:61:19-45
 83        <activity android:name="com.yijun.beauty.MainActivity" >
-83-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:9-68:20
-83-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:19-47
+83-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:62:9-68:20
+83-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:62:19-47
 84            <intent-filter>
-84-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:63:13-67:29
+84-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:63:13-67:29
 85                <action android:name="android.intent.action.MAIN" />
-85-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:64:17-69
-85-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:64:25-66
+85-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:64:17-69
+85-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:64:25-66
 86
 87                <category android:name="android.intent.category.LAUNCHER" />
-87-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:66:17-77
-87-->C:\Users\lee\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:66:27-74
+87-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:66:17-77
+87-->D:\LSJ\beauty\app\src\main\AndroidManifest.xml:66:27-74
 88            </intent-filter>
 89        </activity>
 90        <activity
-90-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:23:9-27:51
+90-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:23:9-27:51
 91            android:name="com.naver.maps.map.app.LegendActivity"
-91-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:24:13-65
+91-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:24:13-65
 92            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-92-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:25:13-91
+92-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:25:13-91
 93            android:label="@string/navermap_legend"
-93-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:26:13-52
+93-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:26:13-52
 94            android:theme="@style/navermap_app" />
-94-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:27:13-48
+94-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:27:13-48
 95        <activity
-95-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:28:9-32:51
+95-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:28:9-32:51
 96            android:name="com.naver.maps.map.app.LegalNoticeActivity"
-96-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:29:13-70
+96-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:29:13-70
 97            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-97-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:30:13-91
+97-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:30:13-91
 98            android:label="@string/navermap_legal_notice"
-98-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:31:13-58
+98-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:31:13-58
 99            android:theme="@style/navermap_app" />
-99-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:32:13-48
+99-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:32:13-48
 100        <activity
-100-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:33:9-37:51
+100-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:33:9-37:51
 101            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
-101-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:34:13-76
+101-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:34:13-76
 102            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-102-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:35:13-91
+102-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:35:13-91
 103            android:label="@string/navermap_open_source_license"
-103-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:36:13-65
+103-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:36:13-65
 104            android:theme="@style/navermap_app" /> <!-- Needs to be explicitly declared on P+ -->
-104-->[com.naver.maps:map-sdk:3.9.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\38c6438435dbf852fa87cb1c42b65ce9\jetified-map-sdk-3.9.0\AndroidManifest.xml:37:13-48
+104-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\b80c2a2426a60bff02e7403ede6626a0\jetified-map-sdk-3.9.0\AndroidManifest.xml:37:13-48
 105        <uses-library
-105-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+105-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
 106            android:name="org.apache.http.legacy"
-106-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+106-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
 107            android:required="false" />
-107-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+107-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
 108
 109        <activity
-109-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+109-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
 110            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-110-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+110-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
 111            android:exported="false"
-111-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+111-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
 112            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-112-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+112-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
 113
 114        <meta-data
-114-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+114-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
 115            android:name="com.google.android.gms.version"
-115-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+115-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
 116            android:value="@integer/google_play_services_version" />
-116-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+116-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 117
 118        <activity
-118-->[com.kakao.sdk:auth:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:12:9-19:20
+118-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:12:9-19:20
 119            android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"
-119-->[com.kakao.sdk:auth:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:13:13-86
+119-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:13:13-86
 120            android:configChanges="orientation|screenSize"
-120-->[com.kakao.sdk:auth:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:14:13-59
+120-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:14:13-59
 121            android:exported="false"
-121-->[com.kakao.sdk:auth:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:15:13-37
+121-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:15:13-37
 122            android:label="@string/com_kakao_login_button"
-122-->[com.kakao.sdk:auth:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:16:13-59
+122-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:16:13-59
 123            android:launchMode="singleTop"
-123-->[com.kakao.sdk:auth:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:17:13-43
+123-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:17:13-43
 124            android:windowSoftInputMode="adjustResize" >
-124-->[com.kakao.sdk:auth:1.27.0] C:\Users\lee\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:18:13-55
+124-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:18:13-55
 125        </activity>
 126    </application>
 127
