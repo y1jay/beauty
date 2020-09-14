@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo1" />
 
@@ -43,6 +44,7 @@
                 android:id="@+id/img2"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
+                android:layout_marginRight="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo2" />
@@ -51,7 +53,7 @@
                 android:id="@+id/img3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_marginRight="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo3" />
@@ -61,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo4" />
 
@@ -70,13 +72,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
+                android:layout_marginRight="50dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/photo5" />
+                app:srcCompat="@drawable/pho5" />
 
             <ImageView
                 android:id="@+id/img6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo6" />
@@ -86,6 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
+                android:layout_marginRight="50dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo7" />
 
@@ -94,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginRight="50dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo8" />
 
@@ -102,7 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo9" />
 
@@ -111,7 +117,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/photo10" />
@@ -164,14 +169,14 @@
         android:layout_marginHorizontal="20dp"
         android:textSize="18sp"></com.kakao.usermgmt.LoginButton>
 
-<!--    <Button-->
-<!--        android:id="@+id/btn_custom_login"-->
-<!--        android:layout_width="371dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="20dp"-->
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_custom_login"-->
+    <!--        android:layout_width="371dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="20dp"-->
 
-<!--        android:background="@drawable/kakao_login_large_wide"-->
-<!--        android:textSize="18sp" />-->
+    <!--        android:background="@drawable/kakao_login_large_wide"-->
+    <!--        android:textSize="18sp" />-->
 
 
     <TextView

@@ -75,6 +75,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="11dp"
                         android:text="직화무뼈세트"
+                        android:textStyle="bold"
                         android:textColor="#3A0404" />
 
                     <TextView
@@ -130,6 +131,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="11dp"
                     android:text="국물그라탕세트"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -189,6 +191,7 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="15dp"
                         android:text="닭볶음탕세트"
+                        android:textStyle="bold"
                         android:textColor="#3A0404" />
 
                     <TextView
@@ -260,6 +263,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="패밀리세트"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -317,6 +321,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:text="국물닭발세트"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -396,6 +401,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="15dp"
                         android:text="치즈무뼈닭발"
+                        android:textStyle="bold"
                         android:textColor="#3A0404" />
 
                     <TextView
@@ -405,6 +411,7 @@
                         android:layout_marginTop="15dp"
                         android:layout_weight="1"
                         android:text="★사장님 추천메뉴★"
+                        android:textStyle="bold"
                         android:textColor="#3A0404" />
                 </LinearLayout>
 
@@ -550,6 +557,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="15dp"
                         android:text="국물삼겹닭발"
+                        android:textStyle="bold"
                         android:textColor="#3A0404" />
 
                     <TextView
@@ -559,6 +567,7 @@
                         android:layout_marginTop="15dp"
                         android:layout_weight="1"
                         android:text="★사장님 추천메뉴★"
+                        android:textStyle="bold"
                         android:textColor="#3A0404" />
                 </LinearLayout>
 
@@ -699,6 +708,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="국물닭발"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <LinearLayout
@@ -838,6 +848,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="국물무뼈닭발"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <LinearLayout
@@ -977,6 +988,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="직화통닭발"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <LinearLayout
@@ -1114,6 +1126,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="직화무뼈닭발"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <LinearLayout
@@ -1290,6 +1303,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
                             android:text="불닭볶음탕(2~3인분)"
+                            android:textStyle="bold"
                             android:textColor="#3A0404" />
 
                         <TextView
@@ -1351,6 +1365,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
                             android:text="오돌뼈"
+                            android:textStyle="bold"
                             android:textColor="#3A0404" />
 
                         <TextView
@@ -1410,6 +1425,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
                             android:text="치즈떡볶이"
+                            android:textStyle="bold"
                             android:textColor="#3A0404" />
 
 
@@ -1482,6 +1498,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
                             android:text="골뱅이무침"
+                            android:textStyle="bold"
                             android:textColor="#3A0404" />
 
 
@@ -1557,6 +1574,7 @@
                             android:layout_marginTop="15dp"
                             android:layout_marginRight="15dp"
                             android:text="닭똥집"
+                            android:textStyle="bold"
                             android:textColor="#3A0404" />
 
                         <TextView
@@ -1616,6 +1634,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="11dp"
                             android:text="새우그라탕"
+                            android:textStyle="bold"
                             android:textColor="#3A0404" />
 
                         <TextView
@@ -1670,6 +1689,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:text="오뎅탕"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -1734,6 +1754,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="계란찜"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -1775,6 +1796,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="아이스황도"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -1816,6 +1838,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="참치마요주먹밥"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -1857,6 +1880,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="날치알주먹밥"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -1921,6 +1945,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="새우 사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -1962,6 +1987,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:text="치즈사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2004,6 +2030,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="오뎅사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2045,6 +2072,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="떡사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2086,6 +2114,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="비엔나"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2127,6 +2156,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="메추리 알"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2168,6 +2198,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="라면사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2209,6 +2240,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="우동사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2250,6 +2282,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="쫄면사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2291,6 +2324,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="넓적당면"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2332,6 +2366,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="너구리사리"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2373,6 +2408,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="셀프볶음밥"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2414,6 +2450,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="셀프치즈볶음밥"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2479,6 +2516,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="쿨피스(450ml)"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2520,6 +2558,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="콜라(뚱캔)"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -2561,6 +2600,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
                     android:text="스프라이트(뚱캔)"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView

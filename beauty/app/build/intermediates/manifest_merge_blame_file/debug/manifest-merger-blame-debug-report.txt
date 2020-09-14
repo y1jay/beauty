@@ -15,27 +15,27 @@
 11-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <uses-feature
-13-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:11:5-13:35
+13-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:11:5-13:35
 14        android:glEsVersion="0x00020000"
-14-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:12:9-41
+14-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:12:9-41
 15        android:required="true" />
-15-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:13:9-32
+15-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:13:9-32
 16    <uses-feature
-16-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:14:5-16:36
+16-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:14:5-16:36
 17        android:name="android.hardware.wifi"
-17-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:15:9-45
+17-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:15:9-45
 18        android:required="false" />
-18-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:16:9-33
+18-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:16:9-33
 19
 20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:5-79
-20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:22-76
+20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:5-79
+20-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:19:22-76
 21    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:5-76
-21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:22-73
+21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:5-76
+21-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:20:22-73
 22
 23    <application
-23-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:7:5-69:19
+23-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:7:5-75:19
 24        android:name="com.yijun.beauty.adapter.App"
 24-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:8:9-36
 25        android:allowBackup="true"
@@ -146,91 +146,99 @@
 80            android:label="@string/app_name" />
 80-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:59:13-45
 81
-82        <activity android:name="com.yijun.beauty.AfterLogin" />
-82-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:9-48
+82        <activity android:name="com.yijun.beauty.AfterLogin" >
+82-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:9-67:20
 82-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:61:19-45
-83        <activity android:name="com.yijun.beauty.MainActivity" >
-83-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:9-68:20
-83-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:19-47
-84            <intent-filter>
-84-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:63:13-67:29
-85                <action android:name="android.intent.action.MAIN" />
-85-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:64:17-69
-85-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:64:25-66
-86
-87                <category android:name="android.intent.category.LAUNCHER" />
-87-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:66:17-77
-87-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:66:27-74
-88            </intent-filter>
-89        </activity>
-90        <activity
-90-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:23:9-27:51
-91            android:name="com.naver.maps.map.app.LegendActivity"
-91-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:24:13-65
-92            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-92-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:25:13-91
-93            android:label="@string/navermap_legend"
-93-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:26:13-52
-94            android:theme="@style/navermap_app" />
-94-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:27:13-48
-95        <activity
-95-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:28:9-32:51
-96            android:name="com.naver.maps.map.app.LegalNoticeActivity"
-96-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:29:13-70
-97            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-97-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:30:13-91
-98            android:label="@string/navermap_legal_notice"
-98-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:31:13-58
-99            android:theme="@style/navermap_app" />
-99-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:32:13-48
-100        <activity
-100-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:33:9-37:51
-101            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
-101-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:34:13-76
-102            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-102-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:35:13-91
-103            android:label="@string/navermap_open_source_license"
-103-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:36:13-65
-104            android:theme="@style/navermap_app" /> <!-- Needs to be explicitly declared on P+ -->
-104-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\08c938c5e8c791b20e728853b0dacc43\jetified-map-sdk-3.9.0\AndroidManifest.xml:37:13-48
-105        <uses-library
-105-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-106            android:name="org.apache.http.legacy"
-106-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-107            android:required="false" />
-107-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-108
-109        <activity
-109-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-110            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-110-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-111            android:exported="false"
-111-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-112            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-112-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-113
-114        <meta-data
-114-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-115            android:name="com.google.android.gms.version"
-115-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-116            android:value="@integer/google_play_services_version" />
-116-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-117
-118        <activity
-118-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:12:9-19:20
-119            android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"
-119-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:13:13-86
-120            android:configChanges="orientation|screenSize"
-120-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:14:13-59
-121            android:exported="false"
-121-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:15:13-37
-122            android:label="@string/com_kakao_login_button"
-122-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:16:13-59
-123            android:launchMode="singleTop"
-123-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:17:13-43
-124            android:windowSoftInputMode="adjustResize" >
-124-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:18:13-55
-125        </activity>
-126    </application>
-127
-128</manifest>
+83            <intent-filter>
+83-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:62:13-66:29
+84                <action android:name="android.intent.action.MAIN" />
+84-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:63:17-69
+84-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:63:25-66
+85
+86                <category android:name="android.intent.category.LAUNCHER" />
+86-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:65:17-77
+86-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:65:27-74
+87            </intent-filter>
+88        </activity>
+89        <activity android:name="com.yijun.beauty.MainActivity" >
+89-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:68:9-74:20
+89-->C:\Users\Admin\Documents\GitHub\beauty\beauty\app\src\main\AndroidManifest.xml:68:19-47
+90
+91            <!-- <intent-filter> -->
+92            <!-- <action android:name="android.intent.action.MAIN" /> -->
+93
+94
+95            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+96            <!-- </intent-filter> -->
+97        </activity>
+98        <activity
+98-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:23:9-27:51
+99            android:name="com.naver.maps.map.app.LegendActivity"
+99-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:24:13-65
+100            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+100-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:25:13-91
+101            android:label="@string/navermap_legend"
+101-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:26:13-52
+102            android:theme="@style/navermap_app" />
+102-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:27:13-48
+103        <activity
+103-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:28:9-32:51
+104            android:name="com.naver.maps.map.app.LegalNoticeActivity"
+104-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:29:13-70
+105            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+105-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:30:13-91
+106            android:label="@string/navermap_legal_notice"
+106-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:31:13-58
+107            android:theme="@style/navermap_app" />
+107-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:32:13-48
+108        <activity
+108-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:33:9-37:51
+109            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
+109-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:34:13-76
+110            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+110-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:35:13-91
+111            android:label="@string/navermap_open_source_license"
+111-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:36:13-65
+112            android:theme="@style/navermap_app" /> <!-- Needs to be explicitly declared on P+ -->
+112-->[com.naver.maps:map-sdk:3.9.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d7cf9b58502a412dd199caf08c5560d0\jetified-map-sdk-3.9.0\AndroidManifest.xml:37:13-48
+113        <uses-library
+113-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+114            android:name="org.apache.http.legacy"
+114-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+115            android:required="false" />
+115-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\d558b2f0330aba197faf379275568083\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+116
+117        <activity
+117-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+118            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+118-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+119            android:exported="false"
+119-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+120            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+120-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\98c122536ce8362207881318ff96605e\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+121
+122        <meta-data
+122-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+123            android:name="com.google.android.gms.version"
+123-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+124            android:value="@integer/google_play_services_version" />
+124-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\0f1c0be4c3f2b8d13914fd9bb8de904a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+125
+126        <activity
+126-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:12:9-19:20
+127            android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"
+127-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:13:13-86
+128            android:configChanges="orientation|screenSize"
+128-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:14:13-59
+129            android:exported="false"
+129-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:15:13-37
+130            android:label="@string/com_kakao_login_button"
+130-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:16:13-59
+131            android:launchMode="singleTop"
+131-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:17:13-43
+132            android:windowSoftInputMode="adjustResize" >
+132-->[com.kakao.sdk:auth:1.27.0] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\6ef13ad50e4092bc0c1395d2b55f5356\jetified-auth-1.27.0\AndroidManifest.xml:18:13-55
+133        </activity>
+134    </application>
+135
+136</manifest>

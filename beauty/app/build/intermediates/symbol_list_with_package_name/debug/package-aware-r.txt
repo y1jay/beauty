@@ -1406,6 +1406,7 @@ id btn_custom_login
 id btn_delete
 id btn_end
 id btn_home
+id btn_myReviews
 id btn_no
 id btn_payment
 id btn_reservation

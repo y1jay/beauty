@@ -53,6 +53,7 @@ public class MyInfo extends AppCompatActivity {
     EditText txt_new_nick_name;
     Button btn_change;
     Button btn_no;
+    Button btn_myReviews;
 
 
     @Override
@@ -252,6 +253,15 @@ public class MyInfo extends AppCompatActivity {
 
             }
         });
+
+        btn_myReviews = findViewById(R.id.btn_myReviews);
+        btn_myReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
     }
 }
