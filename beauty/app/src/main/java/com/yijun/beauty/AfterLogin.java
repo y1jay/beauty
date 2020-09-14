@@ -58,7 +58,8 @@ public class AfterLogin extends AppCompatActivity {
     SharedPreferences sp;
     RecyclerView reviewcyclerView;
     RecyclerViewAdapter adapter;
-
+    int offset = 0;
+    int cnt = 0;
     List<Rows> reviewArrayList = new ArrayList<>();
 
     @Override
@@ -80,7 +81,32 @@ public class AfterLogin extends AppCompatActivity {
         reviewcyclerView = findViewById(R.id.reviewcyclerView);
         reviewcyclerView.setHasFixedSize(true);
         reviewcyclerView.setLayoutManager(new LinearLayoutManager(AfterLogin.this));
+        reviewcyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
 
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                int lastPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+                int totalCount = recyclerView.getAdapter().getItemCount();
+
+                lastPosition = lastPosition +1;
+                if(lastPosition == totalCount){
+
+                    if(offset >= 25){
+
+                        addNetworkData();
+                    }else if(offset < 25){
+                        Toast.makeText(AfterLogin.this, "모든 리뷰를 표시했습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+        });
         String nick_name = getIntent().getStringExtra("nick_name");
         sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
         SharedPreferences.Editor editor= sp.edit();
@@ -176,7 +202,10 @@ public class AfterLogin extends AppCompatActivity {
 
                 Log.i("AAAA",response.body().getCnt().toString());
 
+
                 reviewArrayList = response.body().getRows();
+                cnt = response.body().getCnt();
+                offset = cnt + offset;
 
                 adapter = new RecyclerViewAdapter(AfterLogin.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
@@ -189,4 +218,48 @@ public class AfterLogin extends AppCompatActivity {
         });
 
     }
+    private void addNetworkData() {
+        Retrofit retrofit = NetworkClient.getRetrofitClient(AfterLogin.this);
+
+        ReviewApi reviewApi = retrofit.create(ReviewApi.class);
+
+        Call<ReviewRes> call = reviewApi.selectReview(offset,25);
+        call.enqueue(new Callback<ReviewRes>() {
+            @Override
+            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
+
+                Log.i("AAAA",response.body().getSuccess().toString());
+
+                Log.i("AAAA",response.body().getCnt().toString());
+
+                ArrayList <Rows> rows = new ArrayList<>();
+                rows = response.body().getRows();
+                cnt = response.body().getCnt();
+                offset = cnt + offset;
+                if (cnt < 25){
+                    offset = cnt;
+                }
+
+
+                reviewArrayList.addAll(rows);
+                adapter.notifyDataSetChanged();
+//                reviewArrayList.addAll(reviewArrayList);
+                Log.i("AAAAA",reviewArrayList.toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<ReviewRes> call, Throwable t) {
+
+            }
+        });
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        reviewArrayList.clear();
+        getNetworkData();
+    }
+
 }

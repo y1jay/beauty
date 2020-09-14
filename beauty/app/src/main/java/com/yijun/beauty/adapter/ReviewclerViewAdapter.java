@@ -1,12 +1,17 @@
 package com.yijun.beauty.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -81,7 +86,6 @@ public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAd
         public CardView cardView;
 
 
-
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             txt_nick_name = itemView.findViewById(R.id.txt_nick_name);
@@ -90,8 +94,50 @@ public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAd
             ratingBar = itemView.findViewById(R.id.ratingBar);
             cardView = itemView.findViewById(R.id.cardView);
 
-
-
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ReviewList)context).updatePopupDialog();
+                    return false;
+                }
+            });
+            txt_nick_name.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ReviewList)context).updatePopupDialog();
+                    return false;
+                }
+            });
+            txt_created_at.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ReviewList)context).updatePopupDialog();
+                    return false;
+                }
+            });
+            txt_created_at.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ReviewList)context).updatePopupDialog();
+                    return false;
+                }
+            });
+            ratingBar.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ReviewList)context).updatePopupDialog();
+                return false;
+                }
+            });
+            cardView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ReviewList)context).updatePopupDialog();
+                    return false;
+                }
+            });
         }
+
     }
+
 }

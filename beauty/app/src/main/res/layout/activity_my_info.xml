@@ -84,4 +84,14 @@
         android:text="회원탈퇴"
         android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/btn_myReviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button"
+        android:text="리뷰 관리"
+        android:textSize="18sp" />
+
 </LinearLayout>

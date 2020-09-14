@@ -1398,10 +1398,12 @@ id blocking
 id book_now
 id bottom
 id bounce
+id btn_X
 id btn_cancel
 id btn_change
 id btn_check
 id btn_custom_login
+id btn_delete
 id btn_end
 id btn_home
 id btn_no
@@ -1956,6 +1958,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout update_row
 layout wallet_test_layout
 menu menus
 mipmap googlepay_button_background_image

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +59,8 @@ public class ReviewList extends AppCompatActivity {
     Button btn_cancel;
     Button btn_set;
 
+    Button btn_update;
+    Button btn_delete;
     int offset = 0;
     int cnt = 0;
 
@@ -272,20 +275,7 @@ public class ReviewList extends AppCompatActivity {
             default: return super.onOptionsItemSelected(item);
         }
     }
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
-//        reviewcyclerView.setAdapter(adapter);
-//        arraylist.addAll(reviewArrayList);
-//        adapter.notifyDataSetChanged();
-//
-////        DatabaseHandler db = new DatabaseHandler(MoveRecord.this);
-////        moveRecordArrayList = db.getAllRecord();
-////        // 어댑터를 연결해야지 화면에 표시가 됨.
-////        recyclerViewAdapter = new RecyclerViewAdapter(MoveRecord.this, moveRecordArrayList);
-////        recyclerView.setAdapter(recyclerViewAdapter);
-//    }
+
 
 
 }
