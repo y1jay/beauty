@@ -45,7 +45,6 @@ public class ReviewList extends AppCompatActivity {
     RecyclerView reviewcyclerView;
     ReviewclerViewAdapter adapter;
     List<Rows> reviewArrayList = new ArrayList<>();
-    List<Rows> arraylist = new ArrayList<>();
 
     Button set_review;
     SharedPreferences sp;
@@ -91,13 +90,14 @@ public class ReviewList extends AppCompatActivity {
                 if(lastPosition == totalCount){
 
                     if(offset >= 25){
-//                        offset = cnt + offset;
+
                         addNetworkData();
                     }else if(offset < 25){
                         Toast.makeText(ReviewList.this, "모든 리뷰를 표시했습니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
+
         });
 
         set_review= findViewById(R.id.set_review);
@@ -135,6 +135,8 @@ public class ReviewList extends AppCompatActivity {
                 adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
 
+                Log.i("AAAAA",reviewArrayList.toString());
+
             }
             @Override
             public void onFailure(Call<ReviewRes> call, Throwable t) {
@@ -157,15 +159,20 @@ public class ReviewList extends AppCompatActivity {
 
                 Log.i("AAAA",response.body().getCnt().toString());
 
-                arraylist = response.body().getRows();
+               ArrayList <Rows> rows = new ArrayList<>();
+                rows = response.body().getRows();
                 cnt = response.body().getCnt();
                 offset = cnt + offset;
                 if (cnt < 25){
                     offset = cnt;
                 }
 
-                reviewArrayList.addAll(arraylist);
+
+                reviewArrayList.addAll(rows);
                 adapter.notifyDataSetChanged();
+//                reviewArrayList.addAll(reviewArrayList);
+                Log.i("AAAAA",reviewArrayList.toString());
+
             }
 
             @Override
@@ -224,10 +231,11 @@ public class ReviewList extends AppCompatActivity {
                             Toast.makeText(ReviewList.this,"리뷰가 작성되었습니다"
                                     ,Toast.LENGTH_SHORT).show();
 
-                            adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
-                            reviewcyclerView.setAdapter(adapter);
+                            reviewArrayList.clear();
+                            getNetworkData();
                             adapter.notifyDataSetChanged();
                             dialog.cancel();
+
                         } else if (response.isSuccessful()==false){
 
                         }
@@ -269,11 +277,15 @@ public class ReviewList extends AppCompatActivity {
 //        super.onResume();
 //        adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
 //        reviewcyclerView.setAdapter(adapter);
+//        arraylist.addAll(reviewArrayList);
+//        adapter.notifyDataSetChanged();
+//
 ////        DatabaseHandler db = new DatabaseHandler(MoveRecord.this);
 ////        moveRecordArrayList = db.getAllRecord();
 ////        // 어댑터를 연결해야지 화면에 표시가 됨.
 ////        recyclerViewAdapter = new RecyclerViewAdapter(MoveRecord.this, moveRecordArrayList);
 ////        recyclerView.setAdapter(recyclerViewAdapter);
 //    }
+
 
 }
