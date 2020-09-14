@@ -191,6 +191,8 @@ public class Reservation extends AppCompatActivity {
     OrderSheetAdapter adapter;
     ArrayList<Orders> orderArrayList = new ArrayList<>();
     TextView price;
+    CheckBox take_out;
+    CheckBox store;
     Button order_no;
     Button order_payment;
 
@@ -1025,6 +1027,8 @@ public class Reservation extends AppCompatActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 price = alertView.findViewById(R.id.price);
+                take_out = alertView.findViewById(R.id.take_out);
+                store = alertView.findViewById(R.id.store);
                 order_no = alertView.findViewById(R.id.order_no);
                 order_payment = alertView.findViewById(R.id.order_payment);
                 recyclerView = alertView.findViewById(R.id.recyclerView);
