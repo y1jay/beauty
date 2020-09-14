@@ -1,24 +1,17 @@
 package com.yijun.beauty.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yijun.beauty.R;
-import com.yijun.beauty.ReviewList;
 import com.yijun.beauty.model.Rows;
 
 import java.text.ParseException;
@@ -27,23 +20,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAdapter.ViewHolder> {
+public class MyReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAdapter.ViewHolder> {
     Context context;
     List<Rows> reviewArrayList;
 
-    public ReviewclerViewAdapter(Context context, List<Rows> reviewArrayList){
+    public MyReviewclerViewAdapter(Context context, List<Rows> reviewArrayList){
         this.context = context;
         this.reviewArrayList = reviewArrayList;
     }
 
     @NonNull
     @Override
-    public ReviewclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyReviewclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // 첫번째 파라미터인, parent로 부터 뷰(화면 : 하나의 셀)를 생성한다.
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.review_row, parent, false); //inflate=만들라는 뜻
         //리턴에, 위에서 생성한 뷰를, 뷰홀더에 담아서 리턴한다.
-        return new ReviewclerViewAdapter.ViewHolder(view);
+        return new MyReviewclerViewAdapter.ViewHolder(view);
     }
     @Override
     public void onBindViewHolder(@NonNull ReviewclerViewAdapter.ViewHolder holder, int position) {
@@ -100,3 +93,17 @@ public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAd
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
