@@ -46,6 +46,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:layout_marginLeft="40dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo1" />
 
@@ -55,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_toRightOf="@id/img1"
-                android:layout_weight="1"
+                android:layout_marginLeft="30dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo2" />
@@ -66,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_toRightOf="@id/img2"
-
+                android:layout_marginLeft="30dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo3" />
@@ -76,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img3"
-
+                android:layout_marginLeft="30dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo4" />
@@ -87,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img4"
                 android:adjustViewBounds="true"
-
+                android:layout_marginLeft="30dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo5" />
 
@@ -97,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img5"
                 android:adjustViewBounds="true"
-
+                android:layout_marginLeft="30dp"
 
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo6" />
@@ -109,6 +111,7 @@
                 android:layout_toRightOf="@id/img6"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
+                android:layout_marginLeft="30dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo7" />
 
@@ -118,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img7"
                 android:adjustViewBounds="true"
-
+                android:layout_marginLeft="30dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo8" />
 
@@ -127,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img8"
-
+                android:layout_marginLeft="30dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo9" />
@@ -138,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
                 android:layout_toRightOf="@id/img9"
+                android:layout_marginLeft="30dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo10" />
