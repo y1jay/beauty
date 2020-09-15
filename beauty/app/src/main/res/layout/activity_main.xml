@@ -12,31 +12,34 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_above="@id/horizontalScrollView2"
+        android:layout_width="200dp"
+        android:layout_height="160dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/name" />
+        app:srcCompat="@drawable/name"
+        tools:ignore="NotSibling" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView2"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_above="@id/qwe"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/logo"
+        android:layout_marginBottom="25dp"
+        android:adjustViewBounds="true"
         android:background="#FFFFFF"
-        android:overScrollMode="never"
-        android:scrollbarThumbHorizontal="@drawable/big_button">
+        android:fillViewport="true"
+        android:scrollbarThumbHorizontal="@drawable/big_button"
+        android:scrollbarSize="2dp"
+        android:scrollbarStyle="insideInset">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
+        <RelativeLayout
             android:layout_marginVertical="20dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:orientation="horizontal">
 
             <ImageView
@@ -45,16 +48,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="50dp"
-                android:layout_weight="1"
+
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo1" />
 
             <ImageView
                 android:id="@+id/img2"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_toRightOf="@id/img1"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo2" />
 
@@ -63,7 +68,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_toRightOf="@id/img2"
+
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo3" />
 
@@ -71,17 +78,19 @@
                 android:id="@+id/img4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_toRightOf="@id/img3"
+
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo4" />
 
             <ImageView
                 android:id="@+id/img5"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img4"
+                android:adjustViewBounds="true"
+
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo5" />
 
@@ -89,17 +98,20 @@
                 android:id="@+id/img6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_toRightOf="@id/img5"
+                android:adjustViewBounds="true"
+
+
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo6" />
 
             <ImageView
                 android:id="@+id/img7"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img6"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo7" />
 
@@ -107,16 +119,19 @@
                 android:id="@+id/img8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_toRightOf="@id/img7"
+                android:adjustViewBounds="true"
+
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo8" />
 
             <ImageView
                 android:id="@+id/img9"
                 android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img8"
+
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo9" />
 
@@ -124,13 +139,13 @@
                 android:id="@+id/img10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
+                android:layout_toRightOf="@id/img9"
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo10" />
 
-        </LinearLayout>
+        </RelativeLayout>
     </HorizontalScrollView>
 
     <LinearLayout
@@ -139,7 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_custom_login"
 
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="25dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -147,8 +162,9 @@
             android:id="@+id/reservation"
             android:layout_width="110dip"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
             android:background="@drawable/button"
             android:text="예약하기"
             android:textSize="18sp" />
@@ -157,6 +173,7 @@
             android:id="@+id/address"
             android:layout_width="110dip"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/button"
             android:text="주소보기"
             android:textColor="#000000"
@@ -166,8 +183,9 @@
             android:id="@+id/reviewcyclerView"
             android:layout_width="110dip"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
             android:background="@drawable/button"
             android:text="리뷰보기"
             android:textColor="#000000"
@@ -179,7 +197,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
-        android:layout_marginBottom="20dip"
+        android:layout_marginBottom="10dip"
         android:layout_weight="1"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"

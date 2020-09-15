@@ -1293,6 +1293,7 @@ drawable ts_10_24102a
 drawable ts_10_24102b
 drawable ts_10_25058a
 drawable ts_10_25058b
+drawable walk
 id ALT
 id CTRL
 id FUNCTION

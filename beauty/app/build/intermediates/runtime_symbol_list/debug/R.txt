@@ -1292,6 +1292,7 @@ int drawable ts_10_24102a 0x7f070184
 int drawable ts_10_24102b 0x7f070185
 int drawable ts_10_25058a 0x7f070186
 int drawable ts_10_25058b 0x7f070187
+int drawable walk 0x7f070188
 int id ALT 0x7f080000
 int id CTRL 0x7f080001
 int id FUNCTION 0x7f080002
