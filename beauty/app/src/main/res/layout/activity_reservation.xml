@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_below="@+id/textView3"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:text="대표 메뉴"
                 android:textColor="#ED1333"
@@ -176,6 +176,7 @@
 
 
             <View
+                android:layout_below="@+id/lay2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -237,6 +238,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay3"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -248,13 +250,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:text="세트 메뉴"
                 android:textColor="#ED1333"
                 android:textSize="20dp" />
 
             <View
+                android:layout_below="@+id/textView66"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -315,6 +318,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay4"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -367,6 +371,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay5"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -384,7 +389,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="닭발"
                     android:textColor="#ED1333"
@@ -392,6 +397,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay6"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -439,6 +445,8 @@
                         android:id="@+id/imageView"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
                         app:srcCompat="@drawable/menu123" />
 
                     <LinearLayout
@@ -548,6 +556,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay7"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -595,6 +604,8 @@
                         android:id="@+id/image33View"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
                         app:srcCompat="@drawable/abc" />
 
                     <LinearLayout
@@ -704,6 +715,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay8"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -736,6 +748,8 @@
                         android:id="@+id/imageVi343ew"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
                         app:srcCompat="@drawable/abc" />
 
                     <LinearLayout
@@ -845,6 +859,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay9"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -877,6 +892,8 @@
                         android:id="@+id/imag232eView"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
                         app:srcCompat="@drawable/abc" />
 
                     <LinearLayout
@@ -986,6 +1003,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay10"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1125,6 +1143,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay11"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1265,6 +1284,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay12"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1282,7 +1302,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="포차 메뉴"
                     android:textColor="#ED1333"
@@ -1291,6 +1311,7 @@
 
 
             <View
+                android:layout_below="@+id/lay13"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1311,7 +1332,11 @@
                     <ImageView
                         android:id="@+id/imageView4"
                         android:layout_width="170dp"
-                        android:layout_height="150dp"
+                        android:layout_height="130dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="4dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
                         app:srcCompat="@drawable/d" />
 
                     <LinearLayout
@@ -1373,7 +1398,10 @@
                     <ImageView
                         android:id="@+id/imageView8"
                         android:layout_width="170dp"
-                        android:layout_height="150dp"
+                        android:layout_height="130dp"
+                        android:padding="4dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/e" />
 
                     <LinearLayout
@@ -1435,7 +1463,11 @@
                     <ImageView
                         android:id="@+id/im223ageView2"
                         android:layout_width="170dp"
-                        android:layout_height="150dp"
+                        android:layout_height="130dp"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="2dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
                         app:srcCompat="@drawable/photo8" />
 
                     <LinearLayout
@@ -1509,7 +1541,10 @@
                     <ImageView
                         android:id="@+id/im223232334ageView2"
                         android:layout_width="170dp"
-                        android:layout_height="150dp"
+                        android:layout_height="130dp"
+                        android:padding="4dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/f" />
 
                     <LinearLayout
@@ -1584,7 +1619,10 @@
                     <ImageView
                         android:id="@+id/imageView10"
                         android:layout_width="170dp"
-                        android:layout_height="150dp"
+                        android:layout_height="130dp"
+                        android:padding="4dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/b" />
 
                     <LinearLayout
@@ -1626,6 +1664,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay18"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1646,7 +1685,11 @@
                     <ImageView
                         android:id="@+id/im234ageView8"
                         android:layout_width="170dp"
-                        android:layout_height="150dp"
+                        android:layout_height="130dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
                         app:srcCompat="@drawable/photo10" />
 
                     <LinearLayout
@@ -1741,6 +1784,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay20"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1766,6 +1810,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay21"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1809,6 +1854,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay22"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1852,6 +1898,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay23"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1895,6 +1942,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay24"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1938,6 +1986,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay25"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -1963,6 +2012,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay26"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2006,6 +2056,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay27"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2050,6 +2101,7 @@
 
 
             <View
+                android:layout_below="@+id/lay28"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2093,6 +2145,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay29"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2136,6 +2189,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay30"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2179,6 +2233,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay31"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2222,6 +2277,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay32"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2265,6 +2321,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay33"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2308,6 +2365,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay34"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2351,6 +2409,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay35"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2394,6 +2453,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay36"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2437,6 +2497,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay37"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2480,6 +2541,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay38"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2523,6 +2585,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay39"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2549,6 +2612,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay40"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2592,6 +2656,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay41"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
@@ -2635,6 +2700,7 @@
             </LinearLayout>
 
             <View
+                android:layout_below="@+id/lay42"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"

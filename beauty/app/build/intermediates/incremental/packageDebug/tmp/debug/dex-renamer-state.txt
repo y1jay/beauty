@@ -1,7 +1,7 @@
-#Tue Sep 15 17:46:32 KST 2020
-base.0=C\:\\Users\\Admin\\Documents\\GitHub\\beauty\\beauty\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Tue Sep 15 22:16:50 KST 2020
+base.0=D\:\\mycom\\Documents\\beauty\\beauty\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\Admin\\Documents\\GitHub\\beauty\\beauty\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.1=D\:\\mycom\\Documents\\beauty\\beauty\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
