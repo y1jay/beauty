@@ -1406,6 +1406,7 @@ id btn_custom_login
 id btn_delete
 id btn_end
 id btn_home
+id btn_myReviews
 id btn_no
 id btn_payment
 id btn_reservation
@@ -1556,6 +1557,7 @@ id holo_light
 id home
 id homeAsUp
 id honorRequest
+id horizontalScrollView2
 id hybrid
 id icon
 id icon_group

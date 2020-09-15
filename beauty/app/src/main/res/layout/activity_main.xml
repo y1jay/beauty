@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
     android:orientation="vertical"
     android:scrollbarThumbHorizontal="@android:color/holo_red_light"
@@ -11,18 +11,34 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="320dp"
-        android:layout_height="160dp"
-        android:layout_marginHorizontal="45dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="10dp"
+        android:scaleType="centerCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
         app:srcCompat="@drawable/name" />
 
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_custom_login"-->
+    <!--        android:layout_width="371dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="20dp"-->
+
+    <!--        android:background="@drawable/kakao_login_large_wide"-->
+    <!--        android:textSize="18sp" />-->
+
+
     <HorizontalScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/horizontalScrollView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/logo"
         android:background="#FFFFFF"
-        android:scrollbarThumbHorizontal="@drawable/big_button">
+        android:scrollbarThumbHorizontal="@drawable/big_button"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,8 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:scaleType="centerCrop"
                 android:layout_marginLeft="50dp"
-                android:layout_weight="1"
                 app:srcCompat="@drawable/photo1" />
 
             <ImageView
@@ -44,16 +60,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo2" />
 
             <ImageView
                 android:id="@+id/img3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:scaleType="centerCrop"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 app:srcCompat="@drawable/photo3" />
 
             <ImageView
@@ -62,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="50dp"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo4" />
 
             <ImageView
@@ -70,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo5" />
 
             <ImageView
@@ -78,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo6" />
 
             <ImageView
@@ -86,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo7" />
 
             <ImageView
@@ -94,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo8" />
 
             <ImageView
@@ -103,7 +118,7 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="50dp"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo9" />
 
             <ImageView
@@ -113,72 +128,64 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:layout_weight="1"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/photo10" />
 
         </LinearLayout>
     </HorizontalScrollView>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/reservation"
+        android:layout_width="110dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="35dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/reservation"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button"
-            android:text="예약하기"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/address"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button"
-            android:text="주소보기"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/reviewcyclerView"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            android:text="리뷰보기"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-    </LinearLayout>
+        android:layout_below="@+id/horizontalScrollView2"
+        android:background="@drawable/button"
+        android:text="예약하기"
+        android:layout_alignParentLeft="true"
+        android:textSize="18sp"
+   />
+    <Button
+        android:id="@+id/address"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/horizontalScrollView2"
+        android:background="@drawable/button"
+        android:text="주소보기"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+   />
+    <Button
+        android:id="@+id/reviewcyclerView"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/horizontalScrollView2"
+        android:background="@drawable/button"
+        android:text="리뷰보기"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_alignParentRight="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+   />
 
     <com.kakao.usermgmt.LoginButton
         android:id="@+id/btn_custom_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:textSize="18sp"></com.kakao.usermgmt.LoginButton>
-
-<!--    <Button-->
-<!--        android:id="@+id/btn_custom_login"-->
-<!--        android:layout_width="371dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="20dp"-->
-
-<!--        android:background="@drawable/kakao_login_large_wide"-->
-<!--        android:textSize="18sp" />-->
-
+        android:layout_above="@id/textView2"
+        android:layout_marginBottom="20dp"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:text="문의 : 010-2842-5656" />
-
-</LinearLayout>
+</RelativeLayout>

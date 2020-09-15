@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
         <activity android:name=".ReviewList"
             android:label="리뷰">
             <meta-data
