@@ -26,7 +26,6 @@ local.properties
 
 proguard/
 
-
 *.log
 
 
@@ -123,4 +122,3 @@ fabric.properties
 
 
 !/gradle/wrapper/gradle-wrapper.jar
-
