@@ -1054,6 +1054,11 @@ public class Reservation extends AppCompatActivity {
             public void onClick(View v) {
                 List<Integer> check = new ArrayList();
 
+                if(check_main_menu1.isChecked()==true){check.add(100);}
+                if(check_main_menu2.isChecked()==true){check.add(100);}
+                if(check_main_menu3.isChecked()==true){check.add(100);}
+                if(check_set_menu1.isChecked()==true){check.add(100);}
+                if(check_set_menu2.isChecked()==true){check.add(100);}
                 if(check_chicken_feet_big1.isChecked()==true){check.add(100);}
                 if(check_chicken_feet_middle1.isChecked()==true){check.add(100);}
                 if(check_chicken_feet_small1.isChecked()==true){check.add(100);}
@@ -1101,14 +1106,13 @@ public class Reservation extends AppCompatActivity {
                 if(check_drink2.isChecked()==true){check.add(1);}
                 if(check_drink3.isChecked()==true){check.add(1);}
 
-
                 if (check.isEmpty()){
                     Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                int sum =0;
                 for (int i = 0; i<check.size(); i++){
-                    int side = i;
-
+                    int side = sum+check.get(i);
                     if (side<100){
                         Toast.makeText(Reservation.this, "사이드 메뉴만으로는 주문이 불가능 합니다", Toast.LENGTH_SHORT).show();
                         return;
