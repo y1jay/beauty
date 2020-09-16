@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E83838</color>
+    <color name="colorPrimaryDark">#E83838</color>
+    <color name="colorAccent">#E83838</color>
+    <color name="price_button_grey">#555</color>
+</resources>
