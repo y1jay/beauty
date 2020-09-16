@@ -1052,9 +1052,69 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Boolean> check = new ArrayList();
+                List<Integer> check = new ArrayList();
 
-                check.add(check_side1.isChecked());
+                if(check_chicken_feet_big1.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_middle1.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_small1.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_big2.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_middle2.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_small2.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_big3.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_middle3.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_small3.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_big4.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_middle4.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_small4.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_big5.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_middle5.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_small5.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_big6.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_middle6.isChecked()==true){check.add(100);}
+                if(check_chicken_feet_small6.isChecked()==true){check.add(100);}
+                if(check_pocha_menu1.isChecked()==true){check.add(100);}
+                if(check_pocha_menu2.isChecked()==true){check.add(100);}
+                if(check_pocha_menu_basick3.isChecked()==true){check.add(100);}
+                if(check_pocha_menu_hot3.isChecked()==true){check.add(100);}
+                if(check_pocha_menu4.isChecked()==true){check.add(100);}
+                if(check_pocha_menu5.isChecked()==true){check.add(100);}
+                if(check_pocha_menu6.isChecked()==true){check.add(100);}
+                if(check_pocha_menu7.isChecked()==true){check.add(100);}
+                if(check_side1.isChecked()==true){check.add(1);}
+                if(check_side2.isChecked()==true){check.add(1);}
+                if(check_side3.isChecked()==true){check.add(1);}
+                if(check_side4.isChecked()==true){check.add(1);}
+                if(check_add1.isChecked()==true){check.add(1);}
+                if(check_add2.isChecked()==true){check.add(1);}
+                if(check_add3.isChecked()==true){check.add(1);}
+                if(check_add4.isChecked()==true){check.add(1);}
+                if(check_add5.isChecked()==true){check.add(1);}
+                if(check_add6.isChecked()==true){check.add(1);}
+                if(check_add7.isChecked()==true){check.add(1);}
+                if(check_add8.isChecked()==true){check.add(1);}
+                if(check_add9.isChecked()==true){check.add(1);}
+                if(check_add10.isChecked()==true){check.add(1);}
+                if(check_add11.isChecked()==true){check.add(1);}
+                if(check_add12.isChecked()==true){check.add(1);}
+                if(check_add13.isChecked()==true){check.add(1);}
+                if(check_drink1.isChecked()==true){check.add(1);}
+                if(check_drink2.isChecked()==true){check.add(1);}
+                if(check_drink3.isChecked()==true){check.add(1);}
+
+
+                if (check.isEmpty()){
+                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                for (int i = 0; i<check.size(); i++){
+                    int side = i;
+
+                    if (side<100){
+                        Toast.makeText(Reservation.this, "사이드 메뉴만으로는 주문이 불가능 합니다", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
 
 
 
