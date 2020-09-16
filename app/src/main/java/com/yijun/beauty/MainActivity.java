@@ -277,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
         txt_delete1 = enterview.findViewById(R.id.txt_delete1);
         img_menu1 = enterview.findViewById(R.id.img_menu1);
 
+
         alert.setView(enterview);
 //        alert.setCancelable(false);
 
