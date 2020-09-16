@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     Button reservation;
     Button review;
     Button address;
-
+    private long time = 0;
     SharedPreferences sp;
 
     private SessionCallback sessionCallback;
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent i = new Intent(MainActivity.this, LodingActivity.class);
         int key = getIntent().getIntExtra("key", 0);
+        Log.i("key","key "+key);
         if (key == 1) {
 
         } else {
@@ -91,7 +92,9 @@ public class MainActivity extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+              Intent i = new Intent(MainActivity.this,ReviewList.class);
+              i.putExtra("review",1);
+              startActivity(i);
             }
         });
     }
@@ -224,6 +227,15 @@ public class MainActivity extends AppCompatActivity {
             super.onCancelled(s);
         }
 
+    }
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - time >= 2000) {
+            time = System.currentTimeMillis();
+            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료합니다.", Toast.LENGTH_SHORT).show();
+        } else if (System.currentTimeMillis() - time < 2000) {
+            finish();
+        }
     }
 }
 

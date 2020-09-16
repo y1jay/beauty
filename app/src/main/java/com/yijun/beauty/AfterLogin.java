@@ -57,17 +57,24 @@ public class AfterLogin extends AppCompatActivity {
     Button address;
     SharedPreferences sp;
 
+    private AlertDialog dialog;
+
+    Button btn_NO;
+    Button btn_out;
+
+    private long time = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
-        int key = getIntent().getIntExtra("key",0);
-        if (key==1){
-            Intent i = new Intent(AfterLogin.this,LodingActivity.class);
+        int key = getIntent().getIntExtra("key", 0);
+        if (key == 1) {
+            Intent i = new Intent(AfterLogin.this, LodingActivity.class);
             startActivity(i);
-        }else{
+        } else {
             String nick_name = getIntent().getStringExtra("nick_name");
-            Toast.makeText(AfterLogin.this,nick_name+" 님 환영합니다",Toast.LENGTH_SHORT).show();
+            Toast.makeText(AfterLogin.this, nick_name + " 님 환영합니다", Toast.LENGTH_SHORT).show();
         }
 
         review = findViewById(R.id.review);
@@ -76,11 +83,10 @@ public class AfterLogin extends AppCompatActivity {
         address = findViewById(R.id.address);
 
         String nick_name = getIntent().getStringExtra("nick_name");
-        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-        SharedPreferences.Editor editor= sp.edit();
+        sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
         editor.putString("nick_name", nick_name);
         editor.apply();
-
 
 
         review.setOnClickListener(new View.OnClickListener() {
@@ -94,17 +100,7 @@ public class AfterLogin extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
-
-                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
-                    @Override
-                    public void onCompleteLogout() {
-                        Intent intent = new Intent(AfterLogin.this, MainActivity.class);
-                        intent.putExtra("key",1);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                    }
-                });
+                logoutDialog();
 
             }
         });
@@ -120,8 +116,8 @@ public class AfterLogin extends AppCompatActivity {
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AfterLogin.this,Address.class);
-                i.putExtra("add",3);
+                Intent i = new Intent(AfterLogin.this, Address.class);
+                i.putExtra("add", 3);
                 startActivity(i);
             }
         });
@@ -139,11 +135,11 @@ public class AfterLogin extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.myInfo){
+        if (id == R.id.myInfo) {
             Intent i = new Intent(AfterLogin.this, MyInfo.class);
             startActivity(i);
             return true;
-        }else if (id == R.id.reservation_check){
+        } else if (id == R.id.reservation_check) {
             Intent i = new Intent(AfterLogin.this, ReservationRecord.class);
             startActivity(i);
             return true;
@@ -154,10 +150,48 @@ public class AfterLogin extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (System.currentTimeMillis() - time >= 2000) {
+            time = System.currentTimeMillis();
+            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료합니다.", Toast.LENGTH_SHORT).show();
+        } else if (System.currentTimeMillis() - time < 2000) {
+            finish();
+        }
+    }
 
-        finish();
+    public void logoutDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
+        View alertView = getLayoutInflater().inflate(R.layout.logout_row,null);
+        btn_out = alertView.findViewById(R.id.btn_out);
+        btn_NO = alertView.findViewById(R.id.btn_NO);
 
+        btn_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
+
+                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                    @Override
+                    public void onCompleteLogout() {
+                        Intent intent = new Intent(AfterLogin.this, MainActivity.class);
+                        intent.putExtra("key", 1);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
+        btn_NO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+        alert.setView(alertView);
+
+        dialog=alert.create();
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
 }
+

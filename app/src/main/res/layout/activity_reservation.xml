@@ -1468,7 +1468,7 @@
                         android:paddingTop="2dp"
                         android:adjustViewBounds="true"
                         android:scaleType="centerInside"
-                        app:srcCompat="@drawable/menu5" />
+                        app:srcCompat="@drawable/photo8" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
