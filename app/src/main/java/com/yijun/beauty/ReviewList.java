@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,7 +50,7 @@ public class ReviewList extends AppCompatActivity {
     EditText edit_review;
     Button btn_cancel;
     Button btn_set;
-    int key;
+
     int offset = 0;
     int cnt = 0;
 
@@ -62,7 +61,6 @@ public class ReviewList extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
 
         reviewcyclerView = findViewById(R.id.reviewcyclerView);
         reviewcyclerView.setHasFixedSize(true);
@@ -102,13 +100,7 @@ public class ReviewList extends AppCompatActivity {
         set_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int rev = getIntent().getIntExtra("review",0);
-                if (rev==1){
-                    Toast.makeText(ReviewList.this,"로그인 후 작성 가능합니다.",Toast.LENGTH_SHORT).show();
-                    return;
-                }else{
                 createPopupDialog();
-                }
             }
         });
     }
@@ -259,15 +251,28 @@ public class ReviewList extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
     }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.home){
-            Intent i =new Intent(ReviewList.this,MainActivity.class);
-            i.putExtra("key",1);
-            startActivity(i);
-            return true;
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default: return super.onOptionsItemSelected(item);
         }
-
-       return super.onOptionsItemSelected(item);
     }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
+//        reviewcyclerView.setAdapter(adapter);
+//        arraylist.addAll(reviewArrayList);
+//        adapter.notifyDataSetChanged();
+//
+////        DatabaseHandler db = new DatabaseHandler(MoveRecord.this);
+////        moveRecordArrayList = db.getAllRecord();
+////        // 어댑터를 연결해야지 화면에 표시가 됨.
+////        recyclerViewAdapter = new RecyclerViewAdapter(MoveRecord.this, moveRecordArrayList);
+////        recyclerView.setAdapter(recyclerViewAdapter);
+//    }
+
+
 }

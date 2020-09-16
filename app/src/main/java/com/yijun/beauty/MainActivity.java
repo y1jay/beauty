@@ -3,14 +3,19 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kakao.auth.ApiErrorCode;
@@ -36,11 +41,31 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+
     Button reservation;
     Button review;
     Button address;
-    private long time = 0;
+
+    ImageView img1;
+    ImageView img2;
+    ImageView img3;
+    ImageView img4;
+    ImageView img5;
+    ImageView img6;
+    ImageView img7;
+    ImageView img8;
+    ImageView img9;
+    ImageView img10;
+    ImageView img11;
+
+
+    // 메뉴 다이얼로그
+    ImageView img_menu1;
+    TextView txt_delete1;
+
+
+    private AlertDialog dialog;
+
     SharedPreferences sp;
 
     private SessionCallback sessionCallback;
@@ -51,9 +76,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        img1 = findViewById(R.id.img1);
+        img2 = findViewById(R.id.img2);
+
+
+
+        img1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog();
+            }
+        });
+
+
         Intent i = new Intent(MainActivity.this, LodingActivity.class);
         int key = getIntent().getIntExtra("key", 0);
-        Log.i("key","key "+key);
         if (key == 1) {
 
         } else {
@@ -92,9 +129,7 @@ public class MainActivity extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              Intent i = new Intent(MainActivity.this,ReviewList.class);
-              i.putExtra("review",1);
-              startActivity(i);
+
             }
         });
     }
@@ -227,16 +262,29 @@ public class MainActivity extends AppCompatActivity {
             super.onCancelled(s);
         }
 
+
+
+
+
+
     }
-    @Override
-    public void onBackPressed() {
-        if (System.currentTimeMillis() - time >= 2000) {
-            time = System.currentTimeMillis();
-            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료합니다.", Toast.LENGTH_SHORT).show();
-        } else if (System.currentTimeMillis() - time < 2000) {
-            finish();
-        }
+
+    public void createMenuDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
+
+
+        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
+        img_menu1 = enterview.findViewById(R.id.img_menu1);
+
+        alert.setView(enterview);
+//        alert.setCancelable(false);
+
+        dialog = alert.create();
+        dialog.show();
+
     }
+
 }
 
 
