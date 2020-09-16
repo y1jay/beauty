@@ -1058,14 +1058,17 @@ public class Reservation extends AppCompatActivity {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()) {
                             orderArrayList = response.body().getRows();
+                            Log.i("AAAAA","dd : "+orderArrayList.toString());
 
-                            adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
-                            recyclerView.setAdapter(adapter);
-                            Log.i("menu", orderArrayList.toString());
+                            if (response.body().getRows().toString().isEmpty()){
+                                Toast.makeText(Reservation.this,"메뉴를 선택해주세요",Toast.LENGTH_SHORT).show();
+                                return;
+                            }else {
+                                adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
+                                recyclerView.setAdapter(adapter);
+                                Log.i("menu", orderArrayList.toString());
+                            }
 
-                        }else if (response.body().getRows().isEmpty()){
-                            Toast.makeText(Reservation.this,"메뉴를 선택해주세요",Toast.LENGTH_SHORT).show();
-                            return;
                         }
                         else {
 
@@ -1098,6 +1101,7 @@ public class Reservation extends AppCompatActivity {
                 });
 
                 alert.setView(alertView);
+
 
                 alertDialog = alert.create();
                 alertDialog.setCancelable(false);
