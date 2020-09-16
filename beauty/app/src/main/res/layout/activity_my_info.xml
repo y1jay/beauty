@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,6 @@
     tools:context=".MyInfo">
 
     <TextView
-
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,8 +18,10 @@
         android:textSize="36sp" />
 
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
@@ -48,6 +49,7 @@
         android:id="@+id/txt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ll"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="20dp"
         android:text="TextView"
@@ -58,6 +60,7 @@
         android:id="@+id/txt_created_at"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_email"
         android:layout_marginBottom="50dp"
         android:layout_marginHorizontal="20dp"
         android:text="TextView"
@@ -69,6 +72,7 @@
         android:id="@+id/btn_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_created_at"
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/button"
         android:text="닉네임 수정하기"
@@ -78,20 +82,11 @@
         android:id="@+id/btn_end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_update"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button"
         android:text="회원탈퇴"
         android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/btn_myReviews"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/button"
-        android:text="리뷰 관리"
-        android:textSize="18sp" />
-
-</LinearLayout>
+</RelativeLayout>

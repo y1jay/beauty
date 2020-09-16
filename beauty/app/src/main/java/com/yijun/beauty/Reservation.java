@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +41,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class Reservation extends AppCompatActivity {
+
+    public static Context mContext;
+    Double total_price;
 
     Button btn_payment;
 
@@ -192,8 +198,9 @@ public class Reservation extends AppCompatActivity {
     OrderSheetAdapter adapter;
     ArrayList<Orders> orderArrayList = new ArrayList<>();
     TextView price;
-    CheckBox take_out;
-    CheckBox store;
+    RadioGroup radio_group;
+    RadioButton take_out;
+    RadioButton store;
     Button order_no;
     Button order_payment;
 
@@ -205,6 +212,7 @@ public class Reservation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
+        mContext = this;
 
         check_main_menu1 = findViewById(R.id.check_main_menu1);
         check_main_menu2 = findViewById(R.id.check_main_menu2);
@@ -1025,10 +1033,10 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 price = alertView.findViewById(R.id.price);
+                radio_group = alertView.findViewById(R.id.radio_group);
                 take_out = alertView.findViewById(R.id.take_out);
                 store = alertView.findViewById(R.id.store);
                 order_no = alertView.findViewById(R.id.order_no);
@@ -1037,14 +1045,6 @@ public class Reservation extends AppCompatActivity {
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Reservation.this));
 
-                price_total(price);
-
-
-//                if(check_add1.isChecked()!=true){
-//                    Toast.makeText(Reservation.this,"메뉴를 선택해주세요",Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-                
                 String nick_name = sp.getString("nick_name", null);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1058,20 +1058,30 @@ public class Reservation extends AppCompatActivity {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()) {
                             orderArrayList = response.body().getRows();
-                            Log.i("AAAAA","dd : "+orderArrayList.toString());
-
-                            if (response.body().getRows().toString().isEmpty()){
-                                Toast.makeText(Reservation.this,"메뉴를 선택해주세요",Toast.LENGTH_SHORT).show();
+                            if (orderArrayList.isEmpty()){
+                                Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
                                 return;
-                            }else {
-                                adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
-                                recyclerView.setAdapter(adapter);
-                                Log.i("menu", orderArrayList.toString());
                             }
 
-                        }
-                        else {
+                            adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
+                            recyclerView.setAdapter(adapter);
+                            Log.i("menu", orderArrayList.toString());
 
+//                            price_total(price);
+//                            take_out(0);
+//
+//                            radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//                                @Override
+//                                public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                                    if (checkedId == R.id.take_out){
+//                                        take_out(1);
+//                                    }else if (checkedId == R.id.store) {
+//                                        take_out(0);
+//                                    }
+//                                }
+//                            });
+
+                        }else {
                             Log.i("menu", "success = fail");
                         }
                     }
@@ -1086,8 +1096,7 @@ public class Reservation extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-//                        i.putExtra("main", main );
-//                        i.putExtra("pay",);
+                        i.putExtra("total_price", total_price);
                         startActivity(i);
                     }
                 });
@@ -1101,7 +1110,6 @@ public class Reservation extends AppCompatActivity {
                 });
 
                 alert.setView(alertView);
-
 
                 alertDialog = alert.create();
                 alertDialog.setCancelable(false);
@@ -1180,9 +1188,9 @@ public class Reservation extends AppCompatActivity {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()){
                     String rows = response.body().getTotal();
-                    long tlqkf = Long.parseLong(rows);
+                    total_price = Double.parseDouble(rows);
                     DecimalFormat format = new DecimalFormat("###,###");//콤마
-                    String total = format.format(tlqkf);
+                    String total = format.format(total_price);
                     Log.i("total", total);
                     textView.setText(total);
                 }else {
@@ -1197,6 +1205,33 @@ public class Reservation extends AppCompatActivity {
         });
     }
 
+    // take_out 여부
+    public void take_out(int take_out, int people_number, String time){
+        String nick_name =sp.getString("nick_name",null);
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.add(nick_name, take_out, people_number, time);
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()){
+
+                }else {
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+                Log.i("total", t.toString());
+            }
+        });
+    }
+
+    // nick_name = nick_name 인 사람의 주문서 전부 삭제
     public void cancle(){
         String nick_name =sp.getString("nick_name",null);
 

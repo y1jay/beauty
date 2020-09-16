@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,13 +44,12 @@ import retrofit2.http.Body;
 public class ReviewList extends AppCompatActivity {
     RecyclerView reviewcyclerView;
     ReviewclerViewAdapter adapter;
-    List<Rows> reviewArrayList = new ArrayList<>();
+    ArrayList<Rows> reviewArrayList = new ArrayList<>();
 
     Button set_review;
     SharedPreferences sp;
 
     private AlertDialog dialog;
-    String baseUrl = Utils.BASE_URL+"/api/v1/review/select";
 
     TextView txt_nick_name;
     RatingBar ratingbar;
@@ -59,8 +57,6 @@ public class ReviewList extends AppCompatActivity {
     Button btn_cancel;
     Button btn_set;
 
-    Button btn_update;
-    Button btn_delete;
     int offset = 0;
     int cnt = 0;
 
@@ -93,14 +89,13 @@ public class ReviewList extends AppCompatActivity {
                 if(lastPosition == totalCount){
 
                     if(offset >= 25){
-
+//                        offset = cnt + offset;
                         addNetworkData();
                     }else if(offset < 25){
                         Toast.makeText(ReviewList.this, "모든 리뷰를 표시했습니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
-
         });
 
         set_review= findViewById(R.id.set_review);
@@ -138,8 +133,6 @@ public class ReviewList extends AppCompatActivity {
                 adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
                 reviewcyclerView.setAdapter(adapter);
 
-                Log.i("AAAAA",reviewArrayList.toString());
-
             }
             @Override
             public void onFailure(Call<ReviewRes> call, Throwable t) {
@@ -162,20 +155,16 @@ public class ReviewList extends AppCompatActivity {
 
                 Log.i("AAAA",response.body().getCnt().toString());
 
-               ArrayList <Rows> rows = new ArrayList<>();
-                rows = response.body().getRows();
+                List<Rows> arraylist = new ArrayList<>();
+                arraylist = response.body().getRows();
                 cnt = response.body().getCnt();
                 offset = cnt + offset;
                 if (cnt < 25){
                     offset = cnt;
                 }
 
-
-                reviewArrayList.addAll(rows);
+                reviewArrayList.addAll(arraylist);
                 adapter.notifyDataSetChanged();
-//                reviewArrayList.addAll(reviewArrayList);
-                Log.i("AAAAA",reviewArrayList.toString());
-
             }
 
             @Override
@@ -185,6 +174,7 @@ public class ReviewList extends AppCompatActivity {
         });
 
     }
+
 
 
     public void createPopupDialog(){
@@ -275,7 +265,20 @@ public class ReviewList extends AppCompatActivity {
             default: return super.onOptionsItemSelected(item);
         }
     }
-
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        adapter = new ReviewclerViewAdapter(ReviewList.this, reviewArrayList);
+//        reviewcyclerView.setAdapter(adapter);
+//        arraylist.addAll(reviewArrayList);
+//        adapter.notifyDataSetChanged();
+//
+////        DatabaseHandler db = new DatabaseHandler(MoveRecord.this);
+////        moveRecordArrayList = db.getAllRecord();
+////        // 어댑터를 연결해야지 화면에 표시가 됨.
+////        recyclerViewAdapter = new RecyclerViewAdapter(MoveRecord.this, moveRecordArrayList);
+////        recyclerView.setAdapter(recyclerViewAdapter);
+//    }
 
 
 }

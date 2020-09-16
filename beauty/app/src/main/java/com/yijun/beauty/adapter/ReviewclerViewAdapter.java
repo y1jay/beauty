@@ -1,17 +1,12 @@
 package com.yijun.beauty.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -23,15 +18,16 @@ import com.yijun.beauty.model.Rows;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
 public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAdapter.ViewHolder> {
     Context context;
-    List<Rows> reviewArrayList;
+    ArrayList<Rows> reviewArrayList;
 
-    public ReviewclerViewAdapter(Context context, List<Rows> reviewArrayList){
+    public ReviewclerViewAdapter(Context context, ArrayList<Rows> reviewArrayList){
         this.context = context;
         this.reviewArrayList = reviewArrayList;
     }
@@ -86,6 +82,7 @@ public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAd
         public CardView cardView;
 
 
+
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             txt_nick_name = itemView.findViewById(R.id.txt_nick_name);
@@ -94,8 +91,8 @@ public class ReviewclerViewAdapter extends RecyclerView.Adapter<ReviewclerViewAd
             ratingBar = itemView.findViewById(R.id.ratingBar);
             cardView = itemView.findViewById(R.id.cardView);
 
+
+
         }
-
     }
-
 }

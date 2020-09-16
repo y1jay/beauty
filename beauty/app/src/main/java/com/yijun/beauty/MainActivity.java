@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.kakao.auth.ApiErrorCode;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     Button reservation;
     Button review;
     Button address;
-    ImageView logo;
+
     SharedPreferences sp;
 
     private SessionCallback sessionCallback;
@@ -66,12 +65,10 @@ public class MainActivity extends AppCompatActivity {
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
 
-        logo = findViewById(R.id.logo);
+
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
         review = findViewById(R.id.reviewcyclerView);
-
-        logo.setImageResource(R.drawable.name);
 
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
                 CheckTypesTask task = new CheckTypesTask();
                 task.execute();
                 startActivity(i);
+            }
+        });
+
+        review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

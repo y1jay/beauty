@@ -79,7 +79,7 @@ public class Constants {
      *
      * @value #SHIPPING_SUPPORTED_COUNTRIES
      */
-    public static final List<String> SHIPPING_SUPPORTED_COUNTRIES = Arrays.asList("US", "GB");
+//    public static final List<String> SHIPPING_SUPPORTED_COUNTRIES = Arrays.asList("US", "GB");
 
     /**
      * 결제 처리자 / 게이트웨이의 이름입니다. 자세한 내용은 해당 설명서를 참조하십시오.

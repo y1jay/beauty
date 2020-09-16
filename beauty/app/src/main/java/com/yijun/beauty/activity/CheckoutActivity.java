@@ -3,6 +3,7 @@ package com.yijun.beauty.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -11,11 +12,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,8 +31,15 @@ import com.google.android.gms.wallet.PaymentDataRequest;
 import com.google.android.gms.wallet.PaymentsClient;
 import com.yijun.beauty.MyInfo;
 import com.yijun.beauty.R;
+import com.yijun.beauty.Reservation;
 import com.yijun.beauty.ReservationRecord;
+import com.yijun.beauty.adapter.OrderSheetAdapter;
+import com.yijun.beauty.api.NetworkClient;
+import com.yijun.beauty.api.ReservationApi;
 import com.yijun.beauty.databinding.ActivityCheckoutBinding;
+import com.yijun.beauty.model.Orders;
+import com.yijun.beauty.model.ReservationRes;
+import com.yijun.beauty.url.Utils;
 import com.yijun.beauty.utils.Json;
 import com.yijun.beauty.utils.Notifications;
 import com.yijun.beauty.utils.PaymentsUtil;
@@ -37,8 +48,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 /**
  * 앱에 대한 결제 구현
@@ -58,6 +76,11 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private JSONArray garmentList;
     private JSONObject selectedGarment;
+    Double total;
+    RecyclerView recyclerView;
+    OrderSheetAdapter adapter;
+    ArrayList<Orders> orderArrayList = new ArrayList<>();
+    SharedPreferences sp;
 
     TextView detailTitle;
     TextView detailPrice;
@@ -90,11 +113,46 @@ public class CheckoutActivity extends AppCompatActivity {
         detailTitle = findViewById(R.id.detailTitle);
         detailPrice = findViewById(R.id.detailPrice);
 
-        String title = getIntent().getStringExtra("main");
-        String price = getIntent().getStringExtra("pay");
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(CheckoutActivity.this));
 
-        detailTitle.setText(title);
-        detailPrice.setText(price);
+        // 주문정보 표시 api
+        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+        String nick_name = sp.getString("nick_name", null);
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(CheckoutActivity.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()) {
+                    orderArrayList = response.body().getRows();
+
+                    total = getIntent().getDoubleExtra("total_price", 0);
+                    DecimalFormat format = new DecimalFormat("###,###");//콤마
+                    String total_price = format.format(total);
+                    layoutBinding.detailPrice.setText(total_price+"원");
+                    Log.i("detailPrice", total_price);
+
+                    adapter = new OrderSheetAdapter(CheckoutActivity.this, orderArrayList);
+                    recyclerView.setAdapter(adapter);
+                    Log.i("menu", orderArrayList.toString());
+
+                }else {
+                    Log.i("menu", "success = fail");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+                Log.i("menu", "fail");
+            }
+        });
 
 
         // 테스트에 적합한 환경을 위해 Google Pay API 클라이언트 초기화.
@@ -319,33 +377,30 @@ public class CheckoutActivity extends AppCompatActivity {
         // 버튼을 비활성화하여 다중클릭을 방지함.
         googlePayButton.setClickable(false);
 
-        // API 에 제공되는 가격헤는 세금 및 배송비가 포함되어야 함.
+        // API 에 제공되는 가격에는 세금 및 배송비가 포함되어야 함.
         // 이 가격은 사용자에게 표시되지 않음.
-        try {
-            double garmentPrice = selectedGarment.getDouble("price");
-            long garmentPriceCents = Math.round(garmentPrice * PaymentsUtil.CENTS_IN_A_UNIT.longValue());
-            long priceCents = garmentPriceCents + SHIPPING_COST_CENTS;
+        //            ((Reservation)Reservation.mContext).price_total(detailPrice);
+        double garmentPrice = total;
+        long garmentPriceCents = Math.round(garmentPrice * PaymentsUtil.CENTS_IN_A_UNIT.longValue());
+        long priceCents = garmentPriceCents + SHIPPING_COST_CENTS;
 
-            Optional<JSONObject> paymentDataRequestJson = PaymentsUtil.getPaymentDataRequest(priceCents);
-            if (!paymentDataRequestJson.isPresent()) {
-                return;
-            }
-
-            PaymentDataRequest request =
-                    PaymentDataRequest.fromJson(paymentDataRequestJson.get().toString());
-
-            // loadPaymentData 는 사용자에게 결제 방법을 선택하도록 요청하는 UI를 표시 할 수 있으므로
-            // AutoResolveHelper 를 사용하여 사용자가 상호 작용할 때까지 기다린다.
-            // 완료되면 onActivityResult 가 결과와 함께 호출됨.
-            if (request != null) {
-                AutoResolveHelper.resolveTask(
-                        paymentsClient.loadPaymentData(request),
-                        this, LOAD_PAYMENT_DATA_REQUEST_CODE);
-            }
-
-        } catch (JSONException e) {
-            throw new RuntimeException("The price cannot be deserialized from the JSON object.");
+        Optional<JSONObject> paymentDataRequestJson = PaymentsUtil.getPaymentDataRequest(priceCents);
+        if (!paymentDataRequestJson.isPresent()) {
+            return;
         }
+
+        PaymentDataRequest request =
+                PaymentDataRequest.fromJson(paymentDataRequestJson.get().toString());
+
+        // loadPaymentData 는 사용자에게 결제 방법을 선택하도록 요청하는 UI를 표시 할 수 있으므로
+        // AutoResolveHelper 를 사용하여 사용자가 상호 작용할 때까지 기다린다.
+        // 완료되면 onActivityResult 가 결과와 함께 호출됨.
+        if (request != null) {
+            AutoResolveHelper.resolveTask(
+                    paymentsClient.loadPaymentData(request),
+                    this, LOAD_PAYMENT_DATA_REQUEST_CODE);
+        }
+
     }
 
 //    private JSONObject fetchRandomGarment() {

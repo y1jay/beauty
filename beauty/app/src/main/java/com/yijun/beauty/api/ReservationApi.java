@@ -8,6 +8,7 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ReservationApi {
@@ -28,4 +29,10 @@ public interface ReservationApi {
 
     @GET("api/v1/reservation")
     Call<ReservationRes> total(@Query("nick_name") String nick_name);
+
+    @PUT("api/v1/reservation/add")
+    Call<ReservationRes> add(@Query("nick_name") String nick_name,
+                                  @Query("take_out") int take_out,
+                                  @Query("people_number") int people_number,
+                                  @Query("time") String time);
 }

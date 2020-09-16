@@ -3,6 +3,7 @@ package com.yijun.beauty.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rows {
@@ -31,7 +32,7 @@ public class Rows {
         this.rating = rating;
     }
 
-    public Rows(List<Rows> rows){
+    public Rows(ArrayList<Rows> rows){
     }
 
     public Integer getId() {
