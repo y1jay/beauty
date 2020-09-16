@@ -53,7 +53,6 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif"
             android:gravity="right"
-            android:text="TextView"
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -75,21 +74,29 @@
         android:gravity="right"
         android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/take_out"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="#E83838"
-            android:text="포장"
-            android:textSize="20sp" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/store"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="#E83838"
-            android:text="매장"
-            android:textSize="20sp" />
+            <CheckBox
+                android:id="@+id/take_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#E83838"
+                android:text="포장"
+                android:textSize="20sp" />
+
+            <CheckBox
+                android:id="@+id/store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#E83838"
+                android:text="매장"
+                android:textSize="20sp" />
+        </RadioGroup>
+
     </LinearLayout>
 
 

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yijun.beauty.activity.CheckoutActivity;
 import com.yijun.beauty.adapter.OrderSheetAdapter;
@@ -1024,6 +1025,7 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 price = alertView.findViewById(R.id.price);
@@ -1037,6 +1039,12 @@ public class Reservation extends AppCompatActivity {
 
                 price_total(price);
 
+
+//                if(check_add1.isChecked()!=true){
+//                    Toast.makeText(Reservation.this,"메뉴를 선택해주세요",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+                
                 String nick_name = sp.getString("nick_name", null);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1055,7 +1063,12 @@ public class Reservation extends AppCompatActivity {
                             recyclerView.setAdapter(adapter);
                             Log.i("menu", orderArrayList.toString());
 
-                        }else {
+                        }else if (response.body().getRows().isEmpty()){
+                            Toast.makeText(Reservation.this,"메뉴를 선택해주세요",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        else {
+
                             Log.i("menu", "success = fail");
                         }
                     }
