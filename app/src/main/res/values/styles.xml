@@ -27,4 +27,12 @@
         <item name="android:background">@drawable/price_button_background</item>
     </style>
 
+<!--  다이얼로그 투명하게 해주는 스타일 -->
+    <style name="Theme.AppCompat.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
 </resources>

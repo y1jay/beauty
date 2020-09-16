@@ -11,14 +11,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -202,7 +198,6 @@ public class Reservation extends AppCompatActivity {
     OrderSheetAdapter adapter;
     ArrayList<Orders> orderArrayList = new ArrayList<>();
     TextView price;
-    Spinner people_spinner;
     RadioGroup radio_group;
     RadioButton take_out;
     RadioButton store;
@@ -1041,7 +1036,6 @@ public class Reservation extends AppCompatActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 price = alertView.findViewById(R.id.price);
-                people_spinner = alertView.findViewById(R.id.people_spinner);
                 radio_group = alertView.findViewById(R.id.radio_group);
                 take_out = alertView.findViewById(R.id.take_out);
                 store = alertView.findViewById(R.id.store);
@@ -1050,35 +1044,6 @@ public class Reservation extends AppCompatActivity {
                 recyclerView = alertView.findViewById(R.id.recyclerView);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Reservation.this));
-
-                ArrayAdapter people_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.people_number, android.R.layout.simple_spinner_dropdown_item);
-                people_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                people_spinner.setAdapter(people_adapter);
-
-                people_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(Reservation.this,"선택된 아이템 : "+people_spinner.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-
-
-
-//                people_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                    } //이 오버라이드 메소드에서 position은 몇번째 값이 클릭됬는지 알 수 있습니다.
-//                    //getItemAtPosition(position)를 통해서 해당 값을 받아올수있습니다.
-//                    Toast.makeText(MainActivity.this,"선택된 아이템 : "+spinner.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> parent) { }
-//                });
 
                 String nick_name = sp.getString("nick_name", null);
 
@@ -1102,7 +1067,7 @@ public class Reservation extends AppCompatActivity {
                             recyclerView.setAdapter(adapter);
                             Log.i("menu", orderArrayList.toString());
 
-                            price_total(price);
+//                            price_total(price);
 //                            take_out(0);
 //
 //                            radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
