@@ -1407,7 +1407,6 @@ id btn_custom_login
 id btn_delete
 id btn_end
 id btn_home
-id btn_myReviews
 id btn_no
 id btn_payment
 id btn_reservation
@@ -1506,8 +1505,6 @@ id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
 id deltaRelative
-id detailDescription
-id detailImage
 id detailPrice
 id detailTitle
 id dialog_button
@@ -1647,6 +1644,7 @@ id line3
 id linear
 id listMode
 id list_item
+id ll
 id login_close_button
 id login_close_layout
 id login_list_view
@@ -1784,6 +1782,7 @@ id progress_circular
 id progress_horizontal
 id qwe
 id radio
+id radio_group
 id ratingBar
 id ratio
 id rectangles
@@ -1829,6 +1828,7 @@ id side_menu4
 id sin
 id slide
 id spacer
+id spinner
 id spline
 id split_action_bar
 id spread
@@ -1869,6 +1869,8 @@ id textSpacerNoTitle
 id textVie332w5
 id textView
 id textView0
+id textView11
+id textView12
 id textView2
 id textView22
 id textView3
@@ -1881,6 +1883,7 @@ id textView618
 id textView66
 id textView68
 id textView69
+id textView7
 id textView8
 id textView9
 id time
@@ -1891,6 +1894,7 @@ id toggle
 id top
 id topPanel
 id total
+id total_record
 id transitionToEnd
 id transitionToStart
 id triangle
