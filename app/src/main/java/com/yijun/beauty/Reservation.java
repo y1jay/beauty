@@ -1112,16 +1112,14 @@ public class Reservation extends AppCompatActivity {
                     Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                int sum =0;
-                for (int i = 0; i<check.size(); i++){
-                     sum+=check.get(i);
-                    if (sum<100){
+
+                for (int i = 0; i<check.size(); i++) {
+                    int side = check.get(i);
+                    if (side < 100) {
                         Toast.makeText(Reservation.this, "사이드 메뉴만으로는 주문이 불가능 합니다", Toast.LENGTH_SHORT).show();
                         return;
                     }
-
                 }
-
 
 
 
@@ -1268,6 +1266,7 @@ public class Reservation extends AppCompatActivity {
                     alertDialog = alert.create();
                     alertDialog.setCancelable(false);
                     alertDialog.show();
+
 
             }
         });
