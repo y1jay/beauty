@@ -3,19 +3,14 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kakao.auth.ApiErrorCode;
@@ -41,30 +36,10 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    RecyclerView recyclerView;
     Button reservation;
     Button review;
     Button address;
-
-    ImageView img1;
-    ImageView img2;
-    ImageView img3;
-    ImageView img4;
-    ImageView img5;
-    ImageView img6;
-    ImageView img7;
-    ImageView img8;
-    ImageView img9;
-    ImageView img10;
-    ImageView img11;
-
-
-    // 메뉴 다이얼로그
-    ImageView img_menu1;
-    TextView txt_delete1;
-
-
-    private AlertDialog dialog;
 
     SharedPreferences sp;
 
@@ -75,19 +50,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        img1 = findViewById(R.id.img1);
-        img2 = findViewById(R.id.img2);
-
-
-
-        img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog();
-            }
-        });
-
 
         Intent i = new Intent(MainActivity.this, LodingActivity.class);
         int key = getIntent().getIntExtra("key", 0);
@@ -262,29 +224,7 @@ public class MainActivity extends AppCompatActivity {
             super.onCancelled(s);
         }
 
-
-
-
-
-
     }
-
-    public void createMenuDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
-
-
-        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
-        img_menu1 = enterview.findViewById(R.id.img_menu1);
-
-        alert.setView(enterview);
-//        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-
-    }
-
 }
 
 

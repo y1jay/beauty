@@ -22,8 +22,11 @@ import android.widget.Toast;
 import com.yijun.beauty.adapter.ReviewclerViewAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReviewApi;
+import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.Review;
 import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;
+import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
 
@@ -34,6 +37,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.http.Body;
 
 public class ReviewList extends AppCompatActivity {
     RecyclerView reviewcyclerView;
