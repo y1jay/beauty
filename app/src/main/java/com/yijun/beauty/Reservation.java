@@ -32,6 +32,7 @@ import com.yijun.beauty.model.Orders;
 import com.yijun.beauty.model.ReservationReq;
 import com.yijun.beauty.model.ReservationRes;
 import com.yijun.beauty.model.Rows;
+import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
 
 import org.w3c.dom.Text;
@@ -1052,6 +1053,12 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(Reservation.this)){
+                    Toast.makeText(Reservation.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    finish();
+                    return;
+                }
+
                 List<Integer> check = new ArrayList();
                 if(check_main_menu1.isChecked()==true){check.add(1000);}
                 if(check_main_menu2.isChecked()==true){check.add(1001);}
