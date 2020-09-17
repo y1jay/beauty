@@ -232,6 +232,8 @@ public class Reservation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
         mContext = this;
+        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+        cancle();
 
         check_main_menu1 = findViewById(R.id.check_main_menu1);
         check_main_menu2 = findViewById(R.id.check_main_menu2);
@@ -1044,9 +1046,6 @@ public class Reservation extends AppCompatActivity {
                 }
             }
         });
-
-
-        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
 
         btn_payment = findViewById(R.id.btn_payment);
         btn_payment.setOnClickListener(new View.OnClickListener() {
