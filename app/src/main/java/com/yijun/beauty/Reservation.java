@@ -1067,7 +1067,7 @@ public class Reservation extends AppCompatActivity {
                             recyclerView.setAdapter(adapter);
                             Log.i("menu", orderArrayList.toString());
 
-//                            price_total(price);
+                            price_total(price);
 //                            take_out(0);
 //
 //                            radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
