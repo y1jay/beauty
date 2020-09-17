@@ -233,6 +233,7 @@ public class AfterLogin extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
     }
+
     private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
         ProgressDialog asyncDialog = new ProgressDialog(AfterLogin.this);
 
