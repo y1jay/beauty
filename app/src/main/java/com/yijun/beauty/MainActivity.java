@@ -234,11 +234,11 @@ public class MainActivity extends AppCompatActivity {
                                     intent.putExtra("email", "none");
                                 Log.i("email : ", result.getKakaoAccount().getEmail());
 
-                                finish();
+
                                 CheckTypesTask task = new CheckTypesTask();
                                 task.execute();
                                 startActivity(intent);
-
+                                finish();
                             }
 
                         }
