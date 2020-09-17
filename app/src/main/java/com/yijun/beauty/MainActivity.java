@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
 
-
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
         review = findViewById(R.id.reviewcyclerView);
@@ -128,10 +127,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login_dialog();
-                YoYo.with(Techniques.FlipInX)
-                        .duration(1000)
-                        .repeat(3)
-                        .playOn(findViewById(R.id.ffff));
             }
         });
     }
@@ -139,17 +134,15 @@ public class MainActivity extends AppCompatActivity {
     public void login_dialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View alertView = getLayoutInflater().inflate(R.layout.login_menu,null);
-
         sign_up = alertView.findViewById(R.id.sign_up);
         login = alertView.findViewById(R.id.login);
         btn_custom_login = alertView.findViewById(R.id.btn_custom_login);
-
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-        }
+            }
         });
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -159,26 +152,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-           YoYo.with(Techniques.FlipInX)
-                .duration(1000)
-                .repeat(3)
-                .playOn(findViewById(R.id.sign_up));
-        YoYo.with(Techniques.FlipInX)
-                .duration(1000)
-                .repeat(3)
-                .playOn(findViewById(R.id.login));
-        YoYo.with(Techniques.FlipInX)
-                .duration(1000)
-                .repeat(3)
-                .playOn(findViewById(R.id.btn_custom_login));
-
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(5)
+                .playOn(sign_up);
 
         alert.setView(alertView);
+
         dialog=alert.create();
         dialog.setCancelable(true);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.show();
-
     }
 
     @Override
