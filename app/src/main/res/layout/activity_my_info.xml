@@ -76,7 +76,7 @@
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/button"
         android:text="닉네임 수정하기"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btn_end"
