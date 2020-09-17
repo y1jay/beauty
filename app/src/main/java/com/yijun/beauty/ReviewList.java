@@ -51,7 +51,6 @@ public class ReviewList extends AppCompatActivity {
     EditText edit_review;
     Button btn_cancel;
     Button btn_set;
-    int key;
     int offset = 0;
     int cnt = 0;
 
@@ -262,7 +261,7 @@ public class ReviewList extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.home){
-            Intent i =new Intent(ReviewList.this,MainActivity.class);
+            Intent i = new Intent(ReviewList.this,MainActivity.class);
             i.putExtra("key",1);
             startActivity(i);
             return true;
