@@ -156,7 +156,7 @@
         android:id="@+id/qwe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_custom_login"
+        android:layout_above="@+id/beauty"
 
         android:layout_marginBottom="25dp"
         android:gravity="center_horizontal"
@@ -194,6 +194,41 @@
             android:text="리뷰보기"
             android:textColor="#000000"
             android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/beauty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/btn_custom_login"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="220dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/big_button"
+            android:text="로그인"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="110dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/big_button"
+            android:text="회원가입"
+            android:textColor="#000000"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <com.kakao.usermgmt.LoginButton
@@ -201,11 +236,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
-        android:layout_marginBottom="15dip"
+        android:layout_marginBottom="10dip"
         android:layout_weight="1"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:textSize="18sp" />
+        android:textSize="18sp" >
+
+    </com.kakao.usermgmt.LoginButton>
 
     <TextView
         android:id="@+id/textView2"
