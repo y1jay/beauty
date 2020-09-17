@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.kakao.auth.ApiErrorCode;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -77,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         sessionCallback = new SessionCallback(); //SessionCallback 초기화
         Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
-
 
 
         reservation = findViewById(R.id.reservation);
@@ -150,6 +151,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(5)
+                .playOn(sign_up);
 
         alert.setView(alertView);
 
