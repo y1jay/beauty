@@ -82,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(MainActivity.this)){
+                    Toast.makeText(MainActivity.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent i = new Intent(MainActivity.this, Address.class);
                 i.putExtra("add", 1);
                 CheckTypesTask task = new CheckTypesTask();
@@ -99,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                 }
               Intent i = new Intent(MainActivity.this,ReviewList.class);
               i.putExtra("review",1);
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
               startActivity(i);
             }
         });

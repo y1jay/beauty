@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -104,6 +106,8 @@ public class AfterLogin extends AppCompatActivity {
                     return;
                 }
                 Intent i = new Intent(AfterLogin.this, ReviewList.class);
+               CheckTypesTask task = new CheckTypesTask();
+                task.execute();
                 startActivity(i);
             }
         });
@@ -125,6 +129,8 @@ public class AfterLogin extends AppCompatActivity {
                     return;
                 }
                 Intent i = new Intent(AfterLogin.this, Reservation.class);
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
                 startActivity(i);
             }
         });
@@ -132,8 +138,14 @@ public class AfterLogin extends AppCompatActivity {
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+                    Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    return ;
+                }
                 Intent i = new Intent(AfterLogin.this, Address.class);
                 i.putExtra("add", 3);
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
                 startActivity(i);
             }
         });
@@ -157,6 +169,8 @@ public class AfterLogin extends AppCompatActivity {
                 return false;
             }
             Intent i = new Intent(AfterLogin.this, MyInfo.class);
+            CheckTypesTask task = new CheckTypesTask();
+            task.execute();
             startActivity(i);
             return true;
         } else if (id == R.id.reservation_check) {
@@ -165,6 +179,8 @@ public class AfterLogin extends AppCompatActivity {
                 return false;
             }
             Intent i = new Intent(AfterLogin.this, ReservationRecord.class);
+            CheckTypesTask task = new CheckTypesTask();
+            task.execute();
             startActivity(i);
             return true;
         }
@@ -199,6 +215,7 @@ public class AfterLogin extends AppCompatActivity {
                         Intent intent = new Intent(AfterLogin.this, MainActivity.class);
                         intent.putExtra("key", 1);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                         startActivity(intent);
                     }
                 });
@@ -216,6 +233,42 @@ public class AfterLogin extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
     }
+    private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
+        ProgressDialog asyncDialog = new ProgressDialog(AfterLogin.this);
 
+        @Override
+        protected void onPreExecute(){
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로딩중..");
+            asyncDialog.show();
+            asyncDialog.setCancelable(false);
+            super.onPreExecute();
+        }
+        @Override
+        protected Boolean doInBackground(Void... strings){
+
+            for(int i = 0; i<10000; i++){
+                publishProgress(i);
+
+
+            }
+            return true;
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean s){
+
+            asyncDialog.dismiss();
+            super.onPostExecute(s);
+        }
+
+
+        @Override
+        protected void onCancelled(Boolean s){
+            super.onCancelled(s);
+        }
+
+    }
 }
 
