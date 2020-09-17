@@ -24,21 +24,20 @@
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView2"
         android:layout_width="match_parent"
-        android:layout_above="@id/qwe"
         android:layout_height="match_parent"
+        android:layout_above="@id/qwe"
         android:layout_below="@+id/logo"
         android:layout_marginBottom="25dp"
         android:adjustViewBounds="true"
         android:background="#FFFFFF"
-        android:fillViewport="true"
-        android:scrollbarThumbHorizontal="@drawable/big_button"
         android:scrollbarSize="2dp"
-        android:scrollbarStyle="insideInset">
+        android:scrollbarStyle="insideInset"
+        android:scrollbarThumbHorizontal="@drawable/big_button">
 
         <RelativeLayout
-            android:layout_marginVertical="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
             android:adjustViewBounds="true"
             android:orientation="horizontal">
 
@@ -47,19 +46,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:adjustViewBounds="true"
                 android:layout_marginLeft="40dp"
+                android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/photo1"  />
+                app:srcCompat="@drawable/photo1" />
 
             <ImageView
                 android:id="@+id/img2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@id/img1"
                 android:adjustViewBounds="true"
-                android:layout_marginLeft="30dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo2" />
 
@@ -68,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_toRightOf="@id/img2"
                 android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/img2"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo3" />
@@ -78,8 +77,8 @@
                 android:id="@+id/img4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/img3"
                 android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/img3"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo4" />
@@ -88,9 +87,9 @@
                 android:id="@+id/img5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@id/img4"
                 android:adjustViewBounds="true"
-                android:layout_marginLeft="30dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo5" />
 
@@ -98,9 +97,9 @@
                 android:id="@+id/img6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@id/img5"
                 android:adjustViewBounds="true"
-                android:layout_marginLeft="30dp"
 
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo6" />
@@ -109,10 +108,10 @@
                 android:id="@+id/img7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@id/img6"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:layout_marginLeft="30dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo7" />
 
@@ -121,8 +120,8 @@
                 android:id="@+id/img9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/img7"
                 android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/img7"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo9" />
@@ -131,9 +130,9 @@
                 android:id="@+id/img10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_marginRight="50dp"
                 android:layout_toRightOf="@id/img9"
-                android:layout_marginLeft="30dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo10" />
@@ -142,9 +141,9 @@
                 android:id="@+id/img11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_marginRight="50dp"
                 android:layout_toRightOf="@id/img10"
-                android:layout_marginLeft="30dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/photo11" />
@@ -197,35 +196,34 @@
 
     </LinearLayout>
 
-        <Button
-            android:id="@+id/beauty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView2"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/big_button"
-            android:text="로그인"
-            android:textColor="#FFFFFF"
-
-            android:textSize="18sp" />
-
+    <Button
+        android:id="@+id/beauty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/big_button"
+        android:text="로그인"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
 
-<!--    <com.kakao.usermgmt.LoginButton-->
-<!--        android:id="@+id/btn_custom_login"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_above="@+id/textView2"-->
-<!--        android:layout_marginBottom="10dip"-->
-<!--        android:layout_weight="1"-->
-<!--        android:paddingLeft="15dp"-->
-<!--        android:paddingRight="15dp"-->
-<!--        android:textSize="18sp" >-->
 
-<!--    </com.kakao.usermgmt.LoginButton>-->
+    <!--    <com.kakao.usermgmt.LoginButton-->
+    <!--        android:id="@+id/btn_custom_login"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_above="@+id/textView2"-->
+    <!--        android:layout_marginBottom="10dip"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:paddingLeft="15dp"-->
+    <!--        android:paddingRight="15dp"-->
+    <!--        android:textSize="18sp" >-->
+
+    <!--    </com.kakao.usermgmt.LoginButton>-->
 
     <TextView
         android:id="@+id/textView2"

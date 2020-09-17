@@ -1255,6 +1255,7 @@ public class Reservation extends AppCompatActivity {
                             Intent i = new Intent(Reservation.this, CheckoutActivity.class);
                             i.putExtra("total_price", total_price);
                             startActivity(i);
+                            finish();
                         }
                     });
 

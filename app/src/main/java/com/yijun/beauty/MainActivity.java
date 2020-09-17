@@ -3,9 +3,11 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +19,9 @@ import com.kakao.auth.ApiErrorCode;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
@@ -41,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
     Button reservation;
     Button review;
     Button address;
+    Button beauty;
+
+    // 다이얼로그
+    AlertDialog dialog;
+    Button sign_up;
+    Button login;
+    LoginButton btn_custom_login;
+
     private long time = 0;
     SharedPreferences sp;
 
@@ -71,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
         review = findViewById(R.id.reviewcyclerView);
+        beauty = findViewById(R.id.beauty);
 
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +121,42 @@ public class MainActivity extends AppCompatActivity {
               startActivity(i);
             }
         });
+
+        beauty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login_dialog();
+            }
+        });
+    }
+
+    public void login_dialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.login_menu,null);
+        sign_up = alertView.findViewById(R.id.sign_up);
+        login = alertView.findViewById(R.id.login);
+        btn_custom_login = alertView.findViewById(R.id.btn_custom_login);
+
+        sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        alert.setView(alertView);
+
+        dialog=alert.create();
+        dialog.setCancelable(true);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.show();
     }
 
     @Override
