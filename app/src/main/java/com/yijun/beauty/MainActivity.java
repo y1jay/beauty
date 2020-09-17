@@ -152,10 +152,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        YoYo.with(Techniques.Tada)
-                .duration(700)
-                .repeat(5)
+        YoYo.with(Techniques.RotateOut)
+                .duration(800)
+                .repeat(0)
                 .playOn(sign_up);
+        YoYo.with(Techniques.RotateIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(login);
+        YoYo.with(Techniques.RotateIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(btn_custom_login);
 
         alert.setView(alertView);
 
