@@ -25,6 +25,7 @@ import com.kakao.util.exception.KakaoException;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
+import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
 
 import retrofit2.Call;
@@ -92,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(MainActivity.this)){
+                    Toast.makeText(MainActivity.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
               Intent i = new Intent(MainActivity.this,ReviewList.class);
               i.putExtra("review",1);
               startActivity(i);
@@ -123,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
                         Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                        finish();
+
                     } else {
                         Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다: " + errorResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
                     }

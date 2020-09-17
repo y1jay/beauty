@@ -35,6 +35,7 @@ import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.model.UserRes;
+import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
 
 import org.json.JSONException;
@@ -68,6 +69,12 @@ public class AfterLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
+
+        if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+            Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
         int key = getIntent().getIntExtra("key", 0);
         if (key == 1) {
             Intent i = new Intent(AfterLogin.this, LodingActivity.class);
@@ -92,6 +99,10 @@ public class AfterLogin extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+                    Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent i = new Intent(AfterLogin.this, ReviewList.class);
                 startActivity(i);
             }
@@ -100,6 +111,7 @@ public class AfterLogin extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 logoutDialog();
 
             }
@@ -108,6 +120,10 @@ public class AfterLogin extends AppCompatActivity {
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+                    Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent i = new Intent(AfterLogin.this, Reservation.class);
                 startActivity(i);
             }
@@ -136,10 +152,18 @@ public class AfterLogin extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.myInfo) {
+            if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+                Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                return false;
+            }
             Intent i = new Intent(AfterLogin.this, MyInfo.class);
             startActivity(i);
             return true;
         } else if (id == R.id.reservation_check) {
+            if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+                Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                return false;
+            }
             Intent i = new Intent(AfterLogin.this, ReservationRecord.class);
             startActivity(i);
             return true;
