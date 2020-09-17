@@ -1233,13 +1233,13 @@ public class Reservation extends AppCompatActivity {
                                     });
 
                             } else {
-                                Log.i("menu", "success = fail");
+
                             }
                         }
 
                         @Override
                         public void onFailure(Call<ReservationRes> call, Throwable t) {
-                            Log.i("menu", "fail");
+
                         }
                     });
 
