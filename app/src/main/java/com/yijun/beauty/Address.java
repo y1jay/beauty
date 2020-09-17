@@ -72,7 +72,7 @@ public class Address extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
 
-        LatLng coord = new LatLng(37.560296, 126.838154);
+        LatLng coord = new LatLng(37.56031362106455, 126.83815162757227 );
 
 //        Toast.makeText(Address.this,
 //                "위도: " + coord.latitude + ", 경도: " + coord.longitude,

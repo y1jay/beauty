@@ -11,13 +11,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.yijun.beauty.activity.CheckoutActivity;
 import com.yijun.beauty.adapter.OrderSheetAdapter;
 import com.yijun.beauty.adapter.ReviewclerViewAdapter;
@@ -198,6 +203,20 @@ public class Reservation extends AppCompatActivity {
     OrderSheetAdapter adapter;
     ArrayList<Orders> orderArrayList = new ArrayList<>();
     TextView price;
+
+    MaterialSpinner people_spinner;
+    MaterialSpinner spinner_month;
+    MaterialSpinner spinner_day;
+    MaterialSpinner spinner_hour;
+    String people;
+    String month;
+    String day;
+    String hour;
+    int pp;
+    int mm;
+    int dd;
+    int hh;
+
     RadioGroup radio_group;
     RadioButton take_out;
     RadioButton store;
@@ -1033,9 +1052,95 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ArrayList<Integer> check = new ArrayList();
+
+                if(check_main_menu1.isChecked()==true){check.add(0,100);}
+                if(check_main_menu2.isChecked()==true){check.add(1,100);}
+                if(check_main_menu3.isChecked()==true){check.add(2,100);}
+                if(check_set_menu1.isChecked()==true){check.add(3,100);}
+                if(check_set_menu2.isChecked()==true){check.add(4,100);}
+                if(check_chicken_feet_big1.isChecked()==true){check.add(5,100);}
+                if(check_chicken_feet_middle1.isChecked()==true){check.add(6,100);}
+                if(check_chicken_feet_small1.isChecked()==true){check.add(7,100);}
+                if(check_chicken_feet_big2.isChecked()==true){check.add(8,100);}
+                if(check_chicken_feet_middle2.isChecked()==true){check.add(9,100);}
+                if(check_chicken_feet_small2.isChecked()==true){check.add(10,100);}
+                if(check_chicken_feet_big3.isChecked()==true){check.add(11,100);}
+                if(check_chicken_feet_middle3.isChecked()==true){check.add(12,100);}
+                if(check_chicken_feet_small3.isChecked()==true){check.add(13,100);}
+                if(check_chicken_feet_big4.isChecked()==true){check.add(14,100);}
+                if(check_chicken_feet_middle4.isChecked()==true){check.add(15,100);}
+                if(check_chicken_feet_small4.isChecked()==true){check.add(16,100);}
+                if(check_chicken_feet_big5.isChecked()==true){check.add(17,100);}
+                if(check_chicken_feet_middle5.isChecked()==true){check.add(18,100);}
+                if(check_chicken_feet_small5.isChecked()==true){check.add(19,100);}
+                if(check_chicken_feet_big6.isChecked()==true){check.add(20,100);}
+                if(check_chicken_feet_middle6.isChecked()==true){check.add(21,100);}
+                if(check_chicken_feet_small6.isChecked()==true){check.add(22,100);}
+                if(check_pocha_menu1.isChecked()==true){check.add(23,100);}
+                if(check_pocha_menu2.isChecked()==true){check.add(24,100);}
+                if(check_pocha_menu_basick3.isChecked()==true){check.add(25,100);}
+                if(check_pocha_menu_hot3.isChecked()==true){check.add(26,100);}
+                if(check_pocha_menu4.isChecked()==true){check.add(27,100);}
+                if(check_pocha_menu5.isChecked()==true){check.add(28,100);}
+                if(check_pocha_menu6.isChecked()==true){check.add(29,100);}
+                if(check_pocha_menu7.isChecked()==true){check.add(30,100);}
+                // index 31~50 => 사이드
+                if(check_side1.isChecked()==true){check.add(31,1);}
+                if(check_side2.isChecked()==true){check.add(32,1);}
+                if(check_side3.isChecked()==true){check.add(33,1);}
+                if(check_side4.isChecked()==true){check.add(34,1);}
+                if(check_add1.isChecked()==true){check.add(35,1);}
+                if(check_add2.isChecked()==true){check.add(36,1);}
+                if(check_add3.isChecked()==true){check.add(37,1);}
+                if(check_add4.isChecked()==true){check.add(38,1);}
+                if(check_add5.isChecked()==true){check.add(39,1);}
+                if(check_add6.isChecked()==true){check.add(40,1);}
+                if(check_add7.isChecked()==true){check.add(41,1);}
+                if(check_add8.isChecked()==true){check.add(42,1);}
+                if(check_add9.isChecked()==true){check.add(43,1);}
+                if(check_add10.isChecked()==true){check.add(44,1);}
+                if(check_add11.isChecked()==true){check.add(45,1);}
+                if(check_add12.isChecked()==true){check.add(46,1);}
+                if(check_add13.isChecked()==true){check.add(47,1);}
+                if(check_drink1.isChecked()==true){check.add(48,1);}
+                if(check_drink2.isChecked()==true){check.add(49,1);}
+                if(check_drink3.isChecked()==true){check.add(50,1);}
+
+                Log.i("check", check.toString());
+
+//
+//
+//                if (check.size() < 1){
+//                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+
+//                for (int i : check){
+//                    Log.i("index", ""+i);
+//                }
+                int sum = 0;
+                for (int i = 0; i < check.size(); i++){
+                    int index = check.get(i);
+                    Log.i("index", ""+index);
+                    sum = index + sum;
+                    if (index < 100){
+                        Toast.makeText(Reservation.this, "사이드 메뉴만으로는 주문이 불가능 합니다", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                }
+
+
+
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 price = alertView.findViewById(R.id.price);
+                people_spinner = alertView.findViewById(R.id.people_spinner);
+                spinner_month = alertView.findViewById(R.id.spinner_month);
+                spinner_day = alertView.findViewById(R.id.spinner_day);
+                spinner_hour = alertView.findViewById(R.id.spinner_hour);
                 radio_group = alertView.findViewById(R.id.radio_group);
                 take_out = alertView.findViewById(R.id.take_out);
                 store = alertView.findViewById(R.id.store);
@@ -1045,74 +1150,134 @@ public class Reservation extends AppCompatActivity {
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Reservation.this));
 
-                String nick_name = sp.getString("nick_name", null);
+                    ArrayAdapter people_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.people_number, android.R.layout.simple_spinner_dropdown_item);
+                    people_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    people_spinner.setAdapter(people_adapter);
 
-                Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
-                ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+                    ArrayAdapter month_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.month, android.R.layout.simple_spinner_dropdown_item);
+                    month_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner_month.setAdapter(month_adapter);
 
-                Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+                    ArrayAdapter day_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.day, android.R.layout.simple_spinner_dropdown_item);
+                    day_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner_day.setAdapter(day_adapter);
 
-                call.enqueue(new Callback<ReservationRes>() {
-                    @Override
-                    public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
-                        // 상태코드가 200 인지 확인
-                        if (response.isSuccessful()) {
-                            orderArrayList = response.body().getRows();
-                            if (orderArrayList.isEmpty()){
-                                Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
+                    ArrayAdapter hour_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.hour, android.R.layout.simple_spinner_dropdown_item);
+                    hour_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner_hour.setAdapter(hour_adapter);
+
+
+                    people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                            people = item.toString().trim().replace("명", "");
+                            if (people.isEmpty()) {
+                                Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
-
-                            adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
-                            recyclerView.setAdapter(adapter);
-                            Log.i("menu", orderArrayList.toString());
-
-                            price_total(price);
-//                            take_out(0);
-//
-//                            radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//                                @Override
-//                                public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                                    if (checkedId == R.id.take_out){
-//                                        take_out(1);
-//                                    }else if (checkedId == R.id.store) {
-//                                        take_out(0);
-//                                    }
-//                                }
-//                            });
-
-                        }else {
-                            Log.i("menu", "success = fail");
+                            pp = Integer.parseInt(people);
                         }
-                    }
+                    });
 
-                    @Override
-                    public void onFailure(Call<ReservationRes> call, Throwable t) {
-                        Log.i("menu", "fail");
-                    }
-                });
+                    spinner_month.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                            month = item.toString().trim().replace("월", "");
+                            mm = Integer.parseInt(month);
+                        }
+                    });
 
-                order_payment.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent i = new Intent(Reservation.this, CheckoutActivity.class);
-                        i.putExtra("total_price", total_price);
-                        startActivity(i);
-                    }
-                });
+                    spinner_day.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                            day = item.toString().trim().replace("일", "");
+                            dd = Integer.parseInt(day);
+                        }
+                    });
 
-                order_no.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        alertDialog.cancel();
-                    }
-                });
+                    spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                            hour = item.toString().trim().replace("시", "");
+                            hh = Integer.parseInt(hour);
+                        }
+                    });
 
-                alert.setView(alertView);
+                    String nick_name = sp.getString("nick_name", null);
 
-                alertDialog = alert.create();
-                alertDialog.setCancelable(false);
-                alertDialog.show();
+                    Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+                    ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                    Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+
+                    call.enqueue(new Callback<ReservationRes>() {
+                        @Override
+                        public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                            // 상태코드가 200 인지 확인
+                            if (response.isSuccessful()) {
+                                orderArrayList = response.body().getRows();
+                                if (orderArrayList.isEmpty()) {
+                                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+
+                                adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
+                                recyclerView.setAdapter(adapter);
+
+                                    Log.i("menu", orderArrayList.toString());
+
+                                    price_total(price);
+
+                                    radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                        @Override
+                                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                            if (month.isEmpty() || day.isEmpty() || hour.isEmpty()) {
+                                                Toast.makeText(Reservation.mContext, "예약시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                            add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
+                                            if (checkedId == R.id.take_out) {
+                                                add_take_out(1, "2020-" + mm + "-" + dd + " " + hh);
+                                            } else if (checkedId == R.id.store) {
+                                                add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
+                                            }
+                                        }
+                                    });
+
+                            } else {
+                                Log.i("menu", "success = fail");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ReservationRes> call, Throwable t) {
+                            Log.i("menu", "fail");
+                        }
+                    });
+
+                    order_payment.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(Reservation.this, CheckoutActivity.class);
+                            i.putExtra("total_price", total_price);
+                            startActivity(i);
+                        }
+                    });
+
+                    order_no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+//                        cancle();
+                            alertDialog.cancel();
+                        }
+                    });
+
+                    alert.setView(alertView);
+
+                    alertDialog = alert.create();
+                    alertDialog.setCancelable(false);
+                    alertDialog.show();
+
             }
         });
     }
@@ -1204,14 +1369,40 @@ public class Reservation extends AppCompatActivity {
         });
     }
 
-    // take_out 여부
-    public void take_out(int take_out, int people_number, String time){
+    // 추가 사항(store)
+    public void add_store(int take_out, int people_number, String time){
         String nick_name =sp.getString("nick_name",null);
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
         ReservationApi reservationApi = retrofit.create(ReservationApi.class);
 
         Call<ReservationRes> call = reservationApi.add(nick_name, take_out, people_number, time);
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()){
+
+                }else {
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+                Log.i("total", t.toString());
+            }
+        });
+    }
+
+    // 추가 사항(take_out)
+    public void add_take_out(int take_out, String time){
+        String nick_name =sp.getString("nick_name",null);
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.add(nick_name, take_out, 0, time);
         call.enqueue(new Callback<ReservationRes>() {
             @Override
             public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
