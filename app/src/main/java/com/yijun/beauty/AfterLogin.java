@@ -11,6 +11,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -289,6 +291,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -318,6 +321,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -345,6 +349,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -372,6 +377,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -398,6 +404,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -424,6 +431,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -450,6 +458,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -477,6 +486,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -503,6 +513,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -529,6 +540,7 @@ public class AfterLogin extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 

@@ -35,6 +35,8 @@ import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.url.Utils;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -360,11 +362,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
 
 
 
@@ -394,6 +400,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -421,6 +428,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -448,6 +456,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -474,6 +483,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -500,6 +510,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -526,6 +537,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -553,6 +565,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -579,6 +592,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
@@ -605,6 +619,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = alert.create();
         dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
 
