@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -198,6 +201,39 @@ public class Reservation extends AppCompatActivity {
     TextView pay_drink3;
 
 
+    ImageView img_chicken1;
+    ImageView img_chicken2;
+    ImageView img_chicken3;
+    ImageView img_chicken4;
+    ImageView img_chicken5;
+    ImageView img_chicken6;
+
+    ImageView img_pocha1;
+    ImageView img_pocha2;
+    ImageView img_pocha3;
+    ImageView img_pocha4;
+    ImageView img_pocha5;
+    ImageView img_pocha6;
+
+    // 메뉴 다이얼로그
+
+    TextView txt_delete1;
+    TextView txt_delete2;
+    TextView txt_delete3;
+    TextView txt_delete4;
+    TextView txt_delete5;
+    TextView txt_delete6;
+    TextView txt_delete7;
+    TextView txt_delete9;
+    TextView txt_delete10;
+    TextView txt_delete11;
+    TextView delete2;
+    TextView delete1;
+    TextView delete3;
+
+
+
+
     AlertDialog alertDialog;
     RecyclerView recyclerView;
     OrderSheetAdapter adapter;
@@ -224,6 +260,8 @@ public class Reservation extends AppCompatActivity {
     Button order_payment;
 
     SharedPreferences sp;
+
+
 
 
 
@@ -376,6 +414,101 @@ public class Reservation extends AppCompatActivity {
         pay_drink1 = findViewById(R.id.pay_drink1);
         pay_drink2 = findViewById(R.id.pay_drink2);
         pay_drink3 = findViewById(R.id.pay_drink3);
+
+
+        img_chicken1 = findViewById(R.id.img_chicken1);
+        img_chicken2 = findViewById(R.id.img_chicken2);
+        img_chicken3 = findViewById(R.id.img_chicken3);
+        img_chicken4 = findViewById(R.id.img_chicken4);
+        img_chicken5 = findViewById(R.id.img_chicken5);
+        img_chicken6 = findViewById(R.id.img_chicken6);
+
+        img_pocha1 = findViewById(R.id.img_pocha1);
+        img_pocha2 = findViewById(R.id.img_pocha2);
+        img_pocha3 = findViewById(R.id.img_pocha3);
+        img_pocha4 = findViewById(R.id.img_pocha5);
+        img_pocha5 = findViewById(R.id.img_pocha6);
+
+
+
+        img_chicken1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog();
+            }
+        });
+
+        img_chicken2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog2();
+            }
+        });
+
+        img_chicken3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog2();
+            }
+        });
+
+        img_chicken4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog2();
+            }
+        });
+
+        img_chicken5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog3();
+            }
+        });
+
+        img_chicken6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog3();
+            }
+        });
+
+        img_pocha1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog4();
+            }
+        });
+
+        img_pocha2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog5();
+            }
+        });
+
+        img_pocha3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog6();
+            }
+        });
+
+        img_pocha4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog7();
+            }
+        });
+
+        img_pocha5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenuDialog8();
+            }
+        });
+
+
 
 
         // check box 확인
@@ -1458,4 +1591,230 @@ public class Reservation extends AppCompatActivity {
         cancle();
         super.onRestart();
     }
+
+    public void createMenuDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.list_menu3,null);
+
+
+        delete3 = enterview.findViewById(R.id.delete3);
+
+        delete3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
+    public void createMenuDialog2(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.list_menu1,null);
+
+
+        delete1 = enterview.findViewById(R.id.delete1);
+
+        delete1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
+
+    public void createMenuDialog3(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
+
+
+        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
+
+        txt_delete1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
+    public void createMenuDialog4(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
+
+
+        txt_delete4 = enterview.findViewById(R.id.txt_delete4);
+
+        txt_delete4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
+    public void createMenuDialog5(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
+
+
+        txt_delete9 = enterview.findViewById(R.id.txt_delete9);
+
+        txt_delete9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
+    public void createMenuDialog6(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.list_menu2,null);
+
+
+        delete2 = enterview.findViewById(R.id.delete2);
+
+        delete2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
+    public void createMenuDialog7(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
+
+
+        txt_delete6 = enterview.findViewById(R.id.txt_delete6);
+
+        txt_delete6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
+    public void createMenuDialog8(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
+
+
+        txt_delete10 = enterview.findViewById(R.id.txt_delete10);
+
+        txt_delete10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+
+
+        alert.setView(enterview);
+        alert.setCancelable(false);
+
+        alertDialog = alert.create();
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+    }
+
 }
