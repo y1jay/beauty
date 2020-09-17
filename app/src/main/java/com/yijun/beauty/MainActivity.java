@@ -153,15 +153,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         YoYo.with(Techniques.SlideInUp)
-                .duration(700)
+                .duration(1000)
                 .repeat(0)
                 .playOn(sign_up);
         YoYo.with(Techniques.SlideInUp)
-                .duration(700)
+                .duration(1000)
                 .repeat(0)
                 .playOn(login);
         YoYo.with(Techniques.SlideInUp)
-                .duration(700)
+                .duration(1000)
                 .repeat(0)
                 .playOn(btn_custom_login);
 
