@@ -1104,7 +1104,6 @@ public class Reservation extends AppCompatActivity {
                 order_no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        cancle();
                         alertDialog.cancel();
                     }
                 });
