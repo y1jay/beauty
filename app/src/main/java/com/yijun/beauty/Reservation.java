@@ -1052,83 +1052,71 @@ public class Reservation extends AppCompatActivity {
         btn_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<Integer> check = new ArrayList();
+                List<Integer> check = new ArrayList();
+                if(check_main_menu1.isChecked()==true){check.add(1000);}
+                if(check_main_menu2.isChecked()==true){check.add(1001);}
+                if(check_main_menu3.isChecked()==true){check.add(1002);}
+                if(check_set_menu1.isChecked()==true){check.add(1003);}
+                if(check_set_menu2.isChecked()==true){check.add(1004);}
+                if(check_chicken_feet_big1.isChecked()==true){check.add(1005);}
+                if(check_chicken_feet_middle1.isChecked()==true){check.add(1006);}
+                if(check_chicken_feet_small1.isChecked()==true){check.add(1007);}
+                if(check_chicken_feet_big2.isChecked()==true){check.add(1008);}
+                if(check_chicken_feet_middle2.isChecked()==true){check.add(1009);}
+                if(check_chicken_feet_small2.isChecked()==true){check.add(1010);}
+                if(check_chicken_feet_big3.isChecked()==true){check.add(1011);}
+                if(check_chicken_feet_middle3.isChecked()==true){check.add(1012);}
+                if(check_chicken_feet_small3.isChecked()==true){check.add(1013);}
+                if(check_chicken_feet_big4.isChecked()==true){check.add(1014);}
+                if(check_chicken_feet_middle4.isChecked()==true){check.add(1015);}
+                if(check_chicken_feet_small4.isChecked()==true){check.add(1016);}
+                if(check_chicken_feet_big5.isChecked()==true){check.add(1017);}
+                if(check_chicken_feet_middle5.isChecked()==true){check.add(1018);}
+                if(check_chicken_feet_small5.isChecked()==true){check.add(1019);}
+                if(check_chicken_feet_big6.isChecked()==true){check.add(1020);}
+                if(check_chicken_feet_middle6.isChecked()==true){check.add(1021);}
+                if(check_chicken_feet_small6.isChecked()==true){check.add(1022);}
+                if(check_pocha_menu1.isChecked()==true){check.add(1023);}
+                if(check_pocha_menu2.isChecked()==true){check.add(1024);}
+                if(check_pocha_menu_basick3.isChecked()==true){check.add(1025);}
+                if(check_pocha_menu_hot3.isChecked()==true){check.add(1026);}
+                if(check_pocha_menu4.isChecked()==true){check.add(1027);}
+                if(check_pocha_menu5.isChecked()==true){check.add(1028);}
+                if(check_pocha_menu6.isChecked()==true){check.add(1029);}
+                if(check_pocha_menu7.isChecked()==true){check.add(1030);}
+                if(check_side1.isChecked()==true){check.add(1);}
+                if(check_side2.isChecked()==true){check.add(2);}
+                if(check_side3.isChecked()==true){check.add(3);}
+                if(check_side4.isChecked()==true){check.add(4);}
+                if(check_add1.isChecked()==true){check.add(5);}
+                if(check_add2.isChecked()==true){check.add(6);}
+                if(check_add3.isChecked()==true){check.add(7);}
+                if(check_add4.isChecked()==true){check.add(8);}
+                if(check_add5.isChecked()==true){check.add(9);}
+                if(check_add6.isChecked()==true){check.add(10);}
+                if(check_add7.isChecked()==true){check.add(11);}
+                if(check_add8.isChecked()==true){check.add(12);}
+                if(check_add9.isChecked()==true){check.add(13);}
+                if(check_add10.isChecked()==true){check.add(14);}
+                if(check_add11.isChecked()==true){check.add(15);}
+                if(check_add12.isChecked()==true){check.add(16);}
+                if(check_add13.isChecked()==true){check.add(17);}
+                if(check_drink1.isChecked()==true){check.add(18);}
+                if(check_drink2.isChecked()==true){check.add(19);}
+                if(check_drink3.isChecked()==true){check.add(20);}
 
-                if(check_main_menu1.isChecked()==true){check.add(0,100);}
-                if(check_main_menu2.isChecked()==true){check.add(1,100);}
-                if(check_main_menu3.isChecked()==true){check.add(2,100);}
-                if(check_set_menu1.isChecked()==true){check.add(3,100);}
-                if(check_set_menu2.isChecked()==true){check.add(4,100);}
-                if(check_chicken_feet_big1.isChecked()==true){check.add(5,100);}
-                if(check_chicken_feet_middle1.isChecked()==true){check.add(6,100);}
-                if(check_chicken_feet_small1.isChecked()==true){check.add(7,100);}
-                if(check_chicken_feet_big2.isChecked()==true){check.add(8,100);}
-                if(check_chicken_feet_middle2.isChecked()==true){check.add(9,100);}
-                if(check_chicken_feet_small2.isChecked()==true){check.add(10,100);}
-                if(check_chicken_feet_big3.isChecked()==true){check.add(11,100);}
-                if(check_chicken_feet_middle3.isChecked()==true){check.add(12,100);}
-                if(check_chicken_feet_small3.isChecked()==true){check.add(13,100);}
-                if(check_chicken_feet_big4.isChecked()==true){check.add(14,100);}
-                if(check_chicken_feet_middle4.isChecked()==true){check.add(15,100);}
-                if(check_chicken_feet_small4.isChecked()==true){check.add(16,100);}
-                if(check_chicken_feet_big5.isChecked()==true){check.add(17,100);}
-                if(check_chicken_feet_middle5.isChecked()==true){check.add(18,100);}
-                if(check_chicken_feet_small5.isChecked()==true){check.add(19,100);}
-                if(check_chicken_feet_big6.isChecked()==true){check.add(20,100);}
-                if(check_chicken_feet_middle6.isChecked()==true){check.add(21,100);}
-                if(check_chicken_feet_small6.isChecked()==true){check.add(22,100);}
-                if(check_pocha_menu1.isChecked()==true){check.add(23,100);}
-                if(check_pocha_menu2.isChecked()==true){check.add(24,100);}
-                if(check_pocha_menu_basick3.isChecked()==true){check.add(25,100);}
-                if(check_pocha_menu_hot3.isChecked()==true){check.add(26,100);}
-                if(check_pocha_menu4.isChecked()==true){check.add(27,100);}
-                if(check_pocha_menu5.isChecked()==true){check.add(28,100);}
-                if(check_pocha_menu6.isChecked()==true){check.add(29,100);}
-                if(check_pocha_menu7.isChecked()==true){check.add(30,100);}
-                // index 31~50 => 사이드
-                if(check_side1.isChecked()==true){check.add(31,1);}
-                if(check_side2.isChecked()==true){check.add(32,1);}
-                if(check_side3.isChecked()==true){check.add(33,1);}
-                if(check_side4.isChecked()==true){check.add(34,1);}
-                if(check_add1.isChecked()==true){check.add(35,1);}
-                if(check_add2.isChecked()==true){check.add(36,1);}
-                if(check_add3.isChecked()==true){check.add(37,1);}
-                if(check_add4.isChecked()==true){check.add(38,1);}
-                if(check_add5.isChecked()==true){check.add(39,1);}
-                if(check_add6.isChecked()==true){check.add(40,1);}
-                if(check_add7.isChecked()==true){check.add(41,1);}
-                if(check_add8.isChecked()==true){check.add(42,1);}
-                if(check_add9.isChecked()==true){check.add(43,1);}
-                if(check_add10.isChecked()==true){check.add(44,1);}
-                if(check_add11.isChecked()==true){check.add(45,1);}
-                if(check_add12.isChecked()==true){check.add(46,1);}
-                if(check_add13.isChecked()==true){check.add(47,1);}
-                if(check_drink1.isChecked()==true){check.add(48,1);}
-                if(check_drink2.isChecked()==true){check.add(49,1);}
-                if(check_drink3.isChecked()==true){check.add(50,1);}
 
-                Log.i("check", check.toString());
-
-//
-//
-//                if (check.size() < 1){
-//                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-
-//                for (int i : check){
-//                    Log.i("index", ""+i);
-//                }
-                int sum = 0;
-                for (int i = 0; i < check.size(); i++){
-                    int index = check.get(i);
-                    Log.i("index", ""+index);
-                    sum = index + sum;
-                    if (index < 100){
+                if (check.isEmpty()){
+                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                int side = 0;
+                for (int i = 0; i<check.size(); i++){
+                    side = side + check.get(i);
+                    if (side<1000){// 사이드를 추가하면 무조건 1000이 넘어감
                         Toast.makeText(Reservation.this, "사이드 메뉴만으로는 주문이 불가능 합니다", Toast.LENGTH_SHORT).show();
                         return;
                     }
-
                 }
 
 
@@ -1216,10 +1204,10 @@ public class Reservation extends AppCompatActivity {
                             // 상태코드가 200 인지 확인
                             if (response.isSuccessful()) {
                                 orderArrayList = response.body().getRows();
-                                if (orderArrayList.isEmpty()) {
-                                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
+//                                if (orderArrayList.isEmpty()) {
+//                                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
 
                                 adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
                                 recyclerView.setAdapter(adapter);
