@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -25,6 +26,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
@@ -45,11 +48,6 @@ public class Nick_name extends AppCompatActivity {
     String my_phone_num;
     private static final int MY_PERMISSION_STORAGE = 1111;
     TextView number;
-
-    // agreement 다이얼로그
-    AlertDialog dialog;
-    CheckBox check_agree;
-    Button btn_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,6 +182,32 @@ public class Nick_name extends AppCompatActivity {
                 break;
         }
     }
+
+//    public void agree(){
+//        AlertDialog.Builder alert = new AlertDialog.Builder(Nick_name.this);
+//        View alertView = getLayoutInflater().inflate(R.layout.agreement,null);
+//        check_agree = alertView.findViewById(R.id.check_agree);
+//        btn_next = alertView.findViewById(R.id.btn_next);
+//
+//        btn_next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (check_agree.isChecked() == true){
+//                    dialog.cancel();
+//                    checkPermission();
+//                }else {
+//                    Toast.makeText(Nick_name.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
+//            }
+//        });
+//
+//        alert.setView(alertView);
+//        dialog=alert.create();
+//        dialog.setCancelable(false);
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+//        dialog.show();
+//    }
 
 
 }
