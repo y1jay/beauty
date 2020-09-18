@@ -41,7 +41,7 @@ public interface UserApi {
   Call<UserRes> loginUser(@Body UserReq userReq);
 
   @POST("/api/v1/user/check_id")
-  Call<UserCheck> checkId (@Body String nick_name);
+  Call<UserRes> checkId (@Body UserReq userReq);
 
 
 

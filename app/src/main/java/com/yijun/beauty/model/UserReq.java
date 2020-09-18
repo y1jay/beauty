@@ -16,6 +16,10 @@ public class UserReq {
         this.info_agree = info_agree;
     }
 
+    public UserReq(String nick_name) {
+        this.nick_name = nick_name;
+    }
+
     public String getEmail() {
         return email;
     }
