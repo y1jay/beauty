@@ -73,12 +73,13 @@ public class MyInfo extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
         String nick_name = sp.getString("nick_name", null);
         String phone_number = sp.getString("phone_number", null);
+        Log.i("info", nick_name +  phone_number);
 
         // 닉네임이랑 폰넘버 가져와야함
         Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
         UserApi userApi = retrofit.create(UserApi.class);
 
-        Call<UserCheck> call = userApi.info_User(nick_name,phone_number);
+        Call<UserCheck> call = userApi.info_User(phone_number,nick_name);
         call.enqueue(new Callback<UserCheck>() {
             @Override
             public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
@@ -87,7 +88,7 @@ public class MyInfo extends AppCompatActivity {
                     String nick_name = response.body().getNick_name();
                     String phone = response.body().getPhone_number();
                     String email = response.body().getEmail();
-                    Boolean agree = response.body().getInfo_agree();
+                    int agree = response.body().getInfo_agree();
                     String created_at = response.body().getCreated_at();
 
                     Log.i("info", nick_name + created_at + email);
@@ -101,8 +102,10 @@ public class MyInfo extends AppCompatActivity {
                         txt_email.setText(email);
                     }
 
-                    if (agree == true){
-                        txt_agree.setText("O");
+                    if (agree == 1){
+                        txt_agree.setText("동의");
+                    }else if (agree == 0){
+                        txt_agree.setText("동의안함");
                     }
 
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
@@ -118,14 +121,14 @@ public class MyInfo extends AppCompatActivity {
                     }
 
                 }else {
-
+                    Log.i("tlqkf", response.toString());
                 }
 
             }
 
             @Override
             public void onFailure(Call<UserCheck> call, Throwable t) {
-
+                Log.i("tlqkf", t.toString());
             }
         });
 

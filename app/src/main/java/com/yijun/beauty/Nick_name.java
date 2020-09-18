@@ -128,9 +128,13 @@ public class Nick_name extends AppCompatActivity {
                     public void onResponse(Call<UserRes> call, Response<UserRes> response) {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
+                            sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("phone_number", my_phone_num);
+                            editor.apply();
+
                             Intent i = new Intent(Nick_name.this,AfterLogin.class);
                             i.putExtra("nick_name", nick_name);
-                            i.putExtra("phone_number", my_phone_num);
                             finish();
                             startActivity(i);
                         }
