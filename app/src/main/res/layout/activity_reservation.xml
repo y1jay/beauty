@@ -82,7 +82,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="11dp"
+                        android:layout_marginTop="15dp"
+                        android:textStyle="bold"
                         android:text="직화무뼈세트"
                         android:textColor="#3A0404" />
 
@@ -110,7 +111,7 @@
                         android:id="@+id/check_main_menu1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:text="예약하기"
                         android:textColor="#3A0404" />
 
@@ -139,8 +140,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="11dp"
+                    android:layout_marginTop="15dp"
                     android:text="국물그라탕세트"
+                    android:textStyle="bold"
                     android:textColor="#3A0404" />
 
                 <TextView
@@ -167,7 +169,7 @@
                     android:id="@+id/check_main_menu2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
 
@@ -201,6 +203,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="15dp"
+                        android:textStyle="bold"
                         android:layout_marginRight="15dp"
                         android:text="닭볶음탕세트"
                         android:textColor="#3A0404" />
@@ -229,9 +232,9 @@
                         android:id="@+id/check_main_menu3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginRight="10dp"
                         android:text="예약하기"
                         android:textColor="#3A0404" />
                 </LinearLayout>
@@ -277,6 +280,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="패밀리세트"
                     android:textColor="#3A0404" />
@@ -308,7 +312,7 @@
                     android:id="@+id/check_set_menu1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="예약하기"
@@ -336,8 +340,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="15dp"
+                    android:textStyle="bold"
                     android:text="국물닭발세트"
                     android:textColor="#3A0404" />
 
@@ -365,7 +370,7 @@
                     android:id="@+id/check_set_menu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
             </LinearLayout>
@@ -421,6 +426,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="15dp"
+                        android:textStyle="bold"
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="15dp"
                         android:text="치즈무뼈닭발"
@@ -431,6 +437,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
+                        android:textStyle="bold"
                         android:layout_weight="1"
                         android:text="★사장님 추천메뉴★"
                         android:textColor="#3A0404" />
@@ -442,7 +449,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/img_chicken1"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
                         android:adjustViewBounds="true"
@@ -580,6 +587,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="15dp"
+                        android:textStyle="bold"
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="15dp"
                         android:text="국물삼겹닭발"
@@ -590,6 +598,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
+                        android:textStyle="bold"
                         android:layout_weight="1"
                         android:text="★사장님 추천메뉴★"
                         android:textColor="#3A0404" />
@@ -601,7 +610,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/image33View"
+                        android:id="@+id/img_chicken2"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
                         android:adjustViewBounds="true"
@@ -734,6 +743,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="국물닭발"
@@ -745,7 +755,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageVi343ew"
+                        android:id="@+id/img_chicken3"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
                         android:adjustViewBounds="true"
@@ -878,6 +888,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="국물무뼈닭발"
@@ -889,7 +900,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imag232eView"
+                        android:id="@+id/img_chicken4"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
                         android:adjustViewBounds="true"
@@ -1022,6 +1033,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="직화통닭발"
@@ -1033,7 +1045,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/image23View"
+                        android:id="@+id/img_chicken5"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
                         app:srcCompat="@drawable/c" />
@@ -1162,6 +1174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:text="직화무뼈닭발"
@@ -1173,7 +1186,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/image423View"
+                        android:id="@+id/img_chicken6"
                         android:layout_width="170dp"
                         android:layout_height="150dp"
                         app:srcCompat="@drawable/c" />
@@ -1330,7 +1343,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/img_pocha1"
                         android:layout_width="170dp"
                         android:layout_height="130dp"
                         android:paddingTop="6dp"
@@ -1349,7 +1362,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginTop="11dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="15dp"
                             android:text="불닭볶음탕(2~3인분)"
                             android:textColor="#3A0404" />
 
@@ -1367,7 +1381,7 @@
                             android:id="@+id/check_pocha_menu1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="10dp"
                             android:text="예약하기"
                             android:textColor="#3A0404" />
                     </LinearLayout>
@@ -1396,7 +1410,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageView8"
+                        android:id="@+id/img_pocha2"
                         android:layout_width="170dp"
                         android:layout_height="130dp"
                         android:padding="4dp"
@@ -1415,7 +1429,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginTop="11dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="15dp"
                             android:text="오돌뼈"
                             android:textColor="#3A0404" />
 
@@ -1433,7 +1448,7 @@
                             android:id="@+id/check_pocha_menu2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="10dp"
                             android:text="예약하기"
                             android:textColor="#3A0404" />
                     </LinearLayout>
@@ -1461,14 +1476,14 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/im223ageView2"
+                        android:id="@+id/img_pocha3"
                         android:layout_width="170dp"
                         android:layout_height="130dp"
                         android:paddingBottom="2dp"
                         android:paddingTop="2dp"
                         android:adjustViewBounds="true"
                         android:scaleType="centerInside"
-                        app:srcCompat="@drawable/photo8" />
+                        app:srcCompat="@drawable/menu5" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1480,7 +1495,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginTop="11dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="15dp"
                             android:text="치즈떡볶이"
                             android:textColor="#3A0404" />
 
@@ -1500,7 +1516,7 @@
                             android:id="@+id/check_pocha_menu_basic3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="10dp"
                             android:text="예약하기(보통맛)"
                             android:textColor="#3A0404" />
 
@@ -1508,7 +1524,7 @@
                             android:id="@+id/check_pocha_menu_hot3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="10dp"
                             android:text="예약하기(매운맛)"
                             android:textColor="#3A0404" />
 
@@ -1539,7 +1555,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/im223232334ageView2"
+                        android:id="@+id/img_pocha4"
                         android:layout_width="170dp"
                         android:layout_height="130dp"
                         android:padding="4dp"
@@ -1557,7 +1573,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginTop="11dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="15dp"
                             android:text="골뱅이무침"
                             android:textColor="#3A0404" />
 
@@ -1587,7 +1604,7 @@
                             android:id="@+id/check_pocha_menu4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="10dp"
                             android:text="예약하기"
                             android:textColor="#3A0404" />
 
@@ -1617,7 +1634,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageView10"
+                        android:id="@+id/img_pocha5"
                         android:layout_width="170dp"
                         android:layout_height="130dp"
                         android:padding="4dp"
@@ -1637,6 +1654,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="15dp"
+                            android:textStyle="bold"
                             android:layout_marginRight="15dp"
                             android:text="닭똥집"
                             android:textColor="#3A0404" />
@@ -1655,7 +1673,7 @@
                             android:id="@+id/check_pocha_menu5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
                             android:text="예약하기"
                             android:textColor="#3A0404" />
@@ -1683,7 +1701,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/im234ageView8"
+                        android:id="@+id/img_pocha6"
                         android:layout_width="170dp"
                         android:layout_height="130dp"
                         android:paddingTop="4dp"
@@ -1703,7 +1721,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:layout_marginTop="11dp"
+                            android:layout_marginTop="15dp"
+                            android:textStyle="bold"
                             android:text="새우그라탕"
                             android:textColor="#3A0404" />
 
@@ -1731,7 +1750,7 @@
                             android:id="@+id/check_pocha_menu6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="10dp"
                             android:text="예약하기"
                             android:textColor="#3A0404" />
                     </LinearLayout>
@@ -1758,7 +1777,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="오뎅탕"
                     android:textColor="#3A0404" />
@@ -1777,7 +1797,7 @@
                     android:id="@+id/check_pocha_menu7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -1829,6 +1849,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="계란찜"
                     android:textColor="#3A0404" />
@@ -1847,9 +1868,9 @@
                     android:id="@+id/check_side1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:text="예약하기(4000원)"
+                    android:text="예약하기"
                     android:textColor="#3A0404" />
             </LinearLayout>
 
@@ -1873,6 +1894,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="아이스황도"
                     android:textColor="#3A0404" />
@@ -1891,7 +1913,7 @@
                     android:id="@+id/check_side2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -1917,6 +1939,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="참치마요주먹밥"
                     android:textColor="#3A0404" />
@@ -1935,7 +1958,7 @@
                     android:id="@+id/check_side3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -1961,6 +1984,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="날치알주먹밥"
                     android:textColor="#3A0404" />
@@ -1979,7 +2003,7 @@
                     android:id="@+id/check_side4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2031,6 +2055,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="새우 사리"
                     android:textColor="#3A0404" />
@@ -2049,7 +2074,7 @@
                     android:id="@+id/check_add1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2085,6 +2110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="3,000원"
                     android:textColor="#3A0404" />
@@ -2093,7 +2119,7 @@
                     android:id="@+id/check_add2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2120,6 +2146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="오뎅사리"
                     android:textColor="#3A0404" />
@@ -2138,7 +2165,7 @@
                     android:id="@+id/check_add3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2164,6 +2191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="떡사리"
                     android:textColor="#3A0404" />
@@ -2182,7 +2210,7 @@
                     android:id="@+id/check_add4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2208,6 +2236,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="비엔나"
                     android:textColor="#3A0404" />
@@ -2226,7 +2255,7 @@
                     android:id="@+id/check_add5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2252,6 +2281,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="메추리 알"
                     android:textColor="#3A0404" />
@@ -2270,7 +2300,7 @@
                     android:id="@+id/check_add6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2296,6 +2326,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="라면사리"
                     android:textColor="#3A0404" />
@@ -2314,7 +2345,7 @@
                     android:id="@+id/check_add7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2340,6 +2371,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="우동사리"
                     android:textColor="#3A0404" />
@@ -2358,7 +2390,7 @@
                     android:id="@+id/check_add8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2384,6 +2416,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="쫄면사리"
                     android:textColor="#3A0404" />
@@ -2402,7 +2435,7 @@
                     android:id="@+id/check_add9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2428,6 +2461,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="넓적당면"
                     android:textColor="#3A0404" />
@@ -2446,7 +2480,7 @@
                     android:id="@+id/check_add10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2472,6 +2506,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="너구리사리"
                     android:textColor="#3A0404" />
@@ -2490,7 +2525,7 @@
                     android:id="@+id/check_add11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2516,6 +2551,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="셀프볶음밥"
                     android:textColor="#3A0404" />
@@ -2534,7 +2570,7 @@
                     android:id="@+id/check_add12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2560,6 +2596,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="셀프치즈볶음밥"
                     android:textColor="#3A0404" />
@@ -2578,7 +2615,7 @@
                     android:id="@+id/check_add13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2631,6 +2668,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="쿨피스(450ml)"
                     android:textColor="#3A0404" />
@@ -2640,7 +2678,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:text="2,000원"
                     android:textColor="#3A0404" />
@@ -2649,7 +2687,7 @@
                     android:id="@+id/check_drink1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2675,6 +2713,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="콜라(뚱캔)"
                     android:textColor="#3A0404" />
@@ -2684,7 +2723,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:text="2,000원"
                     android:textColor="#3A0404" />
@@ -2693,7 +2732,7 @@
                     android:id="@+id/check_drink2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />
@@ -2719,6 +2758,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
+                    android:textStyle="bold"
                     android:layout_marginRight="15dp"
                     android:text="스프라이트(뚱캔)"
                     android:textColor="#3A0404" />
@@ -2728,7 +2768,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:text="2,000원"
                     android:textColor="#3A0404" />
@@ -2737,7 +2777,7 @@
                     android:id="@+id/check_drink3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="예약하기"
                     android:textColor="#3A0404" />

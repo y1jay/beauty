@@ -50,7 +50,7 @@
                 android:layout_marginLeft="40dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/photo1" />
+                app:srcCompat="@drawable/photo3" />
 
             <ImageView
                 android:id="@+id/img2"
@@ -72,7 +72,7 @@
                 android:layout_toRightOf="@id/img2"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/photo3" />
+                app:srcCompat="@drawable/photo1" />
 
             <ImageView
                 android:id="@+id/img4"
