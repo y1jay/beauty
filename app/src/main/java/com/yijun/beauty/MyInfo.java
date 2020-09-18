@@ -74,7 +74,7 @@ public class MyInfo extends AppCompatActivity {
 
         UserApi userApi = retrofit.create(UserApi.class);
 
-        Call<UserCheck> call = userApi.checkUser(nickname,phone_number);
+        Call<UserCheck> call = userApi.info_User(nickname,phone_number);
         call.enqueue(new Callback<UserCheck>() {
             @Override
             public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {

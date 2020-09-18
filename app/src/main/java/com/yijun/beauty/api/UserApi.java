@@ -19,9 +19,10 @@ public interface UserApi {
     Call<UserRes> createUser(@Body UserReq userReq);
 
   @GET("/api/v1/user/my_info")
-    Call<UserCheck> checkUser(@Query("nick_name") String nick_name,
+    Call<UserCheck> info_User(@Query("nick_name") String nick_name,
                               @Query("phone_number") String phone_number);
-
+  @GET("/api/v1/user/check")
+  Call<UserCheck> checkUser(@Query("email") String email);
   //
   @PUT("/api/v1/user/change")
     Call<UserRes> changeUser(@Query("phone_number") String phone_number,
