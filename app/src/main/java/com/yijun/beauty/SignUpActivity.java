@@ -3,40 +3,36 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.BeautyReq;
 import com.yijun.beauty.model.UserCheck;
-import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
-import com.yijun.beauty.url.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-
 public class SignUpActivity extends AppCompatActivity {
-
-    EditText edtphoe;
     EditText edtid;
     Button btnidcheck;
-
+    TextView txtphone;
     Button btnsignup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        edtphoe = findViewById(R.id.edtphone);
+
+        txtphone = findViewById(R.id.txtphone);
 
         edtid = findViewById(R.id.edtid);
         btnidcheck = findViewById(R.id.btnidcheck);
@@ -54,52 +50,52 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                UserReq userReq = new UserReq(nick_name);
+//                Nick_name nick_name1 = new Nick_name(nick_name);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<UserRes> call = userApi.checkId(userReq);
-                call.enqueue(new Callback<UserRes>() {
+                Call<UserCheck> call = userApi.checkId(nick_name);
+                call.enqueue(new Callback<UserCheck>() {
                     @Override
-                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                    public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()==false){
-                              Toast.makeText(SignUpActivity.this,
-                                      "이미 있는 닉네임입니다",Toast.LENGTH_SHORT).show();
-                              edtid.setText("");
+                            Toast.makeText(SignUpActivity.this,"이미있는 닉네임입니다.",Toast.LENGTH_SHORT).show();
+                            edtid.setText("");
+                            return;
                         }else{
-                            Toast.makeText(SignUpActivity.this,
-                                    "사용 가능한 닉네임입니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this,"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show();
+                            return;
                         }
                     }
                     @Override
-                    public void onFailure(Call<UserRes> call, Throwable t) {
+                    public void onFailure(Call<UserCheck> call, Throwable t) {
                     }
                 });
-                }
+            }
         });
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String nick_name = edtid.getText().toString().trim();
-                final String phone = edtphoe.getText().toString().trim();
+                final String phone = txtphone.getText().toString().trim();
                 final Boolean info_agree = true;
                 if (nick_name.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
-                  return;
+                    return;
                 }else if (phone.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
-            }
+                }
 
-               BeautyReq beautyReq = new BeautyReq(nick_name,phone,info_agree);
+//                BeautyReq beautyReq = new BeautyReq(nick_name,phone,info_agree);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<UserRes> call = userApi.beautyUser(beautyReq);
+                Call<UserRes> call = userApi.beautyUser(nick_name,phone,info_agree);
 
                 call.enqueue(new Callback<UserRes>() {
                     @Override
@@ -109,16 +105,13 @@ public class SignUpActivity extends AppCompatActivity {
                             // response.body() 가 UserRes.이다.
                             boolean success = response.body().isSuccess();
 
-                            SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("nick_name",nick_name);
-                            editor.putString("phone_number",phone);
-                            editor.putBoolean("info_agree",info_agree);
-                            editor.apply();
 
                             Intent i = new Intent(SignUpActivity.this,AfterLogin.class);
                             Toast.makeText(SignUpActivity.this,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show();
 
+                            i.putExtra("nick_name",nick_name);
+                            i.putExtra("phone_number",phone);
+                            i.putExtra("info_agree",info_agree);
                             startActivity(i);
                             finish();
 
@@ -144,5 +137,4 @@ public class SignUpActivity extends AppCompatActivity {
         finish();
         startActivity(i);
     }
-
 }

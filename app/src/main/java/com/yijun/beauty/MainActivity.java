@@ -254,8 +254,11 @@ public class MainActivity extends AppCompatActivity {
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent i = new Intent(MainActivity.this, SignUpActivity.class);
-               dialog.cancel();
+                dialog.cancel();
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
                 startActivity(i);
             }
         });

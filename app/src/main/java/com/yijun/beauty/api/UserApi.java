@@ -35,13 +35,15 @@ public interface UserApi {
 
 //
   @POST("/api/v1/user/beauty_add")
-  Call<UserRes> beautyUser(@Body BeautyReq beautyReq);
+  Call<UserRes> beautyUser(@Body String nick_name,
+                           @Body String phone_number,
+                           @Body Boolean info_agree);
 
   @GET("/api/v1/user/login")
   Call<UserRes> loginUser(@Body UserReq userReq);
 
-  @POST("/api/v1/user/check_id")
-  Call<UserRes> checkId (@Body UserReq userReq);
+  @GET("/api/v1/user/check_id")
+  Call<UserCheck> checkId (@Query("nick_name") String nick_name);
 
 
 
