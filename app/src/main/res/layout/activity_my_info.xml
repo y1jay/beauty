@@ -39,7 +39,6 @@
             android:id="@+id/txt_nick_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:textColor="#000000"
             android:textSize="25sp" />
     </LinearLayout>
@@ -50,9 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll"
-        android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="20dp"
-        android:text="TextView"
+        android:layout_marginBottom="10dp"
         android:textColor="#000000"
         android:textSize="25sp" />
 
@@ -61,9 +59,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_email"
-        android:layout_marginBottom="50dp"
         android:layout_marginHorizontal="20dp"
-        android:text="TextView"
+        android:layout_marginBottom="50dp"
         android:textColor="#000000"
         android:textSize="25sp" />
 

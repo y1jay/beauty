@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,11 +43,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import static com.kakao.usermgmt.StringSet.email;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
     Button reservation;
     Button review;
     Button address;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView img11;
 
 
-    // 다이얼로그
+    // 로그인 다이얼로그
     AlertDialog dialog;
 
     Button sign_up;
@@ -73,8 +74,14 @@ public class MainActivity extends AppCompatActivity {
 
     private long time = 0;
     SharedPreferences sp;
+    String email;
 
     private SessionCallback sessionCallback;
+
+    // agreement 다이얼로그
+    AlertDialog agreement_dialog;
+    CheckBox check_agree;
+    Button btn_next;
 
 
     @Override
@@ -159,16 +166,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
-
         Intent i = new Intent(MainActivity.this, LodingActivity.class);
         int key = getIntent().getIntExtra("key", 0);
         Log.i("key","key "+key);
@@ -234,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // 로그인 다이얼로그
     public void login_dialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View alertView = getLayoutInflater().inflate(R.layout.login_menu,null);
@@ -313,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(MeV2Response result) {
-                    String email = result.getKakaoAccount().getEmail();
+                    email = result.getKakaoAccount().getEmail();
                     Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
 
                     UserApi userApi = retrofit.create(UserApi.class);
@@ -330,17 +328,13 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                                 startActivity(i);
                             }else if (response.isSuccessful()==false){
-                                Intent intent = new Intent(getApplicationContext(), Nick_name.class);
+
                                 if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
-                                    intent.putExtra("email", result.getKakaoAccount().getEmail());
+                                    agree();
                                 else
-                                    intent.putExtra("email", "none");
+                                    email = "none";
                                 Log.i("email : ", result.getKakaoAccount().getEmail());
 
-                                finish();
-                                CheckTypesTask task = new CheckTypesTask();
-                                task.execute();
-                                startActivity(intent);
 
                             }
 
@@ -415,6 +409,39 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // 동의 다이얼로그
+    public void agree(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.agreement,null);
+        check_agree = alertView.findViewById(R.id.check_agree);
+        btn_next = alertView.findViewById(R.id.btn_next);
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (check_agree.isChecked() == true){
+                    Intent intent = new Intent(getApplicationContext(), Nick_name.class);
+                    intent.putExtra("email", email);
+
+                    finish();
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(MainActivity.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+        });
+
+        alert.setView(alertView);
+        dialog=alert.create();
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.show();
+    }
+
+    // 메뉴 크게보기
     public void createMenuDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
@@ -596,8 +623,6 @@ public class MainActivity extends AppCompatActivity {
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
 
 
     }
