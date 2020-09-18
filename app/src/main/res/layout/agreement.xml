@@ -203,18 +203,21 @@
                 android:text="위 개인정보 수집 · 이용에 동의합니다(필수)" />
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/check_agree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="#000000"
                 android:text="동의함" />
         </LinearLayout>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/agreebutton"
         android:text="동의하고 다음페이지로 넘어가시겠습니까?" />
 </LinearLayout>

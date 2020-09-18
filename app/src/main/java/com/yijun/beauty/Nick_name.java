@@ -20,6 +20,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,11 @@ public class Nick_name extends AppCompatActivity {
     private static final int MY_PERMISSION_STORAGE = 1111;
     TextView number;
 
+    // agreement 다이얼로그
+    AlertDialog dialog;
+    CheckBox check_agree;
+    Button btn_next;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +59,6 @@ public class Nick_name extends AppCompatActivity {
         number = findViewById(R.id.number);
 
         checkPermission();
-        getPhone();
-        number.setText(my_phone_num);
-
-        Toast.makeText(Nick_name.this, my_phone_num, Toast.LENGTH_SHORT).show();
-
-//        tstPNum = findViewById(R.id.box_my_num);
-//
-//        tstPNum.setText(my_phone_num);
 
         btn_check = findViewById(R.id.btn_check);
         txt_email = findViewById(R.id.txt_email);
@@ -117,20 +115,6 @@ public class Nick_name extends AppCompatActivity {
     }
 
     @SuppressLint({"MissingPermission", "HardwareIds"})
-
-    public void getPhoneNum() {
-
-        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
-        my_phone_num = tm.getLine1Number();
-
-        if (my_phone_num != null) {
-
-            my_phone_num = my_phone_num.replace("+82", "0");
-
-        }
-
-    }
 
     private String getPhone() {
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
@@ -200,4 +184,6 @@ public class Nick_name extends AppCompatActivity {
                 break;
         }
     }
+
+
 }
