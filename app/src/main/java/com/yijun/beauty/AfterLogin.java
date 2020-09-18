@@ -195,15 +195,17 @@ public class AfterLogin extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+   if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
                     Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Intent i = new Intent(AfterLogin.this, ReviewList.class);
-               CheckTypesTask task = new CheckTypesTask();
+                CheckTypesTask task = new CheckTypesTask();
                 task.execute();
                 startActivity(i);
+
             }
+
         });
 
         logout.setOnClickListener(new View.OnClickListener() {

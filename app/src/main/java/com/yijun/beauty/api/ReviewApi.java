@@ -8,6 +8,7 @@ import com.yijun.beauty.model.UserRes;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -22,9 +23,14 @@ public interface ReviewApi {
     Call<ReviewRes> selectReview(@Query("offset") int offset,
                                  @Query("limit")int limit);
 
- @GET("/api/v1/review/my")
+    @GET("/api/v1/review/my")
     Call<ReviewRes> myReview(@Query("nick_name")String nick_name,
                              @Query("offset") int offset,
                              @Query("limit")int limit);
+
+    @DELETE("/api/v1/review/delete")
+     Call<UserRes> deleteMyReview(@Body Review review);
+
+
 
 }
