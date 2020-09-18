@@ -20,7 +20,7 @@ public class UserCheck {
     private String created_at;
 
     @SerializedName("info_agree")
-    private Boolean info_agree;
+    private int info_agree;
 
     public boolean isSuccess() {
         return success;
@@ -62,11 +62,11 @@ public class UserCheck {
         this.created_at = created_at;
     }
 
-    public Boolean getInfo_agree() {
+    public int getInfo_agree() {
         return info_agree;
     }
 
-    public void setInfo_agree(Boolean info_agree) {
+    public void setInfo_agree(int info_agree) {
         this.info_agree = info_agree;
     }
 }

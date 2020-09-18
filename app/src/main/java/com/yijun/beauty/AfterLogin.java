@@ -197,11 +197,9 @@ public class AfterLogin extends AppCompatActivity {
         address = findViewById(R.id.address);
 
         String nick_name = getIntent().getStringExtra("nick_name");
-        String phone_number = getIntent().getStringExtra("phone_number");
         sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("nick_name", nick_name);
-        editor.putString("phone_number", phone_number);
         editor.apply();
 
 
