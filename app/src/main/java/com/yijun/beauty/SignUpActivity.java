@@ -3,6 +3,7 @@ package com.yijun.beauty;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,11 @@ public class SignUpActivity extends AppCompatActivity {
     Button btnidcheck;
     TextView txtphone;
     Button btnsignup;
+
+    SharedPreferences sp;
+
+    String my_phone_num;
+    private static final int MY_PERMISSION_STORAGE = 1111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
