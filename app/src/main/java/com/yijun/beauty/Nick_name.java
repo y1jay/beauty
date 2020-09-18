@@ -23,6 +23,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,22 +47,50 @@ public class Nick_name extends AppCompatActivity {
     TextView txt_email;
     EditText edit_nick_name;
 
+    SharedPreferences sp;
+
     String my_phone_num;
     private static final int MY_PERMISSION_STORAGE = 1111;
-    TextView number;
+
+    // 동의
+    ImageButton check_box;
+    CheckBox check_agree;
+    ScrollView scrollView;
+
+    Boolean agree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nick_name);
 
-        number = findViewById(R.id.number);
-
         checkPermission();
+//        agree();
 
         btn_check = findViewById(R.id.btn_check);
         txt_email = findViewById(R.id.txt_email);
         edit_nick_name = findViewById(R.id.edit_nick_name);
+
+        check_box = findViewById(R.id.check_box);
+        check_agree = findViewById(R.id.check_agree);
+        scrollView = findViewById(R.id.scrollView);
+        check_box.setImageResource(android.R.drawable.arrow_up_float);
+
+        check_box.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (scrollView.getVisibility() == View.VISIBLE){
+                    scrollView.setVisibility(View.GONE);
+                    check_box.setImageResource(android.R.drawable.arrow_down_float);
+                }else if (scrollView.getVisibility() == View.GONE){
+                    scrollView.setVisibility(View.VISIBLE);
+                    check_box.setImageResource(android.R.drawable.arrow_up_float);
+                }
+
+            }
+        });
+
 
         String email = getIntent().getStringExtra("email");
 
@@ -69,15 +99,24 @@ public class Nick_name extends AppCompatActivity {
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (check_agree.isChecked() == true){
+                    agree = true;
+                }else {
+                    Toast.makeText(Nick_name.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 String email = getIntent().getStringExtra("email");
                 String nick_name = edit_nick_name.getText().toString().trim();
+
                 if (nick_name.isEmpty()){
                     Toast.makeText(Nick_name.this,"닉네임을 입력해주세요.",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                UserReq userReq = new UserReq(email,nick_name,"123456789",true);
+                UserReq userReq = new UserReq(email,nick_name,my_phone_num,agree);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
                 UserApi userApi = retrofit.create(UserApi.class);
@@ -89,14 +128,15 @@ public class Nick_name extends AppCompatActivity {
                     public void onResponse(Call<UserRes> call, Response<UserRes> response) {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
-
                             Intent i = new Intent(Nick_name.this,AfterLogin.class);
                             i.putExtra("nick_name", nick_name);
+                            i.putExtra("phone_number", my_phone_num);
                             finish();
                             startActivity(i);
                         }
                         else if (response.isSuccessful()==false){
                             Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                            return;
                         }
 
                     }
@@ -178,36 +218,9 @@ public class Nick_name extends AppCompatActivity {
                 }
                 // 허용했다면 이 부분에서..
                 getPhone();
-                number.setText(my_phone_num);
+                Toast.makeText(Nick_name.this, my_phone_num, Toast.LENGTH_SHORT).show();
                 break;
         }
     }
-
-//    public void agree(){
-//        AlertDialog.Builder alert = new AlertDialog.Builder(Nick_name.this);
-//        View alertView = getLayoutInflater().inflate(R.layout.agreement,null);
-//        check_agree = alertView.findViewById(R.id.check_agree);
-//        btn_next = alertView.findViewById(R.id.btn_next);
-//
-//        btn_next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (check_agree.isChecked() == true){
-//                    dialog.cancel();
-//                    checkPermission();
-//                }else {
-//                    Toast.makeText(Nick_name.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
-//                    return;
-//                }
-//            }
-//        });
-//
-//        alert.setView(alertView);
-//        dialog=alert.create();
-//        dialog.setCancelable(false);
-//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-//        dialog.show();
-//    }
-
 
 }

@@ -35,17 +35,16 @@
             android:textSize="25sp" />
 
         <TextView
-
             android:id="@+id/txt_nick_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textSize="25sp" />
+
     </LinearLayout>
 
     <TextView
-
-        android:id="@+id/txt_email"
+        android:id="@+id/txt_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll"
@@ -55,15 +54,34 @@
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/txt_created_at"
+        android:id="@+id/txt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_phone"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/txt_agree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_email"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="10dp"
         android:textColor="#000000"
         android:textSize="25sp" />
 
+    <TextView
+        android:id="@+id/txt_created_at"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_agree"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="50dp"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/btn_update"

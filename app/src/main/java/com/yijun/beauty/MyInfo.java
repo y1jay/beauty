@@ -46,7 +46,9 @@ import static com.kakao.usermgmt.StringSet.phone_number;
 public class MyInfo extends AppCompatActivity {
 
     TextView txt_nick_name;
+    TextView txt_phone;
     TextView txt_email;
+    TextView txt_agree;
     TextView txt_created_at;
     Button btn_update;
     Button btn_end;
@@ -63,30 +65,46 @@ public class MyInfo extends AppCompatActivity {
         setContentView(R.layout.activity_my_info);
 
         txt_nick_name = findViewById(R.id.txt_nick_name);
+        txt_phone = findViewById(R.id.txt_phone);
         txt_email = findViewById(R.id.txt_email);
+        txt_agree = findViewById(R.id.txt_agree);
         txt_created_at = findViewById(R.id.txt_created_at);
 
         SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-        String email = sp.getString("email", null);
+        String nick_name = sp.getString("nick_name", null);
+        String phone_number = sp.getString("phone_number", null);
 
         // 닉네임이랑 폰넘버 가져와야함
         Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
-
         UserApi userApi = retrofit.create(UserApi.class);
 
-        Call<UserCheck> call = userApi.info_User(nickname,phone_number);
+        Call<UserCheck> call = userApi.info_User(nick_name,phone_number);
         call.enqueue(new Callback<UserCheck>() {
             @Override
             public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
                 // response.body() ==> PostRes 클래스
                 if (response.isSuccessful()){
                     String nick_name = response.body().getNick_name();
+                    String phone = response.body().getPhone_number();
+                    String email = response.body().getEmail();
+                    Boolean agree = response.body().getInfo_agree();
                     String created_at = response.body().getCreated_at();
 
                     Log.i("info", nick_name + created_at + email);
 
                     txt_nick_name.setText(nick_name);
-                    txt_email.setText(email);
+                    txt_phone.setText(phone);
+
+                    if (email.isEmpty()){
+                        txt_email.setVisibility(View.GONE);
+                    }else {
+                        txt_email.setText(email);
+                    }
+
+                    if (agree == true){
+                        txt_agree.setText("O");
+                    }
+
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
                     df.setTimeZone(TimeZone.getTimeZone("UTF"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
 
