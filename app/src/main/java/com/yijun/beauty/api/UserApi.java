@@ -1,6 +1,6 @@
 package com.yijun.beauty.api;
 
-import com.yijun.beauty.model.BeautyReq;
+import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
@@ -48,7 +48,7 @@ public interface UserApi {
 
 
   @POST("/api/v1/user/find_id")
-  Call<UserRes> findID (@Body String phone_number);
+  Call<ID> findID (@Query("phone_number") String phone_number);
 
 
 

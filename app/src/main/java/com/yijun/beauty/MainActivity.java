@@ -1,7 +1,6 @@
 package com.yijun.beauty;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,14 +27,16 @@ import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
 import com.kakao.util.exception.KakaoException;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.UserCheck;
+import com.yijun.beauty.model.UserReq;
+import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
 
@@ -42,8 +44,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
-import static com.kakao.usermgmt.StringSet.email;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -80,9 +80,22 @@ public class MainActivity extends AppCompatActivity {
 
     // 로그인 다이얼로그
     AlertDialog dialog;
+    AlertDialog dialog0;
+    AlertDialog dialog1;
     Button sign_up;
     Button login;
     LoginButton btn_custom_login;
+
+    EditText editID;
+    TextView txt_phoneNumber;
+    CheckBox Auto;
+    TextView txtNO;
+    TextView txtYES;
+
+    TextView find_id;
+    Button btnIDNO;
+    Button btnFind;
+    EditText findPhone;
 
     private long time = 0;
     SharedPreferences sp;
@@ -267,6 +280,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                createPopupDialog();
+                dialog.cancel();
             }
         });
 
@@ -737,6 +752,161 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void createPopupDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder
+                (MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.login,null);
+        editID = alertView.findViewById(R.id.editID);
+        txt_phoneNumber = alertView.findViewById(R.id.txt_phoneNumber);
+        txtNO = alertView.findViewById(R.id.txtNO);
+        txtYES = alertView.findViewById(R.id.txtYES);
+        Auto = alertView.findViewById(R.id.Auto);
+        find_id = alertView.findViewById(R.id.find_id);
+
+        txtYES.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nick_name = editID.getText().toString().trim();
+                String phone_number= txt_phoneNumber.getText().toString().trim();
+                Boolean info_agree = true;
+                if(nick_name.isEmpty()){
+                    Toast.makeText(MainActivity.this,"닉네임을 입력하세요",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                UserReq userReq = new UserReq(nick_name,phone_number,info_agree);
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
+
+                Call<UserRes> call = userApi.loginUser(userReq);
+
+                call.enqueue(new Callback<UserRes>() {
+                    @Override
+                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+                            // response.body() 가 UserRes.이다.
+                            boolean success = response.body().isSuccess();
+
+
+
+                            Intent i = new Intent(MainActivity.this,AfterLogin.class);
+                            Toast.makeText(MainActivity.this,"환영합니다.",Toast.LENGTH_SHORT).show();
+
+                            i.putExtra("nick_name",nick_name);
+                            i.putExtra("phone_number",phone_number);
+                            i.putExtra("info_agree",info_agree);
+                            startActivity(i);
+                            finish();
+                            dialog.cancel();
+                        } else if (response.isSuccessful()==false){
+                            Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserRes> call, Throwable t) {
+
+                    }
+                });
+
+                if (Auto.isChecked()){
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("auto_login",true);
+                    editor.apply();
+                }else{
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("auto_login",false);
+                    editor.apply();
+                }
+
+
+
+            }
+        });
+        txtNO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog0.cancel();
+            }
+        });
+       find_id.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               find_idPopupDialog();
+           }
+       });
+
+
+        alert.setView(alertView);
+
+        dialog0=alert.create();
+        dialog0.setCancelable(false);
+        dialog0.show();
+    }
+    public void find_idPopupDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder
+                (MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.find_id,null);
+        findPhone = alertView.findViewById(R.id.findPhone);
+
+        btnFind = alertView.findViewById(R.id.btnFind);
+        btnIDNO = alertView.findViewById(R.id.btnIDNO);
+
+        btnFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = findPhone.getText().toString().trim();
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
+
+                Call<ID> call = userApi.findID(phone);
+
+                call.enqueue(new Callback<ID>() {
+                    @Override
+                    public void onResponse(Call<ID> call, Response<ID> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+                            // response.body() 가 UserRes.이다.
+                            String ID = response.body().getID();
+                            Log.i("AAAAA","id : "+ID);
+                            Toast.makeText(MainActivity.this,"고객님의 아이디는 "+ID+" 입니다.",Toast.LENGTH_LONG).show();
+
+                            dialog1.cancel();
+                        } else if (response.isSuccessful()==false){
+                            Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ID> call, Throwable t) {
+
+                    }
+                });
+
+            }
+        });
+
+        btnIDNO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.cancel();
+            }
+        });
+        alert.setView(alertView);
+
+        dialog1=alert.create();
+        dialog1.setCancelable(false);
+        dialog1.show();
+    }
 
 
 
