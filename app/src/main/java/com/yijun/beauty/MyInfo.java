@@ -40,6 +40,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 import static com.kakao.usermgmt.StringSet.email;
+import static com.kakao.usermgmt.StringSet.nickname;
+import static com.kakao.usermgmt.StringSet.phone_number;
 
 public class MyInfo extends AppCompatActivity {
 
@@ -67,11 +69,12 @@ public class MyInfo extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
         String email = sp.getString("email", null);
 
+        // 닉네임이랑 폰넘버 가져와야함
         Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
 
         UserApi userApi = retrofit.create(UserApi.class);
 
-        Call<UserCheck> call = userApi.checkUser(email);
+        Call<UserCheck> call = userApi.checkUser(nickname,phone_number);
         call.enqueue(new Callback<UserCheck>() {
             @Override
             public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
@@ -133,7 +136,7 @@ public class MyInfo extends AppCompatActivity {
 
                         UserApi userApi = retrofit.create(UserApi.class);
 
-                        Call<UserRes> call = userApi.changeUser(email, new_nick_name);
+                        Call<UserRes> call = userApi.changeUser(phone_number, new_nick_name,nickname);
                         call.enqueue(new Callback<UserRes>() {
                             @Override
                             public void onResponse(Call<UserRes> call, Response<UserRes> response) {
@@ -213,7 +216,7 @@ public class MyInfo extends AppCompatActivity {
 
                                         UserApi userApi = retrofit.create(UserApi.class);
 
-                                        Call<UserRes> call = userApi.delUser(email);
+                                        Call<UserRes> call = userApi.delUser(nickname,phone_number);
                                         call.enqueue(new Callback<UserRes>() {
                                             @Override
                                             public void onResponse(Call<UserRes> call, Response<UserRes> response) {
