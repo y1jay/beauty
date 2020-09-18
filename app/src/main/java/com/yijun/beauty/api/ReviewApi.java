@@ -22,4 +22,9 @@ public interface ReviewApi {
     Call<ReviewRes> selectReview(@Query("offset") int offset,
                                  @Query("limit")int limit);
 
+ @GET("/api/v1/review/my")
+    Call<ReviewRes> myReview(@Query("nick_name")String nick_name,
+                             @Query("offset") int offset,
+                             @Query("limit")int limit);
+
 }
