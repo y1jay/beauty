@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.yijun.beauty.adapter.MyReviewclerViewAdapter;
-import com.yijun.beauty.adapter.ReviewclerViewAdapter;
+
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReviewApi;
 import com.yijun.beauty.model.ReviewRes;
@@ -27,8 +27,7 @@ public class Myreview extends AppCompatActivity {
     ArrayList<Rows> reviewArrayList = new ArrayList<>();
     MyReviewclerViewAdapter adapter;
 
-    int offset = 0;
-    int cnt = 0;
+
 
 
     @Override
@@ -36,43 +35,42 @@ public class Myreview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myreview);
 
-        myreviewcerView = findViewById(R.id.reviewcyclerView);
-        myreviewcerView.setHasFixedSize(true);
-        myreviewcerView.setLayoutManager(new LinearLayoutManager(Myreview.this));
-
-        getNetworkData();
-
-
-    }
-
-    private void getNetworkData() {
-
-        Retrofit retrofit = NetworkClient.getRetrofitClient(Myreview.this);
-
-        ReviewApi reviewApi = retrofit.create(ReviewApi.class);
-
-        Call<ReviewRes> call = reviewApi.myReview("kim",0,25);
-        call.enqueue(new Callback<ReviewRes>() {
-            @Override
-            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
-
-                Log.i("AAAA",response.body().getSuccess().toString());
-
-                Log.i("AAAA",response.body().getCnt().toString());
-
-                reviewArrayList = response.body().getRows();
-                cnt = response.body().getCnt();
-                offset = cnt + offset;
-
-                adapter = new MyReviewclerViewAdapter(Myreview.this, reviewArrayList);
-                myreviewcerView.setAdapter(adapter);
-
-            }
-            @Override
-            public void onFailure(Call<ReviewRes> call, Throwable t) {
-
-            }
-        });
+//        myreviewcerView = findViewById(R.id.recyclerView);
+//        myreviewcerView.setHasFixedSize(true);
+//        myreviewcerView.setLayoutManager(new LinearLayoutManager(Myreview.this));
+//
+//        getNetworkData();
+//
+//
+//    }
+//
+//    private void getNetworkData() {
+//
+//        Retrofit retrofit = NetworkClient.getRetrofitClient(Myreview.this);
+//
+//        ReviewApi reviewApi = retrofit.create(ReviewApi.class);
+//
+//        Call<ReviewRes> call = reviewApi.myReview(" ",0,25);
+//        call.enqueue(new Callback<ReviewRes>() {
+//            @Override
+//            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
+//
+//                Log.i("AAAA",response.body().getSuccess().toString());
+//
+//                Log.i("AAAA",response.body().getCnt().toString());
+//
+//                reviewArrayList = response.body().getRows();
+//
+//
+//                adapter = new MyReviewclerViewAdapter(Myreview.this, reviewArrayList);
+//                myreviewcerView.setAdapter(adapter);
+//
+//            }
+//            @Override
+//            public void onFailure(Call<ReviewRes> call, Throwable t) {
+//
+//            }
+//        });
 
     }
 }

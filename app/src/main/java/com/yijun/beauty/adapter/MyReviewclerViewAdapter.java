@@ -43,12 +43,12 @@ public class MyReviewclerViewAdapter extends RecyclerView.Adapter<MyReviewclerVi
     public void onBindViewHolder(@NonNull MyReviewclerViewAdapter.ViewHolder holder, int position) {
         // 어레이리스트에 저장된 데이터를 화면과 연결 : bind
         Rows rows= reviewArrayList.get(position);
-        String review1 = rows.getReview();
+        String review = rows.getReview();
         Float rating = rows.getRating();
         String created_at = rows.getCreated_at();
 
 
-        holder.my_txt_review.setText(review1);
+        holder.my_txt_review.setText(review);
         holder.ratingBar.setRating(rating);
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
@@ -80,17 +80,10 @@ public class MyReviewclerViewAdapter extends RecyclerView.Adapter<MyReviewclerVi
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
-            my_txt_review = itemView.findViewById(R.id.txt_review);
-            my_txt_created_at = itemView.findViewById(R.id.txt_created_at);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+            my_txt_review = itemView.findViewById(R.id.my_txt_review);
+            my_txt_created_at = itemView.findViewById(R.id.my_txt_created_at);
+            ratingBar = itemView.findViewById(R.id.my_ratingBar);
             my_btn_delete = itemView.findViewById(R.id.my_btn_delete);
-
-            my_btn_delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
 
 
         }

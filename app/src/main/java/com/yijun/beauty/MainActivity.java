@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent i = new Intent(MainActivity.this, LodingActivity.class);
         int key = getIntent().getIntExtra("key", 0);
-        Log.i("key","key "+key);
+        Log.i("key", "key " + key);
         if (key == 1) {
 
         } else {
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!CheckNetwork.isNetworkAvailable(MainActivity.this)){
+                if (!CheckNetwork.isNetworkAvailable(MainActivity.this)) {
                     Toast.makeText(MainActivity.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -211,15 +211,15 @@ public class MainActivity extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!CheckNetwork.isNetworkAvailable(MainActivity.this)){
+                if (!CheckNetwork.isNetworkAvailable(MainActivity.this)) {
                     Toast.makeText(MainActivity.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
-              Intent i = new Intent(MainActivity.this,ReviewList.class);
-              i.putExtra("review",1);
+                Intent i = new Intent(MainActivity.this, ReviewList.class);
+                i.putExtra("review", 1);
                 CheckTypesTask task = new CheckTypesTask();
                 task.execute();
-              startActivity(i);
+                startActivity(i);
             }
         });
 
@@ -232,9 +232,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 로그인 다이얼로그
-    public void login_dialog(){
+    public void login_dialog() {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View alertView = getLayoutInflater().inflate(R.layout.login_menu,null);
+        View alertView = getLayoutInflater().inflate(R.layout.login_menu, null);
         sign_up = alertView.findViewById(R.id.sign_up);
         login = alertView.findViewById(R.id.login);
         btn_custom_login = alertView.findViewById(R.id.btn_custom_login);
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
         alert.setView(alertView);
 
-        dialog=alert.create();
+        dialog = alert.create();
         dialog.setCancelable(true);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.show();
@@ -321,13 +321,13 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
                             // response.body() ==> PostRes 클래스
-                            if (response.isSuccessful()){
-                                Intent i = new Intent(MainActivity.this,AfterLogin.class);
-                                i.putExtra("nick_name",response.body().getNick_name());
+                            if (response.isSuccessful()) {
+                                Intent i = new Intent(MainActivity.this, AfterLogin.class);
+                                i.putExtra("nick_name", response.body().getNick_name());
                                 Log.i("nick_name", response.body().getNick_name());
                                 finish();
                                 startActivity(i);
-                            }else if (response.isSuccessful()==false){
+                            } else if (response.isSuccessful() == false) {
 
                                 if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
                                     agree();
@@ -441,197 +441,158 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    // 메뉴 크게보기
-    public void createMenuDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
+        // 메뉴 크게보기
+        public void createMenuDialog() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu1, null);
 
 
+            alert.setView(enterview);
 
 
-        alert.setView(enterview);
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
 
 
+        public void createMenuDialog2() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu2, null);
 
 
+            alert.setView(enterview);
 
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog3() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu3, null);
+
+
+            alert.setView(enterview);
+
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog4() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu4, null);
+
+
+            alert.setView(enterview);
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog5() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu5, null);
+
+
+            alert.setView(enterview);
+
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog6() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu6, null);
+
+
+            alert.setView(enterview);
+
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog7() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu7, null);
+
+
+            alert.setView(enterview);
+
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog9() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu9, null);
+
+
+            alert.setView(enterview);
+
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog10() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu10, null);
+
+
+            alert.setView(enterview);
+
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
+
+        public void createMenuDialog11() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            View enterview = getLayoutInflater().inflate(R.layout.menu11, null);
+
+
+            alert.setView(enterview);
+
+
+            dialog = alert.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        }
 
     }
 
-
-
-    public void createMenuDialog2(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu2,null);
-
-
-
-        alert.setView(enterview);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-
-    public void createMenuDialog3(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu3,null);
-
-
-        alert.setView(enterview);
-
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-
-    public void createMenuDialog4(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
-
-
-
-        alert.setView(enterview);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog5(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu5,null);
-
-
-
-
-
-        alert.setView(enterview);
-
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog6(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
-
-
-
-
-
-        alert.setView(enterview);
-
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog7(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu7,null);
-
-
-
-
-        alert.setView(enterview);
-
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-
-    public void createMenuDialog9(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
-
-
-
-
-        alert.setView(enterview);
-
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog10(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
-
-
-
-
-
-
-        alert.setView(enterview);
-
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog11(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu11,null);
-
-
-
-
-        alert.setView(enterview);
-
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-    }
-
-
-
-
-
-}
 
 
 

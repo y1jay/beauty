@@ -254,7 +254,6 @@ public class MyInfo extends AppCompatActivity {
             }
         });
 
-
         btn_my_review = findViewById(R.id.btn_my_review);
         btn_my_review.setOnClickListener(new View.OnClickListener() {
             @Override

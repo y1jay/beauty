@@ -366,6 +366,8 @@ public class AfterLogin extends AppCompatActivity {
 
     }
 
+
+
     public void createMenuDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);

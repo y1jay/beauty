@@ -30,7 +30,7 @@
                 android:orientation="horizontal">
 
                 <RatingBar
-                    android:id="@+id/ratingBar"
+                    android:id="@+id/my_ratingBar"
                     style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                             android:layout_marginLeft="15dp"
                             android:ems="10"
                             android:maxLines="10"
-                            android:text="TextView"
+                            android:text=""
 
                             android:textSize="18sp" />
 
@@ -91,7 +91,7 @@
                             android:layout_gravity="right"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="8dp"
-                            android:text="TextView" />
+                            android:text="" />
                     </LinearLayout>
                 </ScrollView>
 
