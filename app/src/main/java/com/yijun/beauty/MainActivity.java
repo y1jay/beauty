@@ -63,22 +63,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView img10;
     ImageView img11;
 
-    // 메뉴 다이얼로그
-
-    TextView txt_delete1;
-    TextView txt_delete2;
-    TextView txt_delete3;
-    TextView txt_delete4;
-    TextView txt_delete5;
-    TextView txt_delete6;
-    TextView txt_delete7;
-    TextView txt_delete9;
-    TextView txt_delete10;
-    TextView txt_delete11;
-
 
     // 다이얼로그
     AlertDialog dialog;
+
     Button sign_up;
     Button login;
     LoginButton btn_custom_login;
@@ -432,20 +420,10 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
 
 
-        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
-
-        txt_delete1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -465,19 +443,8 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu2,null);
 
 
-        txt_delete2 = enterview.findViewById(R.id.txt_delete2);
-
-        txt_delete2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
 
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
@@ -493,19 +460,8 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu3,null);
 
 
-        txt_delete3 = enterview.findViewById(R.id.txt_delete3);
-
-        txt_delete3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -521,19 +477,8 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
 
 
-        txt_delete4 = enterview.findViewById(R.id.txt_delete4);
-
-        txt_delete4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
 
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
@@ -548,19 +493,11 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu5,null);
 
 
-        txt_delete5 = enterview.findViewById(R.id.txt_delete5);
-
-        txt_delete5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
 
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -575,19 +512,11 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
 
 
-        txt_delete6 = enterview.findViewById(R.id.txt_delete6);
-
-        txt_delete6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
 
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -602,19 +531,10 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu7,null);
 
 
-        txt_delete7 = enterview.findViewById(R.id.txt_delete7);
-
-        txt_delete7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -630,19 +550,10 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
 
 
-        txt_delete9 = enterview.findViewById(R.id.txt_delete9);
-
-        txt_delete9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -657,19 +568,12 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
 
 
-        txt_delete10 = enterview.findViewById(R.id.txt_delete10);
 
-        txt_delete10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
 
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -684,19 +588,10 @@ public class MainActivity extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu11,null);
 
 
-        txt_delete11 = enterview.findViewById(R.id.txt_delete11);
-
-        txt_delete11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();

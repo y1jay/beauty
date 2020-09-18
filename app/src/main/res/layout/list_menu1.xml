@@ -10,17 +10,11 @@
 
 
 
-    <TextView
-        android:id="@+id/delete1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:text="닫기" />
+
 
     <ImageView
         android:id="@+id/img_menu1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/delete1"
         app:srcCompat="@drawable/list_menu1" />
 </RelativeLayout>

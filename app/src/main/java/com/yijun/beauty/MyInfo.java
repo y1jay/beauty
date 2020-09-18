@@ -48,6 +48,7 @@ public class MyInfo extends AppCompatActivity {
     TextView txt_created_at;
     Button btn_update;
     Button btn_end;
+    Button btn_my_review;
 
     private AlertDialog alertDialog;
     EditText txt_new_nick_name;
@@ -250,6 +251,17 @@ public class MyInfo extends AppCompatActivity {
                             }
                         }).show();
 
+            }
+        });
+
+
+        btn_my_review = findViewById(R.id.btn_my_review);
+        btn_my_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MyInfo.this,Myreview.class);
+                startActivity(i);
             }
         });
 
