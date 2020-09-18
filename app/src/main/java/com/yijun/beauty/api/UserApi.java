@@ -46,7 +46,7 @@ public interface UserApi {
 
 
   @POST("/api/v1/user/find_id")
-  Call<UserRes> findID (@Body String nick_name);
+  Call<UserRes> findID (@Body String phone_number);
 
 
 

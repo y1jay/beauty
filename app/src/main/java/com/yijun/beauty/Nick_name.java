@@ -81,7 +81,7 @@ public class Nick_name extends AppCompatActivity {
                     return;
                 }
 
-                UserReq userReq = new UserReq(email,nick_name);
+                UserReq userReq = new UserReq(email,nick_name,"123456789",true);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
                 UserApi userApi = retrofit.create(UserApi.class);
