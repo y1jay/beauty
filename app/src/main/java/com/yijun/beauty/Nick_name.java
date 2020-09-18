@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -20,10 +21,13 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
@@ -53,14 +57,6 @@ public class Nick_name extends AppCompatActivity {
         number = findViewById(R.id.number);
 
         checkPermission();
-        getPhone();
-        number.setText(my_phone_num);
-
-        Toast.makeText(Nick_name.this, my_phone_num, Toast.LENGTH_SHORT).show();
-
-//        tstPNum = findViewById(R.id.box_my_num);
-//
-//        tstPNum.setText(my_phone_num);
 
         btn_check = findViewById(R.id.btn_check);
         txt_email = findViewById(R.id.txt_email);
@@ -117,20 +113,6 @@ public class Nick_name extends AppCompatActivity {
     }
 
     @SuppressLint({"MissingPermission", "HardwareIds"})
-
-    public void getPhoneNum() {
-
-        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
-        my_phone_num = tm.getLine1Number();
-
-        if (my_phone_num != null) {
-
-            my_phone_num = my_phone_num.replace("+82", "0");
-
-        }
-
-    }
 
     private String getPhone() {
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
@@ -200,4 +182,32 @@ public class Nick_name extends AppCompatActivity {
                 break;
         }
     }
+
+//    public void agree(){
+//        AlertDialog.Builder alert = new AlertDialog.Builder(Nick_name.this);
+//        View alertView = getLayoutInflater().inflate(R.layout.agreement,null);
+//        check_agree = alertView.findViewById(R.id.check_agree);
+//        btn_next = alertView.findViewById(R.id.btn_next);
+//
+//        btn_next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (check_agree.isChecked() == true){
+//                    dialog.cancel();
+//                    checkPermission();
+//                }else {
+//                    Toast.makeText(Nick_name.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
+//            }
+//        });
+//
+//        alert.setView(alertView);
+//        dialog=alert.create();
+//        dialog.setCancelable(false);
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+//        dialog.show();
+//    }
+
+
 }
