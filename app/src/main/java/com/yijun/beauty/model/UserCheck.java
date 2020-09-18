@@ -10,11 +10,25 @@ public class UserCheck {
     @SerializedName("nick_name")
     private String nick_name;
 
+    @SerializedName("phone_number")
+    private String phone_number;
+
     @SerializedName("email")
     private String email;
 
     @SerializedName("created_at")
     private String created_at;
+
+    @SerializedName("info_agree")
+    private Boolean info_agree;
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 
     public String getNick_name() {
         return nick_name;
@@ -24,12 +38,20 @@ public class UserCheck {
         this.nick_name = nick_name;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCreated_at() {
@@ -40,11 +62,11 @@ public class UserCheck {
         this.created_at = created_at;
     }
 
-    public String getEmail() {
-        return email;
+    public Boolean getInfo_agree() {
+        return info_agree;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setInfo_agree(Boolean info_agree) {
+        this.info_agree = info_agree;
     }
 }

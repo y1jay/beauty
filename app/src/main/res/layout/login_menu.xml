@@ -11,6 +11,7 @@
     android:paddingVertical="20dp">
 
     <LinearLayout
+        android:id="@+id/ffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

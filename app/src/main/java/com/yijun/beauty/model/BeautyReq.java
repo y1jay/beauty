@@ -1,27 +1,17 @@
 package com.yijun.beauty.model;
 
-public class UserReq {
-    private String email;
+public class BeautyReq {
     private String nick_name;
     private String phone_number;
     private Boolean info_agree;
 
-    public UserReq() {
+    public BeautyReq() {
     }
 
-    public UserReq(String email, String nick_name, String phone_number, Boolean info_agree) {
-        this.email = email;
+    public BeautyReq(String nick_name, String phone_number, Boolean info_agree) {
         this.nick_name = nick_name;
         this.phone_number = phone_number;
         this.info_agree = info_agree;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getNick_name() {
