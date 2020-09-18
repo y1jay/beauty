@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingRight="40dp"
@@ -15,37 +15,42 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="10dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:text="로그인"
         android:textSize="30sp" />
 
+
+
     <EditText
         android:id="@+id/editID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:ems="10"
+        android:layout_below="@+id/textView"
         android:fontFamily="sans-serif"
         android:hint="닉네임을 입력하세요"
         android:inputType="text"
         android:textSize="25sp" />
-
-    <EditText
-        android:id="@+id/editPasswd"
+    <TextView
+        android:id="@+id/txt_phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_below="@+id/editID"
         android:fontFamily="sans-serif"
-        android:hint="전화번호를 입력하세요"
+        android:text="전화번호"
         android:inputType="textPassword"
         android:textSize="25sp" />
 
-    <LinearLayout
+
+    <RelativeLayout
+        android:id="@+id/llll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_phoneNumber"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal">
@@ -54,7 +59,7 @@
             android:id="@+id/Auto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_alignParentLeft="true"
             android:text="자동 로그인"
             android:textColor="#FF0000"
             android:textSize="15sp" />
@@ -63,8 +68,8 @@
             android:id="@+id/txtNO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="25dp"
+            android:layout_toLeftOf="@+id/txtYES"
             android:fontFamily="sans-serif"
             android:text="취소"
             android:textColor="#7583E6"
@@ -75,18 +80,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
             android:fontFamily="sans-serif"
             android:text="로그인"
             android:textColor="#7583E6"
             android:textSize="20sp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llll"
+
+        android:gravity="right"
         android:orientation="horizontal">
 
         <TextView
@@ -96,19 +103,10 @@
             android:layout_marginRight="20dp"
 
             android:fontFamily="sans-serif"
-            android:text="아이디찾기"
+            android:text="닉네임 찾기"
             android:textColor="#000000"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/find_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="sans-serif"
-            android:text="비밀번호 찾기"
-            android:textColor="#000000"
-            android:textSize="20sp" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

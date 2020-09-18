@@ -1,7 +1,6 @@
 package com.yijun.beauty;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,9 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,14 +27,16 @@ import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
 import com.kakao.util.exception.KakaoException;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.UserCheck;
+import com.yijun.beauty.model.UserReq;
+import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
 
@@ -44,8 +44,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
-import static com.kakao.usermgmt.StringSet.email;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -82,15 +80,33 @@ public class MainActivity extends AppCompatActivity {
 
     // 로그인 다이얼로그
     AlertDialog dialog;
+    AlertDialog dialog0;
+    AlertDialog dialog1;
     Button sign_up;
     Button login;
     LoginButton btn_custom_login;
+
+    EditText editID;
+    TextView txt_phoneNumber;
+    CheckBox Auto;
+    TextView txtNO;
+    TextView txtYES;
+
+    TextView find_id;
+    Button btnIDNO;
+    Button btnFind;
+    EditText findPhone;
 
     private long time = 0;
     SharedPreferences sp;
     String email;
 
     private SessionCallback sessionCallback;
+
+    // agreement 다이얼로그
+    AlertDialog agreement_dialog;
+    CheckBox check_agree;
+    Button btn_next;
 
 
     @Override
@@ -184,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+
         sessionCallback = new SessionCallback(); //SessionCallback 초기화
         Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
@@ -251,6 +268,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(MainActivity.this, SignUpActivity.class);
+                dialog.cancel();
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
+                startActivity(i);
             }
         });
 
@@ -258,10 +280,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                createPopupDialog();
+                dialog.cancel();
             }
         });
-
-
 
         YoYo.with(Techniques.SlideInUp)
                 .duration(1000)
@@ -332,7 +354,6 @@ public class MainActivity extends AppCompatActivity {
                         public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
                             // response.body() ==> PostRes 클래스
                             if (response.isSuccessful()){
-
                                 Intent i = new Intent(MainActivity.this,AfterLogin.class);
                                 i.putExtra("nick_name",response.body().getNick_name());
                                 Log.i("nick_name", response.body().getNick_name());
@@ -340,17 +361,12 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(i);
                             }else if (response.isSuccessful()==false){
 
-                                Intent intent = new Intent(getApplicationContext(), Nick_name.class);
                                 if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
-                                    intent.putExtra("email", result.getKakaoAccount().getEmail());
+                                    agree();
                                 else
-                                    intent.putExtra("email", "none");
+                                    email = "none";
                                 Log.i("email : ", result.getKakaoAccount().getEmail());
 
-                                finish();
-                                CheckTypesTask task = new CheckTypesTask();
-                                task.execute();
-                                startActivity(intent);
 
                             }
 
@@ -423,6 +439,38 @@ public class MainActivity extends AppCompatActivity {
         } else if (System.currentTimeMillis() - time < 2000) {
             finish();
         }
+    }
+
+    // 동의 다이얼로그
+    public void agree(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.agreement,null);
+        check_agree = alertView.findViewById(R.id.check_agree);
+        btn_next = alertView.findViewById(R.id.btn_next);
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (check_agree.isChecked() == true){
+                    Intent intent = new Intent(getApplicationContext(), Nick_name.class);
+                    intent.putExtra("email", email);
+
+                    finish();
+                    CheckTypesTask task = new CheckTypesTask();
+                    task.execute();
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(MainActivity.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+        });
+
+        alert.setView(alertView);
+        dialog=alert.create();
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.show();
     }
 
     // 메뉴 크게보기
@@ -704,6 +752,161 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void createPopupDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder
+                (MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.login,null);
+        editID = alertView.findViewById(R.id.editID);
+        txt_phoneNumber = alertView.findViewById(R.id.txt_phoneNumber);
+        txtNO = alertView.findViewById(R.id.txtNO);
+        txtYES = alertView.findViewById(R.id.txtYES);
+        Auto = alertView.findViewById(R.id.Auto);
+        find_id = alertView.findViewById(R.id.find_id);
+
+        txtYES.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nick_name = editID.getText().toString().trim();
+                String phone_number= txt_phoneNumber.getText().toString().trim();
+                Boolean info_agree = true;
+                if(nick_name.isEmpty()){
+                    Toast.makeText(MainActivity.this,"닉네임을 입력하세요",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                UserReq userReq = new UserReq(nick_name,phone_number,info_agree);
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
+
+                Call<UserRes> call = userApi.loginUser(userReq);
+
+                call.enqueue(new Callback<UserRes>() {
+                    @Override
+                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+                            // response.body() 가 UserRes.이다.
+                            boolean success = response.body().isSuccess();
+
+
+
+                            Intent i = new Intent(MainActivity.this,AfterLogin.class);
+                            Toast.makeText(MainActivity.this,"환영합니다.",Toast.LENGTH_SHORT).show();
+
+                            i.putExtra("nick_name",nick_name);
+                            i.putExtra("phone_number",phone_number);
+                            i.putExtra("info_agree",info_agree);
+                            startActivity(i);
+                            finish();
+                            dialog.cancel();
+                        } else if (response.isSuccessful()==false){
+                            Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserRes> call, Throwable t) {
+
+                    }
+                });
+
+                if (Auto.isChecked()){
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("auto_login",true);
+                    editor.apply();
+                }else{
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("auto_login",false);
+                    editor.apply();
+                }
+
+
+
+            }
+        });
+        txtNO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog0.cancel();
+            }
+        });
+       find_id.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               find_idPopupDialog();
+           }
+       });
+
+
+        alert.setView(alertView);
+
+        dialog0=alert.create();
+        dialog0.setCancelable(false);
+        dialog0.show();
+    }
+    public void find_idPopupDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder
+                (MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.find_id,null);
+        findPhone = alertView.findViewById(R.id.findPhone);
+
+        btnFind = alertView.findViewById(R.id.btnFind);
+        btnIDNO = alertView.findViewById(R.id.btnIDNO);
+
+        btnFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = findPhone.getText().toString().trim();
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
+
+                Call<ID> call = userApi.findID(phone);
+
+                call.enqueue(new Callback<ID>() {
+                    @Override
+                    public void onResponse(Call<ID> call, Response<ID> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+                            // response.body() 가 UserRes.이다.
+                            String ID = response.body().getID();
+                            Log.i("AAAAA","id : "+ID);
+                            Toast.makeText(MainActivity.this,"고객님의 아이디는 "+ID+" 입니다.",Toast.LENGTH_LONG).show();
+
+                            dialog1.cancel();
+                        } else if (response.isSuccessful()==false){
+                            Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ID> call, Throwable t) {
+
+                    }
+                });
+
+            }
+        });
+
+        btnIDNO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.cancel();
+            }
+        });
+        alert.setView(alertView);
+
+        dialog1=alert.create();
+        dialog1.setCancelable(false);
+        dialog1.show();
+    }
 
 
 

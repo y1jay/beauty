@@ -16,6 +16,16 @@ public class UserReq {
         this.info_agree = info_agree;
     }
 
+    public UserReq(String nick_name, String phone_number, Boolean info_agree) {
+        this.nick_name = nick_name;
+        this.phone_number = phone_number;
+        this.info_agree = info_agree;
+    }
+
+    public UserReq(String nick_name) {
+        this.nick_name = nick_name;
+    }
+
     public String getEmail() {
         return email;
     }
