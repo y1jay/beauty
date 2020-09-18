@@ -44,11 +44,21 @@
         android:hint="nick_name"
         android:inputType="textPersonName" />
 
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_nick_name"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:text="TextView" />
+
     <Button
         android:id="@+id/btn_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_nick_name"
+        android:layout_below="@+id/number"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:text="확인" />

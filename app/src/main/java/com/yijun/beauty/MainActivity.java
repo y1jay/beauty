@@ -4,28 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.kakao.auth.ApiErrorCode;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
@@ -33,9 +31,8 @@ import com.kakao.util.exception.KakaoException;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
+import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
-
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,39 +43,19 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    RecyclerView recyclerView;
     Button reservation;
     Button review;
     Button address;
+    Button beauty;
 
-    ImageView img1;
-    ImageView img2;
-    ImageView img3;
-    ImageView img4;
-    ImageView img5;
-    ImageView img6;
-    ImageView img7;
-    ImageView img9;
-    ImageView img10;
-    ImageView img11;
+    // 다이얼로그
+    AlertDialog dialog;
+    Button sign_up;
+    Button login;
+    LoginButton btn_custom_login;
 
-
-    // 메뉴 다이얼로그
-
-    TextView txt_delete1;
-    TextView txt_delete2;
-    TextView txt_delete3;
-    TextView txt_delete4;
-    TextView txt_delete5;
-    TextView txt_delete6;
-    TextView txt_delete7;
-    TextView txt_delete9;
-    TextView txt_delete10;
-    TextView txt_delete11;
-
-
-    private AlertDialog dialog;
-
+    private long time = 0;
     SharedPreferences sp;
 
     private SessionCallback sessionCallback;
@@ -89,85 +66,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        img1 = findViewById(R.id.img1);
-        img2 = findViewById(R.id.img2);
-        img3 = findViewById(R.id.img3);
-        img4 = findViewById(R.id.img4);
-        img5 = findViewById(R.id.img5);
-        img6 = findViewById(R.id.img6);
-        img7 = findViewById(R.id.img7);
-        img9 = findViewById(R.id.img9);
-        img10 = findViewById(R.id.img10);
-        img11 = findViewById(R.id.img11);
-
-
-
-        img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog();
-            }
-        });
-
-        img2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog2();
-            }
-        });
-
-        img3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog3();
-            }
-        });
-        img4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog4();
-            }
-        });
-        img5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog5();
-            }
-        });
-        img6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog6();
-            }
-        });
-        img7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog7();
-            }
-        });
-        img9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog9();
-            }
-        });
-        img10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog10();
-            }
-        });
-        img11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createMenuDialog11();
-            }
-        });
-
-
         Intent i = new Intent(MainActivity.this, LodingActivity.class);
         int key = getIntent().getIntExtra("key", 0);
+        Log.i("key","key "+key);
         if (key == 1) {
 
         } else {
@@ -180,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
         Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
 
-
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
         review = findViewById(R.id.reviewcyclerView);
+        beauty = findViewById(R.id.beauty);
 
         reservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(MainActivity.this)){
+                    Toast.makeText(MainActivity.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent i = new Intent(MainActivity.this, Address.class);
                 i.putExtra("add", 1);
                 CheckTypesTask task = new CheckTypesTask();
@@ -206,9 +111,66 @@ public class MainActivity extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!CheckNetwork.isNetworkAvailable(MainActivity.this)){
+                    Toast.makeText(MainActivity.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+              Intent i = new Intent(MainActivity.this,ReviewList.class);
+              i.putExtra("review",1);
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
+              startActivity(i);
+            }
+        });
+
+        beauty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login_dialog();
+            }
+        });
+    }
+
+    public void login_dialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View alertView = getLayoutInflater().inflate(R.layout.login_menu,null);
+        sign_up = alertView.findViewById(R.id.sign_up);
+        login = alertView.findViewById(R.id.login);
+        btn_custom_login = alertView.findViewById(R.id.btn_custom_login);
+
+        sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        YoYo.with(Techniques.RotateOut)
+                .duration(800)
+                .repeat(0)
+                .playOn(sign_up);
+        YoYo.with(Techniques.RotateIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(login);
+        YoYo.with(Techniques.RotateIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(btn_custom_login);
+
+        alert.setView(alertView);
+
+        dialog=alert.create();
+        dialog.setCancelable(true);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.show();
     }
 
     @Override
@@ -235,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
                         Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                        finish();
+
                     } else {
                         Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다: " + errorResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -339,293 +301,16 @@ public class MainActivity extends AppCompatActivity {
             super.onCancelled(s);
         }
 
-
-
-
-
-
     }
-
-    public void createMenuDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
-
-
-        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
-
-        txt_delete1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              dialog.cancel();
-            }
-        });
-
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-
-
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - time >= 2000) {
+            time = System.currentTimeMillis();
+            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료합니다.", Toast.LENGTH_SHORT).show();
+        } else if (System.currentTimeMillis() - time < 2000) {
+            finish();
+        }
     }
-
-
-
-    public void createMenuDialog2(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu2,null);
-
-
-        txt_delete2 = enterview.findViewById(R.id.txt_delete2);
-
-        txt_delete2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-
-    public void createMenuDialog3(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu3,null);
-
-
-        txt_delete3 = enterview.findViewById(R.id.txt_delete3);
-
-        txt_delete3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-
-    public void createMenuDialog4(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
-
-
-        txt_delete4 = enterview.findViewById(R.id.txt_delete4);
-
-        txt_delete4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog5(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu5,null);
-
-
-        txt_delete5 = enterview.findViewById(R.id.txt_delete5);
-
-        txt_delete5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog6(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
-
-
-        txt_delete6 = enterview.findViewById(R.id.txt_delete6);
-
-        txt_delete6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog7(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu7,null);
-
-
-        txt_delete7 = enterview.findViewById(R.id.txt_delete7);
-
-        txt_delete7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-
-    public void createMenuDialog9(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
-
-
-        txt_delete9 = enterview.findViewById(R.id.txt_delete9);
-
-        txt_delete9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog10(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
-
-
-        txt_delete10 = enterview.findViewById(R.id.txt_delete10);
-
-        txt_delete10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-    public void createMenuDialog11(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enterview = getLayoutInflater().inflate(R.layout.menu11,null);
-
-
-        txt_delete11 = enterview.findViewById(R.id.txt_delete11);
-
-        txt_delete11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-
-
-
-        alert.setView(enterview);
-        alert.setCancelable(false);
-
-        dialog = alert.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-    }
-
 }
 
 
