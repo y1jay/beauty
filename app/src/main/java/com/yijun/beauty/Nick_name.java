@@ -65,7 +65,7 @@ public class Nick_name extends AppCompatActivity {
         setContentView(R.layout.activity_nick_name);
 
         checkPermission();
-//        agree();
+        Toast.makeText(Nick_name.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
 
         btn_check = findViewById(R.id.btn_check);
         txt_email = findViewById(R.id.txt_email);
@@ -222,7 +222,7 @@ public class Nick_name extends AppCompatActivity {
                 }
                 // 허용했다면 이 부분에서..
                 getPhone();
-                Toast.makeText(Nick_name.this, my_phone_num, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Nick_name.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

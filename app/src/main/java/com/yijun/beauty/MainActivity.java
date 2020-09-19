@@ -360,12 +360,17 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                                 startActivity(i);
                             }else if (response.isSuccessful()==false){
-
+                                Intent intent = new Intent(getApplicationContext(), Nick_name.class);
                                 if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
-                                    agree();
+                                    intent.putExtra("email", email);
                                 else
-                                    email = "none";
+                                    intent.putExtra("email" ,"none");
                                 Log.i("email : ", result.getKakaoAccount().getEmail());
+
+                                finish();
+                                CheckTypesTask task = new CheckTypesTask();
+                                task.execute();
+                                startActivity(intent);
 
 
                             }
@@ -439,38 +444,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (System.currentTimeMillis() - time < 2000) {
             finish();
         }
-    }
-
-    // 동의 다이얼로그
-    public void agree(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View alertView = getLayoutInflater().inflate(R.layout.agreement,null);
-        check_agree = alertView.findViewById(R.id.check_agree);
-        btn_next = alertView.findViewById(R.id.btn_next);
-
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (check_agree.isChecked() == true){
-                    Intent intent = new Intent(getApplicationContext(), Nick_name.class);
-                    intent.putExtra("email", email);
-
-                    finish();
-                    CheckTypesTask task = new CheckTypesTask();
-                    task.execute();
-                    startActivity(intent);
-                }else {
-                    Toast.makeText(MainActivity.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
-                    return;
-                }
-            }
-        });
-
-        alert.setView(alertView);
-        dialog=alert.create();
-        dialog.setCancelable(false);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        dialog.show();
     }
 
     // 메뉴 크게보기

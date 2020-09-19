@@ -38,9 +38,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class SignUpActivity extends AppCompatActivity {
+    TextView txtphone;
     EditText edtid;
     Button btnidcheck;
-    TextView txtphone;
     Button btnsignup;
 
     SharedPreferences sp;
@@ -61,7 +61,6 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         checkPermission();
-//        agree();
 
         check_box = findViewById(R.id.check_box);
         check_agree = findViewById(R.id.check_agree);
@@ -85,13 +84,12 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         txtphone = findViewById(R.id.txtphone);
-
         edtid = findViewById(R.id.edtid);
         btnidcheck = findViewById(R.id.btnidcheck);
         btnsignup = findViewById(R.id.btnsignup);
 
-
-
+        getPhone();
+        txtphone.setText(my_phone_num);
 
         btnidcheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +122,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onFailure(Call<UserCheck> call, Throwable t) {
+
                     }
                 });
             }
@@ -140,12 +139,10 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
                 final String nick_name = edtid.getText().toString().trim();
-                final String phone = txtphone.getText().toString().trim();
-                final Boolean info_agree = true;
                 if (nick_name.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
-                }else if (phone.isEmpty()){
+                }else if (my_phone_num.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -155,7 +152,7 @@ public class SignUpActivity extends AppCompatActivity {
                 Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<UserRes> call = userApi.beautyUser(nick_name,phone,info_agree);
+                Call<UserRes> call = userApi.beautyUser(nick_name,my_phone_num,agree);
 
                 call.enqueue(new Callback<UserRes>() {
                     @Override
@@ -168,10 +165,9 @@ public class SignUpActivity extends AppCompatActivity {
 
                             Intent i = new Intent(SignUpActivity.this,AfterLogin.class);
                             Toast.makeText(SignUpActivity.this,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show();
-
                             i.putExtra("nick_name",nick_name);
-                            i.putExtra("phone_number",phone);
-                            i.putExtra("info_agree",info_agree);
+                            i.putExtra("phone_number",my_phone_num);
+                            i.putExtra("info_agree",agree);
                             startActivity(i);
                             finish();
 
@@ -256,7 +252,8 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                 // 허용했다면 이 부분에서..
                 getPhone();
-                Toast.makeText(SignUpActivity.this, my_phone_num, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, "해당 권한이 활성화 되었습니다.", Toast.LENGTH_SHORT).show();
+                txtphone.setText(my_phone_num);
                 break;
         }
     }
