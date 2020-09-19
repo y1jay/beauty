@@ -22,8 +22,6 @@
         android:text="로그인"
         android:textSize="30sp" />
 
-
-
     <EditText
         android:id="@+id/editID"
         android:layout_width="match_parent"
@@ -34,23 +32,12 @@
         android:hint="닉네임을 입력하세요"
         android:inputType="text"
         android:textSize="25sp" />
-    <TextView
-        android:id="@+id/txt_phoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_below="@+id/editID"
-        android:fontFamily="sans-serif"
-        android:text="전화번호"
-        android:inputType="textPassword"
-        android:textSize="25sp" />
-
 
     <RelativeLayout
         android:id="@+id/llll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_phoneNumber"
+        android:layout_below="@+id/editID"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal">

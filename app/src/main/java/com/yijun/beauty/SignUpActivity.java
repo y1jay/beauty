@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -31,6 +32,7 @@ import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.BeautyReq;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserRes;
+import com.yijun.beauty.url.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -82,7 +84,6 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-
         txtphone = findViewById(R.id.txtphone);
         edtid = findViewById(R.id.edtid);
         btnidcheck = findViewById(R.id.btnidcheck);
@@ -100,8 +101,6 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this,"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-//                Nick_name nick_name1 = new Nick_name(nick_name);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
@@ -138,7 +137,7 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                final String nick_name = edtid.getText().toString().trim();
+                String nick_name = edtid.getText().toString().trim();
                 if (nick_name.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
@@ -147,12 +146,13 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-//                BeautyReq beautyReq = new BeautyReq(nick_name,phone,info_agree);
+                BeautyReq beautyReq = new BeautyReq(nick_name,my_phone_num,agree);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<UserRes> call = userApi.beautyUser(nick_name,my_phone_num,agree);
+                Call<UserRes> call = userApi.beautyUser(beautyReq);
+                Log.i("beautyUser",nick_name+my_phone_num+agree);
 
                 call.enqueue(new Callback<UserRes>() {
                     @Override
@@ -162,9 +162,13 @@ public class SignUpActivity extends AppCompatActivity {
                             // response.body() 가 UserRes.이다.
                             boolean success = response.body().isSuccess();
 
+                            // 전화번호 저장.
+                            sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("phone_number", my_phone_num);
+                            editor.apply();
 
                             Intent i = new Intent(SignUpActivity.this,AfterLogin.class);
-                            Toast.makeText(SignUpActivity.this,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show();
                             i.putExtra("nick_name",nick_name);
                             i.putExtra("phone_number",my_phone_num);
                             i.putExtra("info_agree",agree);
@@ -246,6 +250,7 @@ public class SignUpActivity extends AppCompatActivity {
                 for (int i = 0; i < grantResults.length; i++) {
                     // grantResults[] : 허용된 권한은 0, 거부한 권한은 -1
                     if (grantResults[i] < 0) {
+                        checkPermission();
                         Toast.makeText(SignUpActivity.this, "해당 권한을 활성화 하셔야 합니다.", Toast.LENGTH_SHORT).show();
                         return;
                     }

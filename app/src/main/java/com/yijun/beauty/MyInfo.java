@@ -53,11 +53,11 @@ public class MyInfo extends AppCompatActivity {
     Button btn_update;
     Button btn_end;
 
+    // 닉네임 수정하기
     private AlertDialog alertDialog;
     EditText txt_new_nick_name;
     Button btn_change;
     Button btn_no;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,7 @@ public class MyInfo extends AppCompatActivity {
                     txt_nick_name.setText(nick_name);
                     txt_phone.setText(phone);
 
-                    if (email.isEmpty()){
+                    if (email == null){
                         txt_email.setVisibility(View.GONE);
                     }else {
                         txt_email.setText(email);
@@ -136,6 +136,10 @@ public class MyInfo extends AppCompatActivity {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                String nick_name = sp.getString("nick_name", null);
+                String phone_number = sp.getString("phone_number", null);
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(MyInfo.this);
                 View alertView = getLayoutInflater().inflate(R.layout.change_nick_name,null);
                 txt_new_nick_name = alertView.findViewById(R.id.txt_new_nick_name);
@@ -145,6 +149,7 @@ public class MyInfo extends AppCompatActivity {
                 btn_change.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        
                         String new_nick_name = txt_new_nick_name.getText().toString().trim();
 
                         if (new_nick_name.equals(txt_nick_name.getText().toString().trim())){
@@ -157,7 +162,7 @@ public class MyInfo extends AppCompatActivity {
 
                         UserApi userApi = retrofit.create(UserApi.class);
 
-                        Call<UserRes> call = userApi.changeUser(phone_number, new_nick_name,nickname);
+                        Call<UserRes> call = userApi.changeUser(phone_number, new_nick_name,nick_name);
                         call.enqueue(new Callback<UserRes>() {
                             @Override
                             public void onResponse(Call<UserRes> call, Response<UserRes> response) {
@@ -168,7 +173,7 @@ public class MyInfo extends AppCompatActivity {
                                     Log.i("nick_name", response.message());
                                     txt_nick_name.setText(new_nick_name);
                                     alertDialog.cancel();
-                                }else if (response.isSuccessful()==false){
+                                }else{
                                     Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -277,5 +282,32 @@ public class MyInfo extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void id_check(){
+        String nick_name = txt_new_nick_name.getText().toString().trim();
+        if (nick_name.isEmpty()){
+            Toast.makeText(MyInfo.this,"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+        UserApi userApi = retrofit.create(UserApi.class);
+
+        Call<UserCheck> call = userApi.checkId(nick_name);
+        call.enqueue(new Callback<UserCheck>() {
+            @Override
+            public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()==false){
+                    Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+            @Override
+            public void onFailure(Call<UserCheck> call, Throwable t) {
+
+            }
+        });
     }
 }

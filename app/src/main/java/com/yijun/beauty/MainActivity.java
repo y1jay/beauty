@@ -1,15 +1,26 @@
 package com.yijun.beauty;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -78,20 +89,25 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_delete11;
 
 
-    // 로그인 다이얼로그
+    // 로그인메뉴 다이얼로그
     AlertDialog dialog;
-    AlertDialog dialog0;
-    AlertDialog dialog1;
     Button sign_up;
     Button login;
     LoginButton btn_custom_login;
 
+    // 전화허용
+    String my_phone_num;
+    private static final int MY_PERMISSION_STORAGE = 1111;
+
+    // 미인닭발 로그인 다이얼로그
+    AlertDialog dialog0;
     EditText editID;
-    TextView txt_phoneNumber;
     CheckBox Auto;
     TextView txtNO;
     TextView txtYES;
 
+    // 아이디 찾기 다이얼로그
+    AlertDialog dialog1;
     TextView find_id;
     Button btnIDNO;
     Button btnFind;
@@ -102,12 +118,6 @@ public class MainActivity extends AppCompatActivity {
     String email;
 
     private SessionCallback sessionCallback;
-
-    // agreement 다이얼로그
-    AlertDialog agreement_dialog;
-    CheckBox check_agree;
-    Button btn_next;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -256,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // 로그인 다이얼로그
+    // 로그인메뉴 다이얼로그
     public void login_dialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View alertView = getLayoutInflater().inflate(R.layout.login_menu,null);
@@ -279,8 +289,10 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getPhone();
+                Toast.makeText(MainActivity.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
                 createPopupDialog();
+                checkPermission();
                 dialog.cancel();
             }
         });
@@ -371,8 +383,6 @@ public class MainActivity extends AppCompatActivity {
                                 CheckTypesTask task = new CheckTypesTask();
                                 task.execute();
                                 startActivity(intent);
-
-
                             }
 
                         }
@@ -399,6 +409,8 @@ public class MainActivity extends AppCompatActivity {
             Log.e("openfailed ", e.toString());
         }
     }
+
+    // 로딩중
     private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
         ProgressDialog asyncDialog = new ProgressDialog(MainActivity.this);
 
@@ -415,8 +427,6 @@ public class MainActivity extends AppCompatActivity {
 
             for(int i = 0; i<10000; i++){
                 publishProgress(i);
-
-
             }
             return true;
 
@@ -429,13 +439,13 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
         }
 
-
         @Override
         protected void onCancelled(Boolean s){
             super.onCancelled(s);
         }
 
     }
+
     @Override
     public void onBackPressed() {
         if (System.currentTimeMillis() - time >= 2000) {
@@ -446,14 +456,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     // 메뉴 크게보기
     public void createMenuDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
 
-
         txt_delete1 = enterview.findViewById(R.id.txt_delete1);
-
         txt_delete1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -461,32 +470,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
-
-
     }
-
-
 
     public void createMenuDialog2(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu2,null);
 
-
         txt_delete2 = enterview.findViewById(R.id.txt_delete2);
-
         txt_delete2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -494,27 +490,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog3(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu3,null);
 
-
         txt_delete3 = enterview.findViewById(R.id.txt_delete3);
-
         txt_delete3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -522,27 +510,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog4(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
 
-
         txt_delete4 = enterview.findViewById(R.id.txt_delete4);
-
         txt_delete4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -550,26 +530,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
+
     public void createMenuDialog5(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu5,null);
 
-
         txt_delete5 = enterview.findViewById(R.id.txt_delete5);
-
         txt_delete5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -577,26 +550,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
+
     public void createMenuDialog6(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
 
-
         txt_delete6 = enterview.findViewById(R.id.txt_delete6);
-
         txt_delete6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -604,26 +570,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
+
     public void createMenuDialog7(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu7,null);
 
-
         txt_delete7 = enterview.findViewById(R.id.txt_delete7);
-
         txt_delete7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -631,27 +590,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog9(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
 
-
         txt_delete9 = enterview.findViewById(R.id.txt_delete9);
-
         txt_delete9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -659,26 +610,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
+
     public void createMenuDialog10(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
 
-
         txt_delete10 = enterview.findViewById(R.id.txt_delete10);
-
         txt_delete10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -686,26 +630,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
+
     public void createMenuDialog11(){
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu11,null);
 
-
         txt_delete11 = enterview.findViewById(R.id.txt_delete11);
-
         txt_delete11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -713,24 +650,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         alert.setView(enterview);
         alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
     }
 
+
+    // 미인닭발 로그인 다이얼로그
     public void createPopupDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder
-                (MainActivity.this);
+        checkPermission();
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View alertView = getLayoutInflater().inflate(R.layout.login,null);
         editID = alertView.findViewById(R.id.editID);
-        txt_phoneNumber = alertView.findViewById(R.id.txt_phoneNumber);
         txtNO = alertView.findViewById(R.id.txtNO);
         txtYES = alertView.findViewById(R.id.txtYES);
         Auto = alertView.findViewById(R.id.Auto);
@@ -740,81 +675,79 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nick_name = editID.getText().toString().trim();
-                String phone_number= txt_phoneNumber.getText().toString().trim();
                 Boolean info_agree = true;
+
+//                SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+//                String real_phone = sp.getString("phone_number", null);
+
                 if(nick_name.isEmpty()){
                     Toast.makeText(MainActivity.this,"닉네임을 입력하세요",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                UserReq userReq = new UserReq(nick_name,phone_number,info_agree);
-
                 Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<UserRes> call = userApi.loginUser(userReq);
+                Call<UserCheck> call = userApi.loginUser(nick_name, my_phone_num);
 
-                call.enqueue(new Callback<UserRes>() {
+                call.enqueue(new Callback<UserCheck>() {
                     @Override
-                    public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                    public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
                             // response.body() 가 UserRes.이다.
                             boolean success = response.body().isSuccess();
 
-
-
                             Intent i = new Intent(MainActivity.this,AfterLogin.class);
-                            Toast.makeText(MainActivity.this,"환영합니다.",Toast.LENGTH_SHORT).show();
 
                             i.putExtra("nick_name",nick_name);
-                            i.putExtra("phone_number",phone_number);
                             i.putExtra("info_agree",info_agree);
+
                             startActivity(i);
                             finish();
                             dialog.cancel();
-                        } else if (response.isSuccessful()==false){
-                            Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
 
+                        } else if (response.isSuccessful()==false){
+                            Toast.makeText(MainActivity.this,"존재하지않는 회원입니다, 회원가입 먼저 해주세오",Toast.LENGTH_SHORT).show();
+                            dialog0.dismiss();
                         }
 
                     }
 
                     @Override
-                    public void onFailure(Call<UserRes> call, Throwable t) {
+                    public void onFailure(Call<UserCheck> call, Throwable t) {
 
                     }
                 });
 
-                if (Auto.isChecked()){
+                if (Auto.isChecked() == true){
+                    sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("auto_login",true);
                     editor.apply();
                 }else{
+                    sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("auto_login",false);
                     editor.apply();
                 }
-
-
-
             }
         });
+
         txtNO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog0.cancel();
             }
         });
+
        find_id.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-
                find_idPopupDialog();
            }
        });
-
 
         alert.setView(alertView);
 
@@ -822,9 +755,11 @@ public class MainActivity extends AppCompatActivity {
         dialog0.setCancelable(false);
         dialog0.show();
     }
+
+    // 미인닭발 아이디 찾기 다이얼로그
     public void find_idPopupDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder
-                (MainActivity.this);
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View alertView = getLayoutInflater().inflate(R.layout.find_id,null);
         findPhone = alertView.findViewById(R.id.findPhone);
 
@@ -850,11 +785,9 @@ public class MainActivity extends AppCompatActivity {
                             String ID = response.body().getID();
                             Log.i("AAAAA","id : "+ID);
                             Toast.makeText(MainActivity.this,"고객님의 아이디는 "+ID+" 입니다.",Toast.LENGTH_LONG).show();
-
                             dialog1.cancel();
                         } else if (response.isSuccessful()==false){
                             Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
-
                         }
 
                     }
@@ -881,8 +814,77 @@ public class MainActivity extends AppCompatActivity {
         dialog1.show();
     }
 
+    @SuppressLint({"MissingPermission", "HardwareIds"})
+
+    private String getPhone() {
+        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            return "";
+        }
+        my_phone_num = tm.getLine1Number();
+
+        if (my_phone_num != null) {
+
+            my_phone_num = my_phone_num.replace("+82", "0");
+
+        }
+
+        return tm.getLine1Number();
+    }
 
 
+    private void checkPermission(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // 다시 보지 않기 버튼을 만드려면 이 부분에 바로 요청을 하도록 하면 됨 (아래 else{..} 부분 제거)
+            // ActivityCompat.requestPermissions((Activity)mContext, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSION_CAMERA);
+
+            // 처음 호출시엔 if()안의 부분은 false로 리턴 됨 -> else{..}의 요청으로 넘어감
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_PHONE_STATE)) {
+                new AlertDialog.Builder(this)
+                        .setTitle("알림")
+                        .setMessage("저장소 권한이 거부되었습니다. 사용을 원하시면 설정에서 해당 권한을 직접 허용하셔야 합니다.")
+                        .setPositiveButton("설정", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                intent.setData(Uri.parse("package:" + getPackageName()));
+                                startActivity(intent);
+                            }
+                        })
+//                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                finish();
+//                            }
+//                        })
+                        .setCancelable(false)
+                        .create()
+                        .show();
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_NUMBERS}, MY_PERMISSION_STORAGE);
+            }
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSION_STORAGE:
+                for (int i = 0; i < grantResults.length; i++) {
+                    // grantResults[] : 허용된 권한은 0, 거부한 권한은 -1
+                    if (grantResults[i] < 0) {
+                        checkPermission();
+                        Toast.makeText(MainActivity.this, "해당 권한을 활성화 하셔야 합니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+                // 허용했다면 이 부분에서..
+                getPhone();
+                Toast.makeText(MainActivity.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 
 }
 
