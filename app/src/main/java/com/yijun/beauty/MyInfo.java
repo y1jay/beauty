@@ -149,9 +149,11 @@ public class MyInfo extends AppCompatActivity {
                 btn_change.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        
                         String new_nick_name = txt_new_nick_name.getText().toString().trim();
-
+                        if (new_nick_name.isEmpty()){
+                            Toast.makeText(MyInfo.this,"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         if (new_nick_name.equals(txt_nick_name.getText().toString().trim())){
                             Log.i("nick_name", txt_nick_name.getText().toString().trim() +new_nick_name);
                             Toast.makeText(MyInfo.this, "현재 닉네임과 동일합니다.", Toast.LENGTH_LONG).show();
@@ -159,27 +161,47 @@ public class MyInfo extends AppCompatActivity {
                         }
 
                         Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
-
                         UserApi userApi = retrofit.create(UserApi.class);
 
-                        Call<UserRes> call = userApi.changeUser(phone_number, new_nick_name,nick_name);
-                        call.enqueue(new Callback<UserRes>() {
+                        Call<UserCheck> call = userApi.checkId(nick_name);
+                        call.enqueue(new Callback<UserCheck>() {
                             @Override
-                            public void onResponse(Call<UserRes> call, Response<UserRes> response) {
-                                // response.body() ==> PostRes 클래스
-                                if (response.isSuccessful()){
-                                    //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                    Toast.makeText(MyInfo.this, "닉네임이 변경되었습니다.", Toast.LENGTH_SHORT).show();
-                                    Log.i("nick_name", response.message());
-                                    txt_nick_name.setText(new_nick_name);
-                                    alertDialog.cancel();
-                                }else{
+                            public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                                // 상태코드가 200 인지 확인
+                                if (response.isSuccessful()==true){
                                     Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                                    return;
+                                }else if(response.isSuccessful()==false){
+
+                                    Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+
+                                    UserApi userApi = retrofit.create(UserApi.class);
+
+                                    Call<UserRes> call0 = userApi.changeUser(phone_number, new_nick_name,nick_name);
+                                    call0.enqueue(new Callback<UserRes>() {
+                                        @Override
+                                        public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                                            // response.body() ==> PostRes 클래스
+                                            if (response.isSuccessful()){
+                                                //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
+                                                Toast.makeText(MyInfo.this, "닉네임이 변경되었습니다.", Toast.LENGTH_SHORT).show();
+                                                Log.i("nick_name", response.message());
+                                                txt_nick_name.setText(new_nick_name);
+                                                alertDialog.cancel();
+                                            }else{
+                                                Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<UserRes> call, Throwable t) {
+
+                                        }
+                                    });
                                 }
                             }
-
                             @Override
-                            public void onFailure(Call<UserRes> call, Throwable t) {
+                            public void onFailure(Call<UserCheck> call, Throwable t) {
 
                             }
                         });

@@ -289,10 +289,18 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+//                Boolean auto_login = sp.getBoolean("auto_login", false);
+//                if (auto_login == true){
+//                    Intent i = new Intent(MainActivity.this, AfterLogin.class);
+//                    i.putExtra("nick_name",);
+//                    finish();
+//                    startActivity(i);
+//                }
+
                 getPhone();
                 Toast.makeText(MainActivity.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
                 createPopupDialog();
-                checkPermission();
                 dialog.cancel();
             }
         });
