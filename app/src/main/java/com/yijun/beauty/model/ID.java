@@ -3,11 +3,11 @@ package com.yijun.beauty.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ID {
-        @SerializedName("success")
-        private boolean success;
+    @SerializedName("success")
+    private boolean success;
 
-        @SerializedName("nick_name")
-        private String ID;
+    @SerializedName("nick_name")
+    private String ID;
 
     public String getID() {
         return ID;
@@ -21,7 +21,7 @@ public class ID {
             return success;
         }
 
-        public void setSuccess(boolean success) {
+    public void setSuccess(boolean success) {
             this.success = success;
         }
 

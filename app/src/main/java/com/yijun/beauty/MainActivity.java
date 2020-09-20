@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     TextView find_id;
     Button btnIDNO;
     Button btnFind;
-    EditText findPhone;
+    TextView findPhone;
 
     private long time = 0;
     SharedPreferences sp;
@@ -790,9 +790,10 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View alertView = getLayoutInflater().inflate(R.layout.find_id,null);
         findPhone = alertView.findViewById(R.id.findPhone);
-
         btnFind = alertView.findViewById(R.id.btnFind);
         btnIDNO = alertView.findViewById(R.id.btnIDNO);
+
+        findPhone.setText(my_phone_num);
 
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -812,8 +813,9 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("AAAAA","id : "+ID);
                             Toast.makeText(MainActivity.this,"고객님의 아이디는 "+ID+" 입니다.",Toast.LENGTH_LONG).show();
                             dialog1.cancel();
-                        } else if (response.isSuccessful()==false){
-                            Toast.makeText(MainActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+                        } else{
+                            Toast.makeText(MainActivity.this,"존재하지않는 회원입니다.",Toast.LENGTH_SHORT).show();
+                            Log.i("AAAAA","id : "+response.toString());
                         }
 
                     }
@@ -833,8 +835,8 @@ public class MainActivity extends AppCompatActivity {
                 dialog1.cancel();
             }
         });
-        alert.setView(alertView);
 
+        alert.setView(alertView);
         dialog1=alert.create();
         dialog1.setCancelable(false);
         dialog1.show();
