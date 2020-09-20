@@ -210,6 +210,39 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        // 미인닭발 자동로그인
+        SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+        Boolean auto_login = sp.getBoolean("auto_login", false);
+
+        if (auto_login == true){
+            getPhone();
+            Log.i("id", ""+getPhone());
+
+            Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+            UserApi userApi = retrofit.create(UserApi.class);
+
+            Call<ID> call = userApi.findID(my_phone_num);
+
+            call.enqueue(new Callback<ID>() {
+                @Override
+                public void onResponse(Call<ID> call, Response<ID> response) {
+                    // 상태코드가 200 인지 확인
+                    if (response.isSuccessful() == true){
+                        // response.body() 가 UserRes.이다.
+                        String nick_name = response.body().getID();
+                        Intent i = new Intent(MainActivity.this, AfterLogin.class);
+                        i.putExtra("nick_name", nick_name);
+                        finish();
+                        startActivity(i);
+                    }
+                }
+                @Override
+                public void onFailure(Call<ID> call, Throwable t) {
+                    Log.i("id", t.toString());
+                }
+            });
+        }
+
 
         sessionCallback = new SessionCallback(); //SessionCallback 초기화
         Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
@@ -289,15 +322,6 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-//                Boolean auto_login = sp.getBoolean("auto_login", false);
-//                if (auto_login == true){
-//                    Intent i = new Intent(MainActivity.this, AfterLogin.class);
-//                    i.putExtra("nick_name",);
-//                    finish();
-//                    startActivity(i);
-//                }
-
                 getPhone();
                 Toast.makeText(MainActivity.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
                 createPopupDialog();
@@ -685,9 +709,6 @@ public class MainActivity extends AppCompatActivity {
                 String nick_name = editID.getText().toString().trim();
                 Boolean info_agree = true;
 
-//                SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-//                String real_phone = sp.getString("phone_number", null);
-
                 if(nick_name.isEmpty()){
                     Toast.makeText(MainActivity.this,"닉네임을 입력하세요",
                             Toast.LENGTH_SHORT).show();
@@ -708,7 +729,6 @@ public class MainActivity extends AppCompatActivity {
                             boolean success = response.body().isSuccess();
 
                             Intent i = new Intent(MainActivity.this,AfterLogin.class);
-
                             i.putExtra("nick_name",nick_name);
                             i.putExtra("info_agree",info_agree);
 
@@ -777,12 +797,10 @@ public class MainActivity extends AppCompatActivity {
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone = findPhone.getText().toString().trim();
-
                 Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<ID> call = userApi.findID(phone);
+                Call<ID> call = userApi.findID(my_phone_num);
 
                 call.enqueue(new Callback<ID>() {
                     @Override

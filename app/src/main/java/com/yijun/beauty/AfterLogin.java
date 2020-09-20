@@ -211,7 +211,7 @@ public class AfterLogin extends AppCompatActivity {
                     return;
                 }
                 Intent i = new Intent(AfterLogin.this, ReviewList.class);
-               CheckTypesTask task = new CheckTypesTask();
+                CheckTypesTask task = new CheckTypesTask();
                 task.execute();
                 startActivity(i);
             }

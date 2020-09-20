@@ -31,8 +31,8 @@ public interface UserApi {
                              @Query("nick_name") String nick_name);
 //
   @DELETE("/api/v1/user/del")
-    Call<UserRes> delUser (@Body String phone_number,
-                           @Body String nick_name);
+    Call<UserRes> delUser (@Query("phone_number") String phone_number,
+                           @Query("nick_name") String nick_name);
 
 //
   @POST("/api/v1/user/beauty_add")

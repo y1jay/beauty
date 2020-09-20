@@ -166,6 +166,7 @@ public class SignUpActivity extends AppCompatActivity {
                             sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("phone_number", my_phone_num);
+                            editor.putString("nick_name", nick_name);
                             editor.apply();
 
                             Intent i = new Intent(SignUpActivity.this,AfterLogin.class);
