@@ -47,7 +47,7 @@ public interface UserApi {
 
 
 
-  @POST("/api/v1/user/find_id")
+  @GET ("/api/v1/user/find_id")
   Call<ID> findID (@Query("phone_number") String phone_number);
 
 

@@ -807,7 +807,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ID> call, Response<ID> response) {
                         // 상태코드가 200 인지 확인
-                        if (response.isSuccessful()){
+                        if (response.isSuccessful() == true){
                             // response.body() 가 UserRes.이다.
                             String ID = response.body().getID();
                             Log.i("AAAAA","id : "+ID);
