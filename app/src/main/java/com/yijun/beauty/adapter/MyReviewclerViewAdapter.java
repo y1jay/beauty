@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.yijun.beauty.MainActivity;
 import com.yijun.beauty.Myreview;
 import com.yijun.beauty.R;
 import com.yijun.beauty.api.NetworkClient;
@@ -104,14 +105,19 @@ public class MyReviewclerViewAdapter extends RecyclerView.Adapter<MyReviewclerVi
                 @Override
                 public void onClick(View v) {
 
+
+
                     AlertDialog.Builder delete = new AlertDialog.Builder(context);
-                    delete.setTitle("삭제");
-                    delete.setMessage("연락처를 삭제하시겠습니까?");
+                    delete.setTitle("리뷰 삭제");
+                    delete.setMessage("리뷰를 삭제하시겠습니까?");
                     delete.setPositiveButton("네", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
 
+                            int position = getAdapterPosition();
+
+                            ((Myreview) context).deletereviw(position);
 
                         }
                     });

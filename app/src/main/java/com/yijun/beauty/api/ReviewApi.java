@@ -6,6 +6,8 @@ import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.model.UserRes;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -29,7 +31,9 @@ public interface ReviewApi {
                              @Query("limit")int limit);
 
     @DELETE("/api/v1/review/delete")
-     Call<UserRes> deleteMyReview(@Body Review review);
+     Call<ReviewRes> deleteMyReview(@Body String nick_name,
+                                  @Body String review,
+                                  @Body float rating);
 
 
 

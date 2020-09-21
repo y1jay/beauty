@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.kakao.usermgmt.response.model.User;
 import com.yijun.beauty.adapter.MyReviewclerViewAdapter;
 import com.yijun.beauty.adapter.ReviewclerViewAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReviewApi;
+import com.yijun.beauty.model.Review;
 import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;
+import com.yijun.beauty.model.UserRes;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,7 @@ public class Myreview extends AppCompatActivity {
     RecyclerView recyclerView;
     MyReviewclerViewAdapter adapter;
     ArrayList<Rows> reviewArrayList = new ArrayList<>();
+
 
 
     @Override
@@ -67,6 +71,40 @@ public class Myreview extends AppCompatActivity {
             public void onFailure(Call<ReviewRes> call, Throwable t) {
 
             }
+        });
+
+    }
+
+    public void deletereviw(final int position){
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Myreview.this);
+
+        ReviewApi reviewApi = retrofit.create(ReviewApi.class);
+
+        Rows review = reviewArrayList.get(position);
+        String review_nick = review.getNick_name();
+        String review_review = review.getReview();
+        float  review_rating = review.getRating();
+
+        Call<ReviewRes> call = reviewApi.deleteMyReview(review_nick,review_review,review_rating);
+        call.enqueue(new Callback<ReviewRes>() {
+            @Override
+            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
+
+
+
+
+                reviewArrayList = response.body().getRows();
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<ReviewRes> call, Throwable t) {
+
+            }
+
+
         });
 
     }
