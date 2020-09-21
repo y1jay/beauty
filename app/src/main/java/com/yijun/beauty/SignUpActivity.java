@@ -13,7 +13,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -28,12 +27,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
+import com.yijun.beauty.model.BeautyReq;
 import com.yijun.beauty.model.UserCheck;
-import com.yijun.beauty.model.UserReq;
 import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
 
@@ -42,10 +39,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Nick_name extends AppCompatActivity {
-    Button btn_check;
-    TextView txt_email;
-    EditText edit_nick_name;
+public class SignUpActivity extends AppCompatActivity {
+    TextView txtphone;
+    EditText edtid;
+    Button btnidcheck;
+    Button btnsignup;
 
     SharedPreferences sp;
 
@@ -62,13 +60,9 @@ public class Nick_name extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nick_name);
+        setContentView(R.layout.activity_sign_up);
 
         checkPermission();
-
-        btn_check = findViewById(R.id.btn_check);
-        txt_email = findViewById(R.id.txt_email);
-        edit_nick_name = findViewById(R.id.edit_nick_name);
 
         check_box = findViewById(R.id.check_box);
         check_agree = findViewById(R.id.check_agree);
@@ -90,58 +84,101 @@ public class Nick_name extends AppCompatActivity {
             }
         });
 
+        txtphone = findViewById(R.id.txtphone);
+        edtid = findViewById(R.id.edtid);
+        btnidcheck = findViewById(R.id.btnidcheck);
+        btnsignup = findViewById(R.id.btnsignup);
 
-        String email = getIntent().getStringExtra("email");
+        getPhone();
+        txtphone.setText(my_phone_num);
 
-        txt_email.setText("이메일  "+email);
-
-        btn_check.setOnClickListener(new View.OnClickListener() {
+        btnidcheck.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
+                String nick_name = edtid.getText().toString().trim();
+                if (nick_name.isEmpty()){
+                    Toast.makeText(SignUpActivity.this,"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
+                UserApi userApi = retrofit.create(UserApi.class);
+
+                Call<UserCheck> call = userApi.checkId(nick_name);
+                call.enqueue(new Callback<UserCheck>() {
+                    @Override
+                    public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()==false){
+                            Toast.makeText(SignUpActivity.this,"이미있는 닉네임입니다.",Toast.LENGTH_SHORT).show();
+                            edtid.setText("");
+                            return;
+                        }else{
+                            Toast.makeText(SignUpActivity.this,"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<UserCheck> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+
+        btnsignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 if (check_agree.isChecked() == true){
                     agree = true;
                 }else {
-                    Toast.makeText(Nick_name.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpActivity.this, "동의 시 이용 가능합니다.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                String email = getIntent().getStringExtra("email");
-                String nick_name = edit_nick_name.getText().toString().trim();
-
+                String nick_name = edtid.getText().toString().trim();
                 if (nick_name.isEmpty()){
-                    Toast.makeText(Nick_name.this,"닉네임을 입력해주세요.",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this,"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
+                    return;
+                }else if (my_phone_num.isEmpty()){
+                    Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                UserReq userReq = new UserReq(email,nick_name,my_phone_num,agree);
+                BeautyReq beautyReq = new BeautyReq(nick_name,my_phone_num,agree);
 
-                Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
+                Retrofit retrofit = NetworkClient.getRetrofitClient(SignUpActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
 
-                Call<UserRes> call = userApi.createUser(userReq);
+                Call<UserRes> call = userApi.beautyUser(beautyReq);
+                Log.i("beautyUser",nick_name+my_phone_num+agree);
 
                 call.enqueue(new Callback<UserRes>() {
                     @Override
                     public void onResponse(Call<UserRes> call, Response<UserRes> response) {
                         // 상태코드가 200 인지 확인
                         if (response.isSuccessful()){
+                            // response.body() 가 UserRes.이다.
+                            boolean success = response.body().isSuccess();
+
+                            // 전화번호 저장.
                             sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("phone_number", my_phone_num);
+                            editor.putString("nick_name", nick_name);
                             editor.apply();
 
-                            Intent i = new Intent(Nick_name.this,AfterLogin.class);
-                            i.putExtra("nick_name", nick_name);
-                            finish();
+                            Intent i = new Intent(SignUpActivity.this,AfterLogin.class);
+                            i.putExtra("nick_name",nick_name);
+                            i.putExtra("phone_number",my_phone_num);
+                            i.putExtra("info_agree",agree);
                             startActivity(i);
-                        }
-                        else if (response.isSuccessful()==false){
-                            Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
+                            finish();
 
+                        } else if (response.isSuccessful()==false){
+                            Toast.makeText(SignUpActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
@@ -149,17 +186,16 @@ public class Nick_name extends AppCompatActivity {
 
                     }
                 });
-
-
             }
         });
+
     }
 
     @SuppressLint({"MissingPermission", "HardwareIds"})
 
     private String getPhone() {
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        if (ActivityCompat.checkSelfPermission(Nick_name.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(SignUpActivity.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             return "";
         }
         my_phone_num = tm.getLine1Number();
@@ -216,15 +252,24 @@ public class Nick_name extends AppCompatActivity {
                     // grantResults[] : 허용된 권한은 0, 거부한 권한은 -1
                     if (grantResults[i] < 0) {
                         checkPermission();
-                        Toast.makeText(Nick_name.this, "해당 권한을 활성화 하셔야 합니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, "해당 권한을 활성화 하셔야 합니다.", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
                 // 허용했다면 이 부분에서..
                 getPhone();
-                Toast.makeText(Nick_name.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, "해당 권한이 활성화 되었습니다.", Toast.LENGTH_SHORT).show();
+                txtphone.setText(my_phone_num);
                 break;
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(SignUpActivity.this,MainActivity.class);
+        i.putExtra("key",1);
+        finish();
+        startActivity(i);
+    }
 }
