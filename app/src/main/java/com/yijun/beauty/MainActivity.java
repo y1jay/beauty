@@ -792,6 +792,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.putBoolean("auto_login",false);
                     editor.apply();
                 }
+
+                dialog0.dismiss();
             }
         });
 
