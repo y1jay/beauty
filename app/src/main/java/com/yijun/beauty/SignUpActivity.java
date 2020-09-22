@@ -138,10 +138,12 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
                 String nick_name = edtid.getText().toString().trim();
+                String my_phone = txtphone.getText().toString().trim();
                 if (nick_name.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
-                }else if (my_phone_num.isEmpty()){
+                }
+                if (my_phone.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
                 }
