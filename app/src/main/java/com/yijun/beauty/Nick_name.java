@@ -117,7 +117,6 @@ public class Nick_name extends AppCompatActivity {
                     return;
                 }
 
-
                 UserReq userReq = new UserReq(email,nick_name,my_phone_num,agree);
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
@@ -139,8 +138,7 @@ public class Nick_name extends AppCompatActivity {
                             i.putExtra("nick_name", nick_name);
                             finish();
                             startActivity(i);
-                        }
-                        else if (response.isSuccessful()==false){
+                        } else if (response.isSuccessful()==false){
                             Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
                             UserApi userApi = retrofit.create(UserApi.class);
 
@@ -152,6 +150,10 @@ public class Nick_name extends AppCompatActivity {
                                     if (response.isSuccessful()==false){
                                         Toast.makeText(Nick_name.this,"이미있는 닉네임입니다.",Toast.LENGTH_SHORT).show();
                                         return;
+                                    }else if (response.isSuccessful()==true){
+                                        Toast.makeText(Nick_name.this,"이미 존재하는 번호입니다.",Toast.LENGTH_SHORT).show();
+                                        finish();
+                                        return;
                                     }
                                 }
                                 @Override
@@ -159,8 +161,6 @@ public class Nick_name extends AppCompatActivity {
 
                                 }
                             });
-
-
                         }
 
                     }
@@ -189,6 +189,11 @@ public class Nick_name extends AppCompatActivity {
 
             my_phone_num = my_phone_num.replace("+82", "0");
 
+        }else{
+            Toast.makeText(Nick_name.this,"번호가 존재하지않아 회원가입을 할 수 없습니다.",
+                    Toast.LENGTH_SHORT).show();
+            finish();
+            return "";
         }
 
         return tm.getLine1Number();
