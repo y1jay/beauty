@@ -267,8 +267,9 @@ public class MyInfo extends AppCompatActivity {
                                                         SharedPreferences.Editor editor = sp.edit();
                                                         editor.putBoolean("auto_login",false);
                                                         editor.apply();
-                                                        startActivity(intent);
+
                                                         finish();
+                                                        startActivity(intent);
                                                     }else {
 
                                                     }
@@ -313,7 +314,7 @@ public class MyInfo extends AppCompatActivity {
                                                     // response.body() ==> PostRes 클래스
                                                     if (response.isSuccessful()){
                                                         //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                                        Toast.makeText(getApplicationContext(), "탈퇴 되었습니다.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getApplicationContext(), "회원탈퇴 되었습니다.", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent(MyInfo.this, MainActivity.class);
                                                         intent.putExtra("key",1);
                                                         startActivity(intent);

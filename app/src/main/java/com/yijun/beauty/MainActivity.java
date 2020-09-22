@@ -504,7 +504,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -524,7 +524,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -544,7 +544,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -564,7 +564,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -584,7 +584,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -604,7 +604,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -624,7 +624,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -664,7 +664,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -684,7 +684,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();

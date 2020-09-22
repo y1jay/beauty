@@ -275,6 +275,7 @@ public class AfterLogin extends AppCompatActivity {
             CheckTypesTask task = new CheckTypesTask();
             task.execute();
             startActivity(i);
+            finish();
             return true;
         } else if (id == R.id.reservation_check) {
             if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
@@ -398,7 +399,7 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -428,7 +429,7 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -456,7 +457,7 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -484,7 +485,7 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -511,7 +512,6 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
@@ -538,7 +538,7 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -565,7 +565,7 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -593,7 +593,7 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -620,7 +620,6 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
@@ -647,7 +646,6 @@ public class AfterLogin extends AppCompatActivity {
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
