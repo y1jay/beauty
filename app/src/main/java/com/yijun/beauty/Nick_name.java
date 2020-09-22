@@ -30,6 +30,11 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.kakao.auth.ApiErrorCode;
+import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
@@ -189,10 +194,34 @@ public class Nick_name extends AppCompatActivity {
 
             my_phone_num = my_phone_num.replace("+82", "0");
 
-        }else{
-            Toast.makeText(Nick_name.this,"번호가 존재하지않아 회원가입을 할 수 없습니다.",
-                    Toast.LENGTH_SHORT).show();
-            finish();
+        }else {
+//            Toast.makeText(Nick_name.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+            UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+
+                }
+
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+                    int result = errorResult.getErrorCode();
+
+                    if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                        Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onSuccess(Long result) {
+                    Toast.makeText(Nick_name.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(Nick_name.this,MainActivity.class);
+                    i.putExtra("key",1);
+                    finish();
+                    startActivity(i);
+                }
+            });
+
             return "";
         }
 
