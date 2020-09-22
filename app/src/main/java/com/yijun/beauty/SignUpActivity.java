@@ -204,6 +204,9 @@ public class SignUpActivity extends AppCompatActivity {
 
             my_phone_num = my_phone_num.replace("+82", "0");
 
+        }else {
+            Toast.makeText(SignUpActivity.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+            return "";
         }
 
         return tm.getLine1Number();
