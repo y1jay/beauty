@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private long time = 0;
     SharedPreferences sp;
     String email;
-
+    Boolean auto_login;
     private SessionCallback sessionCallback;
 
     @Override
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+          auto_login = false;
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);
         img3 = findViewById(R.id.img3);
@@ -135,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
         img10 = findViewById(R.id.img10);
         img11 = findViewById(R.id.img11);
 
-        boolean auto_check = getIntent().getBooleanExtra("auto_login",false);
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,8 +210,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        // 미인닭발 자동로그인
+        SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+        auto_login = sp.getBoolean("auto_login", false);
 
-        if (Auto.isChecked()==true){
+        if (auto_login == true){
             getPhone();
             Log.i("id", ""+getPhone());
 
@@ -238,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("id", t.toString());
                 }
             });
-        }else if(auto_check){
+        }else if(auto_login==false){
         }
 
 
@@ -752,11 +755,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-//                if (Auto.isChecked() == true){
-//                     auto_login=true;
-//                }else{
-//                    auto_login=false;
-//                }
+                if (Auto.isChecked() == true){
+                     auto_login=true;
+                }else{
+                    auto_login=false;
+                }
             }
         });
 
