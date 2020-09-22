@@ -29,6 +29,8 @@ public class Myreview extends AppCompatActivity {
     RecyclerView recyclerView;
     MyReviewclerViewAdapter adapter;
     ArrayList<Rows> reviewArrayList = new ArrayList<>();
+    ArrayList<Review> reviews = new ArrayList<>();
+
 
     SharedPreferences sp;
 
@@ -86,6 +88,8 @@ public class Myreview extends AppCompatActivity {
     public void deleteReviw(int position){
 
         String nick_name =sp.getString("nick_name",null);
+        Rows rows = reviewArrayList.get(position);
+        Integer id = rows.getId();
 
 
 
@@ -93,14 +97,16 @@ public class Myreview extends AppCompatActivity {
 
         ReviewApi reviewApi = retrofit.create(ReviewApi.class);
 
+        Review review1 = new Review(id, nick_name);
 
 
 
 
-        Call<Review> call = reviewApi.deleteMyReview(nick_name,);
-        call.enqueue(new Callback<Review>() {
+
+        Call<ReviewRes> call = reviewApi.deleteMyReview(review1);
+        call.enqueue(new Callback<ReviewRes>() {
             @Override
-            public void onResponse(Call<Review> call, Response<Review> response) {
+            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
 
 
 
@@ -110,7 +116,7 @@ public class Myreview extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Review> call, Throwable t) {
+            public void onFailure(Call<ReviewRes> call, Throwable t) {
 
             }
 

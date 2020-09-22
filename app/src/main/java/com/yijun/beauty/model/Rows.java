@@ -32,6 +32,7 @@ public class Rows {
         this.rating = rating;
     }
 
+
     public Rows(ArrayList<Rows> rows){
     }
 

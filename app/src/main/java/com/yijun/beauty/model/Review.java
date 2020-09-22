@@ -18,6 +18,10 @@ public class Review implements Serializable {
         this.rating = rating;
     }
 
+
+
+
+
     public String getNick_name() {
         return nick_name;
     }
