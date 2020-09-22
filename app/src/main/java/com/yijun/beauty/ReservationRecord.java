@@ -6,8 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yijun.beauty.R;
 import com.yijun.beauty.activity.CheckoutActivity;
@@ -33,6 +38,10 @@ public class ReservationRecord extends AppCompatActivity {
     OrderSheetAdapter adapter;
     ArrayList<Orders> orderArrayList = new ArrayList<>();
     SharedPreferences sp;
+
+    EditText test;
+    EditText test_m;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

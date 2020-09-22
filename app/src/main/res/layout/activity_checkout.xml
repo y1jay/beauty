@@ -75,7 +75,16 @@
             android:layout_height="300dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="15dp"
-            android:textColor="#777777" />
+            android:textColor="#777777" >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <EditText
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
         <include
             android:id="@+id/googlePayButton"
