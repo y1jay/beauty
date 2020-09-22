@@ -94,7 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnsignup"
         android:layout_below="@+id/agree_ll"
-        android:layout_above="@+id/btnsignup"
         android:visibility="gone">
 
         <LinearLayout
@@ -307,6 +306,6 @@
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/button"
-        android:layout_alignParentBottom="true"
+
         android:text="회원가입하기" />
 </RelativeLayout>

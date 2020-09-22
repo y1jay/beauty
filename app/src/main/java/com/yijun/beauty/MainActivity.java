@@ -714,6 +714,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(my_phone_num.equals("")){
+                    Toast.makeText(MainActivity.this,"휴대폰 번호가 없습니다.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
