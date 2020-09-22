@@ -39,6 +39,7 @@ import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
+import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
 import com.kakao.util.exception.KakaoException;
@@ -244,11 +245,16 @@ public class MainActivity extends AppCompatActivity {
         }else if(auto_login==false){
         }
 
+        if (my_phone_num==null){
+            Toast.makeText(getApplicationContext(), "휴대폰번호가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
 
-        sessionCallback = new SessionCallback(); //SessionCallback 초기화
-        Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
-        Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
 
+            sessionCallback = new SessionCallback(); //SessionCallback 초기화
+            Session.getCurrentSession().addCallback(sessionCallback); //현재 세션에 콜백 붙임
+            Session.getCurrentSession().checkAndImplicitOpen(); //자동 로그인
+        }
 
         reservation = findViewById(R.id.reservation);
         address = findViewById(R.id.address);
@@ -302,6 +308,7 @@ public class MainActivity extends AppCompatActivity {
 
     // 로그인메뉴 다이얼로그
     public void login_dialog(){
+
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View alertView = getLayoutInflater().inflate(R.layout.login_menu,null);
         sign_up = alertView.findViewById(R.id.sign_up);
@@ -368,6 +375,8 @@ public class MainActivity extends AppCompatActivity {
     private class SessionCallback implements ISessionCallback {
         @Override
         public void onSessionOpened() {
+
+
             UserManagement.getInstance().me(new MeV2ResponseCallback() {
                 @Override
                 public void onFailure(ErrorResult errorResult) {
@@ -405,6 +414,7 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                                 startActivity(i);
                             }else if (response.isSuccessful()==false){
+
                                 Intent intent = new Intent(getApplicationContext(), Nick_name.class);
                                 if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
                                     intent.putExtra("email", email);
@@ -415,7 +425,38 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                                 CheckTypesTask task = new CheckTypesTask();
                                 task.execute();
+
                                 startActivity(intent);
+//                                if (my_phone_num==null){
+//
+//                                    UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
+//                                        @Override
+//                                        public void onSessionClosed(ErrorResult errorResult) {
+//
+//                                        }
+//
+//                                        @Override
+//                                        public void onFailure(ErrorResult errorResult) {
+//                                            int result = errorResult.getErrorCode();
+//
+//                                            if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+//                                                Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+//                                            } else {
+//                                                Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        }
+//                                        @Override
+//                                        public void onSuccess(Long result) {
+//                                            Toast.makeText(MainActivity.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+//                                            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+//                                            i.putExtra("key",1);
+//                                            finish();
+//                                            startActivity(i);
+//                                        }
+//                                    });
+//
+//                                    return;
+//                                }
                             }
 
                         }
@@ -693,6 +734,8 @@ public class MainActivity extends AppCompatActivity {
 
     // 미인닭발 로그인 다이얼로그
     public void createPopupDialog(){
+
+
         checkPermission();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
@@ -714,7 +757,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(my_phone_num.equals("")){
+                if(my_phone_num==null){
                     Toast.makeText(MainActivity.this,"휴대폰 번호가 없습니다.",
                             Toast.LENGTH_SHORT).show();
                     return;
