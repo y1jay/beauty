@@ -241,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("id", t.toString());
                 }
             });
+        }else if(auto_login==false){
         }
 
 
@@ -760,7 +761,6 @@ public class MainActivity extends AppCompatActivity {
                     editor.putBoolean("auto_login",true);
                     editor.apply();
                 }else{
-                    sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("auto_login",false);
                     editor.apply();
