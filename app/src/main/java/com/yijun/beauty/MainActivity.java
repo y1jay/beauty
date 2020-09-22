@@ -39,6 +39,7 @@ import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.LoginButton;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
+import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.OptionalBoolean;
 import com.kakao.util.exception.KakaoException;
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     private long time = 0;
     SharedPreferences sp;
     String email;
-
+    Boolean auto_login;
     private SessionCallback sessionCallback;
 
     @Override
@@ -212,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 미인닭발 자동로그인
         SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-        Boolean auto_login = sp.getBoolean("auto_login", false);
+        auto_login = sp.getBoolean("auto_login", false);
 
         if (auto_login == true){
             getPhone();
@@ -241,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("id", t.toString());
                 }
             });
+        }else if(auto_login==false){
         }
 
 
@@ -367,6 +369,37 @@ public class MainActivity extends AppCompatActivity {
     private class SessionCallback implements ISessionCallback {
         @Override
         public void onSessionOpened() {
+            getPhone();
+            if (my_phone_num==null){
+                UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
+                    @Override
+                    public void onSessionClosed(ErrorResult errorResult) {
+
+                    }
+
+                    @Override
+                    public void onFailure(ErrorResult errorResult) {
+                        int result = errorResult.getErrorCode();
+
+                        if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                            Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onSuccess(Long result) {
+                        Toast.makeText(MainActivity.this, "핸드폰번호가 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                        i.putExtra("key",1);
+                        finish();
+                        startActivity(i);
+                    }
+                });
+
+                return;
+            }
+
             UserManagement.getInstance().me(new MeV2ResponseCallback() {
                 @Override
                 public void onFailure(ErrorResult errorResult) {
@@ -404,6 +437,7 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                                 startActivity(i);
                             }else if (response.isSuccessful()==false){
+
                                 Intent intent = new Intent(getApplicationContext(), Nick_name.class);
                                 if (result.getKakaoAccount().isEmailValid() == OptionalBoolean.TRUE)
                                     intent.putExtra("email", email);
@@ -414,7 +448,38 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                                 CheckTypesTask task = new CheckTypesTask();
                                 task.execute();
+
                                 startActivity(intent);
+                                if (my_phone_num==null){
+
+                                    UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
+                                        @Override
+                                        public void onSessionClosed(ErrorResult errorResult) {
+
+                                        }
+
+                                        @Override
+                                        public void onFailure(ErrorResult errorResult) {
+                                            int result = errorResult.getErrorCode();
+
+                                            if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                                                Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                        @Override
+                                        public void onSuccess(Long result) {
+                                            Toast.makeText(MainActivity.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                                            i.putExtra("key",1);
+                                            finish();
+                                            startActivity(i);
+                                        }
+                                    });
+
+                                    return;
+                                }
                             }
 
                         }
@@ -494,9 +559,16 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
 
-
+        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
+        txt_delete1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
+
 
         dialog = alert.create();
         dialog.show();
@@ -507,9 +579,16 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu2,null);
 
+        txt_delete2 = enterview.findViewById(R.id.txt_delete2);
+        txt_delete2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         dialog = alert.create();
         dialog.show();
@@ -520,7 +599,13 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu3,null);
 
-
+        txt_delete3 = enterview.findViewById(R.id.txt_delete3);
+        txt_delete3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
 
@@ -534,6 +619,13 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
 
+        txt_delete4 = enterview.findViewById(R.id.txt_delete4);
+        txt_delete4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
 
@@ -547,9 +639,16 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu5,null);
 
-
+        txt_delete5 = enterview.findViewById(R.id.txt_delete5);
+        txt_delete5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
+
 
         dialog = alert.create();
         dialog.show();
@@ -560,7 +659,13 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
 
-
+        txt_delete6 = enterview.findViewById(R.id.txt_delete6);
+        txt_delete6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
 
@@ -574,7 +679,13 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu7,null);
 
-
+        txt_delete7 = enterview.findViewById(R.id.txt_delete7);
+        txt_delete7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
 
@@ -588,9 +699,16 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
 
+        txt_delete9 = enterview.findViewById(R.id.txt_delete9);
+        txt_delete9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
-
+        alert.setCancelable(false);
 
         dialog = alert.create();
         dialog.show();
@@ -601,6 +719,13 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
 
+        txt_delete10 = enterview.findViewById(R.id.txt_delete10);
+        txt_delete10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
 
@@ -614,10 +739,15 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu11,null);
 
-
+        txt_delete11 = enterview.findViewById(R.id.txt_delete11);
+        txt_delete11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
         alert.setView(enterview);
-       
 
         dialog = alert.create();
         dialog.show();
@@ -648,6 +778,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(my_phone_num==null){
+                    Toast.makeText(MainActivity.this,"휴대폰 번호가 없습니다.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
                 UserApi userApi = retrofit.create(UserApi.class);
@@ -671,8 +806,34 @@ public class MainActivity extends AppCompatActivity {
                             dialog.cancel();
 
                         } else if (response.isSuccessful()==false){
-                            Toast.makeText(MainActivity.this,"존재하지않는 회원입니다, 회원가입 먼저 해주세오",Toast.LENGTH_SHORT).show();
-                            dialog0.dismiss();
+                            Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                            UserApi userApi = retrofit.create(UserApi.class);
+
+                            Call<ID> call2 = userApi.findID(my_phone_num);
+
+                            call2.enqueue(new Callback<ID>() {
+                                @Override
+                                public void onResponse(Call<ID> call, Response<ID> response) {
+                                    // 상태코드가 200 인지 확인
+                                    if (response.isSuccessful() == true){
+                                        // response.body() 가 UserRes.이다.
+                                        String ID = response.body().getID();
+                                        Log.i("AAAAA","id : "+ID);
+                                        Toast.makeText(MainActivity.this,"닉네임이 틀렸습니다.",Toast.LENGTH_LONG).show();
+                                        editID.setText("");
+                                        return;
+                                    } else{
+                                        Toast.makeText(MainActivity.this,"존재하지않는 회원입니다. 회원가입을 진행해주세요",Toast.LENGTH_SHORT).show();
+                                        dialog0.dismiss();
+                                    }
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<ID> call, Throwable t) {
+
+                                }
+                            });
                         }
 
                     }
@@ -694,6 +855,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.putBoolean("auto_login",false);
                     editor.apply();
                 }
+
+                dialog0.dismiss();
             }
         });
 

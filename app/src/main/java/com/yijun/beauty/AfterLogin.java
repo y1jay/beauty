@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -75,7 +76,18 @@ public class AfterLogin extends AppCompatActivity {
     ImageView img10;
     ImageView img11;
 
+    // 메뉴 다이얼로그
 
+    TextView txt_delete1;
+    TextView txt_delete2;
+    TextView txt_delete3;
+    TextView txt_delete4;
+    TextView txt_delete5;
+    TextView txt_delete6;
+    TextView txt_delete7;
+    TextView txt_delete9;
+    TextView txt_delete10;
+    TextView txt_delete11;
 
     private AlertDialog dialog;
 
@@ -195,7 +207,7 @@ public class AfterLogin extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-   if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
+                if(!CheckNetwork.isNetworkAvailable(AfterLogin.this)){
                     Toast.makeText(AfterLogin.this, "네트워크 연결을 확인해 주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -203,17 +215,13 @@ public class AfterLogin extends AppCompatActivity {
                 CheckTypesTask task = new CheckTypesTask();
                 task.execute();
                 startActivity(i);
-
             }
-
         });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 logoutDialog();
-
             }
         });
 
@@ -295,39 +303,41 @@ public class AfterLogin extends AppCompatActivity {
     }
 
     public void logoutDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
-        View alertView = getLayoutInflater().inflate(R.layout.logout_row,null);
-        btn_out = alertView.findViewById(R.id.btn_out);
-        btn_NO = alertView.findViewById(R.id.btn_NO);
-
-        btn_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
-
-                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+        new AlertDialog.Builder(AfterLogin.this)
+                .setMessage("로그아웃하시겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onCompleteLogout() {
-                        Intent intent = new Intent(AfterLogin.this, MainActivity.class);
-                        intent.putExtra("key", 1);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
 
-                        startActivity(intent);
+                        UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                            @Override
+                            public void onCompleteLogout() {
+                                Intent intent = new Intent(AfterLogin.this, MainActivity.class);
+                                intent.putExtra("key", 1);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+                        });
+
+                        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putBoolean("auto_login",false);
+                        editor.apply();
+
+                        dialog.dismiss();
                     }
-                });
-            }
-        });
-        btn_NO.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-        alert.setView(alertView);
+                })
+                .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //"아니오" 버튼 클릭 시 할 동작
+                        dialog.dismiss(); //팝업창 종료
+                    }
+                })
+                .setCancelable(false)
+                .show();
 
-        dialog=alert.create();
-        dialog.setCancelable(false);
-        dialog.show();
     }
 
     private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
@@ -368,16 +378,24 @@ public class AfterLogin extends AppCompatActivity {
 
     }
 
-
-
     public void createMenuDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
 
 
+        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
+
+        txt_delete1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
 
 
         alert.setView(enterview);
+
 
         dialog = alert.create();
         dialog.show();
@@ -394,6 +412,15 @@ public class AfterLogin extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu2,null);
 
+
+        txt_delete2 = enterview.findViewById(R.id.txt_delete2);
+
+        txt_delete2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
 
 
@@ -414,6 +441,16 @@ public class AfterLogin extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu3,null);
 
 
+        txt_delete3 = enterview.findViewById(R.id.txt_delete3);
+
+        txt_delete3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+
 
         alert.setView(enterview);
 
@@ -431,6 +468,15 @@ public class AfterLogin extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
 
+
+        txt_delete4 = enterview.findViewById(R.id.txt_delete4);
+
+        txt_delete4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
 
 
@@ -450,6 +496,16 @@ public class AfterLogin extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu5,null);
 
 
+        txt_delete5 = enterview.findViewById(R.id.txt_delete5);
+
+        txt_delete5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+
 
         alert.setView(enterview);
 
@@ -466,8 +522,19 @@ public class AfterLogin extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
 
 
+        txt_delete6 = enterview.findViewById(R.id.txt_delete6);
+
+        txt_delete6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+
 
         alert.setView(enterview);
+
 
         dialog = alert.create();
         dialog.show();
@@ -481,6 +548,15 @@ public class AfterLogin extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu7,null);
 
+
+        txt_delete7 = enterview.findViewById(R.id.txt_delete7);
+
+        txt_delete7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
 
 
@@ -501,6 +577,14 @@ public class AfterLogin extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
 
 
+        txt_delete9 = enterview.findViewById(R.id.txt_delete9);
+
+        txt_delete9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
 
 
@@ -520,6 +604,15 @@ public class AfterLogin extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
 
 
+        txt_delete10 = enterview.findViewById(R.id.txt_delete10);
+
+        txt_delete10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
 
 
         alert.setView(enterview);
@@ -535,6 +628,16 @@ public class AfterLogin extends AppCompatActivity {
     public void createMenuDialog11(){
         AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu11,null);
+
+
+        txt_delete11 = enterview.findViewById(R.id.txt_delete11);
+
+        txt_delete11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
 
 
 

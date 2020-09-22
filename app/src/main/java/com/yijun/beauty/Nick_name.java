@@ -30,6 +30,11 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.kakao.auth.ApiErrorCode;
+import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.UserApi;
 import com.yijun.beauty.model.UserCheck;
@@ -65,6 +70,8 @@ public class Nick_name extends AppCompatActivity {
         setContentView(R.layout.activity_nick_name);
 
         checkPermission();
+        getPhone();
+        Toast.makeText(Nick_name.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
 
         btn_check = findViewById(R.id.btn_check);
         txt_email = findViewById(R.id.txt_email);
@@ -73,7 +80,7 @@ public class Nick_name extends AppCompatActivity {
         check_box = findViewById(R.id.check_box);
         check_agree = findViewById(R.id.check_agree);
         scrollView = findViewById(R.id.scrollView);
-        check_box.setImageResource(android.R.drawable.arrow_up_float);
+        check_box.setImageResource(android.R.drawable.arrow_down_float);
 
         check_box.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,10 +143,29 @@ public class Nick_name extends AppCompatActivity {
                             i.putExtra("nick_name", nick_name);
                             finish();
                             startActivity(i);
-                        }
-                        else if (response.isSuccessful()==false){
-                            Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
-                            return;
+                        } else if (response.isSuccessful()==false){
+                            Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
+                            UserApi userApi = retrofit.create(UserApi.class);
+
+                            Call<UserCheck> call2 = userApi.checkId(nick_name);
+                            call2.enqueue(new Callback<UserCheck>() {
+                                @Override
+                                public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                                    // 상태코드가 200 인지 확인
+                                    if (response.isSuccessful()==false){
+                                        Toast.makeText(Nick_name.this,"이미있는 닉네임입니다.",Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }else if (response.isSuccessful()==true){
+                                        Toast.makeText(Nick_name.this,"이미 존재하는 번호입니다.",Toast.LENGTH_SHORT).show();
+                                        finish();
+                                        return;
+                                    }
+                                }
+                                @Override
+                                public void onFailure(Call<UserCheck> call, Throwable t) {
+
+                                }
+                            });
                         }
 
                     }
@@ -168,6 +194,35 @@ public class Nick_name extends AppCompatActivity {
 
             my_phone_num = my_phone_num.replace("+82", "0");
 
+        }else {
+//            Toast.makeText(Nick_name.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+            UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+
+                }
+
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+                    int result = errorResult.getErrorCode();
+
+                    if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                        Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onSuccess(Long result) {
+                    Toast.makeText(Nick_name.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(Nick_name.this,MainActivity.class);
+                    i.putExtra("key",1);
+                    finish();
+                    startActivity(i);
+                }
+            });
+
+            return "";
         }
 
         return tm.getLine1Number();

@@ -63,6 +63,8 @@ public class MyInfo extends AppCompatActivity {
     // 탈퇴 (카카오 or 미인닭발)
     Boolean kakao;
 
+    SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +85,7 @@ public class MyInfo extends AppCompatActivity {
         Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
         UserApi userApi = retrofit.create(UserApi.class);
 
-        Call<UserCheck> call = userApi.info_User(phone_number,nick_name);
+        Call<UserCheck> call = userApi.info_User(nick_name);
         call.enqueue(new Callback<UserCheck>() {
             @Override
             public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
@@ -98,7 +100,7 @@ public class MyInfo extends AppCompatActivity {
                     Log.i("info", nick_name + created_at + email);
 
                     txt_nick_name.setText(nick_name);
-                    txt_phone.setText(phone);
+                    txt_phone.setText("전화번호 : "+phone);
 
                     if (email == null){
                         txt_email.setVisibility(View.GONE);
@@ -109,9 +111,9 @@ public class MyInfo extends AppCompatActivity {
                     }
 
                     if (agree == 1){
-                        txt_agree.setText("동의");
+                        txt_agree.setText("개인정보 수집 : "+"동의");
                     }else if (agree == 0){
-                        txt_agree.setText("동의안함");
+                        txt_agree.setText("개인정보 수집 : "+"동의안함");
                     }
 
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
@@ -248,23 +250,26 @@ public class MyInfo extends AppCompatActivity {
                                             // 디비 탈퇴
                                             SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
                                             String nick_name = sp.getString("nick_name", null);
-                                            String phone_number = sp.getString("phone_number", null);
 
                                             Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
                                             UserApi userApi = retrofit.create(UserApi.class);
 
-                                            Call<UserRes> call = userApi.delUser(phone_number,nick_name);
+                                            Call<UserRes> call = userApi.delUser(nick_name);
                                             call.enqueue(new Callback<UserRes>() {
                                                 @Override
                                                 public void onResponse(Call<UserRes> call, Response<UserRes> response) {
                                                     // response.body() ==> PostRes 클래스
                                                     if (response.isSuccessful()){
                                                         //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                                        Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getApplicationContext(), "회원탈퇴", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent(MyInfo.this, MainActivity.class);
                                                         intent.putExtra("key",1);
-                                                        startActivity(intent);
+                                                        SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                                                        SharedPreferences.Editor editor = sp.edit();
+                                                        editor.putBoolean("auto_login",false);
+                                                        editor.apply();
                                                         finish();
+                                                        startActivity(intent);
                                                     }else {
 
                                                     }
@@ -276,6 +281,11 @@ public class MyInfo extends AppCompatActivity {
 
                                                 }
                                             });
+
+                                            sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sp.edit();
+                                            editor.putBoolean("auto_login",false);
+                                            editor.apply();
                                         }
 
                                         @Override
@@ -293,23 +303,22 @@ public class MyInfo extends AppCompatActivity {
                                             // 디비 탈퇴
                                             SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
                                             String nick_name = sp.getString("nick_name", null);
-                                            String phone_number = sp.getString("phone_number", null);
 
                                             Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
                                             UserApi userApi = retrofit.create(UserApi.class);
 
-                                            Call<UserRes> call = userApi.delUser(nick_name,phone_number);
+                                            Call<UserRes> call = userApi.delUser(nick_name);
                                             call.enqueue(new Callback<UserRes>() {
                                                 @Override
                                                 public void onResponse(Call<UserRes> call, Response<UserRes> response) {
                                                     // response.body() ==> PostRes 클래스
                                                     if (response.isSuccessful()){
                                                         //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                                        Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getApplicationContext(), "탈퇴 되었습니다.", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent(MyInfo.this, MainActivity.class);
                                                         intent.putExtra("key",1);
-                                                        startActivity(intent);
                                                         finish();
+                                                        startActivity(intent);
                                                     }else {
 
                                                     }

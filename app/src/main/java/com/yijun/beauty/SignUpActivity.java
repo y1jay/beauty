@@ -67,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
         check_box = findViewById(R.id.check_box);
         check_agree = findViewById(R.id.check_agree);
         scrollView = findViewById(R.id.scrollView);
-        check_box.setImageResource(android.R.drawable.arrow_up_float);
+        check_box.setImageResource(android.R.drawable.arrow_down_float);
 
         check_box.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,11 +138,13 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
                 String nick_name = edtid.getText().toString().trim();
+                String my_phone = txtphone.getText().toString().trim();
                 if (nick_name.isEmpty()){
                     Toast.makeText(SignUpActivity.this,"닉네임을 입력해주세요",Toast.LENGTH_SHORT).show();
                     return;
-                }else if (my_phone_num.isEmpty()){
-                    Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
+                }
+                if (my_phone.isEmpty()){
+                    Toast.makeText(SignUpActivity.this,"휴대폰 번호가 없습니다.",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -177,7 +179,7 @@ public class SignUpActivity extends AppCompatActivity {
                             finish();
 
                         } else if (response.isSuccessful()==false){
-                            Toast.makeText(SignUpActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this,"이미 있는 정보입니다.",Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -204,6 +206,10 @@ public class SignUpActivity extends AppCompatActivity {
 
             my_phone_num = my_phone_num.replace("+82", "0");
 
+        }else {
+            Toast.makeText(SignUpActivity.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+            finish();
+            return "";
         }
 
         return tm.getLine1Number();
