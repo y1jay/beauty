@@ -216,21 +216,6 @@ public class Reservation extends AppCompatActivity {
     ImageView img_pocha5;
     ImageView img_pocha6;
 
-    // 메뉴 다이얼로그
-
-    TextView txt_delete1;
-    TextView txt_delete2;
-    TextView txt_delete3;
-    TextView txt_delete4;
-    TextView txt_delete5;
-    TextView txt_delete6;
-    TextView txt_delete7;
-    TextView txt_delete9;
-    TextView txt_delete10;
-    TextView txt_delete11;
-    TextView delete2;
-    TextView delete1;
-    TextView delete3;
 
 
 
@@ -1592,19 +1577,9 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.list_menu3,null);
 
 
-        delete3 = enterview.findViewById(R.id.delete3);
-
-        delete3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
-
-
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         alertDialog = alert.create();
         alertDialog.show();
@@ -1620,19 +1595,9 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.list_menu1,null);
 
 
-        delete1 = enterview.findViewById(R.id.delete1);
-
-        delete1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
-
-
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         alertDialog = alert.create();
         alertDialog.show();
@@ -1649,19 +1614,7 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
 
 
-        txt_delete1 = enterview.findViewById(R.id.txt_delete1);
-
-        txt_delete1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
-
-
-
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         alertDialog = alert.create();
         alertDialog.show();
@@ -1677,19 +1630,9 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
 
 
-        txt_delete4 = enterview.findViewById(R.id.txt_delete4);
-
-        txt_delete4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
-
-
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         alertDialog = alert.create();
         alertDialog.show();
@@ -1705,19 +1648,9 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
 
 
-        txt_delete9 = enterview.findViewById(R.id.txt_delete9);
-
-        txt_delete9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
-
-
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         alertDialog = alert.create();
         alertDialog.show();
@@ -1733,19 +1666,8 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.list_menu2,null);
 
 
-        delete2 = enterview.findViewById(R.id.delete2);
-
-        delete2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
-
-
 
         alert.setView(enterview);
-        alert.setCancelable(false);
 
         alertDialog = alert.create();
         alertDialog.show();
@@ -1761,19 +1683,10 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
 
 
-        txt_delete6 = enterview.findViewById(R.id.txt_delete6);
-
-        txt_delete6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
-
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         alertDialog = alert.create();
         alertDialog.show();
@@ -1789,19 +1702,11 @@ public class Reservation extends AppCompatActivity {
         View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
 
 
-        txt_delete10 = enterview.findViewById(R.id.txt_delete10);
-
-        txt_delete10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
 
 
 
         alert.setView(enterview);
-        alert.setCancelable(false);
+
 
         alertDialog = alert.create();
         alertDialog.show();
