@@ -1337,6 +1337,7 @@ public class Reservation extends AppCompatActivity {
                                 recyclerView.setAdapter(adapter);
 
                                     Log.i("menu", orderArrayList.toString());
+                                    String menuuuu = response.body().getMenu();
 
                                     price_total(price);
 

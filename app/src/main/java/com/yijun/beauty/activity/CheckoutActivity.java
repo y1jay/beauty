@@ -88,6 +88,7 @@ public class CheckoutActivity extends AppCompatActivity {
     TextView detailPrice;
 
     EditText test;
+    Orders orders;
 
     /**
      *
@@ -137,14 +138,11 @@ public class CheckoutActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     orderArrayList = response.body().getRows();
 
-                    Orders orders = new Orders();
-                    String menu = orders.getMenu();
-                    String price = orders.getPrice();
-
                     total = getIntent().getDoubleExtra("total_price", 0);
                     DecimalFormat format = new DecimalFormat("###,###");//콤마
                     String total_price = format.format(total);
                     layoutBinding.detailPrice.setText(total_price+"원");
+
                     Log.i("detailPrice", total_price);
 
                     sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
@@ -158,15 +156,18 @@ public class CheckoutActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             String phoneNo = test.getText().toString();
 
-                            try {
-                                //전송
-                                SmsManager smsManager = SmsManager.getDefault();
-                                smsManager.sendTextMessage(phoneNo, null, nick_name+" "+phone+" "+menu+price+" "+total_price+"원", null, null);
-                                Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
-                            } catch (Exception e) {
-                                Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
-                                e.printStackTrace();
-                            }
+
+
+
+                                try {
+                                    //전송
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(phoneNo, null, nick_name + " " + phone + " " + orders + total_price + "원", null, null);
+                                    Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
+                                } catch (Exception e) {
+                                    Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
+                                    e.printStackTrace();
+                                }
 
                         }
                     });
