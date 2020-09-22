@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -302,45 +303,41 @@ public class AfterLogin extends AppCompatActivity {
     }
 
     public void logoutDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(AfterLogin.this);
-        View alertView = getLayoutInflater().inflate(R.layout.logout_row,null);
-        btn_out = alertView.findViewById(R.id.btn_out);
-        btn_NO = alertView.findViewById(R.id.btn_NO);
-
-        btn_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
-
-                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+        new AlertDialog.Builder(AfterLogin.this)
+                .setMessage("로그아웃하시겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onCompleteLogout() {
-                        Intent intent = new Intent(AfterLogin.this, MainActivity.class);
-                        intent.putExtra("key", 1);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
+
+                        UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                            @Override
+                            public void onCompleteLogout() {
+                                Intent intent = new Intent(AfterLogin.this, MainActivity.class);
+                                intent.putExtra("key", 1);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+                        });
+
+                        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putBoolean("auto_login",false);
+                        editor.apply();
+
+                        dialog.dismiss();
                     }
-                });
+                })
+                .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //"아니오" 버튼 클릭 시 할 동작
+                        dialog.dismiss(); //팝업창 종료
+                    }
+                })
+                .setCancelable(false)
+                .show();
 
-                sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putBoolean("auto_login",false);
-                editor.apply();
-
-                dialog.dismiss();
-            }
-        });
-        btn_NO.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-        alert.setView(alertView);
-
-        dialog=alert.create();
-        dialog.setCancelable(false);
-        dialog.show();
     }
 
     private  class CheckTypesTask extends AsyncTask<Void, Integer, Boolean> {
