@@ -320,7 +320,8 @@ public class AfterLogin extends AppCompatActivity {
                         Intent intent = new Intent(AfterLogin.this, MainActivity.class);
                         intent.putExtra("key", 1);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
+                        SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                        Boolean auto_login = sp.getBoolean("auto_login", false);
                         startActivity(intent);
                     }
                 });

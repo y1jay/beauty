@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private long time = 0;
     SharedPreferences sp;
     String email;
-
+    Boolean auto_login;
     private SessionCallback sessionCallback;
 
     @Override
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+          auto_login = false;
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);
         img3 = findViewById(R.id.img3);
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 미인닭발 자동로그인
         SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-        Boolean auto_login = sp.getBoolean("auto_login", false);
+        auto_login = sp.getBoolean("auto_login", false);
 
         if (auto_login == true){
             getPhone();
