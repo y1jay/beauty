@@ -138,8 +138,27 @@ public class Nick_name extends AppCompatActivity {
                             startActivity(i);
                         }
                         else if (response.isSuccessful()==false){
-                            Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
-                            return;
+                            Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
+                            UserApi userApi = retrofit.create(UserApi.class);
+
+                            Call<UserCheck> call2 = userApi.checkId(nick_name);
+                            call2.enqueue(new Callback<UserCheck>() {
+                                @Override
+                                public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                                    // 상태코드가 200 인지 확인
+                                    if (response.isSuccessful()==false){
+                                        Toast.makeText(Nick_name.this,"이미있는 닉네임입니다.",Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }else if (response.isSuccessful()==true){
+                                        Toast.makeText(Nick_name.this,"다시 한 번 확인해주세요.",Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                }
+                                @Override
+                                public void onFailure(Call<UserCheck> call, Throwable t) {
+
+                                }
+                            });
                         }
 
                     }
