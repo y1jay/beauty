@@ -220,9 +220,7 @@ public class AfterLogin extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 logoutDialog();
-
             }
         });
 
@@ -320,13 +318,16 @@ public class AfterLogin extends AppCompatActivity {
                         Intent intent = new Intent(AfterLogin.this, MainActivity.class);
                         intent.putExtra("key", 1);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sp.edit();
-                        editor.putBoolean("auto_login",false);
-                        editor.apply();
                         startActivity(intent);
                     }
                 });
+
+                sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putBoolean("auto_login",false);
+                editor.apply();
+
+                dialog.dismiss();
             }
         });
         btn_NO.setOnClickListener(new View.OnClickListener() {
