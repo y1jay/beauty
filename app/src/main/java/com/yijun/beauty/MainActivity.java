@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private long time = 0;
     SharedPreferences sp;
     String email;
-    Boolean auto_login;
+
     private SessionCallback sessionCallback;
 
     @Override
@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         img10 = findViewById(R.id.img10);
         img11 = findViewById(R.id.img11);
 
+        boolean auto_check = getIntent().getBooleanExtra("auto_login",false);
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        if (auto_login == true){
+        if (Auto.isChecked()==true){
             getPhone();
             Log.i("id", ""+getPhone());
 
@@ -237,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("id", t.toString());
                 }
             });
-        }else if(auto_login==false){
+        }else if(auto_check){
         }
 
 
@@ -751,11 +752,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                if (Auto.isChecked() == true){
-                     auto_login=true;
-                }else{
-                    auto_login=false;
-                }
+//                if (Auto.isChecked() == true){
+//                     auto_login=true;
+//                }else{
+//                    auto_login=false;
+//                }
             }
         });
 
