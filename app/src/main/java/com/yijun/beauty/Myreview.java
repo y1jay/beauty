@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.yijun.beauty.adapter.MyReviewclerViewAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReviewApi;
+import com.yijun.beauty.model.ReservationReq;
+import com.yijun.beauty.model.Review;
 import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;
 import com.yijun.beauty.url.Utils;
@@ -44,7 +46,7 @@ public class Myreview extends AppCompatActivity {
 
         sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
 
-//        getNetworkData();
+        getNetworkData();
 
     }
 
@@ -81,32 +83,34 @@ public class Myreview extends AppCompatActivity {
 
     }
 
-    public void deletereviw(final int position){
+    public void deleteReviw(int position){
+
+        String nick_name =sp.getString("nick_name",null);
+
+
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(Myreview.this);
 
         ReviewApi reviewApi = retrofit.create(ReviewApi.class);
 
-        Rows review = reviewArrayList.get(position);
-        String review_nick = review.getNick_name();
-        String review_review = review.getReview();
-        float  review_rating = review.getRating();
 
-        Call<ReviewRes> call = reviewApi.deleteMyReview(review_nick,review_review,review_rating);
-        call.enqueue(new Callback<ReviewRes>() {
+
+
+
+        Call<Review> call = reviewApi.deleteMyReview(nick_name,);
+        call.enqueue(new Callback<Review>() {
             @Override
-            public void onResponse(Call<ReviewRes> call, Response<ReviewRes> response) {
+            public void onResponse(Call<Review> call, Response<Review> response) {
 
 
 
 
-                reviewArrayList = response.body().getRows();
                 adapter.notifyDataSetChanged();
 
             }
 
             @Override
-            public void onFailure(Call<ReviewRes> call, Throwable t) {
+            public void onFailure(Call<Review> call, Throwable t) {
 
             }
 

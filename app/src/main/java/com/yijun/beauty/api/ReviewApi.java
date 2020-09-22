@@ -31,9 +31,8 @@ public interface ReviewApi {
                              @Query("limit")int limit);
 
     @DELETE("/api/v1/review/delete")
-     Call<ReviewRes> deleteMyReview(@Body String nick_name,
-                                  @Body String review,
-                                  @Body float rating);
+     Call<Review> deleteMyReview(@Body int review_id,
+                                 @Body String nick_name);
 
 
 

@@ -115,9 +115,10 @@ public class MyReviewclerViewAdapter extends RecyclerView.Adapter<MyReviewclerVi
                         public void onClick(DialogInterface dialog, int which) {
 
 
-                            int position = getAdapterPosition();
 
-                            ((Myreview) context).deletereviw(position);
+
+
+                            ((Myreview) context).deleteReviw();
 
                         }
                     });
