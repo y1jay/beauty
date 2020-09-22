@@ -756,10 +756,12 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 if (Auto.isChecked() == true){
+                    sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("auto_login",true);
                     editor.apply();
                 }else{
+                    sp = getSharedPreferences(Utils.PREFERENCES_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("auto_login",false);
                     editor.apply();
