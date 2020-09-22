@@ -97,7 +97,7 @@ public class MyInfo extends AppCompatActivity {
                     Log.i("info", nick_name + created_at + email);
 
                     txt_nick_name.setText(nick_name);
-                    txt_phone.setText(phone);
+                    txt_phone.setText("전화번호 : "+phone);
 
                     if (email == null){
                         txt_email.setVisibility(View.GONE);
@@ -108,9 +108,9 @@ public class MyInfo extends AppCompatActivity {
                     }
 
                     if (agree == 1){
-                        txt_agree.setText("동의");
+                        txt_agree.setText("개인정보 수집 : "+"동의");
                     }else if (agree == 0){
-                        txt_agree.setText("동의안함");
+                        txt_agree.setText("개인정보 수집 : "+"동의안함");
                     }
 
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
