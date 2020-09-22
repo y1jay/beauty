@@ -369,6 +369,8 @@ public class MainActivity extends AppCompatActivity {
     private class SessionCallback implements ISessionCallback {
         @Override
         public void onSessionOpened() {
+            getPhone();
+
             if (my_phone_num==null){
                 UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
                     @Override
