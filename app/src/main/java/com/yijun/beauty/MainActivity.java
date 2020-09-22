@@ -368,6 +368,8 @@ public class MainActivity extends AppCompatActivity {
     private class SessionCallback implements ISessionCallback {
         @Override
         public void onSessionOpened() {
+
+
             UserManagement.getInstance().me(new MeV2ResponseCallback() {
                 @Override
                 public void onFailure(ErrorResult errorResult) {
