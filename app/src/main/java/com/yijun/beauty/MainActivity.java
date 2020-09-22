@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-         
+
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);
         img3 = findViewById(R.id.img3);
@@ -756,9 +756,13 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 if (Auto.isChecked() == true){
-                     auto_login=true;
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("auto_login",true);
+                    editor.apply();
                 }else{
-                    auto_login=false;
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("auto_login",false);
+                    editor.apply();
                 }
             }
         });
