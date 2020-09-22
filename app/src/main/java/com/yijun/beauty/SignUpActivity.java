@@ -144,7 +144,7 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
                 if (my_phone.isEmpty()){
-                    Toast.makeText(SignUpActivity.this,"휴대폰 번호를을 입력해주세요",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this,"휴대폰 번호가 없습니다.",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -179,7 +179,7 @@ public class SignUpActivity extends AppCompatActivity {
                             finish();
 
                         } else if (response.isSuccessful()==false){
-                            Toast.makeText(SignUpActivity.this,"입력하신 정보가 맞지 않습니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this,"이미 있는 정보입니다.",Toast.LENGTH_SHORT).show();
                         }
                     }
 
