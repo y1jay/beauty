@@ -34,10 +34,10 @@ public interface ReviewApi {
                              @Query("limit")int limit);
 
 
-    @FormUrlEncoded
     @DELETE("/api/v1/review/delete")
-    Call<MyreviewReq> deleteMyReview(@Field("nick_name") String nick_name,
-                                     @Field("id") int id);
+    Call<UserRes> deleteMyReview(@Query("nick_name") String Nick_name,
+                                     @Query("review") String review,
+                                     @Query("rating") Float rating);
 
 
 }

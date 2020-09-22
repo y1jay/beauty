@@ -105,28 +105,25 @@ public class MyReviewclerViewAdapter extends RecyclerView.Adapter<MyReviewclerVi
             my_btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
-
-                    AlertDialog.Builder delete = new AlertDialog.Builder(context);
-                    delete.setTitle("리뷰 삭제");
-                    delete.setMessage("리뷰를 삭제하시겠습니까?");
-                    delete.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    new AlertDialog.Builder(context)
+                    .setTitle("리뷰 삭제")
+                    .setMessage("리뷰를 삭제하시겠습니까?")
+                    .setPositiveButton("네", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
                             int position = getAdapterPosition();
 
-
-
                             ((Myreview) context).deleteReviw(position);
 
+                            dialog.dismiss();
+
                         }
-                    });
-                    delete.setNegativeButton("아니요",null);
-                    delete.setCancelable(false);
-                    delete.show();
-                    return;
+                    })
+                    .setNegativeButton("아니요",null)
+                    .setCancelable(false)
+                    .show();
+//                    return;
                 }
             });
 

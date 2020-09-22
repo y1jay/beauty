@@ -358,35 +358,35 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSessionOpened() {
             getPhone();
-            if (my_phone_num==null){
-                UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
-                    @Override
-                    public void onSessionClosed(ErrorResult errorResult) {
-
-                    }
-
-                    @Override
-                    public void onFailure(ErrorResult errorResult) {
-                        int result = errorResult.getErrorCode();
-
-                        if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
-                            Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    @Override
-                    public void onSuccess(Long result) {
-                        Toast.makeText(MainActivity.this, "핸드폰번호가 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                        i.putExtra("key",1);
-                        finish();
-                        startActivity(i);
-                    }
-                });
-
-                return;
-            }
+//            if (my_phone_num==null){
+//                UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
+//                    @Override
+//                    public void onSessionClosed(ErrorResult errorResult) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(ErrorResult errorResult) {
+//                        int result = errorResult.getErrorCode();
+//
+//                        if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+//                            Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                    @Override
+//                    public void onSuccess(Long result) {
+//                        Toast.makeText(MainActivity.this, "핸드폰번호가 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
+//                        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+//                        i.putExtra("key",1);
+//                        finish();
+//                        startActivity(i);
+//                    }
+//                });
+//
+//                return;
+//            }
 
             UserManagement.getInstance().me(new MeV2ResponseCallback() {
                 @Override
@@ -438,36 +438,6 @@ public class MainActivity extends AppCompatActivity {
                                 task.execute();
 
                                 startActivity(intent);
-                                if (my_phone_num==null){
-
-                                    UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
-                                        @Override
-                                        public void onSessionClosed(ErrorResult errorResult) {
-
-                                        }
-
-                                        @Override
-                                        public void onFailure(ErrorResult errorResult) {
-                                            int result = errorResult.getErrorCode();
-
-                                            if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
-                                                Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                                            } else {
-                                                Toast.makeText(getApplicationContext(), "회원가입에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                        @Override
-                                        public void onSuccess(Long result) {
-                                            Toast.makeText(MainActivity.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
-                                            Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                                            i.putExtra("key",1);
-                                            finish();
-                                            startActivity(i);
-                                        }
-                                    });
-
-                                    return;
-                                }
                             }
 
                         }

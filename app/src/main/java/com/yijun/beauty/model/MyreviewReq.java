@@ -25,7 +25,8 @@ public class MyreviewReq {
     @Expose
     private String created_at;
 
-    public MyreviewReq(String review, Float rating) {
+    public MyreviewReq(String nick_name, String review, Float rating) {
+        this.nick_name = nick_name;
         this.review = review;
         this.rating = rating;
     }

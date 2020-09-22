@@ -1,8 +1,11 @@
 package com.yijun.beauty;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +19,7 @@ import com.yijun.beauty.model.ReservationReq;
 import com.yijun.beauty.model.Review;
 import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;
+import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.url.Utils;
 
 import java.util.ArrayList;
@@ -36,12 +40,16 @@ public class Myreview extends AppCompatActivity {
 
     SharedPreferences sp;
 
+    Context mContext;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myreview);
+
+        mContext = this;
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -89,33 +97,33 @@ public class Myreview extends AppCompatActivity {
 
     public void deleteReviw(final int position){
 
-        String nick_name =sp.getString("nick_name",null);
         Rows rows = reviewArrayList.get(position);
         int id = rows.getId();
+        String nick_name =sp.getString("nick_name",null);
+//        String nick_name = rows.getNick_name();
+        String txt_review = rows.getReview();
+        Float rating = rows.getRating();
 
+        Log.i("delete", nick_name+ txt_review+rating);
+//        Review review = new Review(nick_name,txt_review,rating);
 
-
-        Retrofit retrofit = NetworkClient.getRetrofitClient(Myreview.this);
+        Retrofit retrofit = NetworkClient.getRetrofitClient(mContext);
 
         ReviewApi reviewApi = retrofit.create(ReviewApi.class);
 
-
-        Call<MyreviewReq> call = reviewApi.deleteMyReview(nick_name,id);
-        call.enqueue(new Callback<MyreviewReq>() {
+        Call<UserRes> call = reviewApi.deleteMyReview(nick_name, txt_review, rating);
+        call.enqueue(new Callback<UserRes>() {
             @Override
-            public void onResponse(Call<MyreviewReq> call, Response<MyreviewReq> response) {
-
-
-
-                adapter.notifyDataSetChanged();
-
+            public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+              if (response.isSuccessful() == true){
+//                  adapter.notifyDataSetChanged();
+              }
             }
 
             @Override
-            public void onFailure(Call<MyreviewReq> call, Throwable t) {
+            public void onFailure(Call<UserRes> call, Throwable t) {
 
             }
-
 
         });
 
