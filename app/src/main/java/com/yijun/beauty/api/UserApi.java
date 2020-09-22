@@ -1,5 +1,6 @@
 package com.yijun.beauty.api;
 
+import com.yijun.beauty.model.BeautyReq;
 import com.yijun.beauty.model.ID;
 import com.yijun.beauty.model.UserCheck;
 import com.yijun.beauty.model.UserReq;
@@ -30,24 +31,23 @@ public interface UserApi {
                              @Query("nick_name") String nick_name);
 //
   @DELETE("/api/v1/user/del")
-    Call<UserRes> delUser (@Body String phone_number,
-                           @Body String nick_name);
+    Call<UserRes> delUser (@Query("phone_number") String phone_number,
+                           @Query("nick_name") String nick_name);
 
 //
   @POST("/api/v1/user/beauty_add")
-  Call<UserRes> beautyUser(@Body String nick_name,
-                           @Body String phone_number,
-                           @Body Boolean info_agree);
+  Call<UserRes> beautyUser(@Body BeautyReq beautyReq);
 
   @GET("/api/v1/user/login")
-  Call<UserRes> loginUser(@Body UserReq userReq);
+  Call<UserCheck> loginUser(@Query("nick_name") String nick_name,
+                            @Query("phone_number") String phone_number);
 
   @GET("/api/v1/user/check_id")
   Call<UserCheck> checkId (@Query("nick_name") String nick_name);
 
 
 
-  @POST("/api/v1/user/find_id")
+  @GET ("/api/v1/user/find_id")
   Call<ID> findID (@Query("phone_number") String phone_number);
 
 

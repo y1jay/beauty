@@ -53,11 +53,14 @@ public class MyInfo extends AppCompatActivity {
     Button btn_update;
     Button btn_end;
 
+    // 닉네임 수정하기
     private AlertDialog alertDialog;
     EditText txt_new_nick_name;
     Button btn_change;
     Button btn_no;
 
+    // 탈퇴 (카카오 or 미인닭발)
+    Boolean kakao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,10 +99,12 @@ public class MyInfo extends AppCompatActivity {
                     txt_nick_name.setText(nick_name);
                     txt_phone.setText(phone);
 
-                    if (email.isEmpty()){
+                    if (email == null){
                         txt_email.setVisibility(View.GONE);
+                        kakao = true;
                     }else {
                         txt_email.setText(email);
+                        kakao = false;
                     }
 
                     if (agree == 1){
@@ -136,6 +141,10 @@ public class MyInfo extends AppCompatActivity {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                String nick_name = sp.getString("nick_name", null);
+                String phone_number = sp.getString("phone_number", null);
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(MyInfo.this);
                 View alertView = getLayoutInflater().inflate(R.layout.change_nick_name,null);
                 txt_new_nick_name = alertView.findViewById(R.id.txt_new_nick_name);
@@ -146,7 +155,10 @@ public class MyInfo extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         String new_nick_name = txt_new_nick_name.getText().toString().trim();
-
+                        if (new_nick_name.isEmpty()){
+                            Toast.makeText(MyInfo.this,"아이디를 입력해주세요",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         if (new_nick_name.equals(txt_nick_name.getText().toString().trim())){
                             Log.i("nick_name", txt_nick_name.getText().toString().trim() +new_nick_name);
                             Toast.makeText(MyInfo.this, "현재 닉네임과 동일합니다.", Toast.LENGTH_LONG).show();
@@ -154,27 +166,47 @@ public class MyInfo extends AppCompatActivity {
                         }
 
                         Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
-
                         UserApi userApi = retrofit.create(UserApi.class);
 
-                        Call<UserRes> call = userApi.changeUser(phone_number, new_nick_name,nickname);
-                        call.enqueue(new Callback<UserRes>() {
+                        Call<UserCheck> call = userApi.checkId(nick_name);
+                        call.enqueue(new Callback<UserCheck>() {
                             @Override
-                            public void onResponse(Call<UserRes> call, Response<UserRes> response) {
-                                // response.body() ==> PostRes 클래스
-                                if (response.isSuccessful()){
-                                    //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                    Toast.makeText(MyInfo.this, "닉네임이 변경되었습니다.", Toast.LENGTH_SHORT).show();
-                                    Log.i("nick_name", response.message());
-                                    txt_nick_name.setText(new_nick_name);
-                                    alertDialog.cancel();
-                                }else if (response.isSuccessful()==false){
+                            public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
+                                // 상태코드가 200 인지 확인
+                                if (response.isSuccessful()==true){
                                     Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                                    return;
+                                }else if(response.isSuccessful()==false){
+
+                                    Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+
+                                    UserApi userApi = retrofit.create(UserApi.class);
+
+                                    Call<UserRes> call0 = userApi.changeUser(phone_number, new_nick_name,nick_name);
+                                    call0.enqueue(new Callback<UserRes>() {
+                                        @Override
+                                        public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                                            // response.body() ==> PostRes 클래스
+                                            if (response.isSuccessful()){
+                                                //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
+                                                Toast.makeText(MyInfo.this, "닉네임이 변경되었습니다.", Toast.LENGTH_SHORT).show();
+                                                Log.i("nick_name", response.message());
+                                                txt_nick_name.setText(new_nick_name);
+                                                alertDialog.cancel();
+                                            }else{
+                                                Toast.makeText(MyInfo.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<UserRes> call, Throwable t) {
+
+                                        }
+                                    });
                                 }
                             }
-
                             @Override
-                            public void onFailure(Call<UserRes> call, Throwable t) {
+                            public void onFailure(Call<UserCheck> call, Throwable t) {
 
                             }
                         });
@@ -202,79 +234,106 @@ public class MyInfo extends AppCompatActivity {
         btn_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 카카오 탈퇴
-                new AlertDialog.Builder(MyInfo.this)
-                        .setMessage("탈퇴하시겠습니까?")
-                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //"예" 버튼 클릭시 할 동작
-                                UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
-                                    @Override
-                                    public void onSessionClosed(ErrorResult errorResult) { //로그인 세션이 닫혀있을 시
-                                        //다시 로그인해달라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                        Toast.makeText(getApplicationContext(), "로그인 세션이 닫혔습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(MyInfo.this, MainActivity.class);
-                                        intent.putExtra("key",1);
-                                        startActivity(intent);
-                                        finish();
-                                    }
+                    // 카카오 탈퇴
+                    new AlertDialog.Builder(MyInfo.this)
+                            .setMessage("탈퇴하시겠습니까?")
+                            .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //"예" 버튼 클릭시 할 동작
+                                    UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() { //회원탈퇴 실행
+                                        @Override
+                                        public void onSessionClosed(ErrorResult errorResult) { //로그인 세션이 닫혀있을 시 (미인닭발로그인)
+                                            // 디비 탈퇴
+                                            SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                                            String nick_name = sp.getString("nick_name", null);
+                                            String phone_number = sp.getString("phone_number", null);
 
-                                    @Override
-                                    public void onFailure(ErrorResult errorResult) { //회원탈퇴 실패 시
-                                        int result = errorResult.getErrorCode();
+                                            Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+                                            UserApi userApi = retrofit.create(UserApi.class);
 
-                                        if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
-                                            Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Toast.makeText(getApplicationContext(), "회원탈퇴에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                    @Override
-                                    public void onSuccess(Long result) { //회원탈퇴에 성공하면
-                                        // 디비 탈퇴
-                                        Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+                                            Call<UserRes> call = userApi.delUser(phone_number,nick_name);
+                                            call.enqueue(new Callback<UserRes>() {
+                                                @Override
+                                                public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                                                    // response.body() ==> PostRes 클래스
+                                                    if (response.isSuccessful()){
+                                                        //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
+                                                        Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(MyInfo.this, MainActivity.class);
+                                                        intent.putExtra("key",1);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }else {
 
-                                        UserApi userApi = retrofit.create(UserApi.class);
-
-                                        Call<UserRes> call = userApi.delUser(nickname,phone_number);
-                                        call.enqueue(new Callback<UserRes>() {
-                                            @Override
-                                            public void onResponse(Call<UserRes> call, Response<UserRes> response) {
-                                                // response.body() ==> PostRes 클래스
-                                                if (response.isSuccessful()){
-                                                    //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
-                                                    Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(MyInfo.this, MainActivity.class);
-                                                    intent.putExtra("key",1);
-                                                    startActivity(intent);
-                                                    finish();
-                                                }else {
+                                                    }
 
                                                 }
 
+                                                @Override
+                                                public void onFailure(Call<UserRes> call, Throwable t) {
+
+                                                }
+                                            });
+                                        }
+
+                                        @Override
+                                        public void onFailure(ErrorResult errorResult) { //회원탈퇴 실패 시
+                                            int result = errorResult.getErrorCode();
+
+                                            if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                                                Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "회원탈퇴에 실패했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
                                             }
+                                        }
+                                        @Override
+                                        public void onSuccess(Long result) { //회원탈퇴에 성공하면
+                                            // 디비 탈퇴
+                                            SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                                            String nick_name = sp.getString("nick_name", null);
+                                            String phone_number = sp.getString("phone_number", null);
 
-                                            @Override
-                                            public void onFailure(Call<UserRes> call, Throwable t) {
+                                            Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
+                                            UserApi userApi = retrofit.create(UserApi.class);
 
-                                            }
-                                        });
-                                    }
-                                });
+                                            Call<UserRes> call = userApi.delUser(nick_name,phone_number);
+                                            call.enqueue(new Callback<UserRes>() {
+                                                @Override
+                                                public void onResponse(Call<UserRes> call, Response<UserRes> response) {
+                                                    // response.body() ==> PostRes 클래스
+                                                    if (response.isSuccessful()){
+                                                        //"회원탈퇴에 성공했습니다."라는 Toast 메세지를 띄우고 로그인 창으로 이동함
+                                                        Toast.makeText(getApplicationContext(), "회원탈퇴에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(MyInfo.this, MainActivity.class);
+                                                        intent.putExtra("key",1);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }else {
 
-                                dialog.dismiss(); //팝업창 종료
-                            }
-                        })
-                        .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //"아니오" 버튼 클릭 시 할 동작
-                                dialog.dismiss(); //팝업창 종료
-                            }
-                        }).show();
+                                                    }
 
-            }
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<UserRes> call, Throwable t) {
+
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                    dialog.dismiss(); //팝업창 종료
+                                }
+                            })
+                            .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //"아니오" 버튼 클릭 시 할 동작
+                                    dialog.dismiss(); //팝업창 종료
+                                }
+                            }).show();
+                }
         });
 
     }
