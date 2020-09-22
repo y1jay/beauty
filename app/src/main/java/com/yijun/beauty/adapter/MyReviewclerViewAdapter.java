@@ -20,6 +20,7 @@ import com.yijun.beauty.Myreview;
 import com.yijun.beauty.R;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReviewApi;
+import com.yijun.beauty.model.MyreviewReq;
 import com.yijun.beauty.model.Review;
 import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;

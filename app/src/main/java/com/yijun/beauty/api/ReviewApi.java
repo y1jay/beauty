@@ -1,5 +1,6 @@
 package com.yijun.beauty.api;
 
+import com.yijun.beauty.model.MyreviewReq;
 import com.yijun.beauty.model.Review;
 import com.yijun.beauty.model.ReviewRes;
 
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -30,9 +33,11 @@ public interface ReviewApi {
                              @Query("offset") int offset,
                              @Query("limit")int limit);
 
-    @DELETE("/api/v1/review/delete")
-     Call<Rows> deleteMyReview(@Body Rows rows);
 
+    @FormUrlEncoded
+    @DELETE("/api/v1/review/delete")
+    Call<MyreviewReq> deleteMyReview(@Field("nick_name") String nick_name,
+                                     @Field("id") int id);
 
 
 }
