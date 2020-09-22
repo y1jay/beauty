@@ -82,7 +82,7 @@ public class MyInfo extends AppCompatActivity {
         Retrofit retrofit = NetworkClient.getRetrofitClient(MyInfo.this);
         UserApi userApi = retrofit.create(UserApi.class);
 
-        Call<UserCheck> call = userApi.info_User(phone_number,nick_name);
+        Call<UserCheck> call = userApi.info_User(nick_name);
         call.enqueue(new Callback<UserCheck>() {
             @Override
             public void onResponse(Call<UserCheck> call, Response<UserCheck> response) {
@@ -262,6 +262,10 @@ public class MyInfo extends AppCompatActivity {
                                                         Toast.makeText(getApplicationContext(), "회원탈퇴", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent(MyInfo.this, MainActivity.class);
                                                         intent.putExtra("key",1);
+                                                        SharedPreferences sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                                                        SharedPreferences.Editor editor = sp.edit();
+                                                        editor.putBoolean("auto_login",false);
+                                                        editor.apply();
                                                         startActivity(intent);
                                                         finish();
                                                     }else {
