@@ -24,17 +24,16 @@ public interface UserApi {
                               @Query("nick_name") String nick_name);
   @GET("/api/v1/user/check")
   Call<UserCheck> checkUser(@Query("email") String email);
-  //
+
   @PUT("/api/v1/user/change")
     Call<UserRes> changeUser(@Query("phone_number") String phone_number,
                              @Query("new_nick_name") String new_nick_name,
                              @Query("nick_name") String nick_name);
-//
+
   @DELETE("/api/v1/user/del")
     Call<UserRes> delUser (@Query("phone_number") String phone_number,
                            @Query("nick_name") String nick_name);
 
-//
   @POST("/api/v1/user/beauty_add")
   Call<UserRes> beautyUser(@Body BeautyReq beautyReq);
 
@@ -44,8 +43,6 @@ public interface UserApi {
 
   @GET("/api/v1/user/check_id")
   Call<UserCheck> checkId (@Query("nick_name") String nick_name);
-
-
 
   @GET ("/api/v1/user/find_id")
   Call<ID> findID (@Query("phone_number") String phone_number);

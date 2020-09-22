@@ -742,8 +742,34 @@ public class MainActivity extends AppCompatActivity {
                             dialog.cancel();
 
                         } else if (response.isSuccessful()==false){
-                            Toast.makeText(MainActivity.this,"존재하지않는 회원입니다, 회원가입 먼저 해주세오",Toast.LENGTH_SHORT).show();
-                            dialog0.dismiss();
+                            Retrofit retrofit = NetworkClient.getRetrofitClient(MainActivity.this);
+                            UserApi userApi = retrofit.create(UserApi.class);
+
+                            Call<ID> call2 = userApi.findID(my_phone_num);
+
+                            call2.enqueue(new Callback<ID>() {
+                                @Override
+                                public void onResponse(Call<ID> call, Response<ID> response) {
+                                    // 상태코드가 200 인지 확인
+                                    if (response.isSuccessful() == true){
+                                        // response.body() 가 UserRes.이다.
+                                        String ID = response.body().getID();
+                                        Log.i("AAAAA","id : "+ID);
+                                        Toast.makeText(MainActivity.this,"닉네임이 틀렸습니다.",Toast.LENGTH_LONG).show();
+                                        editID.setText("");
+                                        return;
+                                    } else{
+                                        Toast.makeText(MainActivity.this,"존재하지않는 회원입니다. 회원가입을 진행해주세요",Toast.LENGTH_SHORT).show();
+                                        dialog0.dismiss();
+                                    }
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<ID> call, Throwable t) {
+
+                                }
+                            });
                         }
 
                     }
