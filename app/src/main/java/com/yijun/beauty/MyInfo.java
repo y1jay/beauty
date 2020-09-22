@@ -62,6 +62,8 @@ public class MyInfo extends AppCompatActivity {
     // 탈퇴 (카카오 or 미인닭발)
     Boolean kakao;
 
+    SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -275,6 +277,11 @@ public class MyInfo extends AppCompatActivity {
 
                                                 }
                                             });
+
+                                            sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sp.edit();
+                                            editor.putBoolean("auto_login",false);
+                                            editor.apply();
                                         }
 
                                         @Override
