@@ -65,6 +65,8 @@ public class Nick_name extends AppCompatActivity {
         setContentView(R.layout.activity_nick_name);
 
         checkPermission();
+        getPhone();
+        Toast.makeText(Nick_name.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
 
         btn_check = findViewById(R.id.btn_check);
         txt_email = findViewById(R.id.txt_email);
@@ -73,7 +75,7 @@ public class Nick_name extends AppCompatActivity {
         check_box = findViewById(R.id.check_box);
         check_agree = findViewById(R.id.check_agree);
         scrollView = findViewById(R.id.scrollView);
-        check_box.setImageResource(android.R.drawable.arrow_up_float);
+        check_box.setImageResource(android.R.drawable.arrow_down_float);
 
         check_box.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,8 +138,7 @@ public class Nick_name extends AppCompatActivity {
                             i.putExtra("nick_name", nick_name);
                             finish();
                             startActivity(i);
-                        }
-                        else if (response.isSuccessful()==false){
+                        } else if (response.isSuccessful()==false){
                             Retrofit retrofit = NetworkClient.getRetrofitClient(Nick_name.this);
                             UserApi userApi = retrofit.create(UserApi.class);
 
@@ -150,7 +151,8 @@ public class Nick_name extends AppCompatActivity {
                                         Toast.makeText(Nick_name.this,"이미있는 닉네임입니다.",Toast.LENGTH_SHORT).show();
                                         return;
                                     }else if (response.isSuccessful()==true){
-                                        Toast.makeText(Nick_name.this,"다시 한 번 확인해주세요.",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Nick_name.this,"이미 존재하는 번호입니다.",Toast.LENGTH_SHORT).show();
+                                        finish();
                                         return;
                                     }
                                 }
@@ -187,6 +189,11 @@ public class Nick_name extends AppCompatActivity {
 
             my_phone_num = my_phone_num.replace("+82", "0");
 
+        }else{
+            Toast.makeText(Nick_name.this,"번호가 존재하지않아 회원가입을 할 수 없습니다.",
+                    Toast.LENGTH_SHORT).show();
+            finish();
+            return "";
         }
 
         return tm.getLine1Number();

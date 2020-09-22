@@ -208,6 +208,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         }else {
             Toast.makeText(SignUpActivity.this, "번호가 없는 핸드폰 입니다.",Toast.LENGTH_SHORT).show();
+            finish();
             return "";
         }
 

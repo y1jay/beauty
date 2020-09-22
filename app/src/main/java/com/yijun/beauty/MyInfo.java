@@ -267,8 +267,8 @@ public class MyInfo extends AppCompatActivity {
                                                         SharedPreferences.Editor editor = sp.edit();
                                                         editor.putBoolean("auto_login",false);
                                                         editor.apply();
-                                                        startActivity(intent);
                                                         finish();
+                                                        startActivity(intent);
                                                     }else {
 
                                                     }
@@ -316,8 +316,8 @@ public class MyInfo extends AppCompatActivity {
                                                         Toast.makeText(getApplicationContext(), "탈퇴 되었습니다.", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent(MyInfo.this, MainActivity.class);
                                                         intent.putExtra("key",1);
-                                                        startActivity(intent);
                                                         finish();
+                                                        startActivity(intent);
                                                     }else {
 
                                                     }
