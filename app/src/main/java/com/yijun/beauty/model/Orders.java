@@ -12,6 +12,14 @@ public class Orders {
     @Expose
     private String price;
 
+    @SerializedName("created_at")
+    @Expose
+    private String created_at;
+
+    @SerializedName("time")
+    @Expose
+    private String time;
+
     public String getMenu() {
         return menu;
     }
@@ -26,5 +34,21 @@ public class Orders {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }
