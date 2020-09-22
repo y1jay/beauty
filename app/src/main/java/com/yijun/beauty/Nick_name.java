@@ -73,7 +73,7 @@ public class Nick_name extends AppCompatActivity {
         check_box = findViewById(R.id.check_box);
         check_agree = findViewById(R.id.check_agree);
         scrollView = findViewById(R.id.scrollView);
-        check_box.setImageResource(android.R.drawable.arrow_up_float);
+        check_box.setImageResource(android.R.drawable.arrow_down_float);
 
         check_box.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +138,7 @@ public class Nick_name extends AppCompatActivity {
                             startActivity(i);
                         }
                         else if (response.isSuccessful()==false){
-                            Toast.makeText(Nick_name.this,"닉네임이 중복되었습니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Nick_name.this,"정보가 잘못되었습니다.",Toast.LENGTH_SHORT).show();
                             return;
                         }
 
