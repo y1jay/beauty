@@ -21,6 +21,12 @@ public class ReservationRes {
     @SerializedName("rows")
     private ArrayList<Orders> rows;
 
+    @SerializedName("menus")
+    private ArrayList<Orders> menus;
+
+
+
+
     public boolean isSuccess() {
         return success;
     }
@@ -60,4 +66,13 @@ public class ReservationRes {
     public void setRows(ArrayList<Orders> rows) {
         this.rows = rows;
     }
+
+    public ArrayList<Orders> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(ArrayList<Orders> menus) {
+        this.rows = menus;
+    }
+
 }

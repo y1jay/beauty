@@ -16,7 +16,6 @@ import com.yijun.beauty.model.Orders;
 import com.yijun.beauty.model.ReservationRes;
 import com.yijun.beauty.url.Utils;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -31,6 +30,8 @@ public class ReservationRecord extends AppCompatActivity {
     CheckOrderAdapter adapter;
     ArrayList<Orders> ordersArrayList = new ArrayList<>();
     SharedPreferences sp;
+
+    TextView txtTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class ReservationRecord extends AppCompatActivity {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()) {
                     ordersArrayList = response.body().getRows();
+                    Log.i("menu",response.body().toString());
                     if (ordersArrayList.isEmpty()){
                         return;
                     }
@@ -110,4 +112,6 @@ public class ReservationRecord extends AppCompatActivity {
 //            }
 //        });
 //    }
+
+
 }

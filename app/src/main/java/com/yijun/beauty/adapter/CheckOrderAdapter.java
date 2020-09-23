@@ -1,10 +1,12 @@
 package com.yijun.beauty.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.yijun.beauty.R;
 import com.yijun.beauty.model.Orders;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,13 +43,24 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull CheckOrderAdapter.ViewHolder holder, int position) {
       Orders orders = orderArrayList.get(position);
-        String check_order_menu = orders.getMenu();
-        String check_order_price = orders.getPrice();
-        String check_order_created_at = orders.getTime();
+        String order_menu = orders.getMenu();
+        String order_price = orders.getPrice();
+        String order_created_at = orders.getTime();
 
-        holder.check_order_menu.setText(check_order_menu);
-        holder.check_order_price.setText(check_order_price);
-        holder.check_order_created_at.setText((check_order_created_at));
+        holder.check_order_menu.setText(order_menu);
+
+
+                    Double total_price = Double.parseDouble(order_price);
+                    total_price = total_price * 1000;
+                    DecimalFormat format = new DecimalFormat("###,###");//콤마
+                    String total = format.format(total_price);
+                    Log.i("total", total);
+        holder.check_order_price.setText(total);
+        holder.check_order_created_at.setText(order_created_at);
+
+        if(order_created_at == null|| order_menu == null || order_price == null){
+            Toast.makeText(context,"주문기록이 없습니다",Toast.LENGTH_SHORT).show();
+        }
 
 
 

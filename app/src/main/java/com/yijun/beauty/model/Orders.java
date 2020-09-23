@@ -8,6 +8,7 @@ public class Orders {
     @Expose
     private String menu;
 
+
     @SerializedName("price")
     @Expose
     private String price;
@@ -51,4 +52,6 @@ public class Orders {
     public void setTime(String time) {
         this.time = time;
     }
+
+
 }
