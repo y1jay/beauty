@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="people_number">
+        <item>명</item>
         <item>1명</item>
         <item>2명</item>
         <item>3명</item>
@@ -20,6 +21,7 @@
     </string-array>
 
     <string-array name = "month">
+        <item>월</item>
         <item>1월</item>
         <item>2월</item>
         <item>3월</item>
@@ -34,6 +36,7 @@
         <item>12월</item>
     </string-array>
     <string-array name = "day">
+        <item>일</item>
         <item>1일</item>
         <item>2일</item>
         <item>3일</item>
@@ -67,6 +70,7 @@
         <item>31일</item>
     </string-array>
     <string-array name = "hour">
+        <item>시</item>
         <item>15시</item>
         <item>16시</item>
         <item>17시</item>

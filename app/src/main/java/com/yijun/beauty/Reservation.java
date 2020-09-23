@@ -217,9 +217,7 @@ public class Reservation extends AppCompatActivity {
     ImageView img_pocha6;
 
 
-
-
-
+    // 주문서 다이얼로그
     AlertDialog alertDialog;
     RecyclerView recyclerView;
     OrderSheetAdapter adapter;
@@ -1246,6 +1244,7 @@ public class Reservation extends AppCompatActivity {
 
 
 
+                // 주문서 다이얼로그
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 price = alertView.findViewById(R.id.price);
@@ -1279,41 +1278,41 @@ public class Reservation extends AppCompatActivity {
                     spinner_hour.setAdapter(hour_adapter);
 
 
-                    people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                            people = item.toString().trim().replace("명", "");
-                            if (people.isEmpty()) {
-                                Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            pp = Integer.parseInt(people);
-                        }
-                    });
-
-                    spinner_month.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                            month = item.toString().trim().replace("월", "");
-                            mm = Integer.parseInt(month);
-                        }
-                    });
-
-                    spinner_day.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                            day = item.toString().trim().replace("일", "");
-                            dd = Integer.parseInt(day);
-                        }
-                    });
-
-                    spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                            hour = item.toString().trim().replace("시", "");
-                            hh = Integer.parseInt(hour);
-                        }
-                    });
+//                    people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+//                        @Override
+//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+//                            people = item.toString().trim().replace("명", "");
+//                            if (position < 0) {
+//                                Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//                            pp = Integer.parseInt(people);
+//                        }
+//                    });
+//
+//                    spinner_month.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+//                        @Override
+//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+//                            month = item.toString().trim().replace("월", "");
+//                            mm = Integer.parseInt(month);
+//                        }
+//                    });
+//
+//                    spinner_day.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+//                        @Override
+//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+//                            day = item.toString().trim().replace("일", "");
+//                            dd = Integer.parseInt(day);
+//                        }
+//                    });
+//
+//                    spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+//                        @Override
+//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+//                            hour = item.toString().trim().replace("시", "");
+//                            hh = Integer.parseInt(hour);
+//                        }
+//                    });
 
                     String nick_name = sp.getString("nick_name", null);
 
@@ -1341,22 +1340,6 @@ public class Reservation extends AppCompatActivity {
 
                                     price_total(price);
 
-                                    radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                                        @Override
-                                        public void onCheckedChanged(RadioGroup group, int checkedId) {
-                                            if (month.isEmpty() || day.isEmpty() || hour.isEmpty()) {
-                                                Toast.makeText(Reservation.mContext, "예약시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
-                                            }
-
-                                            add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
-                                            if (checkedId == R.id.take_out) {
-                                                add_take_out(1, "2020-" + mm + "-" + dd + " " + hh);
-                                            } else if (checkedId == R.id.store) {
-                                                add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
-                                            }
-                                        }
-                                    });
-
                             } else {
 
                             }
@@ -1371,6 +1354,59 @@ public class Reservation extends AppCompatActivity {
                     order_payment.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                                    if (item.toString().trim() == "명") {
+                                        Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                    people = item.toString().trim().replace("명", "");
+                                    pp = Integer.parseInt(people);
+                                }
+                            });
+
+                            spinner_month.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                                    month = item.toString().trim().replace("월", "");
+                                    mm = Integer.parseInt(month);
+                                }
+                            });
+
+                            spinner_day.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                                    day = item.toString().trim().replace("일", "");
+                                    dd = Integer.parseInt(day);
+                                }
+                            });
+
+                            spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                                    hour = item.toString().trim().replace("시", "");
+                                    hh = Integer.parseInt(hour);
+                                }
+                            });
+
+                            if (month != null|| day != null || hour != null) {
+                                Toast.makeText(Reservation.mContext, "예약시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
+
+                            radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                @Override
+                                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                    if (checkedId == R.id.take_out) {
+                                        add_take_out(1, "2020-" + mm + "-" + dd + " " + hh);
+                                    } else if (checkedId == R.id.store) {
+                                        add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
+                                    }
+                                }
+                            });
+
                             Intent i = new Intent(Reservation.this, CheckoutActivity.class);
                             i.putExtra("total_price", total_price);
                             startActivity(i);
