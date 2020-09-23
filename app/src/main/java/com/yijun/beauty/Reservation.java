@@ -224,19 +224,6 @@ public class Reservation extends AppCompatActivity {
     ArrayList<Orders> orderArrayList = new ArrayList<>();
     TextView price;
 
-    MaterialSpinner people_spinner;
-    MaterialSpinner spinner_month;
-    MaterialSpinner spinner_day;
-    MaterialSpinner spinner_hour;
-    String people;
-    String month;
-    String day;
-    String hour;
-    int pp;
-    int mm;
-    int dd;
-    int hh;
-
     RadioGroup radio_group;
     RadioButton take_out;
     RadioButton store;
@@ -245,8 +232,32 @@ public class Reservation extends AppCompatActivity {
 
     SharedPreferences sp;
 
+    // take_out 다이얼로그
+    AlertDialog dialog_take_out;
+    MaterialSpinner spinner_month;
+    MaterialSpinner spinner_day;
+    MaterialSpinner spinner_hour;
+    String month;
+    String day;
+    String hour;
+    int mm;
+    int dd;
+    int hh;
 
-
+    // store 다이얼로그
+    AlertDialog dialog_store;
+    MaterialSpinner people_spinner;
+    MaterialSpinner month_spinner;
+    MaterialSpinner day_spinner;
+    MaterialSpinner hour_spinner;
+    String people_s;
+    String month_s;
+    String day_s;
+    String hour_s;
+    int pp;
+    int mm_s;
+    int dd_s;
+    int hh_s;
 
 
     @Override
@@ -1248,10 +1259,6 @@ public class Reservation extends AppCompatActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
                 View alertView = getLayoutInflater().inflate(R.layout.order,null);
                 price = alertView.findViewById(R.id.price);
-                people_spinner = alertView.findViewById(R.id.people_spinner);
-                spinner_month = alertView.findViewById(R.id.spinner_month);
-                spinner_day = alertView.findViewById(R.id.spinner_day);
-                spinner_hour = alertView.findViewById(R.id.spinner_hour);
                 radio_group = alertView.findViewById(R.id.radio_group);
                 take_out = alertView.findViewById(R.id.take_out);
                 store = alertView.findViewById(R.id.store);
@@ -1260,59 +1267,6 @@ public class Reservation extends AppCompatActivity {
                 recyclerView = alertView.findViewById(R.id.recyclerView);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Reservation.this));
-
-                    ArrayAdapter people_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.people_number, android.R.layout.simple_spinner_dropdown_item);
-                    people_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    people_spinner.setAdapter(people_adapter);
-
-                    ArrayAdapter month_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.month, android.R.layout.simple_spinner_dropdown_item);
-                    month_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spinner_month.setAdapter(month_adapter);
-
-                    ArrayAdapter day_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.day, android.R.layout.simple_spinner_dropdown_item);
-                    day_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spinner_day.setAdapter(day_adapter);
-
-                    ArrayAdapter hour_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.hour, android.R.layout.simple_spinner_dropdown_item);
-                    hour_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spinner_hour.setAdapter(hour_adapter);
-
-
-//                    people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-//                        @Override
-//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-//                            people = item.toString().trim().replace("명", "");
-//                            if (position < 0) {
-//                                Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
-//                                return;
-//                            }
-//                            pp = Integer.parseInt(people);
-//                        }
-//                    });
-//
-//                    spinner_month.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-//                        @Override
-//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-//                            month = item.toString().trim().replace("월", "");
-//                            mm = Integer.parseInt(month);
-//                        }
-//                    });
-//
-//                    spinner_day.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-//                        @Override
-//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-//                            day = item.toString().trim().replace("일", "");
-//                            dd = Integer.parseInt(day);
-//                        }
-//                    });
-//
-//                    spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-//                        @Override
-//                        public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-//                            hour = item.toString().trim().replace("시", "");
-//                            hh = Integer.parseInt(hour);
-//                        }
-//                    });
 
                     String nick_name = sp.getString("nick_name", null);
 
@@ -1327,10 +1281,10 @@ public class Reservation extends AppCompatActivity {
                             // 상태코드가 200 인지 확인
                             if (response.isSuccessful()) {
                                 orderArrayList = response.body().getRows();
-//                                if (orderArrayList.isEmpty()) {
-//                                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
-//                                    return;
-//                                }
+                                if (orderArrayList.isEmpty()) {
+                                    Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
 
                                 adapter = new OrderSheetAdapter(Reservation.this, orderArrayList);
                                 recyclerView.setAdapter(adapter);
@@ -1339,6 +1293,20 @@ public class Reservation extends AppCompatActivity {
                                     String menuuuu = response.body().getMenu();
 
                                     price_total(price);
+
+                                radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                    @Override
+                                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                        if (checkedId == R.id.take_out) {
+                                            add_take_out(1, "2020-" + mm + "-" + dd + " " + hh);
+                                        } else if (checkedId == R.id.store) {
+                                            add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
+                                        }else if (group.isClickable() == false){
+                                            Toast.makeText(Reservation.this, "매장과 포장중 선택 하셔야합니다.", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+                                    }
+                                });
 
                             } else {
 
@@ -1354,63 +1322,11 @@ public class Reservation extends AppCompatActivity {
                     order_payment.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                                    if (item.toString().trim() == "명") {
-                                        Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                                        return;
-                                    }
-                                    people = item.toString().trim().replace("명", "");
-                                    pp = Integer.parseInt(people);
-                                }
-                            });
-
-                            spinner_month.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                                    month = item.toString().trim().replace("월", "");
-                                    mm = Integer.parseInt(month);
-                                }
-                            });
-
-                            spinner_day.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                                    day = item.toString().trim().replace("일", "");
-                                    dd = Integer.parseInt(day);
-                                }
-                            });
-
-                            spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                                    hour = item.toString().trim().replace("시", "");
-                                    hh = Integer.parseInt(hour);
-                                }
-                            });
-
-                            if (month != null|| day != null || hour != null) {
-                                Toast.makeText(Reservation.mContext, "예약시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
-
-                            radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                                @Override
-                                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                                    if (checkedId == R.id.take_out) {
-                                        add_take_out(1, "2020-" + mm + "-" + dd + " " + hh);
-                                    } else if (checkedId == R.id.store) {
-                                        add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
-                                    }
-                                }
-                            });
-
                             Intent i = new Intent(Reservation.this, CheckoutActivity.class);
                             i.putExtra("total_price", total_price);
-                            startActivity(i);
                             finish();
+                            alertDialog.dismiss();
+                            startActivity(i);
                         }
                     });
 
@@ -1521,6 +1437,13 @@ public class Reservation extends AppCompatActivity {
 
     // 추가 사항(store)
     public void add_store(int take_out, int people_number, String time){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View alertView = getLayoutInflater().inflate(R.layout.store,null);
+        people_spinner = alertView.findViewById(R.id.people_spinner);
+        spinner_month = alertView.findViewById(R.id.spinner_month);
+        spinner_day = alertView.findViewById(R.id.spinner_day);
+        spinner_hour = alertView.findViewById(R.id.spinner_hour);
+
         String nick_name =sp.getString("nick_name",null);
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1543,6 +1466,12 @@ public class Reservation extends AppCompatActivity {
                 Log.i("total", t.toString());
             }
         });
+
+        alert.setView(alertView);
+
+        dialog_store = alert.create();
+        dialog_store.setCancelable(false);
+        dialog_store.show();
     }
 
     // 추가 사항(take_out)
@@ -1613,145 +1542,88 @@ public class Reservation extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.list_menu3,null);
 
-
-
         alert.setView(enterview);
-
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog2(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.list_menu1,null);
 
-
-
         alert.setView(enterview);
-
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
-
 
     public void createMenuDialog3(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu1,null);
 
-
         alert.setView(enterview);
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog4(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu4,null);
 
-
-
         alert.setView(enterview);
-
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog5(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu9,null);
 
-
-
         alert.setView(enterview);
-
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog6(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.list_menu2,null);
 
-
-
         alert.setView(enterview);
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog7(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu6,null);
 
-
-
-
         alert.setView(enterview);
-
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
     public void createMenuDialog8(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.menu10,null);
 
-
-
-
-
         alert.setView(enterview);
-
 
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-
-
     }
 
 }

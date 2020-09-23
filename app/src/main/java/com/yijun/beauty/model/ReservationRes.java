@@ -16,7 +16,7 @@ public class ReservationRes {
     private String price;
 
     @SerializedName("take_out")
-    private Boolean take_out;
+    private int take_out;
 
     @SerializedName("people_number")
     private int people_number;
@@ -70,11 +70,11 @@ public class ReservationRes {
         this.rows = rows;
     }
 
-    public Boolean getTake_out() {
+    public int getTake_out() {
         return take_out;
     }
 
-    public void setTake_out(Boolean take_out) {
+    public void setTake_out(int take_out) {
         this.take_out = take_out;
     }
 
