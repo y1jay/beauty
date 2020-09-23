@@ -35,9 +35,9 @@ public interface ReviewApi {
 
 
     @DELETE("/api/v1/review/delete")
-    Call<UserRes> deleteMyReview(@Query("nick_name") String Nick_name,
-                                     @Query("review") String review,
-                                     @Query("rating") Float rating);
+    Call<UserRes> deleteMyReview(@Query("nick_name") String nick_name,
+                                 @Query("review") String review,
+                                 @Query("rating") Float rating);
 
 
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -24,6 +25,7 @@ import com.yijun.beauty.model.MyreviewReq;
 import com.yijun.beauty.model.Review;
 import com.yijun.beauty.model.ReviewRes;
 import com.yijun.beauty.model.Rows;
+import com.yijun.beauty.model.UserRes;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -112,12 +114,8 @@ public class MyReviewclerViewAdapter extends RecyclerView.Adapter<MyReviewclerVi
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            int position = getAdapterPosition();
-
-                            ((Myreview) context).deleteReviw(position);
-
+                            ((Myreview)context).deleteReviw(getAdapterPosition());
                             dialog.dismiss();
-
                         }
                     })
                     .setNegativeButton("아니요",null)
