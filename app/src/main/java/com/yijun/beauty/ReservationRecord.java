@@ -49,7 +49,7 @@ public class ReservationRecord extends AppCompatActivity {
         Retrofit retrofit = NetworkClient.getRetrofitClient(ReservationRecord.this);
         ReservationApi reservationApi = retrofit.create(ReservationApi.class);
 
-        Call<ReservationRes> call = reservationApi.selectMenu(nick_name);
+        Call<ReservationRes> call = reservationApi.myselectMenu(nick_name);
 
         call.enqueue(new Callback<ReservationRes>() {
             @Override
@@ -80,34 +80,34 @@ public class ReservationRecord extends AppCompatActivity {
 
     }
 
-    // 메뉴 총합
-    public void price_total(TextView textView){
-        String nick_name =sp.getString("nick_name",null);
-
-        Retrofit retrofit = NetworkClient.getRetrofitClient(ReservationRecord.this);
-        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
-
-        Call<ReservationRes> call = reservationApi.total(nick_name);
-        call.enqueue(new Callback<ReservationRes>() {
-            @Override
-            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
-                // 상태코드가 200 인지 확인
-                if (response.isSuccessful()){
-                    String rows = response.body().getTotal();
-                    Double total_price = Double.parseDouble(rows);
-                    DecimalFormat format = new DecimalFormat("###,###");//콤마
-                    String total = format.format(total_price);
-                    Log.i("total", total);
-                    textView.setText(total);
-                }else {
-                    return;
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ReservationRes> call, Throwable t) {
-                Log.i("total", t.toString());
-            }
-        });
-    }
+//    // 메뉴 총합
+//    public void price_total(TextView textView){
+//        String nick_name =sp.getString("nick_name",null);
+//
+//        Retrofit retrofit = NetworkClient.getRetrofitClient(ReservationRecord.this);
+//        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+//
+//        Call<ReservationRes> call = reservationApi.total(nick_name);
+//        call.enqueue(new Callback<ReservationRes>() {
+//            @Override
+//            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+//                // 상태코드가 200 인지 확인
+//                if (response.isSuccessful()){
+//                    String rows = response.body().getTotal();
+//                    Double total_price = Double.parseDouble(rows);
+//                    DecimalFormat format = new DecimalFormat("###,###");//콤마
+//                    String total = format.format(total_price);
+//                    Log.i("total", total);
+//                    textView.setText(total);
+//                }else {
+//                    return;
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ReservationRes> call, Throwable t) {
+//                Log.i("total", t.toString());
+//            }
+//        });
+//    }
 }
