@@ -140,6 +140,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()) {
                     orderArrayList = response.body().getRows();
+                    
 
                     for (i = 0; i < orderArrayList.size(); i++){
                         String m = orderArrayList.get(i).getMenu();
