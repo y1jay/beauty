@@ -3,13 +3,11 @@ package com.yijun.beauty.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.List;
+public class MyreviewReq {
 
-public class Rows {
     @SerializedName("id")
     @Expose
-    private Integer Id;
+    private int id;
 
     @SerializedName("nick_name")
     @Expose
@@ -27,26 +25,18 @@ public class Rows {
     @Expose
     private String created_at;
 
-    public Rows(String review, Float rating) {
-        this.review = review;
-        this.rating = rating;
-    }
-
-    public Rows(String nick_name, String review, Float rating) {
+    public MyreviewReq(String nick_name, String review, Float rating) {
         this.nick_name = nick_name;
         this.review = review;
         this.rating = rating;
     }
 
-    public Rows(ArrayList<Rows> rows){
+    public int getId() {
+        return id;
     }
 
-    public Integer getId() {
-        return Id;
-    }
-
-    public void setId(Integer id) {
-        Id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNick_name() {
@@ -80,4 +70,5 @@ public class Rows {
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
 }

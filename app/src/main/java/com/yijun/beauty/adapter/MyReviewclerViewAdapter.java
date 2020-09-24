@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.yijun.beauty.Myreview;
 import com.yijun.beauty.R;
 import com.yijun.beauty.model.Rows;
+import com.yijun.beauty.model.UserRes;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -92,28 +94,21 @@ public class MyReviewclerViewAdapter extends RecyclerView.Adapter<MyReviewclerVi
             my_btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
-
-                    AlertDialog.Builder delete = new AlertDialog.Builder(context);
-                    delete.setTitle("리뷰 삭제");
-                    delete.setMessage("리뷰를 삭제하시겠습니까?");
-                    delete.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    new AlertDialog.Builder(context)
+                    .setTitle("리뷰 삭제")
+                    .setMessage("리뷰를 삭제하시겠습니까?")
+                    .setPositiveButton("네", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            int position = getAdapterPosition();
-
-
-
-                            ((Myreview) context).deleteReviw(position);
-
+                            ((Myreview)context).deleteReviw(getAdapterPosition());
+                            dialog.dismiss();
                         }
-                    });
-                    delete.setNegativeButton("아니요",null);
-                    delete.setCancelable(false);
-                    delete.show();
-                    return;
+                    })
+                    .setNegativeButton("아니요",null)
+                    .setCancelable(false)
+                    .show();
+//                    return;
                 }
             });
 
