@@ -214,7 +214,7 @@ public class Reservation extends AppCompatActivity {
     ImageView img_pocha3;
     ImageView img_pocha4;
     ImageView img_pocha5;
-    ImageView img_pocha6;
+
 
 
 
@@ -1380,7 +1380,7 @@ public class Reservation extends AppCompatActivity {
                     order_no.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-//                        cancle();
+                        cancle();
                             alertDialog.cancel();
                         }
                     });
