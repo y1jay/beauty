@@ -76,7 +76,7 @@ public class AfterLogin extends AppCompatActivity {
     ImageView img10;
     ImageView img11;
 
-   
+
 
 
 

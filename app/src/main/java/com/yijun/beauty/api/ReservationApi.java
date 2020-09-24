@@ -13,26 +13,29 @@ import retrofit2.http.Query;
 
 public interface ReservationApi {
 
-    @POST("/api/v1/reservation/order")
-    Call<ReservationRes> addMenu(@Body ReservationReq reservationReq);
+  @POST("/api/v1/reservation/order")
+  Call<ReservationRes> addMenu(@Body ReservationReq reservationReq);
 
-    @GET("api/v1/reservation/record")
-    Call<ReservationRes> selectMenu(@Query("nick_name") String nick_name);
+  @GET("api/v1/reservation/record")
+  Call<ReservationRes> selectMenu(@Query("nick_name") String nick_name);
 
-    @DELETE("api/v1/reservation/delete")
-    Call<ReservationRes> deleteMenu(@Query("nick_name") String nick_name,
-                                    @Query("menu") String menu,
-                                    @Query("price") String price);
+  @GET("api/v1/reservation/myrecord")
+  Call<ReservationRes> myselectMenu(@Query("nick_name") String nick_name);
 
-    @DELETE("api/v1/reservation/cancle")
-    Call<ReservationRes> cancle(@Query("nick_name") String nick_name);
+  @DELETE("api/v1/reservation/delete")
+  Call<ReservationRes> deleteMenu(@Query("nick_name") String nick_name,
+                                  @Query("menu") String menu,
+                                  @Query("price") String price);
 
-    @GET("api/v1/reservation")
-    Call<ReservationRes> total(@Query("nick_name") String nick_name);
+  @DELETE("api/v1/reservation/cancle")
+  Call<ReservationRes> cancle(@Query("nick_name") String nick_name);
 
-    @PUT("api/v1/reservation/add")
-    Call<ReservationRes> add(@Query("nick_name") String nick_name,
-                                  @Query("take_out") int take_out,
-                                  @Query("people_number") int people_number,
-                                  @Query("time") String time);
+  @GET("api/v1/reservation")
+  Call<ReservationRes> total(@Query("nick_name") String nick_name);
+
+  @PUT("api/v1/reservation/add")
+  Call<ReservationRes> add(@Query("nick_name") String nick_name,
+                           @Query("take_out") int take_out,
+                           @Query("people_number") int people_number,
+                           @Query("time") String time);
 }
