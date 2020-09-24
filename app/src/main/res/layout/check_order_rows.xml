@@ -31,7 +31,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="TextView"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -48,7 +47,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="TextView"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -66,12 +64,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="TextView"
+
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/txtwon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@id/check_order_total"
