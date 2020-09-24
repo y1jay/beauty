@@ -1476,6 +1476,12 @@ public class Reservation extends AppCompatActivity {
 
     // 추가 사항(take_out)
     public void add_take_out(int take_out, String time){
+        AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
+        View alertView = getLayoutInflater().inflate(R.layout.take_out,null);
+        month_spinner = alertView.findViewById(R.id.month_spinner);
+        day_spinner = alertView.findViewById(R.id.day_spinner);
+        hour_spinner = alertView.findViewById(R.id.hour_spinner);
+
         String nick_name =sp.getString("nick_name",null);
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1498,6 +1504,12 @@ public class Reservation extends AppCompatActivity {
                 Log.i("total", t.toString());
             }
         });
+
+        alert.setView(alertView);
+
+        dialog_take_out = alert.create();
+        dialog_take_out.setCancelable(false);
+        dialog_take_out.show();
     }
 
     // nick_name = nick_name 인 사람의 주문서 전부 삭제
