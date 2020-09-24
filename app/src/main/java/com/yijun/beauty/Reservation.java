@@ -18,6 +18,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -41,7 +43,10 @@ import com.yijun.beauty.url.Utils;
 import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -232,32 +237,32 @@ public class Reservation extends AppCompatActivity {
 
     SharedPreferences sp;
 
-    // take_out 다이얼로그
-    AlertDialog dialog_take_out;
-    MaterialSpinner spinner_month;
-    MaterialSpinner spinner_day;
-    MaterialSpinner spinner_hour;
-    String month;
-    String day;
-    String hour;
-    int mm;
-    int dd;
-    int hh;
-
     // store 다이얼로그
     AlertDialog dialog_store;
+    ImageButton back_add;
+    Button set_add;
+    DatePicker dataPicker;
     MaterialSpinner people_spinner;
-    MaterialSpinner month_spinner;
-    MaterialSpinner day_spinner;
-    MaterialSpinner hour_spinner;
+    MaterialSpinner spinner_hour;
     String people_s;
-    String month_s;
-    String day_s;
     String hour_s;
+    String date;
     int pp;
     int mm_s;
     int dd_s;
     int hh_s;
+
+    // take_out 다이얼로그
+    AlertDialog dialog_take_out;
+    ImageButton add_back;
+    Button add_set;
+    DatePicker data_picker;
+    MaterialSpinner hour_spinner;
+    String date_t;
+    String hour;
+    int mm;
+    int dd;
+    int hh;
 
 
     @Override
@@ -1281,6 +1286,8 @@ public class Reservation extends AppCompatActivity {
                             // 상태코드가 200 인지 확인
                             if (response.isSuccessful()) {
                                 orderArrayList = response.body().getRows();
+                                String time = response.body().getTime();
+
                                 if (orderArrayList.isEmpty()) {
                                     Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
                                     return;
@@ -1298,15 +1305,13 @@ public class Reservation extends AppCompatActivity {
                                     @Override
                                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                                         if (checkedId == R.id.take_out) {
-                                            add_take_out(1, "2020-" + mm + "-" + dd + " " + hh);
+                                            add_take_out();
                                         } else if (checkedId == R.id.store) {
-                                            add_store(0, pp, "2020-" + mm + "-" + dd + " " + hh);
-                                        }else if (group.isClickable() == false){
-                                            Toast.makeText(Reservation.this, "매장과 포장중 선택 하셔야합니다.", Toast.LENGTH_SHORT).show();
-                                            return;
+                                            add_store();
                                         }
                                     }
                                 });
+
 
                             } else {
 
@@ -1333,7 +1338,7 @@ public class Reservation extends AppCompatActivity {
                     order_no.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-//                        cancle();
+                        cancle();
                             alertDialog.cancel();
                         }
                     });
@@ -1436,34 +1441,117 @@ public class Reservation extends AppCompatActivity {
     }
 
     // 추가 사항(store)
-    public void add_store(int take_out, int people_number, String time){
+    public void add_store(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View alertView = getLayoutInflater().inflate(R.layout.store,null);
+        back_add = alertView.findViewById(R.id.back_add);
+        set_add = alertView.findViewById(R.id.set_add);
+        dataPicker = alertView.findViewById(R.id.dataPicker);
         people_spinner = alertView.findViewById(R.id.people_spinner);
-        spinner_month = alertView.findViewById(R.id.spinner_month);
-        spinner_day = alertView.findViewById(R.id.spinner_day);
         spinner_hour = alertView.findViewById(R.id.spinner_hour);
 
-        String nick_name =sp.getString("nick_name",null);
-
-        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
-        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
-
-        Call<ReservationRes> call = reservationApi.add(nick_name, take_out, people_number, time);
-        call.enqueue(new Callback<ReservationRes>() {
+        // monthOfYear = 0부터 11까지 (1월 ~ 12월)
+        //처음 DatePicker를 오늘 날짜로 초기화한다.
+        //그리고 리스너를 등록한다.
+        dataPicker.init(dataPicker.getYear(), dataPicker.getMonth(), dataPicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
             @Override
-            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
-                // 상태코드가 200 인지 확인
-                if (response.isSuccessful()){
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                String current_date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth(), dataPicker.getDayOfMonth());
+                date = String.format("%d-%d-%d", year,monthOfYear + 1,dayOfMonth);
 
-                }else {
+                    SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
+                    Date current = null;
+                    Date choice = null;
+                    try {
+                        current = dateFormat.parse(current_date);
+                        choice = dateFormat.parse(date);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    int compare = current.compareTo( choice );
+                    if ( compare > 0 )
+                    {
+                        Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+//                    else if ( compare < 0 )
+//                    {
+//                        System.out.println( "current < choice" );
+//                    }
+//                    else
+//                    {
+//                        System.out.println( "current = choice" );
+//                    }
+
+                Toast.makeText(Reservation.mContext, date, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ArrayAdapter people_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.people_number, android.R.layout.simple_spinner_dropdown_item);
+        people_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        people_spinner.setAdapter(people_adapter);
+
+        ArrayAdapter hour_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.hour, android.R.layout.simple_spinner_dropdown_item);
+        hour_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_hour.setAdapter(hour_adapter);
+
+        people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                if (position < 0) {
+                    Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                people_s = item.toString().trim().replace("명", "");
+                pp = Integer.parseInt(people_s);
             }
+        });
 
+        spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
-            public void onFailure(Call<ReservationRes> call, Throwable t) {
-                Log.i("total", t.toString());
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                hour_s = item.toString().trim().replace("시", "");
+                hh_s = Integer.parseInt(hour_s);
+            }
+        });
+
+        set_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nick_name =sp.getString("nick_name",null);
+
+                date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth()+1, dataPicker.getDayOfMonth());
+                Log.i("date", date);
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+                ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                Call<ReservationRes> call = reservationApi.add_store(nick_name, pp, date + " " + hh_s);
+                call.enqueue(new Callback<ReservationRes>() {
+                    @Override
+                    public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+
+                        }else {
+                            return;
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ReservationRes> call, Throwable t) {
+                        Log.i("store", t.toString());
+                    }
+                });
+                dialog_store.dismiss();
+            }
+        });
+
+        back_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_store.cancel();
             }
         });
 
@@ -1471,37 +1559,68 @@ public class Reservation extends AppCompatActivity {
 
         dialog_store = alert.create();
         dialog_store.setCancelable(false);
+        dialog_store.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog_store.show();
     }
 
     // 추가 사항(take_out)
-    public void add_take_out(int take_out, String time){
+    public void add_take_out(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View alertView = getLayoutInflater().inflate(R.layout.take_out,null);
-        month_spinner = alertView.findViewById(R.id.month_spinner);
-        day_spinner = alertView.findViewById(R.id.day_spinner);
+        add_back = alertView.findViewById(R.id.add_back);
+        add_set = alertView.findViewById(R.id.add_set);
+        data_picker = alertView.findViewById(R.id.data_picker);
         hour_spinner = alertView.findViewById(R.id.hour_spinner);
 
-        String nick_name =sp.getString("nick_name",null);
+        ArrayAdapter hour_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.hour, android.R.layout.simple_spinner_dropdown_item);
+        hour_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hour_spinner.setAdapter(hour_adapter);
 
-        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
-        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
-
-        Call<ReservationRes> call = reservationApi.add(nick_name, take_out, 0, time);
-        call.enqueue(new Callback<ReservationRes>() {
+        hour_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
-            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
-                // 상태코드가 200 인지 확인
-                if (response.isSuccessful()){
-
-                }else {
-                    return;
-                }
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                hour = item.toString().trim().replace("시", "");
+                hh = Integer.parseInt(hour);
             }
+        });
 
+        add_set.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFailure(Call<ReservationRes> call, Throwable t) {
-                Log.i("total", t.toString());
+            public void onClick(View v) {
+                String nick_name =sp.getString("nick_name",null);
+
+                date_t = String.format("%d-%d-%d", data_picker.getYear(), data_picker.getMonth()+1, data_picker.getDayOfMonth());
+                Log.i("date", date_t);
+
+                Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+                ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                Call<ReservationRes> call = reservationApi.add_take_out(nick_name, date_t + " " + hh);
+                call.enqueue(new Callback<ReservationRes>() {
+                    @Override
+                    public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                        // 상태코드가 200 인지 확인
+                        if (response.isSuccessful()){
+
+                        }else {
+                            return;
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ReservationRes> call, Throwable t) {
+                        Log.i("total", t.toString());
+                    }
+                });
+
+                dialog_take_out.dismiss();
+            }
+        });
+
+        add_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_take_out.dismiss();
             }
         });
 
@@ -1509,6 +1628,7 @@ public class Reservation extends AppCompatActivity {
 
         dialog_take_out = alert.create();
         dialog_take_out.setCancelable(false);
+        dialog_take_out.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog_take_out.show();
     }
 

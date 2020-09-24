@@ -30,9 +30,12 @@ public interface ReservationApi {
     @GET("api/v1/reservation")
     Call<ReservationRes> total(@Query("nick_name") String nick_name);
 
-    @PUT("api/v1/reservation/add")
-    Call<ReservationRes> add(@Query("nick_name") String nick_name,
-                                  @Query("take_out") int take_out,
+    @PUT("api/v1/reservation/add_store")
+    Call<ReservationRes> add_store(@Query("nick_name") String nick_name,
                                   @Query("people_number") int people_number,
                                   @Query("time") String time);
+
+    @PUT("api/v1/reservation/add_take_out")
+    Call<ReservationRes> add_take_out(@Query("nick_name") String nick_name,
+                             @Query("time") String time);
 }

@@ -180,6 +180,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
                     if (take_out == 1 ){
                         layoutBinding.takeOut.setText("포장 예약");
+                        layoutBinding.textView33.setVisibility(View.GONE);
                         layoutBinding.peopleNumber.setVisibility(View.GONE);
                     }else if (take_out == 0){
                         layoutBinding.takeOut.setText("매장 예약");

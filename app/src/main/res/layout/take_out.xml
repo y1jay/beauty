@@ -11,45 +11,79 @@
     android:paddingBottom="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/textView30"
+    <LinearLayout
+        android:id="@+id/btn_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="예약 시간"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/add_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="#00ff0000"
+            app:srcCompat="@drawable/abc_vector_test" />
+    </LinearLayout>
+
+
+    <DatePicker
+        android:id="@+id/data_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_ll"
+        android:background="#FFFFFF"
+        android:calendarTextColor="#000000"
+        android:startYear="2020" />
 
     <LinearLayout
         android:id="@+id/time_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView30"
+        android:layout_below="@+id/data_picker"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
+        android:background="#E83838"
         android:orientation="horizontal">
 
-        <com.jaredrummler.materialspinner.MaterialSpinner
-            android:id="@+id/month_spinner"
+        <TextView
+            android:id="@+id/textView30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            app:ms_text_color="#000000"
-            android:textStyle="bold"/>
-
-        <com.jaredrummler.materialspinner.MaterialSpinner
-            android:id="@+id/day_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:ms_text_color="#000000"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            android:text="예약 시간"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <com.jaredrummler.materialspinner.MaterialSpinner
             android:id="@+id/hour_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:ms_text_color="#000000"
-            android:textStyle="bold"/>
+            app:ms_dropdown_max_height="100dp"
+            android:textStyle="bold"
+            app:ms_text_color="#000000" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_ll"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/add_set"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/big_button"
+            android:text="확인"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </RelativeLayout>
