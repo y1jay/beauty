@@ -55,26 +55,27 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
                     DecimalFormat format = new DecimalFormat("###,###");//콤마
                     String total = format.format(total_price);
                     Log.i("total", total);
-        holder.check_order_price.setText(total);
-        holder.check_order_created_at.setText(order_created_at);
-
-        if(order_created_at == null|| order_menu == null || order_price == null){
-            Toast.makeText(context,"주문기록이 없습니다",Toast.LENGTH_SHORT).show();
-        }
-
+        holder.check_order_price.setText("총 금액 : "+total);
 
 
 //        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 //        df.setTimeZone(TimeZone.getTimeZone("UTF"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
 //
 //        try {
-//            Date date = df.parse(check_order_created_at);
+//            Date date = df.parse(order_created_at);
 //            df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
 //            String strDate = df.format(date).replace("T", " ");
-//            holder.check_order_created_at.setText("작성일자  :  "+strDate);
+//            holder.check_order_created_at.setText("주문 일자  :  "+strDate);
 //        } catch (ParseException e) {
 //            e.printStackTrace();
 //        }
+
+        if(order_created_at == null|| order_menu == null || order_price == null){
+            Toast.makeText(context,"주문기록이 없습니다",Toast.LENGTH_SHORT).show();
+        }
+
+
+        
 
 
 
