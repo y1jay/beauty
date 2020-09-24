@@ -46,8 +46,10 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -1338,7 +1340,9 @@ public class Reservation extends AppCompatActivity {
                     order_no.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                        cancle();
+                            cancle();
+                            // 체크 해제시키는 코드 써야됨!
+
                             alertDialog.cancel();
                         }
                     });
@@ -1451,38 +1455,37 @@ public class Reservation extends AppCompatActivity {
         spinner_hour = alertView.findViewById(R.id.spinner_hour);
 
         // monthOfYear = 0부터 11까지 (1월 ~ 12월)
-        //처음 DatePicker를 오늘 날짜로 초기화한다.
+        //처음 DatePicker 를 오늘 날짜로 초기화한다.
         //그리고 리스너를 등록한다.
         dataPicker.init(dataPicker.getYear(), dataPicker.getMonth(), dataPicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 String current_date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth(), dataPicker.getDayOfMonth());
                 date = String.format("%d-%d-%d", year,monthOfYear + 1,dayOfMonth);
-
-                    SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
-                    Date current = null;
-                    Date choice = null;
-                    try {
-                        current = dateFormat.parse(current_date);
-                        choice = dateFormat.parse(date);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-
-                    int compare = current.compareTo( choice );
-                    if ( compare > 0 )
-                    {
-                        Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-//                    else if ( compare < 0 )
-//                    {
-//                        System.out.println( "current < choice" );
+//
+//                    SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
+//                    Date current = null;
+//                    Date choice = null;
+//                    try {
+//                        current = dateFormat.parse(current_date);
+//                        choice = dateFormat.parse(date);
+//                    } catch (ParseException e) {
+//                        e.printStackTrace();
 //                    }
-//                    else
-//                    {
-//                        System.out.println( "current = choice" );
+//
+//                    int compare = current.compareTo( choice );
+//                    if ( choice.before(current) ){
+//                        Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
+//                        return;
 //                    }
+////                    else if ( compare < 0 )
+////                    {
+////                        System.out.println( "current < choice" );
+////                    }
+////                    else
+////                    {
+////                        System.out.println( "current = choice" );
+////                    }
 
                 Toast.makeText(Reservation.mContext, date, Toast.LENGTH_SHORT).show();
             }
@@ -1520,6 +1523,10 @@ public class Reservation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nick_name =sp.getString("nick_name",null);
+
+//                https://soraji.github.io/java/2019/04/15/compareDATE/
+//                Date currentTime = Calendar.getInstance().getTime();
+//                String current_date = new SimpleDateFormat("%d-%d-%d", Locale.getDefault()).format(currentTime);
 
                 date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth()+1, dataPicker.getDayOfMonth());
                 Log.i("date", date);
