@@ -64,7 +64,7 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
             DecimalFormat format = new DecimalFormat("###,###");//콤마
             String total = format.format(total_price);
             Log.i("total", total);
-            holder.check_order_price.setText(total);
+            holder.check_order_price.setText("총 금액 : "+total);
         }
 
 
