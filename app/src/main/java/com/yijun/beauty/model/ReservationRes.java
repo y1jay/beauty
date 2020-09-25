@@ -15,17 +15,20 @@ public class ReservationRes {
     @SerializedName("price")
     private String price;
 
+    @SerializedName("take_out")
+    private int take_out;
+
+    @SerializedName("people_number")
+    private int people_number;
+
+    @SerializedName("time")
+    private String time;
+
     @SerializedName("total")
     private String total;
 
     @SerializedName("rows")
     private ArrayList<Orders> rows;
-
-    @SerializedName("menus")
-    private ArrayList<Orders> menus;
-
-
-
 
     public boolean isSuccess() {
         return success;
@@ -67,12 +70,27 @@ public class ReservationRes {
         this.rows = rows;
     }
 
-    public ArrayList<Orders> getMenus() {
-        return menus;
+    public int getTake_out() {
+        return take_out;
     }
 
-    public void setMenus(ArrayList<Orders> menus) {
-        this.rows = menus;
+    public void setTake_out(int take_out) {
+        this.take_out = take_out;
     }
 
+    public int getPeople_number() {
+        return people_number;
+    }
+
+    public void setPeople_number(int people_number) {
+        this.people_number = people_number;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 }

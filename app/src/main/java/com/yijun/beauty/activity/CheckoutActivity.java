@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,9 +51,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -84,6 +91,14 @@ public class CheckoutActivity extends AppCompatActivity {
 
     TextView detailTitle;
     TextView detailPrice;
+    TextView people_number;
+    TextView time;
+    TextView take_out;
+
+    EditText test;
+    String[] menu = new String[3];
+    String[] price = new String[3];
+    int i;
 
     /**
      *
@@ -112,6 +127,9 @@ public class CheckoutActivity extends AppCompatActivity {
 //        }
         detailTitle = findViewById(R.id.detailTitle);
         detailPrice = findViewById(R.id.detailPrice);
+        people_number = findViewById(R.id.people_number);
+        time = findViewById(R.id.time);
+        take_out = findViewById(R.id.take_out);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -132,12 +150,78 @@ public class CheckoutActivity extends AppCompatActivity {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()) {
                     orderArrayList = response.body().getRows();
+                    String time = response.body().getTime();
+                    int take_out = response.body().getTake_out();
+
+                    for (i = 0; i < orderArrayList.size(); i++){
+                        String m = orderArrayList.get(i).getMenu();
+                        String p = orderArrayList.get(i).getPrice();
+                        menu[i] = m;
+                        price[i] = p;
+                        Log.i("sms",menu[i]+price[i]);
+                    }
 
                     total = getIntent().getDoubleExtra("total_price", 0);
                     DecimalFormat format = new DecimalFormat("###,###");//콤마
                     String total_price = format.format(total);
                     layoutBinding.detailPrice.setText(total_price+"원");
+
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+                    df.setTimeZone(TimeZone.getTimeZone("UTF"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
+
+                    try {
+                        Date date = df.parse(time);
+                        df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
+                        String strDate = df.format(date).replace("T", " ");
+                        layoutBinding.time.setText(strDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (take_out == 1 ){
+                        layoutBinding.takeOut.setText("포장 예약");
+                        layoutBinding.textView33.setVisibility(View.GONE);
+                        layoutBinding.peopleNumber.setVisibility(View.GONE);
+                    }else if (take_out == 0){
+                        layoutBinding.takeOut.setText("매장 예약");
+                        int people_number = response.body().getPeople_number();
+                        layoutBinding.peopleNumber.setText(people_number+"명");
+                    }
+
                     Log.i("detailPrice", total_price);
+
+//                    sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+//                    String nick_name = sp.getString("nick_name", null);
+//                    String phone = sp.getString("phone_number", null);
+
+                    // 문자전송 테스트
+//                    test = findViewById(R.id.test);
+//                    googlePayButton.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            String phoneNo = test.getText().toString().trim();
+//
+//                                try {
+//                                    //전송
+//                                    for (i = 0; i < orderArrayList.size(); i++){
+//                                        String m = orderArrayList.get(i).getMenu();
+//                                        String p = orderArrayList.get(i).getPrice();
+//                                        menu[i] = m;
+//                                        price[i] = p;
+//                                        Log.i("sms",menu[i]+price[i]);
+//                                        SmsManager smsManager = SmsManager.getDefault();
+//
+//                                        smsManager.sendTextMessage(phoneNo, null, nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원", null, null);
+//                                    }
+//                                    Log.i("sms", menu[0]+price[0]);
+//                                    Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
+//                                } catch (Exception e) {
+//                                    Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
+//                                    e.printStackTrace();
+//                                }
+//
+//                        }
+//                    });
 
                     adapter = new OrderSheetAdapter(CheckoutActivity.this, orderArrayList);
                     recyclerView.setAdapter(adapter);
