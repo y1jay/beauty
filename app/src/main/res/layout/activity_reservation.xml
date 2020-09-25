@@ -464,12 +464,13 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:orientation="horizontal">
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_big1"
@@ -483,23 +484,6 @@
                                     android:text="36,000원"
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_big1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_middle1"
                                     android:layout_width="wrap_content"
@@ -511,23 +495,6 @@
                                     android:gravity="center"
                                     android:text="28,000원"
                                     android:textColor="#3A0404" />
-
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_middle1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_small1"
@@ -542,15 +509,65 @@
 
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_small1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/RadioGroup1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_big1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="대"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_middle1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="중"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_small1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="소"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton20"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="true"
+                                        android:text="없음" />
+                                </RadioGroup>
+
+
+
+
+
+
+
                             </LinearLayout>
 
                         </LinearLayout>
@@ -651,6 +668,9 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
                                     android:layout_weight="1"
+                                    android:checked="false"
+                                    android:clickable="false"
+                                    android:enabled="false"
                                     android:text="대"
                                     android:textColor="#3A0404" />
                             </LinearLayout>
@@ -680,6 +700,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
                                     android:layout_weight="1"
+                                    android:enabled="false"
                                     android:text="중"
                                     android:textColor="#3A0404" />
                             </LinearLayout>
@@ -710,6 +731,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginRight="15dp"
                                     android:layout_weight="1"
+                                    android:enabled="false"
                                     android:text="소"
                                     android:textColor="#3A0404" />
                             </LinearLayout>
@@ -764,18 +786,19 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_big3"
@@ -789,23 +812,6 @@
                                     android:text="33,000원"
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_big3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_middle3"
                                     android:layout_width="wrap_content"
@@ -817,23 +823,6 @@
                                     android:gravity="center"
                                     android:text="25,000원"
                                     android:textColor="#3A0404" />
-
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_middle3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_small3"
@@ -848,15 +837,60 @@
 
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_small3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/RadioGroup2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_big3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="대"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_middle3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="중"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_small3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="소"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton19"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="true"
+                                        android:text="없음" />
+                                </RadioGroup>
+
+
                             </LinearLayout>
 
                         </LinearLayout>
@@ -915,12 +949,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_big4"
@@ -934,23 +968,6 @@
                                     android:text="35,000원"
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_big4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_middle4"
                                     android:layout_width="wrap_content"
@@ -962,23 +979,6 @@
                                     android:gravity="center"
                                     android:text="27,000원"
                                     android:textColor="#3A0404" />
-
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_middle4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_small4"
@@ -993,15 +993,60 @@
 
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_small4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <RadioGroup
+                                    android:id="@+id/RadioGroup3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_big4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="대"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_middle4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="중"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_small4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="소"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton18"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="true"
+                                        android:text="없음" />
+                                </RadioGroup>
+
+
                             </LinearLayout>
 
                         </LinearLayout>
@@ -1058,12 +1103,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_big5"
@@ -1077,23 +1122,6 @@
                                     android:text="31,000원"
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_big5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_middle5"
                                     android:layout_width="wrap_content"
@@ -1105,23 +1133,6 @@
                                     android:gravity="center"
                                     android:text="24,000원"
                                     android:textColor="#3A0404" />
-
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_middle5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_small5"
@@ -1135,15 +1146,60 @@
                                     android:text="16,000원"
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_small5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/RadioGroup4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_big5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="대"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_middle5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="중"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_small5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="소"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton17"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="true"
+                                        android:text="없음" />
+
+                                </RadioGroup>
+
                             </LinearLayout>
 
                         </LinearLayout>
@@ -1199,12 +1255,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_big6"
@@ -1218,23 +1274,6 @@
                                     android:text="33,000원"
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_big6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="대"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_middle6"
                                     android:layout_width="wrap_content"
@@ -1246,23 +1285,6 @@
                                     android:gravity="center"
                                     android:text="25,000원"
                                     android:textColor="#3A0404" />
-
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_middle6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="중"
-                                    android:textColor="#3A0404" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
 
                                 <TextView
                                     android:id="@+id/pay_chicken_feet_small6"
@@ -1276,15 +1298,61 @@
                                     android:text="17,000원"
                                     android:textColor="#3A0404" />
 
-                                <CheckBox
-                                    android:id="@+id/check_chicken_feet_small6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_weight="1"
-                                    android:text="소"
-                                    android:textColor="#3A0404" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/RadioGroup5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_big6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="대"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_middle6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="중"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/check_chicken_feet_small6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_weight="1"
+                                        android:text="소"
+                                        android:textColor="#3A0404" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton16"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="true"
+                                        android:text="없음" />
+
+
+                                </RadioGroup>
+
                             </LinearLayout>
 
                         </LinearLayout>
@@ -1512,21 +1580,34 @@
                             android:textColor="#3A0404" />
 
 
-                        <CheckBox
-                            android:id="@+id/check_pocha_menu_basic3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="예약하기(보통맛)"
-                            android:textColor="#3A0404" />
+                        <RadioGroup
+                            android:id="@+id/RadioGroup6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <RadioButton
+                                android:id="@+id/check_pocha_menu_basic3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="예약하기(보통맛)"
+                                android:textColor="#3A0404" />
 
-                        <CheckBox
-                            android:id="@+id/check_pocha_menu_hot3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="예약하기(매운맛)"
-                            android:textColor="#3A0404" />
+                            <RadioButton
+                                android:id="@+id/check_pocha_menu_hot3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="예약하기(매운맛)"
+                                android:textColor="#3A0404" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton21"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="없음" />
+                        </RadioGroup>
 
 
                     </LinearLayout>
