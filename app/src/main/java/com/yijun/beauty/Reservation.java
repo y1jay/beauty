@@ -64,33 +64,39 @@ public class Reservation extends AppCompatActivity {
     Button btn_payment;
 
 
+    RadioGroup RadioGroup1;
+    RadioGroup RadioGroup2;
+    RadioGroup RadioGroup3;
+    RadioGroup RadioGroup4;
+    RadioGroup RadioGroup5;
+
     CheckBox check_main_menu1;
     CheckBox check_main_menu2;
     CheckBox check_main_menu3;
     CheckBox check_set_menu1;
     CheckBox check_set_menu2;
-    CheckBox check_chicken_feet_big1;
-    CheckBox check_chicken_feet_middle1;
-    CheckBox check_chicken_feet_small1;
+    RadioButton check_chicken_feet_big1;
+    RadioButton check_chicken_feet_middle1;
+    RadioButton check_chicken_feet_small1;
     CheckBox check_chicken_feet_big2;
     CheckBox check_chicken_feet_middle2;
     CheckBox check_chicken_feet_small2;
-    CheckBox check_chicken_feet_big3;
-    CheckBox check_chicken_feet_middle3;
-    CheckBox check_chicken_feet_small3;
-    CheckBox check_chicken_feet_big4;
-    CheckBox check_chicken_feet_middle4;
-    CheckBox check_chicken_feet_small4;
-    CheckBox check_chicken_feet_big5;
-    CheckBox check_chicken_feet_middle5;
-    CheckBox check_chicken_feet_small5;
-    CheckBox check_chicken_feet_big6;
-    CheckBox check_chicken_feet_middle6;
-    CheckBox check_chicken_feet_small6;
+    RadioButton check_chicken_feet_big3;
+    RadioButton check_chicken_feet_middle3;
+    RadioButton check_chicken_feet_small3;
+    RadioButton check_chicken_feet_big4;
+    RadioButton check_chicken_feet_middle4;
+    RadioButton check_chicken_feet_small4;
+    RadioButton check_chicken_feet_big5;
+    RadioButton check_chicken_feet_middle5;
+    RadioButton check_chicken_feet_small5;
+    RadioButton check_chicken_feet_big6;
+    RadioButton check_chicken_feet_middle6;
+    RadioButton check_chicken_feet_small6;
     CheckBox check_pocha_menu1;
     CheckBox check_pocha_menu2;
-    CheckBox check_pocha_menu_basick3;
-    CheckBox check_pocha_menu_hot3;
+    RadioButton check_pocha_menu_basick3;
+    RadioButton check_pocha_menu_hot3;
     CheckBox check_pocha_menu4;
     CheckBox check_pocha_menu5;
     CheckBox check_pocha_menu6;
@@ -298,6 +304,10 @@ public class Reservation extends AppCompatActivity {
         check_chicken_feet_big6 = findViewById(R.id.check_chicken_feet_big6);
         check_chicken_feet_middle6 = findViewById(R.id.check_chicken_feet_middle6);
         check_chicken_feet_small6 = findViewById(R.id.check_chicken_feet_small6);
+
+
+
+
         check_pocha_menu1 = findViewById(R.id.check_pocha_menu1);
         check_pocha_menu2 = findViewById(R.id.check_pocha_menu2);
         check_pocha_menu_basick3 = findViewById(R.id.check_pocha_menu_basic3);
@@ -1356,6 +1366,7 @@ public class Reservation extends AppCompatActivity {
             }
         });
     }
+
 
 
     // 메뉴 추가
