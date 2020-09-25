@@ -39,10 +39,6 @@ public class ReservationRecord extends AppCompatActivity {
     ArrayList<Orders> orderArrayList = new ArrayList<>();
     SharedPreferences sp;
 
-    EditText test;
-    EditText test_m;
-    Button button;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
