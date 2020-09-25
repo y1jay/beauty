@@ -46,14 +46,14 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
         String order_menu = orders.getMenu();
         String order_price = orders.getPrice();
         String order_created_at = orders.getTime();
-//        boolean take_out = orders.isTake_out();
-//        int people_number = orders.getPeple_number();
-//
-//        if(take_out == true){
-//            holder.txt_take_out.setText("포장");
-//        }else {
-//            holder.txt_take_out.setText("매장  "+people_number+"명");
-//        }
+        int take_out = orders.isTake_out();
+        int people_number = orders.getPeople_number();
+
+        if(take_out == 1){
+            holder.txt_take_out.setText("포장");
+        }else {
+            holder.txt_take_out.setText("매장  "+people_number+"명");
+        }
 
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
@@ -80,7 +80,8 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
             holder.check_order_created_at.setText("");
             holder.txt_won.setText("");
 
-            return;
+
+
         }
 
             Double total_price = Double.parseDouble(order_price);

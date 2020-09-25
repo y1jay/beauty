@@ -77,7 +77,7 @@ public class ReservationRecord extends AppCompatActivity {
 
                     adapter = new CheckOrderAdapter(ReservationRecord.this, orderArrayList);
                     recyclerView.setAdapter(adapter);
-                    Log.i("menu", orderArrayList.toString());
+                    Log.i("AAA", orderArrayList.toString());
 
                 }else {
                     Log.i("menu", "success = fail");
