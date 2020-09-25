@@ -21,6 +21,14 @@ public class Orders {
     @Expose
     private String time;
 
+    @SerializedName("take_out")
+    @Expose
+    private boolean take_out;
+
+    @SerializedName("peple_number")
+    @Expose
+    private int peple_number;
+
     public String getMenu() {
         return menu;
     }
@@ -53,5 +61,19 @@ public class Orders {
         this.time = time;
     }
 
+    public boolean isTake_out() {
+        return take_out;
+    }
 
+    public void setTake_out(boolean take_out) {
+        this.take_out = take_out;
+    }
+
+    public int getPeple_number() {
+        return peple_number;
+    }
+
+    public void setPeple_number(int peple_number) {
+        this.peple_number = peple_number;
+    }
 }
