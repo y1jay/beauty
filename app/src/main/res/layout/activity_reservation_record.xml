@@ -17,36 +17,36 @@
         android:textColor="#000000"
         android:textSize="36sp" />
 
-    <EditText
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView9"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+<!--    <EditText-->
+<!--        android:id="@+id/test"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/textView9"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:text="Name" />-->
 
-    <EditText
-        android:id="@+id/test_m"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/test"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+<!--    <EditText-->
+<!--        android:id="@+id/test_m"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/test"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:text="Name" />-->
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/test_m"
-        android:text="Button" />
+<!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/test_m"-->
+<!--        android:text="Button" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/textView9"
         android:layout_above="@+id/ll"
         android:layout_marginHorizontal="10dp"
         android:adjustViewBounds="true"/>
@@ -61,33 +61,6 @@
         android:layout_marginHorizontal="10dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif"
-            android:text="총 금액 :"
-            android:textColor="#000000"
-            android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/total_record"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:textColor="#000000"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:fontFamily="sans-serif"
-            android:text="원"
-            android:textColor="#000000"
-            android:textSize="25sp" />
     </LinearLayout>
 </RelativeLayout>

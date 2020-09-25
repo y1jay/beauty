@@ -19,6 +19,9 @@ public interface ReservationApi {
     @GET("api/v1/reservation/record")
     Call<ReservationRes> selectMenu(@Query("nick_name") String nick_name);
 
+    @GET("api/v1/reservation/myrecord")
+    Call<ReservationRes> myselectMenu(@Query("nick_name") String nick_name);
+
     @DELETE("api/v1/reservation/delete")
     Call<ReservationRes> deleteMenu(@Query("nick_name") String nick_name,
                                     @Query("menu") String menu,
