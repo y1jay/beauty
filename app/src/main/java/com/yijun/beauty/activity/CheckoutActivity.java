@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -148,14 +149,6 @@ public class CheckoutActivity extends AppCompatActivity {
                     String time = response.body().getTime();
                     int take_out = response.body().getTake_out();
 
-//                    for (i = 0; i < orderArrayList.size(); i++){
-//                        String m = orderArrayList.get(i).getMenu();
-//                        String p = orderArrayList.get(i).getPrice();
-//                        menu[i] = m;
-//                        price[i] = p;
-//                        Log.i("sms",menu[i]+price[i]);
-//                    }
-
                     total = getIntent().getDoubleExtra("total_price", 0);
                     DecimalFormat format = new DecimalFormat("###,###");//콤마
                     String total_price = format.format(total);
@@ -185,38 +178,29 @@ public class CheckoutActivity extends AppCompatActivity {
 
                     Log.i("detailPrice", total_price);
 
-//                    sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-//                    String nick_name = sp.getString("nick_name", null);
-//                    String phone = sp.getString("phone_number", null);
+                    sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                    String nick_name = sp.getString("nick_name", null);
+                    String phone = sp.getString("phone_number", null);
 
-                    // 문자전송 테스트
-//                    test = findViewById(R.id.test);
-//                    googlePayButton.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            String phoneNo = test.getText().toString().trim();
-//
-//                                try {
-//                                    //전송
-//                                    for (i = 0; i < orderArrayList.size(); i++){
-//                                        String m = orderArrayList.get(i).getMenu();
-//                                        String p = orderArrayList.get(i).getPrice();
-//                                        menu[i] = m;
-//                                        price[i] = p;
-//                                        Log.i("sms",menu[i]+price[i]);
-//                                        SmsManager smsManager = SmsManager.getDefault();
-//
-//                                        smsManager.sendTextMessage(phoneNo, null, nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원", null, null);
-//                                    }
-//                                    Log.i("sms", menu[0]+price[0]);
-//                                    Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
-//                                } catch (Exception e) {
-//                                    Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
-//                                    e.printStackTrace();
-//                                }
-//
-//                        }
-//                    });
+//                     문자전송 테스트
+                    test = findViewById(R.id.test);
+                    googlePayButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String phoneNo = test.getText().toString().trim();
+
+                                try {
+                                    //전송
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(phoneNo, null, nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원", null, null);
+                                    Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
+                                } catch (Exception e) {
+                                    Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
+                                    e.printStackTrace();
+                                }
+
+                        }
+                    });
 
                     adapter = new OrderSheetAdapter(CheckoutActivity.this, orderArrayList);
                     recyclerView.setAdapter(adapter);
