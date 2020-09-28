@@ -49,6 +49,51 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
         int take_out = orders.isTake_out();
         int people_number = orders.getPeople_number();
 
+
+
+
+        if(order_created_at ==null){
+
+            holder.check_order_menu.setText("                 주문하신 음식이 없습니다.");
+            holder.check_order_price.setText("");
+            holder.check_order_created_at.setText("");
+            holder.txt_won.setText("");
+            return;
+        }
+
+        if(order_price !=null){
+
+            Double total_price = Double.parseDouble(order_price);
+            total_price = total_price * 1000;
+            DecimalFormat format = new DecimalFormat("###,###");//콤마
+            String total = format.format(total_price);
+            Log.i("total", total);
+            holder.check_order_price.setText(total);
+
+
+
+        }else {
+
+            holder.check_order_menu.setText("                 주문하신 음식이 없습니다.");
+            holder.check_order_price.setText("");
+            holder.check_order_created_at.setText("");
+            holder.txt_won.setText("");
+            return;
+        }
+
+
+
+
+        if(order_created_at == null && order_menu == null && order_price == null){
+            Toast.makeText(context,"주문기록이 없습니다",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(order_created_at == null || order_menu == null || order_price == null){
+            Toast.makeText(context,"주문기록이 없습니다",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         if(take_out == 1){
             holder.txt_take_out.setText("포장");
         }else {
@@ -56,10 +101,17 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
         }
 
 
+
+
+
+
+
+
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-        df.setTimeZone(TimeZone.getTimeZone("UTF"));    // 위의 시간을 utc로 맞추는것.(우리는 이미 서버에서 utc로 맞춰놔서 안해도 되는데 혹시몰라서 해줌)
+        df.setTimeZone(TimeZone.getTimeZone("UTF"));
 
         try {
+
 
             Date date = df.parse(order_created_at);
             df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
@@ -73,34 +125,7 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
 
 
 
-        if(order_price ==null){
 
-            holder.check_order_menu.setText("                 주문하신 음식이 없습니다.");
-            holder.check_order_price.setText("");
-            holder.check_order_created_at.setText("");
-            holder.txt_won.setText("");
-
-
-
-        }
-
-            Double total_price = Double.parseDouble(order_price);
-            total_price = total_price * 1000;
-            DecimalFormat format = new DecimalFormat("###,###");//콤마
-            String total = format.format(total_price);
-            Log.i("total", total);
-            holder.check_order_price.setText(total);
-
-
-
-
-
-        if(order_created_at == null && order_menu == null && order_price == null){
-            Toast.makeText(context,"주문기록이 없습니다",Toast.LENGTH_SHORT).show();
-        }
-        if(order_created_at == null || order_menu == null || order_price == null){
-            Toast.makeText(context,"주문기록이 없습니다",Toast.LENGTH_SHORT).show();
-        }
 
 
 
