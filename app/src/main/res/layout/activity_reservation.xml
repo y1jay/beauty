@@ -529,7 +529,8 @@
                                     android:id="@+id/RadioGroup1"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1">
+                                    android:layout_weight="1"
+                                    android:checkedButton="@id/not_select1">
 
                                     <RadioButton
                                         android:id="@+id/check_chicken_feet_big1"
@@ -562,7 +563,7 @@
                                         android:textColor="#3A0404" />
 
                                     <RadioButton
-                                        android:id="@+id/radioButton20"
+                                        android:id="@+id/not_select1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -887,7 +888,7 @@
                                         android:textColor="#3A0404" />
 
                                     <RadioButton
-                                        android:id="@+id/radioButton19"
+                                        android:id="@+id/not_select2"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -1040,7 +1041,7 @@
                                         android:textColor="#3A0404" />
 
                                     <RadioButton
-                                        android:id="@+id/radioButton18"
+                                        android:id="@+id/not_select3"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -1190,7 +1191,7 @@
                                         android:textColor="#3A0404" />
 
                                     <RadioButton
-                                        android:id="@+id/radioButton17"
+                                        android:id="@+id/not_select4"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -1339,7 +1340,7 @@
                                         android:textColor="#3A0404" />
 
                                     <RadioButton
-                                        android:id="@+id/radioButton16"
+                                        android:id="@+id/not_select5"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -1604,7 +1605,7 @@
                                 android:textColor="#3A0404" />
 
                             <RadioButton
-                                android:id="@+id/radioButton21"
+                                android:id="@+id/no_flavor"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
@@ -1674,7 +1675,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="15dp"
-                            android:text="면추가 가능(우동,쫄면,소면)"
+                            android:text="면추가 가능 (우동,쫄면,소면)"
                             android:textColor="#3A0404" />
 
 

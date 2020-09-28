@@ -69,6 +69,15 @@ public class Reservation extends AppCompatActivity {
     RadioGroup RadioGroup3;
     RadioGroup RadioGroup4;
     RadioGroup RadioGroup5;
+    RadioGroup RadioGroup6;
+
+
+    RadioButton not_select1;
+    RadioButton not_select2;
+    RadioButton not_select3;
+    RadioButton not_select4;
+    RadioButton not_select5;
+    RadioButton noflavor;
 
     CheckBox check_main_menu1;
     CheckBox check_main_menu2;
@@ -304,6 +313,21 @@ public class Reservation extends AppCompatActivity {
         check_chicken_feet_big6 = findViewById(R.id.check_chicken_feet_big6);
         check_chicken_feet_middle6 = findViewById(R.id.check_chicken_feet_middle6);
         check_chicken_feet_small6 = findViewById(R.id.check_chicken_feet_small6);
+
+
+        RadioGroup1= findViewById(R.id.RadioGroup1);
+        RadioGroup2= findViewById(R.id.RadioGroup2);
+        RadioGroup3=findViewById(R.id.RadioGroup3);
+        RadioGroup4=findViewById(R.id.RadioGroup4);
+        RadioGroup5=findViewById(R.id.RadioGroup5);
+        RadioGroup6=findViewById(R.id.RadioGroup6);
+
+        not_select1 = findViewById(R.id.not_select1);
+        not_select2 = findViewById(R.id.not_select2);
+        not_select3 = findViewById(R.id.not_select3);
+        not_select4 = findViewById(R.id.not_select4);
+        not_select5 = findViewById(R.id.not_select5);
+        noflavor = findViewById(R.id.no_flavor);
 
 
 
@@ -591,240 +615,164 @@ public class Reservation extends AppCompatActivity {
                 }
             }
         });
-        check_chicken_feet_big1.setOnClickListener(new View.OnClickListener() {
+
+        RadioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 String main = chicken_feet1.getText().toString().trim();
                 String pay = pay_chicken_feet_big1.getText().toString().trim();
-
-                if (check_chicken_feet_big1.isChecked() == true){
+                String main1 = chicken_feet1.getText().toString().trim();
+                String pay1 = pay_chicken_feet_middle1.getText().toString().trim();
+                String main2 = chicken_feet1.getText().toString().trim();
+                String pay2 = pay_chicken_feet_small1.getText().toString().trim();
+                if (checkedId == R.id.check_chicken_feet_big1){
                     add_menu(main+"(대)", pay);
-                }else {
+
+                }else{
                     delete_menu(main+"(대)", pay);
                 }
-            }
-        });
-        check_chicken_feet_middle1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet1.getText().toString().trim();
-                String pay = pay_chicken_feet_middle1.getText().toString().trim();
-
-                if (check_chicken_feet_middle1.isChecked() == true){
-                    add_menu(main+"(중)", pay);
-                }else {
-                    delete_menu(main+"(중)", pay);
+                if (checkedId==R.id.check_chicken_feet_middle1){
+                    add_menu(main1+"(중)", pay1);
+                }else{
+                    delete_menu(main1+"(중)", pay1);
                 }
-            }
-        });
-        check_chicken_feet_small1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet1.getText().toString().trim();
-                String pay = pay_chicken_feet_small1.getText().toString().trim();
-
-                if (check_chicken_feet_small1.isChecked() == true){
-                    add_menu(main+"(소)", pay);
+                if (checkedId==R.id.check_chicken_feet_small1){
+                    add_menu(main2+"(소)", pay2);
                 }else {
-                    delete_menu(main+"(소)", pay);
+                    delete_menu(main2+"(소)", pay2);
                 }
-            }
-        });
-        check_chicken_feet_big2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet2.getText().toString().trim();
-                String pay = pay_chicken_feet_big2.getText().toString().trim();
 
-                if (check_chicken_feet_big2.isChecked() == true){
-                    add_menu(main+"(대)", pay);
-                }else {
-                    delete_menu(main+"(대)", pay);
-                }
             }
         });
-        check_chicken_feet_middle2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet2.getText().toString().trim();
-                String pay = pay_chicken_feet_middle2.getText().toString().trim();
 
-                if (check_chicken_feet_middle2.isChecked() == true){
-                    add_menu(main+"(중)", pay);
-                }else {
-                    delete_menu(main+"(중)", pay);
-                }
-            }
-        });
-        check_chicken_feet_small2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet2.getText().toString().trim();
-                String pay = pay_chicken_feet_small2.getText().toString().trim();
 
-                if (check_chicken_feet_small2.isChecked() == true){
-                    add_menu(main+"(소)", pay);
-                }else {
-                    delete_menu(main+"(소)", pay);
-                }
-            }
-        });
-        check_chicken_feet_big3.setOnClickListener(new View.OnClickListener() {
+        RadioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 String main = chicken_feet3.getText().toString().trim();
                 String pay = pay_chicken_feet_big3.getText().toString().trim();
-
-                if (check_chicken_feet_big3.isChecked() == true){
+                String main1 = chicken_feet3.getText().toString().trim();
+                String pay1 = pay_chicken_feet_middle3.getText().toString().trim();
+                String main2 = chicken_feet3.getText().toString().trim();
+                String pay2 = pay_chicken_feet_small3.getText().toString().trim();
+                if (checkedId == R.id.check_chicken_feet_big3){
                     add_menu(main+"(대)", pay);
-                }else {
+                }else{
                     delete_menu(main+"(대)", pay);
                 }
-            }
-        });
-        check_chicken_feet_middle3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet3.getText().toString().trim();
-                String pay = pay_chicken_feet_middle3.getText().toString().trim();
-
-                if (check_chicken_feet_middle3.isChecked() == true){
-                    add_menu(main+"(중)", pay);
+                if (checkedId==R.id.check_chicken_feet_middle3){
+                    add_menu(main1+"(중)", pay1);
+                }else{
+                    delete_menu(main1+"(중)", pay1);
+                }
+                if (checkedId==R.id.check_chicken_feet_small3){
+                    add_menu(main2+"(소)", pay2);
                 }else {
-                    delete_menu(main+"(중)", pay);
+                    delete_menu(main2+"(소)", pay2);
                 }
             }
         });
-        check_chicken_feet_small3.setOnClickListener(new View.OnClickListener() {
+        RadioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                String main = chicken_feet3.getText().toString().trim();
-                String pay = pay_chicken_feet_small3.getText().toString().trim();
-
-                if (check_chicken_feet_small3.isChecked() == true){
-                    add_menu(main+"(소)", pay);
-                }else {
-                    delete_menu(main+"(소)", pay);
-                }
-            }
-        });
-        check_chicken_feet_big4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 String main = chicken_feet4.getText().toString().trim();
                 String pay = pay_chicken_feet_big4.getText().toString().trim();
-
-                if (check_chicken_feet_big4.isChecked() == true){
+                String main1 = chicken_feet4.getText().toString().trim();
+                String pay1 = pay_chicken_feet_middle4.getText().toString().trim();
+                String main2 = chicken_feet4.getText().toString().trim();
+                String pay2 = pay_chicken_feet_small4.getText().toString().trim();
+                if (checkedId == R.id.check_chicken_feet_big4){
                     add_menu(main+"(대)", pay);
-                }else {
+                }else{
                     delete_menu(main+"(대)", pay);
                 }
-            }
-        });
-        check_chicken_feet_middle4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet4.getText().toString().trim();
-                String pay = pay_chicken_feet_middle4.getText().toString().trim();
-
-                if (check_chicken_feet_middle4.isChecked() == true){
-                    add_menu(main+"(중)", pay);
+                if (checkedId==R.id.check_chicken_feet_middle4){
+                    add_menu(main1+"(중)", pay1);
+                }else{
+                    delete_menu(main1+"(중)", pay1);
+                }
+                if (checkedId==R.id.check_chicken_feet_small4){
+                    add_menu(main2+"(소)", pay2);
                 }else {
-                    delete_menu(main+"(중)", pay);
+                    delete_menu(main2+"(소)", pay2);
                 }
             }
         });
-        check_chicken_feet_small4.setOnClickListener(new View.OnClickListener() {
+        RadioGroup4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                String main = chicken_feet4.getText().toString().trim();
-                String pay = pay_chicken_feet_small4.getText().toString().trim();
-
-                if (check_chicken_feet_small4.isChecked() == true){
-                    add_menu(main+"(소)", pay);
-                }else {
-                    delete_menu(main+"(소)", pay);
-                }
-            }
-        });
-        check_chicken_feet_big5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 String main = chicken_feet5.getText().toString().trim();
                 String pay = pay_chicken_feet_big5.getText().toString().trim();
-
-                if (check_chicken_feet_big5.isChecked() == true){
+                String main1 = chicken_feet5.getText().toString().trim();
+                String pay1 = pay_chicken_feet_middle5.getText().toString().trim();
+                String main2 = chicken_feet5.getText().toString().trim();
+                String pay2 = pay_chicken_feet_small5.getText().toString().trim();
+                if (checkedId == R.id.check_chicken_feet_big5){
                     add_menu(main+"(대)", pay);
-                }else {
+                }else{
                     delete_menu(main+"(대)", pay);
                 }
-            }
-        });
-        check_chicken_feet_middle5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet5.getText().toString().trim();
-                String pay = pay_chicken_feet_middle5.getText().toString().trim();
-
-                if (check_chicken_feet_middle5.isChecked() == true){
-                    add_menu(main+"(중)", pay);
+                if (checkedId==R.id.check_chicken_feet_middle5){
+                    add_menu(main1+"(중)", pay1);
+                }else{
+                    delete_menu(main1+"(중)", pay1);
+                }
+                if (checkedId==R.id.check_chicken_feet_small5){
+                    add_menu(main2+"(소)", pay2);
                 }else {
-                    delete_menu(main+"(중)", pay);
+                    delete_menu(main2+"(소)", pay2);
                 }
             }
         });
-        check_chicken_feet_small5.setOnClickListener(new View.OnClickListener() {
+        RadioGroup5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                String main = chicken_feet5.getText().toString().trim();
-                String pay = pay_chicken_feet_small5.getText().toString().trim();
-
-                if (check_chicken_feet_small5.isChecked() == true){
-                    add_menu(main+"(소)", pay);
-                }else {
-                    delete_menu(main+"(소)", pay);
-                }
-            }
-        });
-        check_chicken_feet_big6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 String main = chicken_feet6.getText().toString().trim();
                 String pay = pay_chicken_feet_big6.getText().toString().trim();
-
-                if (check_chicken_feet_big6.isChecked() == true){
+                String main1 = chicken_feet6.getText().toString().trim();
+                String pay1 = pay_chicken_feet_middle6.getText().toString().trim();
+                String main2 = chicken_feet6.getText().toString().trim();
+                String pay2 = pay_chicken_feet_small6.getText().toString().trim();
+                if (checkedId == R.id.check_chicken_feet_big6){
                     add_menu(main+"(대)", pay);
-                }else {
+                }else{
                     delete_menu(main+"(대)", pay);
                 }
-            }
-        });
-        check_chicken_feet_middle6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet6.getText().toString().trim();
-                String pay = pay_chicken_feet_middle6.getText().toString().trim();
-
-                if (check_chicken_feet_middle6.isChecked() == true){
-                    add_menu(main+"(중)", pay);
+                if (checkedId==R.id.check_chicken_feet_middle6){
+                    add_menu(main1+"(중)", pay1);
+                }else{
+                    delete_menu(main1+"(중)", pay1);
+                }
+                if (checkedId==R.id.check_chicken_feet_small6){
+                    add_menu(main2+"(소)", pay2);
                 }else {
-                    delete_menu(main+"(중)", pay);
+                    delete_menu(main2+"(소)", pay2);
                 }
             }
         });
-        check_chicken_feet_small6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = chicken_feet6.getText().toString().trim();
-                String pay = pay_chicken_feet_small6.getText().toString().trim();
 
-                if (check_chicken_feet_small6.isChecked() == true){
-                    add_menu(main+"(소)", pay);
-                }else {
-                    delete_menu(main+"(소)", pay);
+        RadioGroup6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                String main = pocha_menu3.getText().toString().trim();
+                String pay = pay_pocha_menu3.getText().toString().trim();
+                String main1 = pocha_menu3.getText().toString().trim();
+                String pay1 = pay_pocha_menu3.getText().toString().trim();
+
+                if (checkedId == R.id.check_pocha_menu_basic3){
+                    add_menu(main+"(보통맛)", pay);
+                }else{
+                    delete_menu(main+"(보통맛)", pay);
                 }
+                if (checkedId==R.id.check_pocha_menu_hot3){
+                    add_menu(main+"(매운맛)", pay);
+                }else{
+                    delete_menu(main+"(매운맛)", pay);
+                }
+
             }
         });
+
         check_pocha_menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -851,34 +799,7 @@ public class Reservation extends AppCompatActivity {
                 }
             }
         });
-        // 치즈떡볶이 보통맛
-        check_pocha_menu_basick3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = pocha_menu3.getText().toString().trim();
-                String pay = pay_pocha_menu3.getText().toString().trim();
 
-                if (check_pocha_menu_basick3.isChecked() == true){
-                    add_menu(main+"(보통맛)", pay);
-                }else {
-                    delete_menu(main+"(보통맛)", pay);
-                }
-            }
-        });
-        // 치즈떡볶이 매운맛
-        check_pocha_menu_hot3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String main = pocha_menu3.getText().toString().trim();
-                String pay = pay_pocha_menu3.getText().toString().trim();
-
-                if (check_pocha_menu_hot3.isChecked() == true){
-                    add_menu(main+"(매운맛)", pay);
-                }else {
-                    delete_menu(main+"(매운맛)", pay);
-                }
-            }
-        });
         check_pocha_menu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1351,9 +1272,57 @@ public class Reservation extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             cancle();
+
+                            RadioGroup1.clearCheck();
+                            RadioGroup2.clearCheck();
+                            RadioGroup3.clearCheck();
+                            RadioGroup4.clearCheck();
+                            RadioGroup5.clearCheck();
+                            RadioGroup6.clearCheck();
+                            check_main_menu1.setChecked(false);
+                            check_main_menu2.setChecked(false);
+                            check_main_menu3.setChecked(false);
+                            check_set_menu1.setChecked(false);
+                            check_set_menu2.setChecked(false);
+                            check_chicken_feet_big2.setChecked(false);
+                            check_chicken_feet_middle2.setChecked(false);
+                            check_chicken_feet_small2.setChecked(false);
+                            check_pocha_menu1.setChecked(false);
+                            check_pocha_menu2.setChecked(false);
+                            check_pocha_menu4.setChecked(false);
+                            check_pocha_menu5.setChecked(false);
+                            check_pocha_menu6.setChecked(false);
+                            check_pocha_menu7.setChecked(false);
+                            check_side1.setChecked(false);
+                            check_side2.setChecked(false);
+                            check_side3.setChecked(false);
+                            check_side4.setChecked(false);
+                            check_add1.setChecked(false);
+                            check_add2.setChecked(false);
+                            check_add3.setChecked(false);
+                            check_add4.setChecked(false);
+                            check_add5.setChecked(false);
+                            check_add6.setChecked(false);
+                            check_add7.setChecked(false);
+                            check_add8.setChecked(false);
+                            check_add9.setChecked(false);
+                            check_add10.setChecked(false);
+                            check_add11.setChecked(false);
+                            check_add12.setChecked(false);
+                            check_add13.setChecked(false);
+                            check_drink1.setChecked(false);
+                            check_drink2.setChecked(false);
+                            check_drink3.setChecked(false);
+
+
+
+
+
                             // 체크 해제시키는 코드 써야됨!
 
                             alertDialog.cancel();
+
+
                         }
                     });
 
