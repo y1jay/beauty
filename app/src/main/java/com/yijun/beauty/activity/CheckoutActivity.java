@@ -6,15 +6,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.telephony.SmsManager;
-import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,16 +30,15 @@ import com.google.android.gms.wallet.PaymentDataRequest;
 import com.google.android.gms.wallet.PaymentsClient;
 import com.yijun.beauty.MyInfo;
 import com.yijun.beauty.R;
-import com.yijun.beauty.Reservation;
 import com.yijun.beauty.ReservationRecord;
 import com.yijun.beauty.adapter.OrderSheetAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
+
 import com.yijun.beauty.databinding.ActivityCheckoutBinding;
 import com.yijun.beauty.model.Orders;
 import com.yijun.beauty.model.ReservationRes;
 import com.yijun.beauty.url.Utils;
-import com.yijun.beauty.utils.Json;
 import com.yijun.beauty.utils.Notifications;
 import com.yijun.beauty.utils.PaymentsUtil;
 
@@ -55,8 +51,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.TimeZone;
 
@@ -150,16 +144,17 @@ public class CheckoutActivity extends AppCompatActivity {
                 // 상태코드가 200 인지 확인
                 if (response.isSuccessful()) {
                     orderArrayList = response.body().getRows();
+
                     String time = response.body().getTime();
                     int take_out = response.body().getTake_out();
 
-                    for (i = 0; i < orderArrayList.size(); i++){
-                        String m = orderArrayList.get(i).getMenu();
-                        String p = orderArrayList.get(i).getPrice();
-                        menu[i] = m;
-                        price[i] = p;
-                        Log.i("sms",menu[i]+price[i]);
-                    }
+//                    for (i = 0; i < orderArrayList.size(); i++){
+//                        String m = orderArrayList.get(i).getMenu();
+//                        String p = orderArrayList.get(i).getPrice();
+//                        menu[i] = m;
+//                        price[i] = p;
+//                        Log.i("sms",menu[i]+price[i]);
+//                    }
 
                     total = getIntent().getDoubleExtra("total_price", 0);
                     DecimalFormat format = new DecimalFormat("###,###");//콤마
@@ -234,7 +229,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ReservationRes> call, Throwable t) {
-                Log.i("menu", "fail");
+                Log.i("menu", t.toString());
             }
         });
 
