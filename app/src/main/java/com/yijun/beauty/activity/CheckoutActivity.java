@@ -35,6 +35,7 @@ import com.yijun.beauty.adapter.OrderSheetAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
 
+
 import com.yijun.beauty.databinding.ActivityCheckoutBinding;
 import com.yijun.beauty.model.Orders;
 import com.yijun.beauty.model.ReservationRes;
@@ -326,6 +327,7 @@ public class CheckoutActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         requestPayment(view);
+
                     }
                 });
     }
@@ -497,4 +499,9 @@ public class CheckoutActivity extends AppCompatActivity {
 //            throw new RuntimeException("The index specified is out of bounds.");
 //        }
 //    }
+
+
+    public void PaymentMenu(){
+
+    }
 }

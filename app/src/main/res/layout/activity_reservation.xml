@@ -767,6 +767,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+
                 <TextView
                     android:id="@+id/chicken_feet3"
                     android:layout_width="match_parent"
@@ -778,6 +779,7 @@
                     android:layout_marginBottom="15dp"
                     android:text="국물닭발"
                     android:textColor="#3A0404" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -795,7 +797,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -814,7 +816,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="10dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="33,000원"
                                     android:textColor="#3A0404" />
@@ -825,7 +827,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="25,000원"
                                     android:textColor="#3A0404" />
@@ -836,7 +838,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="17,000원"
 
@@ -967,7 +969,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="10dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="35,000원"
                                     android:textColor="#3A0404" />
@@ -978,7 +980,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="27,000원"
                                     android:textColor="#3A0404" />
@@ -989,7 +991,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="18,000원"
 
@@ -1118,7 +1120,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="10dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="31,000원"
                                     android:textColor="#3A0404" />
@@ -1129,7 +1131,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="24,000원"
                                     android:textColor="#3A0404" />
@@ -1140,7 +1142,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="16,000원"
                                     android:textColor="#3A0404" />
@@ -1267,7 +1269,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="10dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="33,000원"
                                     android:textColor="#3A0404" />
@@ -1278,7 +1280,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="25,000원"
                                     android:textColor="#3A0404" />
@@ -1289,7 +1291,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="20dp"
-                                    android:layout_marginRight="10dp"
+                                    android:layout_marginRight="30dp"
                                     android:gravity="center"
                                     android:text="17,000원"
                                     android:textColor="#3A0404" />
