@@ -22,7 +22,6 @@
 
     <string-array name = "hour">
         <item>시</item>
-        <item>15시</item>
         <item>16시</item>
         <item>17시</item>
         <item>18시</item>

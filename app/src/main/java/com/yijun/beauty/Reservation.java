@@ -1299,6 +1299,9 @@ public class Reservation extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 orderArrayList = response.body().getRows();
                                 String time = response.body().getTime();
+//                                if (time == null){
+//                                    return;
+//                                }
 
                                 if (orderArrayList.isEmpty()) {
                                     Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
@@ -1562,6 +1565,7 @@ public class Reservation extends AppCompatActivity {
                         Log.i("store", t.toString());
                     }
                 });
+                order_payment.setEnabled(true);
                 dialog_store.dismiss();
             }
         });
@@ -1569,7 +1573,9 @@ public class Reservation extends AppCompatActivity {
         back_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(Reservation.this, "추가사항을 선택해 주셔야합니다.", Toast.LENGTH_SHORT).show();
                 dialog_store.cancel();
+                order_payment.setEnabled(false);
             }
         });
 
@@ -1631,6 +1637,7 @@ public class Reservation extends AppCompatActivity {
                     }
                 });
 
+                order_payment.setEnabled(true);
                 dialog_take_out.dismiss();
             }
         });
@@ -1638,7 +1645,9 @@ public class Reservation extends AppCompatActivity {
         add_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(Reservation.this, "추가사항을 선택해 주셔야합니다.", Toast.LENGTH_SHORT).show();
                 dialog_take_out.dismiss();
+                order_payment.setEnabled(false);
             }
         });
 
