@@ -32,6 +32,7 @@ import com.google.android.gms.wallet.PaymentsClient;
 import com.yijun.beauty.MyInfo;
 import com.yijun.beauty.R;
 import com.yijun.beauty.ReservationRecord;
+import com.yijun.beauty.adapter.CheckOrderAdapter;
 import com.yijun.beauty.adapter.OrderSheetAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
@@ -189,15 +190,48 @@ public class CheckoutActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             String phoneNo = test.getText().toString().trim();
 
-                                try {
-                                    //전송
-                                    SmsManager smsManager = SmsManager.getDefault();
-                                    smsManager.sendTextMessage(phoneNo, null, nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원", null, null);
-                                    Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
-                                } catch (Exception e) {
-                                    Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
-                                    e.printStackTrace();
+                            // 주문정보 표시 api
+                            sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                            String nick_name = sp.getString("nick_name", null);
+
+                            Retrofit retrofit = NetworkClient.getRetrofitClient(CheckoutActivity.this);
+                            ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                            Call<ReservationRes> call = reservationApi.myselectMenu(nick_name);
+
+                            call.enqueue(new Callback<ReservationRes>() {
+                                @Override
+                                public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                                    // 상태코드가 200 인지 확인
+                                    if (response.isSuccessful()) {
+                                        ArrayList rows = response.body().getRows();
+                                        if (rows.isEmpty()){
+                                            return;
+                                        }
+//                                        nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원"
+                                        try {
+                                            //전송
+                                            SmsManager smsManager = SmsManager.getDefault();
+                                            smsManager.sendTextMessage(phoneNo, null, rows.toString(), null, null);
+                                            Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
+                                        } catch (Exception e) {
+                                            Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
+                                            e.printStackTrace();
+                                            Log.i("AAA",e.toString());
+                                        }
+
+                                        Log.i("AAA", rows.toString());
+
+                                    }else {
+                                        Log.i("menu", "success = fail");
+                                    }
                                 }
+
+                                @Override
+                                public void onFailure(Call<ReservationRes> call, Throwable t) {
+                                    Log.i("menu", "fail");
+                                }
+                            });
 
                         }
                     });
