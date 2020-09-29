@@ -102,6 +102,7 @@ public class CheckoutActivity extends AppCompatActivity {
     // 문자허용
     private static final int MY_PERMISSION_STORAGE = 1111;
     EditText test;
+    String strDate;
 
     /**
      *
@@ -169,7 +170,7 @@ public class CheckoutActivity extends AppCompatActivity {
                     try {
                         Date date = df.parse(time);
                         df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
-                        String strDate = df.format(date).replace("T", " ");
+                        strDate = df.format(date).replace("T", " ");
                         layoutBinding.time.setText(strDate);
                     } catch (ParseException e) {
                         e.printStackTrace();
@@ -222,7 +223,7 @@ public class CheckoutActivity extends AppCompatActivity {
                                         try {
                                             //전송
                                             SmsManager smsManager = SmsManager.getDefault();
-                                            smsManager.sendTextMessage(phoneNo, null, menu+" \n"+total_price+"원"+" \n"+take+" \n"+time+" \n"+people, null, null);
+                                            smsManager.sendTextMessage(phoneNo, null, menu+" \n"+total_price+"원"+" \n"+take+" \n"+strDate+" \n"+people, null, null);
                                             Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
                                         } catch (Exception e) {
                                             Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
