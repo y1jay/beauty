@@ -1,11 +1,17 @@
 package com.yijun.beauty.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +23,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,9 +36,11 @@ import com.google.android.gms.wallet.IsReadyToPayRequest;
 import com.google.android.gms.wallet.PaymentData;
 import com.google.android.gms.wallet.PaymentDataRequest;
 import com.google.android.gms.wallet.PaymentsClient;
+import com.yijun.beauty.MainActivity;
 import com.yijun.beauty.MyInfo;
 import com.yijun.beauty.R;
 import com.yijun.beauty.ReservationRecord;
+import com.yijun.beauty.adapter.CheckOrderAdapter;
 import com.yijun.beauty.adapter.OrderSheetAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
@@ -89,10 +99,9 @@ public class CheckoutActivity extends AppCompatActivity {
     TextView time;
     TextView take_out;
 
+    // 문자허용
+    private static final int MY_PERMISSION_STORAGE = 1111;
     EditText test;
-    String[] menu = new String[3];
-    String[] price = new String[3];
-    int i;
 
     /**
      *
@@ -104,6 +113,7 @@ public class CheckoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        checkPermission();
         initializeUi();
 
         //Android O+ 가이드 라인에 따라 알림((utils) Notifications) 채널 만들기
@@ -148,14 +158,6 @@ public class CheckoutActivity extends AppCompatActivity {
                     String time = response.body().getTime();
                     int take_out = response.body().getTake_out();
 
-//                    for (i = 0; i < orderArrayList.size(); i++){
-//                        String m = orderArrayList.get(i).getMenu();
-//                        String p = orderArrayList.get(i).getPrice();
-//                        menu[i] = m;
-//                        price[i] = p;
-//                        Log.i("sms",menu[i]+price[i]);
-//                    }
-
                     total = getIntent().getDoubleExtra("total_price", 0);
                     DecimalFormat format = new DecimalFormat("###,###");//콤마
                     String total_price = format.format(total);
@@ -185,38 +187,64 @@ public class CheckoutActivity extends AppCompatActivity {
 
                     Log.i("detailPrice", total_price);
 
-//                    sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-//                    String nick_name = sp.getString("nick_name", null);
-//                    String phone = sp.getString("phone_number", null);
+//                     문자전송 테스트
+                    test = findViewById(R.id.test);
+                    googlePayButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String phoneNo = test.getText().toString().trim();
 
-                    // 문자전송 테스트
-//                    test = findViewById(R.id.test);
-//                    googlePayButton.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            String phoneNo = test.getText().toString().trim();
-//
-//                                try {
-//                                    //전송
-//                                    for (i = 0; i < orderArrayList.size(); i++){
-//                                        String m = orderArrayList.get(i).getMenu();
-//                                        String p = orderArrayList.get(i).getPrice();
-//                                        menu[i] = m;
-//                                        price[i] = p;
-//                                        Log.i("sms",menu[i]+price[i]);
-//                                        SmsManager smsManager = SmsManager.getDefault();
-//
-//                                        smsManager.sendTextMessage(phoneNo, null, nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원", null, null);
-//                                    }
-//                                    Log.i("sms", menu[0]+price[0]);
-//                                    Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
-//                                } catch (Exception e) {
-//                                    Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
-//                                    e.printStackTrace();
-//                                }
-//
-//                        }
-//                    });
+                            // 주문정보 표시 api
+                            sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+                            String nick_name = sp.getString("nick_name", null);
+
+                            Retrofit retrofit = NetworkClient.getRetrofitClient(CheckoutActivity.this);
+                            ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                            Call<ReservationRes> call = reservationApi.myselectMenu(nick_name);
+
+                            call.enqueue(new Callback<ReservationRes>() {
+                                @Override
+                                public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                                    // 상태코드가 200 인지 확인
+                                    if (response.isSuccessful()) {
+                                        String menu = response.body().getMenu();
+                                        int people_num = response.body().getPeople_number();
+                                        String take = "";
+                                        String people = "";
+                                        if (take_out == 1){
+                                            take = "포장";
+                                        }else if (take_out == 0){
+                                            take = "매장";
+                                            people = people_num+"명";
+                                        }
+//                                        nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원"
+                                        try {
+                                            //전송
+                                            SmsManager smsManager = SmsManager.getDefault();
+                                            smsManager.sendTextMessage(phoneNo, null, menu+" \n"+total_price+"원"+" \n"+take+" \n"+time+" \n"+people, null, null);
+                                            Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
+                                        } catch (Exception e) {
+                                            Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
+                                            e.printStackTrace();
+                                            Log.i("AAA",e.toString());
+                                        }
+
+                                        Log.i("AAA", menu+" "+total_price+"원"+" "+take+" "+time+" "+people);
+
+                                    }else {
+                                        Log.i("menu", "success = fail");
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<ReservationRes> call, Throwable t) {
+                                    Log.i("menu", "fail");
+                                }
+                            });
+
+                        }
+                    });
 
                     adapter = new OrderSheetAdapter(CheckoutActivity.this, orderArrayList);
                     recyclerView.setAdapter(adapter);
@@ -497,4 +525,56 @@ public class CheckoutActivity extends AppCompatActivity {
 //            throw new RuntimeException("The index specified is out of bounds.");
 //        }
 //    }
+
+    private void checkPermission(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            // 다시 보지 않기 버튼을 만드려면 이 부분에 바로 요청을 하도록 하면 됨 (아래 else{..} 부분 제거)
+            // ActivityCompat.requestPermissions((Activity)mContext, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSION_CAMERA);
+
+            // 처음 호출시엔 if()안의 부분은 false로 리턴 됨 -> else{..}의 요청으로 넘어감
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
+                new AlertDialog.Builder(this)
+                        .setTitle("알림")
+                        .setMessage("문자 권한이 거부되었습니다. 사용을 원하시면 설정에서 해당 권한을 직접 허용하셔야 합니다.")
+                        .setPositiveButton("설정", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                intent.setData(Uri.parse("package:" + getPackageName()));
+                                startActivity(intent);
+                            }
+                        })
+//                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                finish();
+//                            }
+//                        })
+                        .setCancelable(false)
+                        .create()
+                        .show();
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.RECEIVE_SMS}, MY_PERMISSION_STORAGE);
+            }
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSION_STORAGE:
+                for (int i = 0; i < grantResults.length; i++) {
+                    // grantResults[] : 허용된 권한은 0, 거부한 권한은 -1
+                    if (grantResults[i] < 0) {
+                        checkPermission();
+                        Toast.makeText(CheckoutActivity.this, "해당 권한을 활성화 하셔야 합니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+                // 허용했다면 이 부분에서..
+                Toast.makeText(CheckoutActivity.this, "해당 권한이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }

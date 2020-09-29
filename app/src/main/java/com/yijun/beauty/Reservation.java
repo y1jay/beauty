@@ -1220,6 +1220,9 @@ public class Reservation extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 orderArrayList = response.body().getRows();
                                 String time = response.body().getTime();
+//                                if (time == null){
+//                                    return;
+//                                }
 
                                 if (orderArrayList.isEmpty()) {
                                     Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
@@ -1434,43 +1437,6 @@ public class Reservation extends AppCompatActivity {
         people_spinner = alertView.findViewById(R.id.people_spinner);
         spinner_hour = alertView.findViewById(R.id.spinner_hour);
 
-        // monthOfYear = 0부터 11까지 (1월 ~ 12월)
-        //처음 DatePicker 를 오늘 날짜로 초기화한다.
-        //그리고 리스너를 등록한다.
-        dataPicker.init(dataPicker.getYear(), dataPicker.getMonth(), dataPicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
-            @Override
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                String current_date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth(), dataPicker.getDayOfMonth());
-                date = String.format("%d-%d-%d", year,monthOfYear + 1,dayOfMonth);
-//
-//                    SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
-//                    Date current = null;
-//                    Date choice = null;
-//                    try {
-//                        current = dateFormat.parse(current_date);
-//                        choice = dateFormat.parse(date);
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                    int compare = current.compareTo( choice );
-//                    if ( choice.before(current) ){
-//                        Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
-//                        return;
-//                    }
-////                    else if ( compare < 0 )
-////                    {
-////                        System.out.println( "current < choice" );
-////                    }
-////                    else
-////                    {
-////                        System.out.println( "current = choice" );
-////                    }
-
-                Toast.makeText(Reservation.mContext, date, Toast.LENGTH_SHORT).show();
-            }
-        });
-
         ArrayAdapter people_adapter = ArrayAdapter.createFromResource(Reservation.mContext, R.array.people_number, android.R.layout.simple_spinner_dropdown_item);
         people_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         people_spinner.setAdapter(people_adapter);
@@ -1504,12 +1470,30 @@ public class Reservation extends AppCompatActivity {
             public void onClick(View v) {
                 String nick_name =sp.getString("nick_name",null);
 
-//                https://soraji.github.io/java/2019/04/15/compareDATE/
-//                Date currentTime = Calendar.getInstance().getTime();
-//                String current_date = new SimpleDateFormat("%d-%d-%d", Locale.getDefault()).format(currentTime);
-
                 date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth()+1, dataPicker.getDayOfMonth());
                 Log.i("date", date);
+
+                // 현재시간
+                long now = System.currentTimeMillis();
+                Date date_now = new Date(now);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String getTime = sdf.format(date_now);
+
+                // current = 현재시간(getTime(now)), choice = 선택한 시간(date)
+                SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
+                Date current = null;
+                Date choice = null;
+                try {
+                    current = dateFormat.parse(getTime);
+                    choice = dateFormat.parse(date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if ( choice.before(current) ){
+                    Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
@@ -1531,6 +1515,7 @@ public class Reservation extends AppCompatActivity {
                         Log.i("store", t.toString());
                     }
                 });
+                order_payment.setEnabled(true);
                 dialog_store.dismiss();
             }
         });
@@ -1538,7 +1523,9 @@ public class Reservation extends AppCompatActivity {
         back_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(Reservation.this, "추가사항을 선택해 주셔야합니다.", Toast.LENGTH_SHORT).show();
                 dialog_store.cancel();
+                order_payment.setEnabled(false);
             }
         });
 
@@ -1579,6 +1566,27 @@ public class Reservation extends AppCompatActivity {
                 date_t = String.format("%d-%d-%d", data_picker.getYear(), data_picker.getMonth()+1, data_picker.getDayOfMonth());
                 Log.i("date", date_t);
 
+                // 현재시간
+                long now = System.currentTimeMillis();
+                Date date_now = new Date(now);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String getTime = sdf.format(date_now);
+
+                SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
+                Date current = null;
+                Date choice = null;
+                try {
+                    current = dateFormat.parse(getTime);
+                    choice = dateFormat.parse(date_t);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if ( choice.before(current) ){
+                    Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
 
@@ -1600,6 +1608,7 @@ public class Reservation extends AppCompatActivity {
                     }
                 });
 
+                order_payment.setEnabled(true);
                 dialog_take_out.dismiss();
             }
         });
@@ -1607,7 +1616,9 @@ public class Reservation extends AppCompatActivity {
         add_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(Reservation.this, "추가사항을 선택해 주셔야합니다.", Toast.LENGTH_SHORT).show();
                 dialog_take_out.dismiss();
+                order_payment.setEnabled(false);
             }
         });
 

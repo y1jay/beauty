@@ -64,7 +64,6 @@ public class AfterLogin extends AppCompatActivity {
     Button address;
     SharedPreferences sp;
 
-
     ImageView img1;
     ImageView img2;
     ImageView img3;
@@ -75,10 +74,6 @@ public class AfterLogin extends AppCompatActivity {
     ImageView img9;
     ImageView img10;
     ImageView img11;
-
-
-
-
 
     private AlertDialog dialog;
 
@@ -91,7 +86,6 @@ public class AfterLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
-
 
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);

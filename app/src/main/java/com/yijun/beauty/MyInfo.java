@@ -239,6 +239,7 @@ public class MyInfo extends AppCompatActivity {
             public void onClick(View v) {
                     // 카카오 탈퇴
                     new AlertDialog.Builder(MyInfo.this)
+                            .setTitle("탈퇴")
                             .setMessage("탈퇴하시겠습니까?")
                             .setPositiveButton("네", new DialogInterface.OnClickListener() {
                                 @Override
