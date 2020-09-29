@@ -2,56 +2,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingRight="40dp"
-    android:paddingLeft="40dp"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
     android:layout_gravity="center_horizontal"
-    android:orientation="vertical">
+    android:background="@drawable/button"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="20dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="20dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="20dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:text="닉네임 찾기"
-        android:textSize="30sp" />
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/findPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:inputType="textPassword"
-        android:textSize="25sp" />
+        android:textSize="22sp" />
 
     <LinearLayout
-        android:layout_below="@id/findPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
+        android:layout_below="@id/findPhone"
+        android:gravity="right"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnFind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:text="찾기" />
+            android:background="@drawable/button"
+            android:text="찾기"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnIDNO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="취소" />
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button"
+            android:text="취소"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
 </RelativeLayout>
