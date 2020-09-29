@@ -500,8 +500,5 @@ public class CheckoutActivity extends AppCompatActivity {
 //        }
 //    }
 
-
-    public void PaymentMenu(){
-
-    }
+    
 }
