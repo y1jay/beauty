@@ -207,7 +207,9 @@ public class ReviewList extends AppCompatActivity {
                 if (review.isEmpty()){
                     Toast.makeText(ReviewList.this,
                             "리뷰를 입력해주세요",Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
 
                 Rows rows = new Rows(review,rating);
 
