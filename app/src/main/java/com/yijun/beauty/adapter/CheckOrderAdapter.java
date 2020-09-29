@@ -68,7 +68,7 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
             DecimalFormat format = new DecimalFormat("###,###");//콤마
             String total = format.format(total_price);
             Log.i("total", total);
-            holder.check_order_price.setText(total);
+            holder.check_order_price.setText("주문 금액 :  "+total);
 
 
 
@@ -116,12 +116,12 @@ public class CheckOrderAdapter extends RecyclerView.Adapter<CheckOrderAdapter.Vi
             Date date = df.parse(order_created_at);
             df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
             String strDate = df.format(date).replace("T", " ");
-            holder.check_order_created_at.setText("예약시간  :  "+strDate);
+            holder.check_order_created_at.setText("예약시간 :  "+strDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        holder.check_order_menu.setText(order_menu);
+        holder.check_order_menu.setText("주문 메뉴 :  "+order_menu);
 
 
 

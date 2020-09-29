@@ -1303,6 +1303,19 @@ public class Reservation extends AppCompatActivity {
 //                                    return;
 //                                }
 
+                                radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                    @Override
+                                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                        if (checkedId == R.id.take_out) {
+                                            add_take_out();
+
+                                        } else if (checkedId == R.id.store) {
+                                            add_store();
+
+                                        }
+                                    }
+                                });
+
                                 if (orderArrayList.isEmpty()) {
                                     Toast.makeText(Reservation.this, "메뉴를 선택해주세요", Toast.LENGTH_SHORT).show();
                                     return;
@@ -1316,16 +1329,7 @@ public class Reservation extends AppCompatActivity {
 
                                     price_total(price);
 
-                                radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                                    @Override
-                                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-                                        if (checkedId == R.id.take_out) {
-                                            add_take_out();
-                                        } else if (checkedId == R.id.store) {
-                                            add_store();
-                                        }
-                                    }
-                                });
+
 
 
                             } else {
@@ -1344,6 +1348,7 @@ public class Reservation extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent i = new Intent(Reservation.this, CheckoutActivity.class);
                             i.putExtra("total_price", total_price);
+                            payment_order();
                             finish();
                             alertDialog.dismiss();
                             startActivity(i);
@@ -1699,6 +1704,33 @@ public class Reservation extends AppCompatActivity {
         super.onRestart();
     }
 
+    // 주문완료 api
+    public void payment_order(){
+
+
+        Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+        ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+        Call<ReservationRes> call = reservationApi.paymentOrder();
+        call.enqueue(new Callback<ReservationRes>() {
+            @Override
+            public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                // 상태코드가 200 인지 확인
+                if (response.isSuccessful()){
+
+                }else {
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReservationRes> call, Throwable t) {
+
+            }
+        });
+    }
+
+// 메뉴 크게보기
     public void createMenuDialog(){
         AlertDialog.Builder alert = new AlertDialog.Builder(Reservation.this);
         View enterview = getLayoutInflater().inflate(R.layout.list_menu3,null);
