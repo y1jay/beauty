@@ -835,6 +835,7 @@ public class MainActivity extends AppCompatActivity {
         alert.setView(alertView);
         dialog1=alert.create();
         dialog1.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog1.show();
     }
 

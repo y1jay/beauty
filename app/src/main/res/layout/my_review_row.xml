@@ -34,28 +34,27 @@
                     style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:rating="3.5"
-                    android:layout_marginLeft="10dp"
                     android:layout_alignParentLeft="true"
-                    android:numStars="5"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="10dp"
+                    android:isIndicator="true"
                     android:max="5"
-                    android:stepSize="0.5"
-                    android:isIndicator = "true"
+                    android:numStars="5"
                     android:progressTint="#E83838"
+                    android:rating="3.5"
+                    android:stepSize="0.5"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/my_btn_delete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="삭제"
-                    android:textColor="#000000"
-                    android:textSize="10sp" />
+                    android:background="@android:color/white"
+                    android:drawableStart="@android:drawable/ic_menu_close_clear_cancel"
+                    android:drawableTint="#000000" />
 
             </RelativeLayout>
 
