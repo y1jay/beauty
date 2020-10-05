@@ -120,10 +120,13 @@ public class MainActivity extends AppCompatActivity {
         checkPermission();
         getPhone();
         textView2 = findViewById(R.id.textView2);
+        
+        // 전화걸기
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-2842-5656")); startActivity(myIntent);
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-2842-5656"));
+                startActivity(myIntent);
 
             }
         });
