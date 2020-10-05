@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\Admin\\Documents\\GitHub\\Beauty-Key\\Beauty-Key.jks')
+            storePassword 'wnsghkswls0507'
+            keyAlias = 'key'
+            keyPassword 'wnsghkswls0507'
+        }
+    }
     compileSdkVersion 29
 
     buildToolsVersion "30.0.0"
@@ -22,6 +30,7 @@ android {
         release {
             shrinkResources true
             minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
