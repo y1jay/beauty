@@ -59,7 +59,7 @@ public class AfterLogin extends AppCompatActivity {
         setContentView(R.layout.activity_after_login);
 
 
-
+      //전화걸기
         textView2 = findViewById(R.id.textView2);
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
