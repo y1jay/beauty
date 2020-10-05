@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnFind;
     TextView findPhone;
 
+    TextView textView2;
     private long time = 0;
     SharedPreferences sp;
     String email;
@@ -118,7 +119,14 @@ public class MainActivity extends AppCompatActivity {
         getHashKey();
         checkPermission();
         getPhone();
+        textView2 = findViewById(R.id.textView2);
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-2842-5656")); startActivity(myIntent);
 
+            }
+        });
 
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);

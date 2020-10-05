@@ -36,15 +36,12 @@ import com.google.android.gms.wallet.IsReadyToPayRequest;
 import com.google.android.gms.wallet.PaymentData;
 import com.google.android.gms.wallet.PaymentDataRequest;
 import com.google.android.gms.wallet.PaymentsClient;
-import com.yijun.beauty.MainActivity;
 import com.yijun.beauty.MyInfo;
 import com.yijun.beauty.R;
 import com.yijun.beauty.ReservationRecord;
-import com.yijun.beauty.adapter.CheckOrderAdapter;
 import com.yijun.beauty.adapter.OrderSheetAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
-
 import com.yijun.beauty.databinding.ActivityCheckoutBinding;
 import com.yijun.beauty.model.Orders;
 import com.yijun.beauty.model.ReservationRes;
@@ -285,9 +282,9 @@ public class CheckoutActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.send_notification:
-                Notifications.triggerPaymentNotification(this);
-                return true;
+//            case R.id.send_notification:
+//                Notifications.triggerPaymentNotification(this);
+//                return true;
             case R.id.myInfo:
                 Intent i = new Intent(CheckoutActivity.this, MyInfo.class);
                 startActivity(i);
