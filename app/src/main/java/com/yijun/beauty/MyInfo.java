@@ -106,7 +106,7 @@ public class MyInfo extends AppCompatActivity {
                         txt_email.setVisibility(View.GONE);
                         kakao = true;
                     }else {
-                        txt_email.setText(email);
+                        txt_email.setText("이메일 : "+email);
                         kakao = false;
                     }
 
@@ -123,7 +123,7 @@ public class MyInfo extends AppCompatActivity {
                         Date date = df.parse(created_at);
                         df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
                         String strDate = df.format(date).replace("T", " ");
-                        txt_created_at.setText(strDate);
+                        txt_created_at.setText("가입 날짜 : "+strDate);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
