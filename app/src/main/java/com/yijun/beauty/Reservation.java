@@ -1234,19 +1234,19 @@ public class Reservation extends AppCompatActivity {
                             // 상태코드가 200 인지 확인
                             if (response.isSuccessful()) {
                                 orderArrayList = response.body().getRows();
-                                String time = response.body().getTime();
-//                                if (time == null){
-//                                    return;
-//                                }
 
                                 radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                                     @Override
                                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                                         if (checkedId == R.id.take_out) {
                                             add_take_out();
+                                        } else {
 
-                                        } else if (checkedId == R.id.store) {
+                                        }
+
+                                        if (checkedId == R.id.store) {
                                             add_store();
+                                        }else {
 
                                         }
                                     }
@@ -1264,9 +1264,6 @@ public class Reservation extends AppCompatActivity {
                                     String menuuuu = response.body().getMenu();
 
                                     price_total(price);
-
-
-
 
                             } else {
 
@@ -1337,14 +1334,9 @@ public class Reservation extends AppCompatActivity {
                             check_drink2.setChecked(false);
                             check_drink3.setChecked(false);
 
-
-
-
-
                             // 체크 해제시키는 코드 써야됨!
 
                             alertDialog.cancel();
-
 
                         }
                     });
@@ -1515,6 +1507,16 @@ public class Reservation extends AppCompatActivity {
                     return;
                 }
 
+                if (hh == 0){
+                    Toast.makeText(Reservation.mContext, "시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (pp == 0){
+                    Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
 
@@ -1607,6 +1609,11 @@ public class Reservation extends AppCompatActivity {
                     return;
                 }
 
+                if (hh == 0){
+                    Toast.makeText(Reservation.mContext, "시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
 
@@ -1690,7 +1697,6 @@ public class Reservation extends AppCompatActivity {
 
     // 주문완료 api
     public void payment_order(){
-
 
         Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
         ReservationApi reservationApi = retrofit.create(ReservationApi.class);
