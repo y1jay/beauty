@@ -1249,9 +1249,6 @@ public class Reservation extends AppCompatActivity {
                                     @Override
                                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                                         if (checkedId == R.id.take_out) {
-                                            // 여기도 delete 함수
-                                            add_take_out();
-                                        } else {
                                             String nick_name =sp.getString("nick_name",null);
 
                                             Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1274,12 +1271,10 @@ public class Reservation extends AppCompatActivity {
                                                     Log.i("store", t.toString());
                                                 }
                                             });
+                                            add_take_out();
                                         }
 
                                         if (checkedId == R.id.store) {
-                                            //여기에 delete 함수
-                                            add_store();
-                                        }else {
                                             String nick_name =sp.getString("nick_name",null);
 
                                             Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1302,7 +1297,9 @@ public class Reservation extends AppCompatActivity {
                                                     Log.i("store", t.toString());
                                                 }
                                             });
+                                            add_store();
                                         }
+
                                     }
                                 });
 
