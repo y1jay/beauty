@@ -573,7 +573,9 @@ public class Reservation extends AppCompatActivity {
 
                 if (check_main_menu1.isChecked() == true){
                     add_menu(main, pay);
-                }else {
+                    return;
+                }else{
+
                     delete_menu(main, pay);
                 }
             }
@@ -586,7 +588,9 @@ public class Reservation extends AppCompatActivity {
 
                 if (check_main_menu2.isChecked() == true){
                     add_menu(main, pay);
-                }else {
+                    return;
+                }else{
+
                     delete_menu(main, pay);
                 }
             }
@@ -599,7 +603,9 @@ public class Reservation extends AppCompatActivity {
 
                 if (check_main_menu3.isChecked() == true){
                     add_menu(main, pay);
-                }else {
+                    return;
+                }else{
+
                     delete_menu(main, pay);
                 }
             }
@@ -612,7 +618,9 @@ public class Reservation extends AppCompatActivity {
 
                 if (check_set_menu1.isChecked() == true){
                     createChoiceDialog(main, pay);
+                    return;
                 }else {
+
                     delete_menu(main, pay);
                 }
             }
@@ -625,7 +633,9 @@ public class Reservation extends AppCompatActivity {
 
                 if (check_set_menu2.isChecked() == true){
                     createChoiceDialog(main, pay);
+                    return;
                 }else {
+
                     delete_menu(main, pay);
                 }
             }
