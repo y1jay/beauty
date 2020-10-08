@@ -1331,6 +1331,20 @@ public class Reservation extends AppCompatActivity {
                     order_payment.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            // 테이크아웃이 정해지지 않았을때
+                            // 시간 인원수
+                            if (hh==0||pp==0){
+                                Toast.makeText(Reservation.this,"정보를 제대로 입력해주세요",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            // 포장이 정해지지 않았을때
+                            // 시간
+                            if (pp==0){
+                                Toast.makeText(Reservation.this,"정보를 제대로 입력해주세요",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+
                             Intent i = new Intent(Reservation.this, CheckoutActivity.class);
                             i.putExtra("total_price", total_price);
                             payment_order();
@@ -1597,7 +1611,8 @@ public class Reservation extends AppCompatActivity {
         back_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Reservation.this, "추가사항을 선택해 주셔야합니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Reservation.this, "추가사항을 선택해 주셔야합니다.",
+                        Toast.LENGTH_SHORT).show();
                 dialog_store.cancel();
                 order_payment.setEnabled(false);
             }
