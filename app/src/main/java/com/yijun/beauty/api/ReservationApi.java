@@ -51,6 +51,10 @@ public interface ReservationApi {
                                   @Query("people_number") int people_number,
                                   @Query("time") String time);
 
+    @PUT("api/v1/reservation/del_store")
+    Call<ReservationRes> del_store();
+
+
     // 포장 체크하는 api
     @PUT("api/v1/reservation/add_take_out")
     Call<ReservationRes> add_take_out(@Query("nick_name") String nick_name,
