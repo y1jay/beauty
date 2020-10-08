@@ -1339,7 +1339,7 @@ public class Reservation extends AppCompatActivity {
                             }
                             // 포장이 정해지지 않았을때
                             // 시간
-                            if (pp==0){
+                           else if (pp==0){
                                 Toast.makeText(Reservation.this,"정보를 제대로 입력해주세요",Toast.LENGTH_SHORT).show();
                                 return;
                             }
