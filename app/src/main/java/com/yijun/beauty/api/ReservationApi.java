@@ -52,7 +52,7 @@ public interface ReservationApi {
                                   @Query("time") String time);
 
     @PUT("api/v1/reservation/del_store")
-    Call<ReservationRes> del_store();
+    Call<ReservationRes> del_store(@Query("nick_name") String nick_name);
 
 
     // 포장 체크하는 api
