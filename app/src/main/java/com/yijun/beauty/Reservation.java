@@ -23,6 +23,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,10 +34,12 @@ import com.yijun.beauty.adapter.OrderSheetAdapter;
 import com.yijun.beauty.adapter.ReviewclerViewAdapter;
 import com.yijun.beauty.api.NetworkClient;
 import com.yijun.beauty.api.ReservationApi;
+import com.yijun.beauty.api.ReviewApi;
 import com.yijun.beauty.model.Orders;
 import com.yijun.beauty.model.ReservationReq;
 import com.yijun.beauty.model.ReservationRes;
 import com.yijun.beauty.model.Rows;
+import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
 
@@ -70,6 +73,16 @@ public class Reservation extends AppCompatActivity {
     RadioGroup RadioGroup4;
     RadioGroup RadioGroup5;
     RadioGroup RadioGroup6;
+
+
+    // 추가메뉴 선택 다이얼로그
+    android.app.AlertDialog choice_dialog;
+    RadioGroup r_group;
+    RadioButton choice1;
+    RadioButton choice2;
+    RadioButton choice3;
+    RadioButton choice4;
+
 
 
     RadioButton not_select1;
@@ -271,6 +284,8 @@ public class Reservation extends AppCompatActivity {
 
     // take_out 다이얼로그
     AlertDialog dialog_take_out;
+
+
     ImageButton add_back;
     Button add_set;
     DatePicker data_picker;
@@ -596,7 +611,7 @@ public class Reservation extends AppCompatActivity {
                 String pay = pay_set1.getText().toString().trim();
 
                 if (check_set_menu1.isChecked() == true){
-                    add_menu(main, pay);
+                    createChoiceDialog(main, pay);
                 }else {
                     delete_menu(main, pay);
                 }
@@ -609,7 +624,7 @@ public class Reservation extends AppCompatActivity {
                 String pay = pay_set2.getText().toString().trim();
 
                 if (check_set_menu2.isChecked() == true){
-                    add_menu(main, pay);
+                    createChoiceDialog(main, pay);
                 }else {
                     delete_menu(main, pay);
                 }
@@ -1786,6 +1801,44 @@ public class Reservation extends AppCompatActivity {
         alertDialog = alert.create();
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+    }
+
+    public void createChoiceDialog(String menu, String price){
+        android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(Reservation.this);
+        View alertView = getLayoutInflater().inflate(R.layout.choice_row,null);
+        r_group = alertView.findViewById(R.id.r_group);
+        choice1 = alertView.findViewById(R.id.choice1);
+        choice2 = alertView.findViewById(R.id.choice2);
+        choice3 = alertView.findViewById(R.id.choice3);
+        choice4 = alertView.findViewById(R.id.choice4);
+
+        r_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId==R.id.choice1){
+                add_menu(menu+"(오돌뼈)",price);
+                choice_dialog.cancel();
+                }else if (checkedId==R.id.choice2){
+                    add_menu(menu+"(닭똥집)",price);
+                    choice_dialog.cancel();
+                }else if (checkedId==R.id.choice3){
+                    add_menu(menu+"(치즈떡볶이)",price);
+                    choice_dialog.cancel();
+                }else if (checkedId==R.id.choice4) {
+                    add_menu(menu+"(골뱅이우동무침)",price);
+                    choice_dialog.cancel();
+                }
+            }
+        });
+
+
+
+
+        alert.setView(alertView);
+
+        choice_dialog=alert.create();
+        choice_dialog.setCancelable(false);
+        choice_dialog.show();
     }
 
 }
