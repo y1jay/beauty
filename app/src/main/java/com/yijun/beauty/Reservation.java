@@ -1249,6 +1249,9 @@ public class Reservation extends AppCompatActivity {
                                     @Override
                                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                                         if (checkedId == R.id.take_out) {
+                                            // 여기도 delete 함수
+                                            add_take_out();
+                                        } else {
                                             String nick_name =sp.getString("nick_name",null);
 
                                             Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1271,10 +1274,12 @@ public class Reservation extends AppCompatActivity {
                                                     Log.i("store", t.toString());
                                                 }
                                             });
-                                            add_take_out();
                                         }
 
                                         if (checkedId == R.id.store) {
+                                            //여기에 delete 함수
+                                            add_store();
+                                        }else {
                                             String nick_name =sp.getString("nick_name",null);
 
                                             Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
@@ -1297,9 +1302,7 @@ public class Reservation extends AppCompatActivity {
                                                     Log.i("store", t.toString());
                                                 }
                                             });
-                                            add_store();
                                         }
-
                                     }
                                 });
 
@@ -1330,18 +1333,18 @@ public class Reservation extends AppCompatActivity {
                     order_payment.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            // 테이크아웃이 정해지지 않았을때
-                            // 시간 인원수
-                            if (hh==0||pp==0){
+//                            // 테이크아웃이 정해지지 않았을때
+//                            // 시간 인원수
+                            if (hh==0&&pp==0){
                                 Toast.makeText(Reservation.this,"정보를 제대로 입력해주세요",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            // 포장이 정해지지 않았을때
-                            // 시간
-                           else if (pp==0){
-                                Toast.makeText(Reservation.this,"정보를 제대로 입력해주세요",Toast.LENGTH_SHORT).show();
-                                return;
-                            }
+//                            // 포장이 정해지지 않았을때
+//                            // 시간
+//                           else if (pp==0){
+//                                Toast.makeText(Reservation.this,"정보를 제대로 입력해주세요",Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
 
 
                             Intent i = new Intent(Reservation.this, CheckoutActivity.class);
@@ -1547,6 +1550,15 @@ public class Reservation extends AppCompatActivity {
             public void onClick(View v) {
                 String nick_name =sp.getString("nick_name",null);
 
+                if (hh == 0&&pp==0){
+                    Toast.makeText(Reservation.mContext, "시간과 인원수를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+//                if (pp == 0){
+//                    Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
                 date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth()+1, dataPicker.getDayOfMonth());
                 Log.i("date", date);
 
@@ -1572,15 +1584,7 @@ public class Reservation extends AppCompatActivity {
                     return;
                 }
 
-                if (hh == 0){
-                    Toast.makeText(Reservation.mContext, "시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
-                if (pp == 0){
-                    Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
