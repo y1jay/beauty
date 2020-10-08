@@ -1251,13 +1251,55 @@ public class Reservation extends AppCompatActivity {
                                         if (checkedId == R.id.take_out) {
                                             add_take_out();
                                         } else {
+                                            String nick_name =sp.getString("nick_name",null);
 
+                                            Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+                                            ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                                            Call<ReservationRes> call = reservationApi.del_store(nick_name);
+                                            call.enqueue(new Callback<ReservationRes>() {
+                                                @Override
+                                                public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                                                    // 상태코드가 200 인지 확인
+                                                    if (response.isSuccessful()){
+
+                                                    }else {
+                                                        return;
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<ReservationRes> call, Throwable t) {
+                                                    Log.i("store", t.toString());
+                                                }
+                                            });
                                         }
 
                                         if (checkedId == R.id.store) {
                                             add_store();
                                         }else {
+                                            String nick_name =sp.getString("nick_name",null);
 
+                                            Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
+                                            ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+
+                                            Call<ReservationRes> call = reservationApi.del_store(nick_name);
+                                            call.enqueue(new Callback<ReservationRes>() {
+                                                @Override
+                                                public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+                                                    // 상태코드가 200 인지 확인
+                                                    if (response.isSuccessful()){
+
+                                                    }else {
+                                                        return;
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<ReservationRes> call, Throwable t) {
+                                                    Log.i("store", t.toString());
+                                                }
+                                            });
                                         }
                                     }
                                 });
