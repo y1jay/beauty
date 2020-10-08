@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingRight="40dp"
-    android:paddingLeft="40dp"
+    android:paddingRight="30dp"
+    android:paddingLeft="30dp"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
     android:layout_gravity="center_horizontal"
@@ -16,11 +16,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:text="로그인"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/editID"
@@ -38,8 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editID"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <CheckBox
@@ -48,38 +49,43 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:text="자동 로그인"
-            android:textColor="#FF0000"
-            android:textSize="15sp" />
+            android:textColor="#E83838"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtNO"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="25dp"
             android:layout_toLeftOf="@+id/txtYES"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button"
             android:fontFamily="sans-serif"
+            android:gravity="center"
             android:text="취소"
-            android:textColor="#7583E6"
-            android:textSize="20sp" />
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtYES"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
+            android:background="@drawable/button"
             android:fontFamily="sans-serif"
+            android:gravity="center"
             android:text="로그인"
-            android:textColor="#7583E6"
-            android:textSize="20sp" />
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/llll"
-
         android:gravity="right"
         android:orientation="horizontal">
 
@@ -87,8 +93,6 @@
             android:id="@+id/find_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-
             android:fontFamily="sans-serif"
             android:text="닉네임 찾기"
             android:textColor="#000000"

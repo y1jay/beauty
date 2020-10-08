@@ -1,60 +1,31 @@
 package com.yijun.beauty;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kakao.auth.AuthType;
-import com.kakao.auth.Session;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
-import com.kakao.util.helper.Utility;
-import com.yijun.beauty.api.NetworkClient;
-import com.yijun.beauty.api.ReviewApi;
-import com.yijun.beauty.api.UserApi;
-import com.yijun.beauty.model.ReviewRes;
-import com.yijun.beauty.model.Rows;
-import com.yijun.beauty.model.UserRes;
 import com.yijun.beauty.network.CheckNetwork;
 import com.yijun.beauty.url.Utils;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 
 public class AfterLogin extends AppCompatActivity {
@@ -63,7 +34,6 @@ public class AfterLogin extends AppCompatActivity {
     Button reservation;
     Button address;
     SharedPreferences sp;
-
 
     ImageView img1;
     ImageView img2;
@@ -75,11 +45,7 @@ public class AfterLogin extends AppCompatActivity {
     ImageView img9;
     ImageView img10;
     ImageView img11;
-
-
-
-
-
+   TextView textView2;
     private AlertDialog dialog;
 
     Button btn_NO;
@@ -92,6 +58,16 @@ public class AfterLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
 
+
+      //전화걸기
+        textView2 = findViewById(R.id.textView2);
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-2842-5656")); startActivity(myIntent);
+
+            }
+        });
 
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);

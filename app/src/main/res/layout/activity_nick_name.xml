@@ -17,31 +17,39 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView5"
         android:layout_centerHorizontal="true"
         android:layout_marginVertical="10dp"
+        android:gravity="center"
         android:text="닉네임 설정"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:layout_margin="10dp"
-        android:text="email" />
+        android:text="email"
+        android:textColor="#910808"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edit_nick_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_email"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="30dp"
         android:ems="10"
         android:hint="nick_name"
         android:inputType="textPersonName" />
@@ -82,8 +90,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginHorizontal="20dp"
             android:background="@drawable/agreebutton"
             android:orientation="vertical">
 
@@ -287,6 +294,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:background="@drawable/button"
-        android:text="확인" />
+        android:text="확인"
+        android:textSize="18sp" />
 
 </RelativeLayout>
