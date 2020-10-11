@@ -1553,16 +1553,16 @@ public class Reservation extends AppCompatActivity {
                 // 현재시간
                 long now = System.currentTimeMillis();
                 Date date_now = new Date(now);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String getTime = sdf.format(date_now);
 
                 // current = 현재시간(getTime(now)), choice = 선택한 시간(date)
-                SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
+                SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd HH:mm" );
                 Date current = null;
                 Date choice = null;
                 try {
                     current = dateFormat.parse(getTime);
-                    choice = dateFormat.parse(date);
+                    choice = dateFormat.parse(date+" "+hh_s+":00");
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -1653,15 +1653,15 @@ public class Reservation extends AppCompatActivity {
                 // 현재시간
                 long now = System.currentTimeMillis();
                 Date date_now = new Date(now);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String getTime = sdf.format(date_now);
 
-                SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd" );
+                SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd HH:mm");
                 Date current = null;
                 Date choice = null;
                 try {
                     current = dateFormat.parse(getTime);
-                    choice = dateFormat.parse(date_t);
+                    choice = dateFormat.parse(date_t+" "+hh+":00");
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
