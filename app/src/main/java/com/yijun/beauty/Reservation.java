@@ -1547,15 +1547,6 @@ public class Reservation extends AppCompatActivity {
             public void onClick(View v) {
                 String nick_name =sp.getString("nick_name",null);
 
-                if (hh == 0&&pp==0){
-                    Toast.makeText(Reservation.mContext, "시간과 인원수를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-//                if (pp == 0){
-//                    Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
                 date = String.format("%d-%d-%d", dataPicker.getYear(), dataPicker.getMonth()+1, dataPicker.getDayOfMonth());
                 Log.i("date", date);
 
@@ -1581,7 +1572,10 @@ public class Reservation extends AppCompatActivity {
                     return;
                 }
 
-
+                if (hh == 0 && pp==0){
+                    Toast.makeText(Reservation.mContext, "시간과 인원수를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Retrofit retrofit = NetworkClient.getRetrofitClient(Reservation.this);
                 ReservationApi reservationApi = retrofit.create(ReservationApi.class);
@@ -1603,6 +1597,7 @@ public class Reservation extends AppCompatActivity {
                         Log.i("store", t.toString());
                     }
                 });
+
                 order_payment.setEnabled(true);
                 dialog_store.dismiss();
             }
@@ -1903,9 +1898,6 @@ public class Reservation extends AppCompatActivity {
                 }
             }
         });
-
-
-
 
         alert.setView(alertView);
 
