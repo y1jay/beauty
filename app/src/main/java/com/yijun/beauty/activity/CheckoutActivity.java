@@ -186,63 +186,63 @@ public class CheckoutActivity extends AppCompatActivity {
                     Log.i("detailPrice", total_price);
 
 //                     문자전송 테스트
-                    test = findViewById(R.id.test);
-                    googlePayButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String phoneNo = test.getText().toString().trim();
-
-                            // 주문정보 표시 api
-                            sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
-                            String nick_name = sp.getString("nick_name", null);
-
-                            Retrofit retrofit = NetworkClient.getRetrofitClient(CheckoutActivity.this);
-                            ReservationApi reservationApi = retrofit.create(ReservationApi.class);
-
-                            Call<ReservationRes> call = reservationApi.myselectMenu(nick_name);
-
-                            call.enqueue(new Callback<ReservationRes>() {
-                                @Override
-                                public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
-                                    // 상태코드가 200 인지 확인
-                                    if (response.isSuccessful()) {
-                                        String menu = response.body().getMenu();
-                                        int people_num = response.body().getPeople_number();
-                                        String take = "";
-                                        String people = "";
-                                        if (take_out == 1){
-                                            take = "포장";
-                                        }else if (take_out == 0){
-                                            take = "매장";
-                                            people = people_num+"명";
-                                        }
-//                                        nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원"
-                                        try {
-                                            //전송
-                                            SmsManager smsManager = SmsManager.getDefault();
-                                            smsManager.sendTextMessage(phoneNo, null, menu+" \n"+total_price+"원"+" \n"+take+" \n"+strDate+" \n"+people, null, null);
-                                            Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
-                                        } catch (Exception e) {
-                                            Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
-                                            e.printStackTrace();
-                                            Log.i("AAA",e.toString());
-                                        }
-
-                                        Log.i("AAA", menu+" "+total_price+"원"+" "+take+" "+time+" "+people);
-
-                                    }else {
-                                        Log.i("menu", "success = fail");
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<ReservationRes> call, Throwable t) {
-                                    Log.i("menu", "fail");
-                                }
-                            });
-
-                        }
-                    });
+//                    test = findViewById(R.id.test);
+//                    googlePayButton.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            String phoneNo = test.getText().toString().trim();
+//
+//                            // 주문정보 표시 api
+//                            sp = getSharedPreferences(Utils.PREFERENCES_NAME,MODE_PRIVATE);
+//                            String nick_name = sp.getString("nick_name", null);
+//
+//                            Retrofit retrofit = NetworkClient.getRetrofitClient(CheckoutActivity.this);
+//                            ReservationApi reservationApi = retrofit.create(ReservationApi.class);
+//
+//                            Call<ReservationRes> call = reservationApi.myselectMenu(nick_name);
+//
+//                            call.enqueue(new Callback<ReservationRes>() {
+//                                @Override
+//                                public void onResponse(Call<ReservationRes> call, Response<ReservationRes> response) {
+//                                    // 상태코드가 200 인지 확인
+//                                    if (response.isSuccessful()) {
+//                                        String menu = response.body().getMenu();
+//                                        int people_num = response.body().getPeople_number();
+//                                        String take = "";
+//                                        String people = "";
+//                                        if (take_out == 1){
+//                                            take = "포장";
+//                                        }else if (take_out == 0){
+//                                            take = "매장";
+//                                            people = people_num+"명";
+//                                        }
+////                                        nick_name+" "+phone+" "+menu[i]+" "+price[i]+" "+total_price + "원"
+//                                        try {
+//                                            //전송
+//                                            SmsManager smsManager = SmsManager.getDefault();
+//                                            smsManager.sendTextMessage(phoneNo, null, menu+" \n"+total_price+"원"+" \n"+take+" \n"+strDate+" \n"+people, null, null);
+//                                            Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_LONG).show();
+//                                        } catch (Exception e) {
+//                                            Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
+//                                            e.printStackTrace();
+//                                            Log.i("AAA",e.toString());
+//                                        }
+//
+//                                        Log.i("AAA", menu+" "+total_price+"원"+" "+take+" "+time+" "+people);
+//
+//                                    }else {
+//                                        Log.i("menu", "success = fail");
+//                                    }
+//                                }
+//
+//                                @Override
+//                                public void onFailure(Call<ReservationRes> call, Throwable t) {
+//                                    Log.i("menu", "fail");
+//                                }
+//                            });
+//
+//                        }
+//                    });
 
                     adapter = new OrderSheetAdapter(CheckoutActivity.this, orderArrayList);
                     recyclerView.setAdapter(adapter);

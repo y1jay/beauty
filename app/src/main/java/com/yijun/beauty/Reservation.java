@@ -1525,7 +1525,8 @@ public class Reservation extends AppCompatActivity {
         people_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                if (position < 0) {
+                if (position == 0) {
+                    view.setSelectedIndex(0);
                     Toast.makeText(Reservation.mContext, "인원 수를 선택해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -1537,6 +1538,11 @@ public class Reservation extends AppCompatActivity {
         spinner_hour.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                if (position == 0) {
+                    view.setSelectedIndex(0);
+                    Toast.makeText(Reservation.mContext, "시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 hour_s = item.toString().trim().replace("시", "");
                 hh_s = Integer.parseInt(hour_s);
             }
@@ -1560,20 +1566,27 @@ public class Reservation extends AppCompatActivity {
                 SimpleDateFormat dateFormat= new SimpleDateFormat( "yyyy-MM-dd HH:mm" );
                 Date current = null;
                 Date choice = null;
+                Date zero = null;
                 try {
                     current = dateFormat.parse(getTime);
                     choice = dateFormat.parse(date+" "+hh_s+":00");
+                    zero = dateFormat.parse(date+" 00:00");
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
-                if ( choice.before(current) ){
+                if ( choice.before(current) && hh_s != 0){
                     Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (hh == 0 && pp==0){
-                    Toast.makeText(Reservation.mContext, "시간과 인원수를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                if (choice.equals(zero) == true){
+                    Toast.makeText(Reservation.mContext, "날짜와 시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (pp < 1){
+                    Toast.makeText(Reservation.mContext, "인원수를 선택해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -1637,6 +1650,11 @@ public class Reservation extends AppCompatActivity {
         hour_spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                if (position == 0) {
+                    view.setSelectedIndex(0);
+                    Toast.makeText(Reservation.mContext, "시간을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 hour = item.toString().trim().replace("시", "");
                 hh = Integer.parseInt(hour);
             }
@@ -1666,7 +1684,7 @@ public class Reservation extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if ( choice.before(current) ){
+                if ( choice.before(current) && hh != 0){
                     Toast.makeText(Reservation.mContext, "이미 지난 날짜는 예약이 불가합니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
