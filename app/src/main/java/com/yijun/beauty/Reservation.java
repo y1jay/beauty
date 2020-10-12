@@ -615,13 +615,18 @@ public class Reservation extends AppCompatActivity {
             public void onClick(View v) {
                 String main = set_menu1.getText().toString().trim();
                 String pay = pay_set1.getText().toString().trim();
-
+                String a= main+"(오돌뼈)";
+                String b= main+"(닭똥집)";
+                String c =main+"(치즈떡볶이)";
+                String d = main+"(골뱅이우동무침)";
                 if (check_set_menu1.isChecked() == true){
                     createChoiceDialog(main, pay);
-                    return;
-                }else {
 
-                    delete_menu(main, pay);
+                }else {
+                    delete_menu(a, pay);
+                    delete_menu(b,pay);
+                    delete_menu(c,pay);
+                    delete_menu(d,pay);
                 }
             }
         });
@@ -631,12 +636,18 @@ public class Reservation extends AppCompatActivity {
                 String main = set_menu2.getText().toString().trim();
                 String pay = pay_set2.getText().toString().trim();
 
+                String a= main+"(오돌뼈)";
+                String b= main+"(닭똥집)";
+                String c =main+"(치즈떡볶이)";
+                String d = main+"(골뱅이우동무침)";
                 if (check_set_menu2.isChecked() == true){
                     createChoiceDialog(main, pay);
-                    return;
-                }else {
 
-                    delete_menu(main, pay);
+                }else {
+                    delete_menu(a, pay);
+                    delete_menu(b,pay);
+                    delete_menu(c,pay);
+                    delete_menu(d,pay);
                 }
             }
         });
@@ -1902,8 +1913,8 @@ public class Reservation extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId==R.id.choice1){
-                add_menu(menu+"(오돌뼈)",price);
-                choice_dialog.cancel();
+                    add_menu(menu+"(오돌뼈)",price);
+                    choice_dialog.cancel();
                 }else if (checkedId==R.id.choice2){
                     add_menu(menu+"(닭똥집)",price);
                     choice_dialog.cancel();
@@ -1923,5 +1934,6 @@ public class Reservation extends AppCompatActivity {
         choice_dialog.setCancelable(false);
         choice_dialog.show();
     }
+
 
 }
