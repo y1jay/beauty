@@ -168,6 +168,8 @@ public class CheckoutActivity extends AppCompatActivity {
                         Date date = df.parse(time);
                         df.setTimeZone(TimeZone.getDefault());      // 내 폰의 로컬 타임존으로 바꿔줌.
                         strDate = df.format(date).replace("T", " ");
+                        Log.i("CCCCC","date"+date);
+                        Log.i("CCCCC","date"+strDate);
                         layoutBinding.time.setText(strDate);
                     } catch (ParseException e) {
                         e.printStackTrace();
